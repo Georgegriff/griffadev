@@ -1,3 +1,29 @@
 _site/
 node_modules/
 package-lock.json
+
+## editors
+/.idea
+/.vscode
+
+## system files
+.DS_Store
+
+## npm
+/node_modules/
+/npm-debug.log
+
+## testing
+/coverage/
+
+## temp folders
+/.tmp/
+
+# build
+/_site/
+/dist/
+/out-tsc/
+
+
+# eleventy generaated build ignores
+/_includes/manifest.json

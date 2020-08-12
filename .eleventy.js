@@ -6,6 +6,7 @@ const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 
+
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
@@ -18,6 +19,15 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("readableDate", dateObj => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
   });
+
+  eleventyConfig.addFilter("getAsset", (assetName) => {
+    const assets = require("./_includes/manifest.json");
+    const asset = assets[assetName];
+    if(!asset) {
+      throw new Error(`error with getAsset, ${assetName} does not exist in manifest.json`);
+    }
+    return `/static/${asset}`;
+  })
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   eleventyConfig.addFilter('htmlDateString', (dateObj) => {
@@ -64,6 +74,7 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addPassthroughCopy({"dist/**/*.{js,css}": "static", });
 
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
