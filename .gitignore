@@ -27,3 +27,4 @@ package-lock.json
 
 # eleventy generaated build ignores
 /_includes/manifest.json
+/_includes/css

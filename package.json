@@ -9,12 +9,14 @@
     "format:prettier": "prettier \"**/*.js\" \"**/*.ts\" --write --ignore-path .gitignore",
     "lint": "npm run lint:eslint && npm run lint:prettier",
     "format": "npm run format:eslint && npm run format:prettier",
-    "prebuild": "rimraf dist && tsc && rollup -c rollup.config.js && cp dist/manifest.json _includes/manifest.json",
-    "build": "eleventy",
     "serve": "eleventy --serve",
-    "start": "concurrently --kill-others --names tsc,es-dev-server \"npm run tsc:watch\" \"eleventy --watch\" \"es-dev-server --root-dir _site --node-resolve --open --watch\"",
+    "start": "concurrently --kill-others --names tsc,es-dev-server \"npm run tsc:watch\" \"npm run watch:sass\" \"env NODE_ENV=development eleventy --watch\" \"es-dev-server --root-dir _site --node-resolve --open --watch\"",
     "debug": "DEBUG=* eleventy",
-    "tsc:watch": "tsc --watch"
+    "tsc:watch": "tsc --watch",
+    "sass": "sass --style=compressed src/scss/styles.scss _includes/css/styles.css",
+    "watch:sass": "npm run sass -- --watch",
+    "prebuild": "rimraf dist && tsc && rollup -c rollup.config.js && npm run sass && cp dist/manifest.json _includes/manifest.json",
+    "build": "rimraf _site && env NODE_ENV=production eleventy"
   },
   "eslintConfig": {
     "extends": [
@@ -78,6 +80,7 @@
     "rollup": "^2.3.4",
     "rollup-plugin-output-manifest": "^1.0.2",
     "rollup-plugin-sass": "^1.2.2",
+    "sass": "^1.26.10",
     "tslib": "^1.11.0",
     "typescript": "~3.8.2"
   }

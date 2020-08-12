@@ -1,1 +1,1 @@
-document.body.style.background = 'blue';
+console.log('Soeme js!');

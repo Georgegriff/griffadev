@@ -21,12 +21,17 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addFilter("getAsset", (assetName) => {
-    const assets = require("./_includes/manifest.json");
-    const asset = assets[assetName];
-    if(!asset) {
-      throw new Error(`error with getAsset, ${assetName} does not exist in manifest.json`);
+    if (process.env.NODE_ENV === "production") {
+      const assets = require("./_includes/manifest.json");
+      const asset = assets[assetName];
+      if(!asset) {
+        throw new Error(`error with getAsset, ${assetName} does not exist in manifest.json`);
+      }
+      return `/static/${asset}`;
+    } else {
+      return `/static/${assetName}`
     }
-    return `/static/${asset}`;
+
   })
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
@@ -74,7 +79,11 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("css");
-  eleventyConfig.addPassthroughCopy({"dist/**/*.{js,css}": "static", });
+  if (process.env.NODE_ENV === "production") {
+    eleventyConfig.addPassthroughCopy({"dist/**/*.js": "static", });
+  } else {
+    eleventyConfig.addPassthroughCopy({"out-tsc/src/*.js": "static", });
+  }
 
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({

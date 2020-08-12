@@ -6,8 +6,7 @@ import outputManifest from 'rollup-plugin-output-manifest';
 // import { createBasicConfig } from '@open-wc/building-rollup';
 
 const entrypoints = {
-  critical: 'out-tsc/src/critical.js',
-  foo: 'out-tsc/src/foo.js'
+  critical: 'out-tsc/src/critical.js'
 };
 
 const baseConfig = createMpaConfig({
