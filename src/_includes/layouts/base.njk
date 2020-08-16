@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>{{ title or metadata.title }}</title>
+        <meta name="description" content="{{ description or metadata.description }}">
+        <!-- todo learn about feeds -->
+        <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
+        <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
+
+        <style>
+            {% include "css/critical.css" %}
+        </style>
+
+        {# Add facility for pages to delare an array of critical styles #}
+        {% if pageCriticalStyles %}
+            {% for item in pageCriticalStyles %}
+                <style>
+                    {% include item %}
+                </style>
+            {% endfor %}
+        {% endif %}
+    </head>
+    <body>
+        <main tabindex="-1" id="main-content">
+            {% block content %}{% endblock %}
+        </main>
+        {% include "partials/site-actions.html" %}
+
+        <!-- TODO file hashes and prod mode -->
+        <script src="./components/critical.js" type="module"></script>
+
+    </body>
+</html>
