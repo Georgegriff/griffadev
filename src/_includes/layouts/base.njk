@@ -29,6 +29,6 @@
         </main>
         {% include "partials/site-actions.html" %}
 
-        {{ assets.getModule("critical.js") | safe}}
+       <script src="{{ assets.getPath("critical.js")}}" type="module"></script>
     </body>
 </html>

@@ -1,13 +1,14 @@
 module.exports = {
-    getModule: (assetName) => {
-        let modulePath = assetName;
+    getPath: (assetName) => {
         if (process.env.NODE_ENV === "production") {
             const assets = require("../_includes/manifest.json");
-            modulePath = assets[assetName];
+            const modulePath = assets[assetName];
             if(!modulePath) {
               throw new Error(`error with getAsset, ${assetName} does not exist in manifest.json`);
             }
+            return modulePath;
+        } else {
+            return `src/assets/${assetName}`;
         }
-        return `<script type="module" src="${modulePath}"></script>`
     }
 }

@@ -10,11 +10,11 @@ const babel = require('./gulp-tasks/babel');
 // will run when a file changes.
 const watcher = () => {
   watch('./src/scss/**/*.scss', {ignoreInitial: true}, sass);
-  watch('./src/components/**/*.js', {ignoreInitial: true}, babel);
+  watch('./src/assets/**/*.js', {ignoreInitial: true}, babel);
 };
 
 // The default (if someone just runs `gulp`) is to run each task in parallel
-exports.default = parallel(babel, sass);
+exports.default = parallel(...[sass, process.env.NODE_ENV !== "production" && babel].filter(Boolean));
 
 // This is our watcher task that instructs gulp to watch directories and
 // act accordingly

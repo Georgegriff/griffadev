@@ -13,5 +13,5 @@ Thumbs.db
 node_modules
 dist
 src/_includes/css
-src/_inclcudes/manifest.json
+src/_includes/manifest.json
 .vscode/

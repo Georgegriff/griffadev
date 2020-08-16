@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npx gulp && concurrently \"npx gulp watch\" \"npx eleventy --serve\"",
-    "build": "NODE_ENV=production rollup -c rollup.config.js && NODE_ENV=production npx gulp && NODE_ENV=production npx eleventy"
+    "build": "rm -rf dist && NODE_ENV=production rollup -c rollup.config.js && NODE_ENV=production npx gulp && NODE_ENV=production npx eleventy"
   },
   "keywords": [],
   "author": "",
