@@ -1,6 +1,23 @@
 @import 'reset';
 
-body {
-    background: #FEFEFE;
-    color: #484484;
+:root {
+    --Background: #2E4157;
+    --Background50: #3F5671;
+    --Secondary: #233241;
+    --Primary: #8AB5EA;
+    --Text: #F0F0F0;
+    --Text50: #DCDCDC;
 }
+
+body, html {
+    background: var(--Background);
+    color: var(--Text);
+    height: 100%;
+    width: 100%;
+    font-family: "Nunito", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Utilities */
+@import "./utilities/layout";
+/* Components */
+@import "./components/actionbar";

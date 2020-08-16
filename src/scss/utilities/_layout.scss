@@ -1,0 +1,23 @@
+.wrapper {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    flex: 10;
+    display: flex;
+    .main-content {
+        margin:5rem 17rem 0 12rem;
+        /* probably want grid */
+        flex: 1;
+    }
+}
+
+/* todo figure out re-using */
+@media screen and (max-width: 37em) {
+    .page-layout {
+        flex-direction: column-reverse;
+    }
+
+}

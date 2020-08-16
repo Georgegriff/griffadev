@@ -10,6 +10,14 @@
         <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
         <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
 
+
+        <!-- todo preload right fonts, can we do this magically? -->
+        <link rel="preload" as="font" type="font/woff2" href="/fonts/Red_Hat_Display-400-latin20.woff2" />
+        <link rel="preload" as="font" type="font/woff2" href="/fonts/Red_Hat_Display-900-latin22.woff2" />
+        <link rel="preload" as="font" type="font/woff2" href="/fonts/Literata-400-latin12.woff2"/>
+
+        <link rel="preload" media="print" href="/fonts/fonts.css?{{ assetHash }}" onload="this.media='all'"/>
+
         <style>
             {% include "css/critical.css" %}
         </style>
@@ -24,11 +32,14 @@
         {% endif %}
     </head>
     <body>
-        <main tabindex="-1" id="main-content">
-            {% block content %}{% endblock %}
-        </main>
-        {% include "partials/site-actions.html" %}
-
-       <script src="{{ assets.getPath("critical.js")}}" type="module"></script>
+        <div class="wrapper page-layout">
+            {% include "partials/actionbar.html" %}
+            <main tabindex="-1" id="main-content">
+                <div class="main-content">
+                 {% block content %}{% endblock %}
+                </div>
+            </main>
+        </div>
+        <script src="{{ assets.getPath("index.js")}}" type="module"></script>
     </body>
 </html>

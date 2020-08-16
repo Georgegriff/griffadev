@@ -1,6 +1,4 @@
 ---
-title: 'Hello, world'
+title: 'Rambling, Tutorials and Experiments.'
 layout: 'layouts/index.njk'
 ---
-
-This is pretty _rad_, right?

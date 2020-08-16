@@ -3,7 +3,7 @@ import { createBasicConfig } from "@open-wc/building-rollup";
 import outputManifest from "rollup-plugin-output-manifest";
 
 const entrypoints = {
-  critical: "src/assets/critical.js",
+  critical: "src/assets/index.js",
   other: "src/assets/b.js",
 };
 
