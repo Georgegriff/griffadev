@@ -8,7 +8,7 @@ const babelTask = () => {
         plugins: ["bare-import-rewrite"],
       })
     )
-    .pipe(dest("dist/components"));
+    .pipe(dest("dist"));
 };
 
 module.exports = babelTask;

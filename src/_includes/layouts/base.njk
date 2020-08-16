@@ -29,8 +29,6 @@
         </main>
         {% include "partials/site-actions.html" %}
 
-        <!-- TODO file hashes and prod mode -->
-        <script src="./components/critical.js" type="module"></script>
-
+        {{ assets.getModule("critical.js") | safe}}
     </body>
 </html>

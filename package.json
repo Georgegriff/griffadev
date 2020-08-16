@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npx gulp && concurrently \"npx gulp watch\" \"npx eleventy --serve\"",
-    "build": "NODE_ENV=production npx gulp && NODE_ENV=production npx eleventy"
+    "build": "NODE_ENV=production rollup -c rollup.config.js && NODE_ENV=production npx gulp && NODE_ENV=production npx eleventy"
   },
   "keywords": [],
   "author": "",
@@ -16,26 +16,22 @@
     "@11ty/eleventy-plugin-rss": "^1.0.9",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
     "@open-wc/building-rollup": "^1.7.0",
-    "@rollup/plugin-node-resolve": "^9.0.0",
     "@rollup/stream": "^1.0.0",
     "babel-plugin-bare-import-rewrite": "^2.0.0",
     "concurrently": "^5.3.0",
+    "deepmerge": "^4.2.2",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
-    "gulp-better-rollup": "^4.0.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-sass": "^4.1.0",
     "luxon": "^1.21.3",
     "markdown-it": "^8.4.2",
     "markdown-it-anchor": "^5.2.5",
     "rollup": "^2.26.2",
-    "rollup-plugin-multi-input": "^1.1.1",
-    "rollup-plugin-vinyl": "^0.2.0",
-    "sass": "^1.26.10",
-    "through2": "^4.0.2"
+    "rollup-plugin-output-manifest": "^1.0.2",
+    "sass": "^1.26.10"
   },
   "dependencies": {
-    "gulp-clean-css": "^4.3.0",
-    "gulp-sass": "^4.1.0",
-    "lit-html": "^1.2.1",
-    "vinyl-source-stream": "^2.0.0"
+    "lit-html": "^1.2.1"
   }
 }
