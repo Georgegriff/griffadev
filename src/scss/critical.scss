@@ -1,23 +1,44 @@
 @import 'reset';
-
+@import 'colors';
 :root {
-    --Background: #2E4157;
-    --Background50: #3F5671;
-    --Secondary: #233241;
-    --Primary: #8AB5EA;
-    --Text: #F0F0F0;
-    --Text50: #DCDCDC;
+    --Background: #{$dark-bg};
+    --Background50: #{$dark-bg-50};
+    --Secondary: #{$dark-secondary};
+    --Primary: #{$dark-primary};
+    --Primary50: #{$dark-primary-50};
+    --Text: #{$dark-text};
+    --Text50: #{$dark-text-50};
+    --Highlight: #{$dark-highlight};
+    --White: #{$white};
 }
-
-body, html {
-    background: var(--Background);
-    color: var(--Text);
+html, body {
     height: 100%;
     width: 100%;
     font-family: "Nunito", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
+.wrapper {
+    background: var(--Background);
+    color: var(--Text)
+}
+
+#theme:checked + .wrapper {
+    --Background: #{$light-bg};
+    --Background50: #{$light-bg-50};
+    --Secondary: #{$light-secondary};
+    --Primary: #{$light-primary};
+    --Primary50: #{$light-primary-50};
+    --Text: #{$light-text};
+    --Text50: #{$light-text-50};
+    --Highlight: #{$light-highlight};
+}
+
 /* Utilities */
 @import "./utilities/layout";
+@import "./utilities/visually-hidden";
+
 /* Components */
+@import "./components/logo";
 @import "./components/actionbar";
+@import "./components/hero";
+@import "./components/toggle";

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-theme="light" lang="en">
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -32,9 +32,11 @@
         {% endif %}
     </head>
     <body>
-        <div class="wrapper page-layout">
+        <input type="checkbox" id="theme" name="theme" class="visually-hidden">
+        <div class="wrapper page-layout transition">
             {% include "partials/actionbar.html" %}
-            <main tabindex="-1" id="main-content">
+            <main id="main-content">
+                {% include "partials/logo.html" %}
                 <div class="main-content">
                  {% block content %}{% endblock %}
                 </div>
