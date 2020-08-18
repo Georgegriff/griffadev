@@ -1,0 +1,85 @@
+@import "../colors";
+
+.hero {
+    --HeroBorders: #{$dark-secondary};
+    --HeroBackground: var(--Background50);
+    --HeroBricks: var(--Background);
+    --HeroShirt: var(--Primary);
+    --HeroShirt50: var(--Primary50);
+    --HeroAccents: var(--Text);
+    --HeroWhite: #{$dark-text};
+    --HeroTriangle: var(--Highlight);
+    
+    display: flex;
+    width: 80%;
+    height:  30vh;
+    position: relative;
+    align-items: center;
+    margin-top: 1vw;
+   
+    svg {
+        min-width: 65%;
+        height: 120%;
+    }
+
+    h1 {
+        width: auto;
+        display: inline-block;
+        flex:1;
+        font-size: 4vw;
+        line-height: 5.5vw;
+        height: 100%;
+       &:after {
+        content: "";
+        display: block;
+        width: 110%;
+        height: 0.2rem;
+        background: var(--Background50);
+       }
+    }
+
+    .header-wrap {
+        &:after {
+            content: "";
+            display: block;
+            width: 120%;
+            height: 0.2rem;
+            margin-top: 4vh;
+            background: var(--Background50);
+        }
+    }
+}
+
+ /* todo figure out re-using */
+ @media screen and (max-width: 45em) {
+    .hero {
+      height: 10vh;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top:0;
+      svg {
+          order: 1;
+          width: 100%;
+          height: auto;
+          grid-row: auto;
+      }
+
+      h1 {
+          &:after {
+              margin-top: 1rem;
+              width: 110%;
+              margin-left: -5%;
+          }
+      }
+  
+      .header-wrap {
+          order:2;
+          grid-column: auto;
+         &:after {
+             display: none;
+         }
+      }
+  
+    }
+  
+  }

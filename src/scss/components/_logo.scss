@@ -1,0 +1,12 @@
+.logo {
+    display: flex;
+    height: 5rem;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    align-items:flex-end;
+
+    svg {
+        height: 55%;
+    }
+}

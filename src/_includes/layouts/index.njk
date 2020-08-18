@@ -1,8 +1,5 @@
 {% extends "layouts/base.njk" %}
 
 {% block content %}
-    <article>
-        <h1>{{ title }}</h1>
-        {{ content | safe }}
-    </article>
+   {% include  "partials/hero.html"%}
 {% endblock %}

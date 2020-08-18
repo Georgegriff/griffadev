@@ -1,0 +1,87 @@
+$width: 3.5rem;
+$height: 1.5rem;
+$btn-width: 1.2rem;
+$btn-height: 1.2rem;
+$btn-margin: 0.3rem;
+.toggle-container {
+    display: inline-block;
+    width: $width;
+    height: $height;
+    position: relative;
+    cursor: pointer;
+    margin: 0.5rem;
+    border-radius: $height;
+    background-color: var(--Primary);
+}
+
+.toggle-button {
+    &:active  {
+        &:before {
+            box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+        }
+    }
+    position: absolute;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-left: $btn-margin;
+    transition: .4s;
+
+    .toggle-icons {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+
+        svg {
+            flex:1;
+            width: 1rem;
+            height: 1rem;
+        }
+
+        svg.moon {
+            width: 1.2rem;
+            height: 1.2rem;
+            margin-left:-.2rem;
+        }
+    }
+
+    &:before {
+        position: absolute;
+        content: "";
+        height: $btn-height;
+        width: $btn-width;
+        border-radius: 100%;
+        background-color: var(--White);
+        transition: transform .3s !important;
+        box-shadow: 2px 1px 3px rgba(0,0,0,0.3);
+    }
+}
+
+#theme:checked + .wrapper {
+    .toggle-button {
+        &::before{
+         transform: translateX(($width - $btn-width - ($btn-margin * 2)));
+        }   
+    }
+}
+/* transition for theme  */
+.transition,
+.transition *,
+.transition *:before,
+.transition *:after {
+    transition: background-color 750ms, fill 750ms;
+    transition-delay: 0ms;
+}
+
+#theme:checked + .wrapper {
+    .toggle-button {
+        &::before{
+         transform: translateX(($width - $btn-width - ($btn-margin * 2)));
+        }   
+    }
+}
