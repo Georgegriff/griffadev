@@ -1,0 +1,16 @@
+.post-tiles {
+    display: flex;
+    flex-direction: column;
+
+    .tiles {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(var(--tiles-min-size, 16rem), 1fr));
+        grid-gap: 1rem;
+
+        li {
+            padding: 5rem 1rem;
+            background: var(--Secondary);
+          }
+    }
+
+}

@@ -36,12 +36,36 @@
         <div class="wrapper page-layout transition">
             {% include "partials/actionbar.html" %}
             <main id="main-content">
-                {% include "partials/logo.html" %}
-                <div class="main-content">
-                 {% block content %}{% endblock %}
-                </div>
+                {% include "partials/header.html" %}
+                    <div class="main-content">
+                    {% block content %}{% endblock %}
+                    </div>
             </main>
         </div>
         <script src="{{ assets.getPath("index.js")}}" type="module"></script>
+
+        <script>
+
+
+// todo re-use
+var observer = new IntersectionObserver(function(entries, observer) {
+    console.log(observer)
+	// no intersection with screen
+	if(entries[0].intersectionRatio === 0) {
+        document.querySelector(".sticky-title").removeAttribute("aria-hidden", true)
+		document.querySelector(".sticky-title").classList.remove("sticky-hidden");
+        document.querySelector(".collapse").classList.add("sticky");
+	// fully intersects with screen
+	} else if(entries[0].intersectionRatio === 1) {
+        document.querySelector(".sticky-title").setAttribute("aria-hidden", true)
+        document.querySelector(".sticky-title").classList.add("sticky-hidden");
+        document.querySelector(".collapse").classList.remove("sticky");
+    }
+
+}, { threshold: [0, 1], root: document.querySelector(".collapse-container")});
+
+
+observer.observe(document.querySelector(".collapse"));
+</script>
     </body>
 </html>

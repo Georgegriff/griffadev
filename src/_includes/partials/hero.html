@@ -1,5 +1,7 @@
-<article class="hero">
-    <div class="header-wrap"><h1>{{ title }}</h1></div>
-    {% include "img/hero.svg" %}
-    {{ content | safe }}
-</article>
+<div class="hero-wrap">
+    <article class="hero">
+        <div class="header-wrap"><h1>{{ title }}</h1></div>
+        {% include "img/hero.svg" %}
+        {{ content | safe }}
+    </article>
+</div>

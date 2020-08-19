@@ -1,0 +1,23 @@
+
+.collapse-container {
+    height: calc(100% - 8rem);
+    overflow: auto;
+}
+
+.collapse-top {
+    height: 1px;
+    position: sticky;
+    top:0;
+}
+
+.sticky + .post-tiles .sticky-subtitle {
+    width: 100%;
+    &:after  {
+        width: 100%;
+        margin-bottom: 0;
+    }
+}
+
+.sticky .hero h1 {
+    opacity: 0;
+}

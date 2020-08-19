@@ -12,14 +12,14 @@
     --White: #{$white};
 }
 html, body {
+    font-family: "Nunito", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--Background);
     height: 100%;
     width: 100%;
-    font-family: "Nunito", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 .wrapper {
-    background: var(--Background);
-    color: var(--Text)
+    color: var(--Text);
 }
 
 #theme:checked + .wrapper {
@@ -33,12 +33,16 @@ html, body {
     --Highlight: #{$light-highlight};
 }
 
+
 /* Utilities */
 @import "./utilities/layout";
 @import "./utilities/visually-hidden";
 
 /* Components */
+@import "./components/headings";
 @import "./components/logo";
 @import "./components/actionbar";
 @import "./components/hero";
 @import "./components/toggle";
+
+@import "./components/collapse";

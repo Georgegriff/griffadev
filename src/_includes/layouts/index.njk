@@ -1,5 +1,12 @@
+{% set pageCriticalStyles = ['css/index.css'] %}
+
 {% extends "layouts/base.njk" %}
 
 {% block content %}
-   {% include  "partials/hero.html"%}
-{% endblock %}
+   <div class="collapse-container">
+      <div class="collapse">
+         {% include  "partials/hero.html"%}
+      </div>
+      {% include  "partials/tiles.html"%}
+   </div>
+  {% endblock %}
