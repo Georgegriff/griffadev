@@ -3,6 +3,7 @@
 .hero-wrap {
     background-color: var(--Background);
     width: 100%;
+    padding: 0 5rem;
 }
 .hero {
     --HeroBorders: #{$dark-secondary};

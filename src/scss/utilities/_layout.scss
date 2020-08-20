@@ -17,7 +17,7 @@ main {
 }
 
 .site-header {
-  padding:1rem 0;
+  padding:1rem 5rem;
   background: var(--Background);
   height: $header;
   display: flex;
@@ -49,8 +49,4 @@ main {
     flex: 1 !important;
     overflow:  auto;
   }
-}
-
-.main-content {
-  margin-bottom: 2rem;
 }
