@@ -3,10 +3,8 @@
 {% extends "layouts/base.njk" %}
 
 {% block content %}
-   <div class="collapse-container">
-      <div class="collapse">
-         {% include  "partials/hero.html"%}
-      </div>
-      {% include  "partials/tiles.html"%}
+   <div slot="observable" class="collapse">
+      {% include  "partials/hero.html"%}
    </div>
-  {% endblock %}
+   {% include  "partials/tiles.html"%}
+{% endblock %}

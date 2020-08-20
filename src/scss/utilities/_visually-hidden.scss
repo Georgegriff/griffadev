@@ -9,17 +9,3 @@
   width: 1px;
   white-space: nowrap;
 }
-
-
-.sticky-title {
-  transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
-  transition-delay: 0ms;
-  font-size:2rem;
-  opacity: 1;
-  margin-left: 1rem;
-  transform: translate(0);
-}
-.sticky-hidden {
-  opacity: 0;
-  transform: translate(-3rem, 3rem);
-}

@@ -7,9 +7,6 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 
 module.exports = (config) => {
-  if (process.env.NODE_ENV !== "production") {
-    config.addPassthroughCopy({ "node_modules/lit-html": "node_modules/lit-html" });
-  }
   // Browsersync Overrides
   config.setBrowserSyncConfig({
     callbacks: {

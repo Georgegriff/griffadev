@@ -1,3 +1,5 @@
+@import 'variables';
+
 .wrapper {
   display: flex;
   overflow: hidden;
@@ -10,21 +12,17 @@ main {
   height: 100%;
   display: flex;
   flex-direction: column;
-  margin: 0rem 5rem;
   .main-content {
-    height: 100%;
   }
 }
 
 .site-header {
   padding:1rem 0;
   background: var(--Background);
-  z-index: 1;
-  height: 5rem;
+  height: $header;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 1rem;
+  justify-content: space-between;
   position: sticky;
   top:0;
   h1 {
@@ -36,17 +34,23 @@ main {
 
 /* todo figure out re-using */
 @media screen and (max-width: 37em) {
+  .hero-wrap {
+    padding: 0 2rem;
+  }
+  .site-header {
+    padding: 0 2rem;
+  }
   .page-layout {
     flex-direction: column-reverse;
   }
 
   main {
-    margin: 0rem 2rem;
+    margin:0;
+    flex: 1 !important;
+    overflow:  auto;
   }
 }
 
-.sticky-subtitle {
-  position: sticky;
-  top:0;
-  background: var(--Background);
+.main-content {
+  margin-bottom: 2rem;
 }
