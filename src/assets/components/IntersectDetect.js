@@ -6,13 +6,10 @@ export class IntersectDetect extends LitElement {
       :host {
         display: block;
         height: 100%;
-        /* override from auto so can work js disabled */
-        overflow: initial !important;
       }
 
       .scroller {
         height: 100%;
-        overflow: auto;
 
       }
 
@@ -36,21 +33,24 @@ export class IntersectDetect extends LitElement {
   }
 
   firstUpdated() {
+    let thresholds = this.thresholds || [0, 1];
+    let root = this.root || this;
+
     // todo re-use
     var observer = new IntersectionObserver(
        (entries) => {
         // no intersection with screen
         const entry = entries[0];
-        if (entry.intersectionRatio === 0) {
+        if (entry.intersectionRatio <= thresholds[0]) {
           this._fireIntersecting(entry, false);
           this.setAttribute("observable", "hidden");
           // fully intersects with screen
-        } else if (entry.intersectionRatio === 1) {
+        } else if(entry.intersectionRatio >= thresholds[1]){
           this._fireIntersecting(entry, true);
           this.setAttribute("observable", "visible");
         }
       },
-      { threshold: this.threshold || [0, 1], root: this }
+      { threshold:  thresholds, root }
     );
 
     observer.observe(this.shadowRoot.querySelector("#observable"));
@@ -58,7 +58,8 @@ export class IntersectDetect extends LitElement {
 
   static get properties() {
     return {
-      threshold: Array,
+      thresholds: String,
+      root: HTMLElement
     };
   }
 

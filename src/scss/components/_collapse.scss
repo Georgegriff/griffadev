@@ -1,42 +1,89 @@
+@import "../variables";
 
 .collapse {
-    display: flex;
-    flex-direction: column;
-    flex:1;
-}
-
-.main-content[observable="hidden"] {
-    .sticky-title {
-        transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
-        transition-delay: 0ms;
-        font-size:2vw;
-        opacity: 1;
-        margin-left: 1rem;
-        transform: translate(0);
-    }
-}
-
-.sticky-subtitle {
-    position: sticky;
-    top:0;
-    background: var(--Background);
-    margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .sticky-title {
-    opacity: 0;
-    transform: translate(-3rem, 3rem);
-}
-.main-content[observable="hidden"] { 
-    .sticky-subtitle {
-        width: 100%;
-        &:after  {
-            width: 100%;
-            margin-bottom: 0;
-        }
-    }
 
-    .hero h1 {
-        opacity: 0;
+  --header-height: 4rem; 
+  position: sticky;
+  top: $header;
+
+  background: var(--Background);
+  h1 {
+    z-index: 0;
+    display: inline-flex;
+    position: absolute;
+    opacity: 0;
+    font-size: 1.5rem;
+    width: 100%;
+    padding-top:1.5rem;
+    padding-bottom: 1rem;
+    background: var(--Background);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    span {
+        transition: transform .3s ease-in-out;
+        transform:  translateY(2rem);
+        z-index: -1;
+        position: relative;
+    }
+  }
+  h3 {
+    font-size: 1rem;
+    background: var(--Background);
+  }
+}
+
+.post-tiles  {
+}
+
+.hero h1 {
+  transform: translate(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.main-content[observable="hidden"] {
+    .post-tiles  {
+    }
+  .sticky-title {
+    transition-delay: 0ms;
+    transform: translateY(0);
+    margin-top: 4px;
+    z-index: 1;
+    h1 {
+        opacity: 1;
+        z-index: -1;
+       span {
+        transform: translateY(0);
+       }
+    }
+    h3 {
+      width: 100%;
+      z-index: 5;
+      background: var(--Background);
+      margin-bottom:0;
+      &:after {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  
+
+  .hero h1 {
+    transform: translateY(4rem);
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 37em) {
+    .sticky-title {
+        h1 {
+            font-size: min(5vw, 8vh);
+        }
     }
 }

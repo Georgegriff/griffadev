@@ -2,21 +2,21 @@
 
 .wrapper {
   display: flex;
-  overflow: hidden;
   height: 100%;
-  width: 100%;
+  flex: 1;
 }
 
 main {
-  width: 100%;
+  flex: 1;
   height: 100%;
   display: flex;
   flex-direction: column;
-  .main-content {
-  }
+  padding-bottom: $action-bar;
+  margin-left: $action-bar;
 }
 
 .site-header {
+  z-index: 50;
   padding:1rem 5rem;
   background: var(--Background);
   height: $header;
@@ -34,8 +34,9 @@ main {
 
 /* todo figure out re-using */
 @media screen and (max-width: 37em) {
-  .hero-wrap {
-    padding: 0 2rem;
+  main {
+    padding-bottom: $header;
+
   }
   .site-header {
     padding: 0 2rem;
@@ -47,6 +48,5 @@ main {
   main {
     margin:0;
     flex: 1 !important;
-    overflow:  auto;
   }
 }

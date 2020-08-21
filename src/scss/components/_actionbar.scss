@@ -1,9 +1,25 @@
+@import "../variables";
+
 .griff-actionbar {
-    display: flex;
-    flex-basis: 5rem;
-    flex-grow: 0;
-    flex-shrink: 0;
-    background: var(--Secondary);
-    color: var(--Text50);
-    justify-content: center;
+  position: fixed;
+  top:0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: $action-bar;
+  height: 100%;
+  display: flex;
+  background: var(--Secondary);
+  color: var(--Text50);
+  justify-content: center;
+  z-index: 2;
+}
+
+@media screen and (max-width: 37em) {
+    .griff-actionbar {
+        position: fixed;
+        top: auto;
+        height: $action-bar;
+        width: 100%;
+    }
 }

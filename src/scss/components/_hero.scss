@@ -3,7 +3,7 @@
 .hero-wrap {
     background-color: var(--Background);
     width: 100%;
-    padding: 0 5rem;
+    padding: 0 5rem 2rem 5rem;
 }
 .hero {
     --HeroBorders: #{$dark-secondary};
@@ -31,29 +31,21 @@
         width: auto;
         display: inline-block;
         flex:1;
-        font-size: min(4vw, 8vh);
+        font-size: min(5vw, 8vh);
         line-height: 5.5vw;
         height: 100%;
-       &:after {
-        content: "";
-        display: block;
-        width: 110%;
-        height: 0.2rem;
-        background: var(--Background50);
-       }
-    }
-
-    .header-wrap {
-        &:after {
-            content: "";
-            display: block;
-            width: 120%;
-            height: 0.2rem;
-            margin-top: 4vh;
-            background: var(--Background50);
-        }
     }
 }
+
+ /* todo figure out re-using */
+ @media screen and (max-width: 80em) {
+    .hero {
+        svg {
+            width: 100%;
+            min-width: 50%;
+        }
+    }
+ }
 
  /* todo figure out re-using */
  @media screen and (max-width: 45em) {
@@ -67,6 +59,7 @@
           width: 100%;
           height: auto;
           grid-row: auto;
+          min-width: 50%;
       }
 
       h1 {
@@ -79,6 +72,7 @@
       }
   
       .header-wrap {
+          flex: 1;
           order:2;
           grid-column: auto;
          &:after {
@@ -88,4 +82,15 @@
   
     }
   
+  }
+
+  /* todo figure out re-using */
+@media screen and (max-width: 37em) {
+    .hero-wrap {
+        padding: 0 2rem;
+    }
+
+    .hero {
+        margin-bottom: 1rem;
+    }
   }

@@ -1,7 +1,7 @@
 .post-tiles {
     display: flex;
     flex-direction: column;
-    padding: 5rem;
+    padding: 0 5rem;
     .tiles {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(var(--tiles-min-size, 16rem), 1fr));

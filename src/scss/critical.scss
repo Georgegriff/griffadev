@@ -11,15 +11,28 @@
     --Highlight: #{$dark-highlight};
     --White: #{$white};
 }
+
 html, body {
     font-family: "Nunito", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
     background: var(--Background);
-    height: 100%;
-    width: 100%;
 }
 
+/* disable overscrolling for non-touch devices */
+@media (hover: hover) {
+    html,body {
+        overscroll-behavior: none;
+    }
+}
+
+
 .wrapper {
+    display: flex;
+    flex:1;
+    flex-direction: column;
     color: var(--Text);
+    background: var(--Background);
 }
 
 #theme:checked + .wrapper {
