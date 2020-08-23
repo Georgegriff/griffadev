@@ -46,6 +46,11 @@ html, body {
     --Highlight: #{$light-highlight};
 }
 
+a {
+    color: var(--Text);
+    text-decoration: none;
+}
+
 
 /* Utilities */
 @import "./utilities/layout";
