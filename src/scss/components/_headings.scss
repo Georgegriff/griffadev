@@ -1,0 +1,21 @@
+@import "../variables";
+
+
+h3 {
+  min-width: 11rem;
+  position: relative;
+  margin-bottom: 2rem;
+  z-index: 10;
+  &:after {
+    width: 100%;
+    content: "";
+    position: absolute;
+    display: block;
+    height: 0.2rem;
+    clip-path: polygon(0 0,135px 0, 135px 100%, 0 100%);
+    margin-top: 0.2rem;
+    background: var(--Primary);
+    transition: clip-path 0.1s ease-in-out;
+    
+  }
+}

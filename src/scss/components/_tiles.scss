@@ -1,0 +1,24 @@
+.post-tiles {
+    display: flex;
+    flex-direction: column;
+    padding: 0 5rem;
+    .tiles {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(var(--tiles-min-size, 16rem), 1fr));
+        grid-gap: 1rem;
+
+        li {
+            padding: 5rem 1rem;
+            background: var(--Secondary);
+          }
+    }
+
+}
+
+/* todo figure out re-using */
+@media screen and (max-width: 37em) {
+    .post-tiles {
+      padding: 0 2rem;
+    }
+
+}

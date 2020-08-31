@@ -1,18 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="235.285" height="61.216" viewBox="0 0 235.285 61.216">
-  <g id="Logo_Large" data-name="Logo Large" transform="translate(1.5 5.752)">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 235.285 61.216">
+  <g transform="translate(1.5 5.752)">
     <g id="Group_9" data-name="Group 9" transform="translate(-13 -37)">
       <g id="Group_7" data-name="Group 7" transform="translate(63.381 42)">
-        <text id="griffa.dev" transform="translate(0 0)" fill="#8ab5ea" font-size="25" font-family="Nunito-ExtraBoldItalic, Nunito" font-weight="800" font-style="italic"><tspan x="0" y="26">griffa</tspan><tspan y="26" fill="#f0f0f0" font-size="26" font-family="Nunito-LightItalic, Nunito" font-weight="300">.dev</tspan></text>
+        <text id="griffa.dev" transform="translate(0 0)" fill="#8ab5ea" font-size="25" font-family="Nunito-ExtraBoldItalic, Nunito" font-weight="800" font-style="italic"><tspan x="0" y="26">griffa</tspan><tspan y="26" fill="var(--Text, #f0f0f0)" font-size="26" font-family="Nunito-LightItalic, Nunito" font-weight="300">.dev</tspan></text>
       </g>
     </g>
     <g id="Group_13" data-name="Group 13" transform="translate(-62 -37.933)">
-      <path id="Union_6" data-name="Union 6" d="M0,25.8,34.981,0V10.2L13.869,25.8,34.981,41.331V51.477Z" transform="translate(62 37.933)" fill="#f0f0f0" stroke="#f0f0f0" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      <path id="Union_6" data-name="Union 6" d="M0,25.8,34.981,0V10.2L13.869,25.8,34.981,41.331V51.477Z" transform="translate(62 37.933)" fill="var(--Text, #f0f0f0)" stroke="var(--Text, #f0f0f0)" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
     </g>
     <g id="Group_48" data-name="Group 48" transform="translate(42 0.018)">
       <g id="Group_14" data-name="Group 14" transform="translate(127.373 0.201)">
-        <path id="Path_19" data-name="Path 19" d="M14.765,0-.991,49.274" transform="translate(-0.009)" fill="#f0f0f0" stroke="#f0f0f0" stroke-linecap="round" stroke-width="9.5"/>
+        <path id="Path_19" data-name="Path 19" d="M14.765,0-.991,49.274" transform="translate(-0.009)" fill="var(--Text, #f0f0f0)" stroke="var(--Text, #f0f0f0)" stroke-linecap="round" stroke-width="9.5"/>
       </g>
-      <path id="Union_8" data-name="Union 8" d="M0,25.8,34.98,0V10.2L13.869,25.8,34.98,41.329V51.475Z" transform="translate(190.285 51.475) rotate(180)" fill="#f0f0f0" stroke="#f0f0f0" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      <path id="Union_8" data-name="Union 8" d="M0,25.8,34.98,0V10.2L13.869,25.8,34.98,41.329V51.475Z" transform="translate(190.285 51.475) rotate(180)" fill="var(--Text, #f0f0f0)" stroke="var(--Text, #f0f0f0)" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
     </g>
   </g>
 </svg>

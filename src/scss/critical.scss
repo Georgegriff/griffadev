@@ -11,15 +11,28 @@
     --Highlight: #{$dark-highlight};
     --White: #{$white};
 }
+
 html, body {
-    height: 100%;
-    width: 100%;
     font-family: "Nunito", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background: var(--Background);
 }
 
+/* disable overscrolling for non-touch devices */
+@media (hover: hover) {
+    html,body {
+        overscroll-behavior: none;
+    }
+}
+
+
 .wrapper {
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    color: var(--Text);
     background: var(--Background);
-    color: var(--Text)
 }
 
 #theme:checked + .wrapper {
@@ -33,12 +46,16 @@ html, body {
     --Highlight: #{$light-highlight};
 }
 
+
 /* Utilities */
 @import "./utilities/layout";
 @import "./utilities/visually-hidden";
 
 /* Components */
+@import "./components/headings";
 @import "./components/logo";
 @import "./components/actionbar";
 @import "./components/hero";
 @import "./components/toggle";
+@import "./components/custom-element-fallbacks";
+@import "./components/collapse";

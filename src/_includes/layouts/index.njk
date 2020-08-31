@@ -1,5 +1,10 @@
+{% set pageCriticalStyles = ['css/index.css'] %}
+
 {% extends "layouts/base.njk" %}
 
 {% block content %}
-   {% include  "partials/hero.html"%}
+   <div slot="observable" class="collapse">
+      {% include  "partials/hero.html"%}
+   </div>
+   {% include  "partials/tiles.html"%}
 {% endblock %}

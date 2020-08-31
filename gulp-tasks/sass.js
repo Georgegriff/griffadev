@@ -11,6 +11,7 @@ const isProduction = process.env.NODE_ENV === "production";
 // An array of outputs that should be sent over to includes
 const criticalStyles = [
   "critical.scss",
+  "index.scss"
 ];
 
 // Takes the arguments passed by `dest` and determines where the output file goes

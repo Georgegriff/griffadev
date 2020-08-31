@@ -36,12 +36,13 @@
         <div class="wrapper page-layout transition">
             {% include "partials/actionbar.html" %}
             <main id="main-content">
-                {% include "partials/logo.html" %}
-                <div class="main-content">
-                 {% block content %}{% endblock %}
-                </div>
+                <intersect-detect class="main-content">
+                    {% include "partials/header.html" %}
+                    {% block content %}{% endblock %}
+                </intersect-detect>
             </main>
         </div>
+        <!-- TODO  split  js into pages -->
         <script src="{{ assets.getPath("index.js")}}" type="module"></script>
     </body>
 </html>

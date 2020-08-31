@@ -1,4 +1,4 @@
-<svg class="hero" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 888.251 457.242">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 888.251 457.242">
     <g transform="translate(-789.467 532.287)">
         <path d="M10,0H695a10,10,0,0,1,10,10V378a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V10A10,10,0,0,1,10,0Z" transform="translate(955 -496.046)" fill="var(--HeroBorders, #233241)" />
         <rect width="679" height="361" transform="translate(967 -479.046)" fill="var(--HeroBricks, #3F5671)" />

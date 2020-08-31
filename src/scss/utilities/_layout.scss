@@ -1,27 +1,52 @@
+@import 'variables';
+
 .wrapper {
   display: flex;
   height: 100%;
-  width: 100%;
+  flex: 1;
 }
 
 main {
-  flex: 10;
+  flex: 1;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  margin: 0rem 5rem;
-  .main-content {
+  padding-bottom: $action-bar;
+  margin-left: $action-bar;
+}
+
+.site-header {
+  z-index: 50;
+  padding:1rem 5rem;
+  background: var(--Background);
+  height: $header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top:0;
+  h1 {
     flex: 1;
-    display: flex;
+    display: inline-flex;
+    align-items: center;
   }
 }
 
 /* todo figure out re-using */
 @media screen and (max-width: 37em) {
+  main {
+    padding-bottom: $header;
+
+  }
+  .site-header {
+    padding: 0 2rem;
+  }
   .page-layout {
     flex-direction: column-reverse;
   }
 
   main {
-    margin: 0rem 2rem;
+    margin:0;
+    flex: 1 !important;
   }
 }
