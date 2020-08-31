@@ -61,36 +61,30 @@
           grid-row: auto;
           min-width: 50%;
       }
-
-      h1 {
-          margin-top: 1rem;
-          &:after {
-              margin-top: 1rem;
-              width: 125%;
-              margin-left: -10%;
-          }
-      }
-  
-      .header-wrap {
-          flex: 1;
-          order:2;
-          grid-column: auto;
-         &:after {
-             display: none;
-         }
-      }
   
     }
   
   }
 
   /* todo figure out re-using */
-@media screen and (max-width: 37em) {
+@media screen and (max-width: 45em) {
+
+    .header-wrap {
+        flex:1;
+    }
     .hero-wrap {
         padding: 0 2rem;
     }
 
     .hero {
+        flex-wrap: nowrap;
         margin-bottom: 1rem;
+
+        svg {
+            flex:3;
+        }
+
+        h1 {
+        }
     }
   }

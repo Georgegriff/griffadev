@@ -10,5 +10,12 @@ module.exports = {
         } else {
             return `src/assets/${assetName}`;
         }
+    },
+    getHero: (post, hero) => {
+        if(!hero || !hero.image) {
+            return `images/logo.svg`;
+        }
+        const dir = post.template.fileSlug.dirs.join("/");
+        return `${dir}/${hero.image}`;
     }
 }

@@ -9,13 +9,17 @@ const fonts = async () => {
     cssFile: './fonts.css'
   });
 
-  // Grabs fonts and CSS from google and puts in the dist folder
-  const result = await instance.download(
-    // add new weights as needed
-    'https://fonts.googleapis.com/css2?family=Nunito:wght@400;800'
-  );
+  try  {
+    // Grabs fonts and CSS from google and puts in the dist folder
+    const result = await instance.download(
+      // add new weights as needed
+      'https://fonts.googleapis.com/css2?family=Nunito:wght@400;800'
+    );
+  } catch(e) {
+    return  null;
+  }
+ 
 
-  return result;
 };
 
 module.exports = fonts;

@@ -13,14 +13,14 @@
   top: $header;
 
   background: var(--Background);
-  h1 {
+  .scroll-header {
     z-index: 0;
     display: inline-flex;
     position: absolute;
     opacity: 0;
     font-size: 1.5rem;
     width: 100%;
-    padding-top:1.5rem;
+    padding-top:1.6rem;
     padding-bottom: 1rem;
     background: var(--Background);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
@@ -53,7 +53,7 @@
     transform: translateY(0);
     margin-top: 4px;
     z-index: 1;
-    h1 {
+    .scroll-header {
         opacity: 1;
         z-index: -1;
        span {
@@ -65,6 +65,7 @@
       z-index: 5;
       background: var(--Background);
       margin-bottom:0;
+      transform: translateY(2px);
       &:after {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
         margin-top: 0.5rem;
@@ -82,7 +83,7 @@
 
 @media screen and (max-width: 37em) {
     .sticky-title {
-        h1 {
+        .scroll-header {
             font-size: min(5vw, 8vh);
         }
     }
