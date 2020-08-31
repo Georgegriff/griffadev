@@ -17,6 +17,7 @@ main {
 
 .site-header {
   z-index: 50;
+  height: 3rem;
   padding:1rem 5rem;
   background: var(--Background);
   height: $header;
@@ -31,11 +32,17 @@ main {
     align-items: center;
   }
 }
+.content {
+  padding: 0 5rem;
+}
 
 /* todo figure out re-using */
 @media screen and (max-width: 45em) {
+  .content {
+    padding: 0 2rem;
+  }
   main {
-    padding-bottom: $header;
+    padding-bottom: $header + 1rem;
 
   }
   .site-header {

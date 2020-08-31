@@ -1,3 +1,12 @@
-<aside class="griff-actionbar">
-Stuff
-</aside>
+<nav class="actionbar">
+    <ul class="actions">
+        {%- for entry in collections.all | eleventyNavigation %}
+        <li class="action{% if entry.url == page.url %} action-active{% endif %}"><a href="{{ entry.url | url }}">
+            {% include entry.image %}
+            <span>{{ entry.title }}</span>
+        </a></li>
+        {%- endfor %}
+        <li><a href="#" class="action">{% include "img/github.svg"%}<span>Github</span></a></li>
+        <li><a href="#" class="action">{% include "img/twitter.svg"%}<span>Twitter</span></a></li>
+    </ul>
+</nav>

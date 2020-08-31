@@ -37,17 +37,12 @@
   }
 }
 
-.post-tiles  {
-}
-
 .hero h1 {
   transform: translate(0);
   transition: transform 0.3s ease-in-out;
 }
 
 .main-content[observable="hidden"] {
-    .post-tiles  {
-    }
   .sticky-title {
     transition-delay: 0ms;
     transform: translateY(0);
