@@ -1,6 +1,6 @@
 @import "../variables";
 
-.griff-actionbar {
+.actionbar {
   position: fixed;
   top:0;
   bottom: 0;
@@ -11,15 +11,92 @@
   display: flex;
   background: var(--Secondary);
   color: var(--Text50);
-  justify-content: center;
   z-index: 2;
+
+  .actions {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    li {
+      display: inline-flex;
+    }
+
+    .action-active {
+      a {
+        color: var(--Primary);
+      }
+      svg {
+        fill: var(--Primary);
+      }
+    }
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: $action-bar;
+      height: $action-bar;
+      margin-bottom: 1rem;
+      font-size:1rem;
+      position: relative;
+
+      &:after {
+        content: "";
+        width: 75%;
+        height: 0.15rem;
+        background: var(--Primary);
+        opacity: 0;
+        transition: opacity 250ms linear;
+        position: absolute;
+        bottom: 2px;
+      }
+
+      svg {
+        width: 1.60rem;
+        height: 1.60rem;
+
+        fill: var(--Text);
+
+      }
+
+      span {
+        margin-top:0.5rem;
+      }
+
+      &:hover, &:focus {
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 45em) {
-    .griff-actionbar {
+    .action-hide {
+      transform: translateY(10rem);
+    }
+    .actionbar {
+        transition: transform 250ms linear;
+        transition-delay: 250ms;
         position: fixed;
         top: auto;
         height: $action-bar;
         width: 100%;
+
+        .actions {
+          display: flex;
+          justify-content: space-evenly;
+          flex:1;
+          flex-direction: row;
+          margin:0;
+
+          a {
+            justify-content: center;
+            &:after {
+              width: 85%;
+            }
+          }
+        }
     }
 }

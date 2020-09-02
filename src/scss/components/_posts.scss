@@ -1,8 +1,8 @@
-$card-padding: 1.5rem;
+$card-padding: 1rem;
+
 .post-tiles {
   display: flex;
   flex-direction: column;
-  padding: 0 5rem;
   .tiles {
     display: grid;
     max-width: 100%;
@@ -15,7 +15,6 @@ $card-padding: 1.5rem;
 /* todo figure out re-using */
 @media screen and (max-width: 45em) {
   .post-tiles {
-    padding: 0 2rem;
     .tiles {
       grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     }

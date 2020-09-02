@@ -33,7 +33,7 @@
     </head>
     <body>
         <input aria-label="Switch theme colors" type="checkbox" id="theme" name="theme" class="visually-hidden">
-        <div class="wrapper page-layout transition">
+        <div class="wrapper page-layout">
             {% include "partials/actionbar.html" %}
             <main id="main-content">
                 <intersect-detect class="main-content">
@@ -42,6 +42,7 @@
                 </intersect-detect>
             </main>
         </div>
+        <div class="filler"></div>
         <!-- TODO  split  js into pages -->
         <script src="{{ assets.getPath("index.js")}}" type="module"></script>
     </body>
