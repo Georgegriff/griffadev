@@ -8,14 +8,23 @@ module.exports = {
             }
             return modulePath;
         } else {
-            return `src/assets/${assetName}`;
+            return `/src/assets/${assetName}`;
         }
     },
     getHero: (post, hero) => {
         if(!hero || !hero.image) {
-            return `images/logo.svg`;
+            // choose a random  image from pool of images
+
+            // keep a cache of previous used image if not the same, allow it
+            return `images/default-hero.svg`;
         }
         const dir = post.template.fileSlug.dirs.join("/");
-        return `${dir}/${hero.image}`;
+        return `/${dir}/${hero.image}`;
+    },
+    getPostHero: (post, hero) => {
+        if(!hero || !hero.image) {
+            return `/images/hero.svg`;
+        }
+        return `${post.filePathStem.replace(post.fileSlug, '')}${hero.image}`;
     }
 }

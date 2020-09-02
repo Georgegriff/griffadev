@@ -8,10 +8,10 @@
 
 .sticky-title {
 
-  --header-height: 4rem; 
   position: sticky;
   top: $header;
 
+  z-index: 10000;
   background: var(--Background);
   .scroll-header {
     pointer-events: none;;
@@ -32,8 +32,7 @@
         position: relative;
     }
   }
-  h3 {
-    font-size: 1rem;
+  h2 {
     background: var(--Background);
   }
 }
@@ -43,12 +42,11 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.main-content[observable="hidden"] {
+
   .sticky-title {
     transition-delay: 0ms;
-    transform: translateY(0);
+    transform: translate(0, 0);
     margin-top: 4px;
-    z-index: 1;
     padding-bottom: 2rem;
     .scroll-header {
         z-index: -1;
@@ -56,15 +54,14 @@
         transform: translateY(0);
        }
     }
-    h3 {
+    h2 {
       width: 100%;
       z-index: 5;
       background: var(--Background);
       margin-bottom:0;
-      transform: translateY(2px);
+      transform: translate(0, 2px);
       &:after {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-        margin-top: 0.5rem;
       }
     }
   }
@@ -75,7 +72,6 @@
     transform: translateY(4rem);
     opacity: 0;
   }
-}
 
 @media screen and (max-width: 37em) {
     .sticky-title {

@@ -1,91 +1,137 @@
 @import "../colors";
 
 .hero-wrap {
-    background-color: var(--Background);
-    width: 100%;
-    padding: 0 5rem;
+  background-color: var(--Background);
+  width: 100%;
+  padding: 0 5rem;
 }
 .hero {
-    --HeroBorders: #{$dark-secondary};
-    --HeroBackground: var(--Background50);
-    --HeroBricks: var(--Background);
-    --HeroShirt: var(--Primary);
-    --HeroShirt50: var(--Primary50);
-    --HeroAccents: var(--Text);
-    --HeroWhite: #{$dark-text};
-    --HeroTriangle: var(--Highlight);
-    
-    display: flex;
-    max-width:80vh;
-    height: auto;
-    position: relative;
-    align-items: center;
-    margin-bottom: 2rem;
-    svg {
-        min-width: 65%;
-        height: 120%;
-    }
+  --HeroBorders: #{$dark-secondary};
+  --HeroBackground: var(--Background50);
+  --HeroBricks: var(--Background);
+  --HeroShirt: var(--Primary);
+  --HeroShirt50: var(--Primary50);
+  --HeroAccents: var(--Text);
+  --HeroWhite: #{$dark-text};
+  --HeroTriangle: var(--Highlight);
 
-    h1 {
-        width: auto;
-        display: inline-block;
-        flex:1;
-        font-size: min(4vw, 7vh);
-        line-height: 4.5vw;
-        height: 100%;
-    }
+  display: flex;
+  max-width: 80vh;
+  height: auto;
+  position: relative;
+  align-items: center;
+  margin-bottom: 2rem;
+  svg {
+    min-width: 65%;
+    height: 120%;
+  }
 }
 
- /* todo figure out re-using */
- @media screen and (max-width: 80em) {
-    .hero {
-        svg {
-            width: 100%;
-            min-width: 50%;
-        }
-    }
- }
-
- /* todo figure out re-using */
- @media screen and (max-width: 45em) {
-    .hero {
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top:0;
+/* todo figure out re-using */
+@media screen and (max-width: 80em) {
+  .hero {
+    svg {
       width: 100%;
-      svg {
-          order: 1;
-          width: 100%;
-          height: auto;
-          grid-row: auto;
-          min-width: 50%;
-      }
-  
+      min-width: 50%;
     }
-  
   }
+}
 
-  /* todo figure out re-using */
+/* todo figure out re-using */
 @media screen and (max-width: 45em) {
-
-    .header-wrap {
-        flex:1;
-    }
-    .hero-wrap {
-        padding: 0 2rem;
-    }
-
-    .hero {
-        flex-wrap: nowrap;
-        margin-bottom: 1rem;
-
-        svg {
-            flex:3;
-        }
-
-        h1 {
-            font-size: min(5vw, 8vh);
-            line-height: 6.5vw;
-        }
+  .hero {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0;
+    width: 100%;
+    svg {
+      order: 1;
+      width: 100%;
+      height: auto;
+      grid-row: auto;
+      min-width: 50%;
     }
   }
+}
+
+/* post heros */
+.post-hero {
+  width: 100%;
+  margin-top: 1rem;
+  .img-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 20%;
+    .overlay {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+      z-index: 1;
+      background: linear-gradient(90deg, $dark-primary 0%, $dark-secondary 100%);
+      opacity: 0.2;
+    }
+    .hero-img {
+      -o-object-fit: cover;
+      object-fit: cover;
+      object-position: 100% 0%;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+      background: var(--Primary50);
+    }
+  }
+}
+
+@media screen and (max-width: 90em) {
+  .post-hero {
+  
+    .img-wrapper {
+      padding-top:33%;
+    }
+  }
+}
+
+@media screen and (max-width: 75em) {
+  .post-hero {
+  
+    .img-wrapper {
+      padding-top:42%;
+    }
+  }
+}
+
+/* todo figure out re-using */
+@media screen and (max-width: 45em) {
+  .header-wrap {
+    flex: 1;
+  }
+  .hero-wrap {
+    padding: 0 2rem;
+  }
+
+  .hero {
+    flex-wrap: nowrap;
+    margin-bottom: 1rem;
+
+    svg {
+      flex: 3;
+    }
+  }
+
+  .post-hero {
+    .img-wrapper {
+      padding-top:42%;
+    }
+    .hero-title {
+      margin: 0 2rem;
+    }
+  }
+}

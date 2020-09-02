@@ -6,9 +6,23 @@ const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 
-module.exports = (config) => {
+module.exports = (eleventyConfig) => {
+
+
+    /* Markdown Overrides */
+    let markdownLibrary = markdownIt({
+      html: true,
+      breaks: true,
+      linkify: true
+    }).use(markdownItAnchor, {
+      permalink: true,
+      permalinkClass: "direct-link",
+      permalinkSymbol: "<copy-link></copy-link>"
+    });
+    eleventyConfig.setLibrary("md", markdownLibrary);
+  
   // Browsersync Overrides
-  config.setBrowserSyncConfig({
+  eleventyConfig.setBrowserSyncConfig({
     callbacks: {
       ready: function (err, browserSync) {
         const content_404 = fs.readFileSync("dist/404.html");
@@ -24,32 +38,32 @@ module.exports = (config) => {
     ghostMode: false,
     open: true,
   });
-  config.addPassthroughCopy("src/images");
-  config.addPassthroughCopy("src/**/img/*.*");
+  eleventyConfig.addPassthroughCopy("src/images");
+  eleventyConfig.addPassthroughCopy("src/**/img/*.*");
 
-  config.setUseGitIgnore(false);
+  eleventyConfig.setUseGitIgnore(false);
 
-  config.addPlugin(pluginRss);
-  config.addPlugin(pluginSyntaxHighlight);
-  config.addPlugin(pluginNavigation);
+  eleventyConfig.addPlugin(pluginRss);
+  eleventyConfig.addPlugin(pluginSyntaxHighlight);
+  eleventyConfig.addPlugin(pluginNavigation);
 
-  config.setDataDeepMerge(true);
+  eleventyConfig.setDataDeepMerge(true);
 
-  config.setLiquidOptions({
+  eleventyConfig.setLiquidOptions({
     dynamicPartials: true
   });
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-  config.addFilter("htmlDateString", (dateObj) => {
+  eleventyConfig.addFilter("htmlDateString", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
   });
 
-  config.addFilter("readableDate", dateObj => {
+  eleventyConfig.addFilter("readableDate", dateObj => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
   });
 
   // Get the first `n` elements of a collection.
-  config.addFilter("head", (array, n) => {
+  eleventyConfig.addFilter("head", (array, n) => {
     if (n < 0) {
       return array.slice(n);
     }
@@ -57,7 +71,7 @@ module.exports = (config) => {
     return array.slice(0, n);
   });
 
-  config.addCollection("tagList", function (collection) {
+  eleventyConfig.addCollection("tagList", function (collection) {
     let tagSet = new Set();
     collection.getAll().forEach(function (item) {
       if ("tags" in item.data) {

@@ -1,12 +1,15 @@
 {% set hero = post.data.hero %}
 
 <a href="{{ post.url }}" class="post-img-link">
-    <div role="img" aria-label="{{hero and hero.alt or "Default blog image"}}" class="post-img" style="background-image:url('{{ assets.getHero(post, hero)}}');"></div>
+    <div role="img" class="post-img">
+        <div aria-hidden="true" class="overlay"></div>
+        <img width=400 height=200 alt="{{hero and hero.alt or "Default blog image"}}" src="{{ assets.getHero(post, hero)}}">
+    </div>
 </a>
 
 <div class="post-content">
     <a href="{{ post.url }}" class="post-title-link">
-        <h2 class="post-title">{{ post.data.title }}</h2>
+        <h3 class="post-title">{{ post.data.title }}</h3>
     </a>
     <div class="post-tags">
         {% for tag in post.data.tags %}

@@ -1,0 +1,36 @@
+@import 'variables';
+$title-height: 4rem;
+.post {
+    > section {
+        z-index: 1;
+    }
+    .post-title {
+        margin: 1rem 0;
+        position: sticky;
+        top: $header;
+        z-index: 2;
+        background: var(--Background);
+        h1 {
+            position: relative;
+            display: inline-flex;
+        }
+    }
+}
+
+.main-content[observable="hidden"] {
+    .post-title {
+       h1 {
+        width: 100%;
+        &:after {
+            content: "...";
+            position: absolute;
+            right:1rem;
+            top:0;
+        }
+       }
+    }
+    .sticky-title {
+        padding-top:1rem;
+        top: $header + $title-height;
+    }
+}
