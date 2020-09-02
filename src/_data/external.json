@@ -1,0 +1,14 @@
+{
+    "links": [
+        {
+            "text":"Github",
+            "url":"https://github.com/Georgegriff",
+            "icon": "img/github.svg"
+        },
+        {
+            "text":"Twitter",
+            "url":"https://twitter.com/griffadev",
+            "icon": "img/twitter.svg"
+        }
+    ]
+}

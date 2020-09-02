@@ -4,11 +4,12 @@
     .post-title-link {
         display: inline-flex;
         flex: 2;
-        min-height: 10rem;
+        min-height: 7rem;
        h2 {
         position: relative;
-        padding-bottom:0.5rem;
+        padding-bottom:1rem;
         width: 100%;
+        font-size: 1.3rem;
         &:before {
           content: "";
           position: absolute;
@@ -49,6 +50,24 @@
       position: relative;
       margin-bottom: 0.5rem;
       margin-right: 1rem;
+
+      &:after {
+        content: "";
+        width: 100%;
+        height: 0.15rem;
+        background: var(--Primary);
+        opacity: 0;
+        transition: opacity 250ms linear;
+        position: absolute;
+        bottom: -2px;
+        left:0;
+      }
+
+      &:hover, &:focus {
+        &:after {
+          opacity: 1;
+        }
+      }
     }
 
     .post-date {

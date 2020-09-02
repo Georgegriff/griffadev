@@ -22,8 +22,11 @@
     }
 
     .action-active {
-      a:after {
-        opacity: 1;
+      a {
+        color: var(--Primary);
+      }
+      svg {
+        fill: var(--Primary);
       }
     }
     a {
@@ -33,14 +36,14 @@
       justify-content: center;
       width: $action-bar;
       height: $action-bar;
-      margin-bottom: 3rem;
-      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      font-size:1rem;
       position: relative;
 
       &:after {
         content: "";
         width: 75%;
-        height: 0.1rem;
+        height: 0.15rem;
         background: var(--Primary);
         opacity: 0;
         transition: opacity 250ms linear;
@@ -49,13 +52,11 @@
       }
 
       svg {
-        width: 2rem;
-        margin-top:0.25rem;
-        height: 2rem;
+        width: 1.60rem;
+        height: 1.60rem;
 
-        path {
-          fill: var(--Text);
-        }
+        fill: var(--Text);
+
       }
 
       span {
@@ -76,7 +77,8 @@
       transform: translateY(10rem);
     }
     .actionbar {
-        transition: transform 300ms linear;
+        transition: transform 250ms linear;
+        transition-delay: 250ms;
         position: fixed;
         top: auto;
         height: $action-bar;
@@ -91,11 +93,8 @@
 
           a {
             justify-content: center;
-            font-size: 1rem;
-
-            svg {
-              width: 1.65rem;
-              height: 1.65rem;
+            &:after {
+              width: 85%;
             }
           }
         }

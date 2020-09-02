@@ -4,6 +4,8 @@ export class IntersectDetect extends LitElement {
   static get styles() {
     return css`
       :host {
+      transition: all 300ms !important;
+      transition-delay: 0ms !important;
         display: block;
         height: 100%;
       }

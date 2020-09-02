@@ -3,7 +3,7 @@
 .hero-wrap {
     background-color: var(--Background);
     width: 100%;
-    padding: 0 5rem 2rem 5rem;
+    padding: 0 5rem;
 }
 .hero {
     --HeroBorders: #{$dark-secondary};
@@ -16,7 +16,7 @@
     --HeroTriangle: var(--Highlight);
     
     display: flex;
-    max-width:100vh;
+    max-width:80vh;
     height: auto;
     position: relative;
     align-items: center;
@@ -27,12 +27,11 @@
     }
 
     h1 {
-        opacity: 1;
         width: auto;
         display: inline-block;
         flex:1;
-        font-size: min(5vw, 8vh);
-        line-height: 5.5vw;
+        font-size: min(4vw, 7vh);
+        line-height: 4.5vw;
         height: 100%;
     }
 }
@@ -85,6 +84,8 @@
         }
 
         h1 {
+            font-size: min(5vw, 8vh);
+            line-height: 6.5vw;
         }
     }
   }

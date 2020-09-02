@@ -1,5 +1,8 @@
 @import 'variables';
 
+body {
+  margin-bottom: 2rem;
+}
 .wrapper {
   display: flex;
   height: 100%;
@@ -11,18 +14,17 @@ main {
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding-bottom: $action-bar;
   margin-left: $action-bar;
 }
 
 .site-header {
   z-index: 50;
   height: 3rem;
-  padding:1rem 5rem;
+  padding:2rem 5rem;
   background: var(--Background);
   height: $header;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   position: sticky;
   top:0;
@@ -38,15 +40,14 @@ main {
 
 /* todo figure out re-using */
 @media screen and (max-width: 45em) {
+  body {
+    margin-bottom: $action-bar + 2rem;
+  }
   .content {
     padding: 0 2rem;
   }
-  main {
-    padding-bottom: $header + 1rem;
-
-  }
   .site-header {
-    padding: 0 2rem;
+    padding: 2rem;
   }
   .page-layout {
     flex-direction: column-reverse;

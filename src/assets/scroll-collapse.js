@@ -8,24 +8,16 @@ window.addEventListener(
   "scroll",
   function () {
     const box = document.body.getBoundingClientRect();
-    hideTimer = setInterval(() => {
-        document
-        .querySelector(".actionbar")
-        .classList.add("action-hide"); 
-    }, 8000);
     // at bottom
     if((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-            clearInterval(hideTimer);
             document
             .querySelector(".actionbar")
             .classList.remove("action-hide");
     } else if(window.scrollY === 0) {
-        clearInterval(hideTimer);
         document
         .querySelector(".actionbar")
         .classList.remove("action-hide");
-    } else if (document.body.getBoundingClientRect().top > scrollPos) {
-      clearInterval(hideTimer);
+    } else if (box.top > scrollPos) {
       setTimeout(() => {
           // if still scrolling up now show
           if(document.body.getBoundingClientRect().top >= scrollPos) {
@@ -33,14 +25,12 @@ window.addEventListener(
             .querySelector(".actionbar")
             .classList.remove("action-hide");
           }
-      }, 800)
+      }, 400)
      
     } else {
-    setTimeout(() => {
-      document
-        .querySelector(".actionbar")
-        .classList.add("action-hide");
-    }, 300)
+          document
+            .querySelector(".actionbar")
+            .classList.add("action-hide");
     }
     // saves the new position for iteration.
     scrollPos = document.body.getBoundingClientRect().top;

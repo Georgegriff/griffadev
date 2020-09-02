@@ -16,7 +16,6 @@ html, body {
     font-family: "Nunito", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     display: flex;
     flex-direction: column;
-    background: var(--Background);
 }
 
 /* disable overscrolling for non-touch devices */
@@ -26,6 +25,13 @@ html, body {
     }
 }
 
+.filler {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: var(--Background);
+    z-index: -1000;
+}
 
 .wrapper {
     display: flex;
@@ -35,7 +41,7 @@ html, body {
     background: var(--Background);
 }
 
-#theme:checked + .wrapper {
+#theme:checked + .wrapper, #theme:checked + .wrapper + .filler {
     --Background: #{$light-bg};
     --Background50: #{$light-bg-50};
     --Secondary: #{$light-secondary};

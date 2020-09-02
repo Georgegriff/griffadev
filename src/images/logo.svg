@@ -9,5 +9,6 @@
     <text transform="matrix(1, -0.017, 0.017, 1, 245.297, 58.295)" fill="var(--Text, var(--Text, #fff))" font-size="25" font-family="Nunito-ExtraBoldItalic, Nunito" font-weight="800" font-style="italic">
         <tspan x="0" y="0">DEV</tspan>
     </text>
-    <path d="M851.252,650.13s-12.467,22.189-24.426,23.885,279.857-42.995,279.857-42.995l-52.062-27.164h-17.948l51.079,24.659Z" transform="translate(-730.396 -566.807)" fill="var(--Primary, #fff)" />
+    <path d="M851.252,650.13s-12.467,22.189-24.426,23.885,279.857-42.995,279.857-42.995l-52.062-27.164h-17.948l51.079,24.659Z" transform="translate(-730.396 -566.807)" fill="var(--Text
+    , #fff)" />
 </svg>
