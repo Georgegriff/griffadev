@@ -5,13 +5,13 @@
       <h2>Recent Activity</h2>
     </div>
 
-    <ol class="tiles">
+    <ul class="tiles">
         {% for item in postslist %}
           {% set post = item %}
         <li class="post-card">
           {% include "./post-card.html" %}
         </li>
         {% endfor %}
-    </ol>
+    </ul>
 
 </article>
