@@ -1,10 +1,13 @@
 @import "../variables";
 
+$h1-size:min(4vw, 7vh);
+$h1-size-mob:min(6vw, 8vh);
+
 h1 {
   width: auto;
   display: inline-block;
   flex:1;
-  font-size: min(4vw, 7vh);
+  font-size: $h1-size;
   line-height: 4.5vw;
   height: 100%;
 }
@@ -22,17 +25,37 @@ h2 {
     position: absolute;
     display: block;
     height: 0.2rem;
+    transform: translateZ(0);
+    will-change: transform;
     clip-path: polygon(0 0,50vw 0, 50vw 100%, 0 100%);
     margin-top: 0.2rem;
     background: var(--Primary);
-    transition: clip-path 0.2s ease-in-out;
+    transition-delay: 0ms;
+    transition: clip-path 0.3s linear;
     
   }
 }
 
+.sticky-title {
+
+  position: sticky;
+  top: $header;
+  margin-left:-3px;
+  z-index: 10000;
+  background: var(--Background);
+
+  h2 {
+    background: var(--Background);
+    padding-bottom: 1rem;
+  }
+}
+
+
+
+
 @media screen and (max-width: 45em) {
   h1 {
-    font-size: min(6vw, 8vh);
+    font-size: $h1-size-mob;
     line-height: 6.5vw;
   }
 
@@ -45,3 +68,31 @@ h2 {
   }
 }
 
+
+h1 {
+  transform: translate(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.main-content[observable="hidden"] {
+  .sticky-title {
+    transform: translate(0, 0);
+
+    h2 {
+      width: 100%;
+      z-index: 5;
+      background: var(--Background);
+      margin-bottom: 0;
+      transform: translate(0, 2px);
+      &:after {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+  }
+
+  h1 {
+    transform: translateY(4rem);
+    opacity: 0;
+  }
+}

@@ -6,14 +6,16 @@ $title-height: 4rem;
     }
     .post-title {
         margin: 1rem 0;
-        position: sticky;
-        top: $header;
-        z-index: 2;
         background: var(--Background);
         h1 {
             position: relative;
             display: inline-flex;
         }
+    }
+
+    .post-content {
+        background: var(--Background);
+        z-index: 10;
     }
 }
 
@@ -28,9 +30,5 @@ $title-height: 4rem;
             top:0;
         }
        }
-    }
-    .sticky-title {
-        padding-top:1rem;
-        top: $header + $title-height;
     }
 }
