@@ -16,15 +16,15 @@ module.exports = {
             // choose a random  image from pool of images
 
             // keep a cache of previous used image if not the same, allow it
-            return `images/default-hero.svg`;
+            return `/images/default-hero.svg`;
         }
         const dir = post.template.fileSlug.dirs.join("/");
-        return `/${dir}/${hero.image}`;
+        return `${hero.image}`;
     },
     getPostHero: (post, hero) => {
         if(!hero || !hero.image) {
             return `/images/hero.svg`;
         }
-        return `${post.filePathStem.replace(post.fileSlug, '')}${hero.image}`;
+        return `${hero.image}`;
     }
 }

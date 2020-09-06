@@ -1,25 +1,24 @@
 {% set hero = post.data.hero %}
-
-<a href="{{ post.url }}" class="post-img-link">
-    <div role="img" class="post-img">
-        <div aria-hidden="true" class="overlay"></div>
-        <img width=400 height=200 alt="{{hero and hero.alt or "Default blog image"}}" src="{{ assets.getHero(post, hero)}}">
+<a href="{{ post.url }}">
+    <div class="post-img-link">
+        <div role="img" class="post-img">
+            <div aria-hidden="true" class="overlay"></div>
+            <img width=400 height=200 alt="{{hero and hero.alt or "Default blog image"}}"
+                src="{{ assets.getHero(post, hero)}}" />
+        </div>
     </div>
 </a>
-
 <div class="post-content">
-    <a href="{{ post.url }}" class="post-title-link">
-        <span class="post-title post-heading">{{ post.data.title }}</span>
+    <a href="{{ post.url }}">
+        <div class="post-title-link">
+            <span class="post-title post-heading">{{ post.data.title }}</span>
+        </div>
     </a>
-    <div class="post-tags">
-        {% for tag in post.data.tags %}
-        {%- if collections.tagList.indexOf(tag) != -1 -%}
-            {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
-            <a href="{{ tagUrl | url }}" class="post-tag">#{{ tag | title | replace(' ', '') }}</a>
-        {%- endif -%}
-    {% endfor %}
-    </div>
-    <div class="post-bottom">
-        <time class="post-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
-    </div>
+    {% set tags = post.data.tags %}
+    {% include "partials/post-tags.html" %}
+    <a href="{{ post.url }}">
+        <div class="post-bottom">
+            <time class="post-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+        </div>
+    </a>
 </div>

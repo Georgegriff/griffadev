@@ -1,11 +1,9 @@
 {% set pageCriticalStyles = ['css/index.css'] %}
-{% set postslist = collections.posts | reverse | head(-10) %}
 
 {% extends "layouts/base.njk" %}
 
+{% set postslist = collections[ tag ] %}
+
 {% block content %}
-   <div slot="observable" class="collapse">
-      {% include  "partials/hero.html"%}
-   </div>
    {% include  "partials/posts.html"%}
 {% endblock %}
