@@ -16,6 +16,20 @@ $title-height: 4rem;
     .post-content {
         background: var(--Background);
         z-index: 10;
+
+        figure {
+            margin:0.5rem 0;
+            img {
+            }
+            figcaption {
+                background: var(--Secondary);
+                font-size: 0.875rem;
+                margin-top:0.5rem;
+                padding:0.3rem;
+                text-align:center;
+                width:100%;
+            }
+        }
     }
 }
 

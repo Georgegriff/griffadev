@@ -1,0 +1,16 @@
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+<div slot="before">
+    {% include "partials/post-hero.html" %}
+</div>
+
+<article class="post content">
+    <div slot="observable" class="post-title">
+        <h1>{{ title }}</h1>
+    </div>
+    <section class="post-content">
+        {{ content | safe }}
+    </section>
+</article>
+{% endblock %}

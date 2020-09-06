@@ -19,6 +19,19 @@ module.exports = (eleventyConfig) => {
       permalinkClass: "direct-link",
       permalinkSymbol: "<copy-link></copy-link>"
     });
+
+    markdownLibrary.renderer.rules.image = (tokens) => {
+      const token = tokens[0];
+      const attrs = token.attrs.reduce((attrs, [key, value])=> {
+        attrs[key] = value;
+        return attrs;
+      }, {})
+      return String.raw`<figure>
+        <img src="${attrs.src}" alt="${attrs.alt || token.content}">
+        <figcaption>${attrs.alt|| attrs.title || token.content}</figcaption>
+      </figure>`
+    }
+
     eleventyConfig.setLibrary("md", markdownLibrary);
   
   // Browsersync Overrides
@@ -39,7 +52,7 @@ module.exports = (eleventyConfig) => {
     open: true,
   });
   eleventyConfig.addPassthroughCopy("src/images");
-  eleventyConfig.addPassthroughCopy("src/**/img/*.*");
+  eleventyConfig.addPassthroughCopy({"src/posts/**/images/*.png": "images"});
 
   eleventyConfig.setUseGitIgnore(false);
 
