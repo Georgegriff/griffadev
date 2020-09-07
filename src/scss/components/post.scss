@@ -1,5 +1,10 @@
 @import 'variables';
 $title-height: 4rem;
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
 .post {
     > section {
         z-index: 1;
@@ -13,16 +18,17 @@ $title-height: 4rem;
         }
     }
 
-    .content {
-        padding-top:0.5rem;
-    }
-
     > p {
         margin-bottom: 1rem;
     }
 
     h3 {
         margin:0.5rem 0;
+    }
+
+    .post-date {
+        align-self: flex-end;
+        font-size: 0.875rem;
     }
     .post-content {
         background: var(--Background);

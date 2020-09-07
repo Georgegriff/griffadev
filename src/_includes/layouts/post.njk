@@ -11,8 +11,8 @@
     </div>
     {% set tags =  post.tags %}
     {% set date =  post.date %}
-    {% include "partials/post-tags.html" %}
     <time class="post-date" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+    {% include "partials/post-tags.html" %}
     <blockquote>{{tagline}}</blockquote>
     <section class="post-content">
         {{ content | safe }}
