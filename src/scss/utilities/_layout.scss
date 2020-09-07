@@ -36,6 +36,9 @@ main {
 }
 .content {
   padding: 0 5rem;
+  > section {
+    padding-left:1px;
+  }
 }
 
 /* todo figure out re-using */
@@ -56,5 +59,18 @@ main {
   main {
     margin:0;
     flex: 1 !important;
+  }
+}
+
+.direct-link {
+  display: inline-block;
+  copy-link {
+    background-color: var(--Text);
+    mask: url(/images/link.svg) no-repeat center / contain;
+    -webkit-mask: url(/images/link.svg) no-repeat center / contain;
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    margin-left:0.3rem;
   }
 }

@@ -1,21 +1,113 @@
 @import "../variables";
 
+$h1-size:min(4vw, 7vh);
+$h1-size-mob:min(6vw, 8vh);
 
-h3 {
+h1 {
+  width: auto;
+  display: inline-block;
+  flex:1;
+  font-size: $h1-size;
+  line-height: 4.5vw;
+  height: 100%;
+}
+
+h2 {
   min-width: 11rem;
   position: relative;
-  margin-bottom: 2rem;
+  display: block;
+  padding-left:0.1rem;
   z-index: 10;
+
+}
+
+.sticky-title {
+  position: sticky;
+  top: $header;
+  margin-left:-3px;
+  background: var(--Background);
+  z-index: 3;
+  padding-bottom: 1rem;
+
   &:after {
     width: 100%;
     content: "";
     position: absolute;
     display: block;
     height: 0.2rem;
-    clip-path: polygon(0 0,135px 0, 135px 100%, 0 100%);
+    transform: translateZ(0);
+    will-change: transform;
+    clip-path: polygon(0 0,40vw 0, 40vw 100%, 0 100%);
     margin-top: 0.2rem;
     background: var(--Primary);
-    transition: clip-path 0.2s ease-in-out;
+    transition-delay: 0ms;
+    transition: clip-path 0.3s linear;
     
+  }
+
+  h2 {
+    background: var(--Background);
+    position: relative;
+    display: flex;
+
+
+    .call-to-action {
+      position: absolute;
+      background: var(--Primary);
+      color: var(--Background);
+      right:0;
+      font-size: 1rem;
+      padding:0.25rem 1.5rem;
+      border-radius: 0.25rem;
+      margin-top:0.5rem;
+      transition: transform 150ms ease-out;
+      &:focus, &:hover {
+        transform: scale(0.98) translateY(0.1rem);
+      }
+    }
+  }
+}
+
+
+
+
+@media screen and (max-width: 45em) {
+  h1 {
+    font-size: $h1-size-mob;
+    line-height: 6.5vw;
+  }
+
+  .post-heading {
+    font-size: 1.4rem;
+  }
+
+  .post-heading {
+    font-size: 1.1rem;
+  }
+}
+
+
+h1 {
+  transform: translate(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.main-content[observable="hidden"] {
+  .sticky-title {
+    transform: translate(0, 0);
+    &:after {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    h2 {
+      width: 100%;
+      margin-bottom: 0;
+      transform: translate(0, 2px);
+    }
+  }
+
+  h1 {
+    transform: translateY(4rem);
+    opacity: 0;
   }
 }

@@ -4,8 +4,6 @@ export class IntersectDetect extends LitElement {
   static get styles() {
     return css`
       :host {
-      transition: all 300ms !important;
-      transition-delay: 0ms !important;
         display: block;
         height: 100%;
       }
@@ -36,8 +34,7 @@ export class IntersectDetect extends LitElement {
 
   firstUpdated() {
     let thresholds = this.thresholds || [0, 1];
-    let root = this.root || this;
-
+    let root = this.rootElement || null;
     // todo re-use
     var observer = new IntersectionObserver(
        (entries) => {
@@ -61,7 +58,7 @@ export class IntersectDetect extends LitElement {
   static get properties() {
     return {
       thresholds: String,
-      root: HTMLElement
+      rootElement: HTMLElement
     };
   }
 

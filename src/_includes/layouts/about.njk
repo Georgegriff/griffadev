@@ -9,8 +9,6 @@
     <div slot="observable" class="post-title">
         <h1>{{ title }}</h1>
     </div>
-    {% set tags =  post.tags %}
-    {% include "partials/post-tags.html" %}
     <section class="post-content">
         {{ content | safe }}
     </section>

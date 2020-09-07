@@ -70,3 +70,7 @@ a {
 @import "./components/toggle";
 @import "./components/custom-element-fallbacks";
 @import "./components/collapse";
+@import "./components/post-tags";
+
+/* todo move  to post.scss*/
+@import "./components/post";

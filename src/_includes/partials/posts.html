@@ -1,18 +1,20 @@
-{% set postslist = collections.posts | reverse | head(-20) %}
-
 <article class="content post-tiles">
     <div class="sticky-title">
-      <h3>Recent Activity</h3>
-      <h2 class="scroll-header"><span>{{title}}</span></h2>
+      <h2>
+      <span>{{subtitle}}</span>
+      {% if callToAction %}
+        <a class="call-to-action" href="{{callToAction.href}}">{{callToAction.text}}</a>
+      {% endif %}
+      </h2>
     </div>
 
-    <ol class="tiles">
+    <ul class="tiles">
         {% for item in postslist %}
           {% set post = item %}
         <li class="post-card">
           {% include "./post-card.html" %}
         </li>
         {% endfor %}
-    </ol>
+    </ul>
 
 </article>

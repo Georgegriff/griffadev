@@ -1,0 +1,48 @@
+@import 'variables';
+$title-height: 4rem;
+.post {
+    > section {
+        z-index: 1;
+    }
+    .post-title {
+        margin: 1rem 0;
+        background: var(--Background);
+        h1 {
+            position: relative;
+            display: inline-flex;
+        }
+    }
+
+    .post-content {
+        background: var(--Background);
+        z-index: 10;
+
+        figure {
+            margin:0.5rem 0;
+            img {
+            }
+            figcaption {
+                background: var(--Secondary);
+                font-size: 0.875rem;
+                margin-top:0.5rem;
+                padding:0.3rem;
+                text-align:center;
+                width:100%;
+            }
+        }
+    }
+}
+
+.main-content[observable="hidden"] {
+    .post-title {
+       h1 {
+        width: 100%;
+        &:after {
+            content: "...";
+            position: absolute;
+            right:1rem;
+            top:0;
+        }
+       }
+    }
+}

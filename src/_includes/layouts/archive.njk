@@ -1,0 +1,10 @@
+{% set pageCriticalStyles = ['css/index.css'] %}
+
+{% extends "layouts/base.njk" %}
+
+{% set postslist = collections.posts %}
+
+{% block content %}
+   {% include  "partials/posts.html"%}
+{% endblock %}
+
