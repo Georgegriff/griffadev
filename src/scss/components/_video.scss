@@ -1,0 +1,45 @@
+
+.video-size {
+    max-width: 600px;
+    margin: 0 auto;
+    padding:1rem;
+    position: relative;
+    .lty-playbtn {
+        display: none;
+    }
+    
+    a.no-js {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 250ms linear;
+        &:hover {
+            opacity: 0.5;
+        }
+        svg {
+            width: 4rem;
+            height: 4rem;
+        }
+    }
+
+    lite-youtube {
+        background-size: cover;
+        background-position: center;
+    }
+    .video-wrapper {
+        position: relative;
+        padding-top: 56.25%; /* 16:9, for an aspect ratio of 1:1 change to this value to 100% */
+      
+      }
+      .video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      
+}

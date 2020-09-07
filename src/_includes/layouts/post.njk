@@ -10,7 +10,10 @@
         <h1>{{ title }}</h1>
     </div>
     {% set tags =  post.tags %}
+    {% set date =  post.date %}
     {% include "partials/post-tags.html" %}
+    <time class="post-date" datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+    <blockquote>{{tagline}}</blockquote>
     <section class="post-content">
         {{ content | safe }}
     </section>

@@ -5,9 +5,9 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
+const markdownitmisize = require("markdown-it-imsize");
 
 module.exports = (eleventyConfig) => {
-
 
     /* Markdown Overrides */
     let markdownLibrary = markdownIt({
@@ -18,7 +18,7 @@ module.exports = (eleventyConfig) => {
       permalink: true,
       permalinkClass: "direct-link",
       permalinkSymbol: "<copy-link></copy-link>"
-    });
+    }).use(markdownitmisize)
 
     markdownLibrary.renderer.rules.image = (tokens) => {
       const token = tokens[0];
@@ -27,10 +27,30 @@ module.exports = (eleventyConfig) => {
         return attrs;
       }, {})
       return String.raw`<figure>
-        <img src="${attrs.src}" alt="${attrs.alt || token.content}">
+        <div class="img-wrap"><img width="${attrs.width}" height="${attrs.height || ""}" src="${attrs.src}" alt="${attrs.alt || token.content}">
         <figcaption>${attrs.alt|| attrs.title || token.content}</figcaption>
+      </div>
       </figure>`
     }
+
+    // Remember old renderer, if overridden, or proxy to default renderer
+    var defaultRender = markdownLibrary.renderer.rules.link_open || function(tokens, idx, options, env, self) {
+      return self.renderToken(tokens, idx, options);
+    };
+
+    markdownLibrary.renderer.rules.link_open = function (tokens, idx, options, env, self) {
+      // If you are sure other plugins can't add `target` - drop check below
+      var aIndex = tokens[idx].attrIndex('target');
+
+      if (aIndex < 0) {
+        tokens[idx].attrPush(['target', '_blank']); // add new attribute
+      } else {
+        tokens[idx].attrs[aIndex][1] = '_blank';    // replace value of existing attr
+      }
+
+      // pass token to default renderer.
+      return defaultRender(tokens, idx, options, env, self);
+    };
 
     eleventyConfig.setLibrary("md", markdownLibrary);
   
@@ -52,7 +72,7 @@ module.exports = (eleventyConfig) => {
     open: true,
   });
   eleventyConfig.addPassthroughCopy("src/images");
-  eleventyConfig.addPassthroughCopy({"src/posts/**/images/*.png": "images"});
+  eleventyConfig.addPassthroughCopy({"src/posts/**/images/*.*": "images"});
 
   eleventyConfig.setUseGitIgnore(false);
 
@@ -113,9 +133,15 @@ module.exports = (eleventyConfig) => {
     return [...tagSet];
   });
   return {
+      templateFormats: [
+        "md",
+        "njk",
+        "html",
+        "liquid"
+    ],
     dir: {
       input: "src",
-      output: "dist",
+      output: "dist"
     },
   };
 };

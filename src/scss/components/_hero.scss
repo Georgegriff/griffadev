@@ -6,15 +6,6 @@
   padding: 0 5rem;
 }
 .hero {
-  --HeroBorders: #{$dark-secondary};
-  --HeroBackground: var(--Background50);
-  --HeroBricks: var(--Background);
-  --HeroShirt: var(--Primary);
-  --HeroShirt50: var(--Primary50);
-  --HeroAccents: var(--Text);
-  --HeroWhite: #{$dark-text};
-  --HeroTriangle: var(--Highlight);
-
   display: flex;
   max-width: 80vh;
   height: auto;
@@ -74,7 +65,7 @@
       background: linear-gradient(90deg, $dark-primary 0%, $dark-secondary 100%);
       opacity: 0.2;
     }
-    .hero-img {
+    .hero-img, svg {
       -o-object-fit: cover;
       object-fit: cover;
       object-position: 100% 0%;

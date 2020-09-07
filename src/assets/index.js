@@ -1,5 +1,7 @@
 import { IntersectDetect } from "./components/IntersectDetect";
 import "./scroll-collapse";
+// TODO move to page!!
+import "lite-youtube-embed/src/lite-yt-embed.js";
 
 customElements.define('intersect-detect', IntersectDetect);
 
@@ -7,11 +9,6 @@ customElements.define('intersect-detect', IntersectDetect);
 const mainContainer = document.querySelector(".main-content");
 mainContainer.root = document;
 mainContainer.thresholds = [0.3, 0.6];
-mainContainer.addEventListener('intersection-observed', (e) =>{
-    const  {detail} = e;
-    const {visible} = detail  || {};
-    document.querySelector(".sticky-title").setAttribute("aria-hidden", Boolean(visible))
-})
 
 var checkbox = document.querySelector('#theme');
 
@@ -30,3 +27,9 @@ let trans = () => {
         document.documentElement.classList.remove('transition')
     }, 1000)
 }
+
+
+// remove the link so can work without js
+document.querySelector('lite-youtube a.no-js').addEventListener('click', (e) => {
+    e.preventDefault();
+})

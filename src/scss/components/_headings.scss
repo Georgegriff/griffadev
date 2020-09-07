@@ -21,7 +21,7 @@ h2 {
 
 }
 
-.sticky-title {
+h2 {
   position: sticky;
   top: $header;
   margin-left:-3px;
@@ -49,21 +49,20 @@ h2 {
     background: var(--Background);
     position: relative;
     display: flex;
+  }
 
-
-    .call-to-action {
-      position: absolute;
-      background: var(--Primary);
-      color: var(--Background);
-      right:0;
-      font-size: 1rem;
-      padding:0.25rem 1.5rem;
-      border-radius: 0.25rem;
-      margin-top:0.5rem;
-      transition: transform 150ms ease-out;
-      &:focus, &:hover {
-        transform: scale(0.98) translateY(0.1rem);
-      }
+  .call-to-action {
+    position: absolute;
+    background: var(--Primary);
+    color: var(--Background);
+    right:0;
+    font-size: 1rem;
+    padding:0.25rem 1.5rem;
+    border-radius: 0.25rem;
+    margin-top:0.5rem;
+    transition: transform 150ms ease-out;
+    &:focus, &:hover {
+      transform: scale(0.98) translateY(0.1rem);
     }
   }
 }
@@ -94,16 +93,13 @@ h1 {
 
 
 .main-content[observable="hidden"] {
-  .sticky-title {
+  h2 {
     transform: translate(0, 0);
     &:after {
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
-    h2 {
-      width: 100%;
-      margin-bottom: 0;
-      transform: translate(0, 2px);
-    }
+    width: 100%;
+    margin-bottom: 0;
   }
 
   h1 {
