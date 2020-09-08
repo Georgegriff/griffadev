@@ -63,7 +63,7 @@
       position: absolute;
       z-index: 1;
       background: linear-gradient(90deg, $dark-primary 0%, $dark-secondary 100%);
-      opacity: 0.2;
+      opacity: 0.1;
     }
     .hero-img, svg {
       -o-object-fit: cover;
@@ -110,7 +110,6 @@
 
   .hero {
     flex-wrap: nowrap;
-    margin-bottom: 1rem;
 
     svg {
       flex: 3;

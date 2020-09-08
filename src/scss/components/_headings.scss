@@ -16,7 +16,6 @@ h2 {
   min-width: 11rem;
   position: relative;
   display: block;
-  padding-left:0.1rem;
   z-index: 10;
 
 }
@@ -24,7 +23,6 @@ h2 {
 h2 {
   position: sticky;
   top: $header;
-  margin-left:-3px;
   background: var(--Background);
   z-index: 3;
   padding-bottom: 1rem;
