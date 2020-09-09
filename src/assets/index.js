@@ -27,9 +27,3 @@ let trans = () => {
         document.documentElement.classList.remove('transition')
     }, 1000)
 }
-
-
-// remove the link so can work without js
-document.querySelector('lite-youtube a.no-js').addEventListener('click', (e) => {
-    e.preventDefault();
-})

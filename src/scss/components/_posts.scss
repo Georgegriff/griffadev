@@ -8,7 +8,7 @@ $card-padding: 1rem;
     display: grid;
     max-width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(23rem, 30fr));
+    grid-template-columns: repeat(auto-fit, 26rem);
     grid-gap: 1.5rem;
   }
 }
@@ -17,6 +17,7 @@ $card-padding: 1rem;
 @media screen and (max-width: 45em) {
   .post-tiles {
     .tiles {
+      place-items: center;
       grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     }
   }

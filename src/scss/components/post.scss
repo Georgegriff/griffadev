@@ -1,6 +1,6 @@
 @import 'variables';
 $title-height: 4rem;
-$date-height: 2rem;
+$date-height: 2.2rem;
 
 .content {
     display: flex;
@@ -33,7 +33,7 @@ $date-height: 2rem;
 
     .post-date {
         align-self: flex-end;
-        font-size: 0.875rem;
+        font-size: 0.95rem;
         position: sticky;
         top: $header;
         width: 100%;
@@ -60,7 +60,7 @@ $date-height: 2rem;
                 position: relative;
             }
             figcaption {
-                font-size: 0.875rem;
+                font-size: 0.95rem;
                 margin-top:0.5rem;
                 text-align:center;
                 width:100%;
@@ -74,6 +74,11 @@ $date-height: 2rem;
                 border-radius:0.15rem;
                 padding:1rem;
                 background: var(--Secondary);
+                img {
+                    object-fit: cover;
+                    max-height: 44vh;
+                    object-position: 0 32%;
+                }
             }
         }
     }
@@ -93,7 +98,7 @@ $date-height: 2rem;
 }
 
 blockquote {
-    font-size: 0.875rem;
+    font-size: 0.95rem;
     font-style: italic;
     padding:0.75rem;
     margin:0.5rem 0.5rem 1rem 0.5rem;

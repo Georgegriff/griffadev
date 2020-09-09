@@ -61,6 +61,7 @@ h2 {
     border-radius: 0.25rem;
     margin-top:0.5rem;
     transition: transform 150ms ease-out;
+    bottom: 1.1rem;
     &:focus, &:hover {
       transform: scale(0.98) translateY(0.1rem);
     }

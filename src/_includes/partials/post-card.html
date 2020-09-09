@@ -13,12 +13,13 @@
     </div>
 </a>
 <div class="post-content">
-    <a title="{{post.data.title}}" href="{{ post.url }}">
-        <div class="post-title-link">
+    <a title="{{post.data.title}}" href="{{ post.url }}" class="post-title-link">
+        <div>
             <span class="post-title post-heading">{{ post.data.title }}</span>
             <p class="tagline">{{post.data.tagline}}</p>
         </div>
     </a>
+    <div class="push"></div>
     {% set tags = post.data.tags %}
     {% include "partials/post-tags.html" %}
     <a href="{{ post.url }}">

@@ -12,13 +12,7 @@
     --White: #{$white};
 
     --HeroBorders: #{$dark-secondary};
-    --HeroBackground: var(--Background50);
-    --HeroBricks: var(--Background);
-    --HeroShirt: var(--Primary);
-    --HeroShirt50: var(--Primary50);
-    --HeroAccents: var(--Text);
     --HeroWhite: #{$dark-text};
-    --HeroTriangle: var(--Highlight);
 }
 
 html, body {
@@ -61,13 +55,7 @@ html, body {
     --Highlight: #{$light-highlight};
 
     --HeroBorders: #{$dark-secondary};
-    --HeroBackground: var(--Background50);
-    --HeroBricks: var(--Background);
-    --HeroShirt: var(--Primary);
-    --HeroShirt50: var(--Primary50);
-    --HeroAccents: var(--Text);
     --HeroWhite: #{$dark-text};
-    --HeroTriangle: var(--Highlight);
 }
 
 a {
