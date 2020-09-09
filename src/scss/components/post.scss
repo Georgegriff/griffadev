@@ -1,11 +1,21 @@
 @import 'variables';
 $title-height: 4rem;
+$date-height: 2rem;
+
+.content {
+    display: flex;
+    flex-direction: column;
+    margin:0 auto;
+}
 .post {
+    h2 {
+        top: $header + $date-height;
+    }
     > section {
         z-index: 1;
     }
     .post-title {
-        margin: 1rem 0;
+        margin: 2rem 0;
         background: var(--Background);
         h1 {
             position: relative;
@@ -13,21 +23,57 @@ $title-height: 4rem;
         }
     }
 
+    p {
+        margin-bottom: 1rem;
+    }
+
+    h3, h4 {
+        margin:0.5rem 0;
+    }
+
+    .post-date {
+        align-self: flex-end;
+        font-size: 0.875rem;
+        position: sticky;
+        top: $header;
+        width: 100%;
+        text-align: right;
+        background: var(--Background);
+        z-index: 12;
+        height: $date-height;
+    }
     .post-content {
         background: var(--Background);
         z-index: 10;
 
+        a {
+            color: var(--Primary);
+        }
+
         figure {
             margin:0.5rem 0;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
             img {
+                box-shadow: 0 1px 9px 0 rgba(0,0,0,.4);
+                position: relative;
             }
             figcaption {
-                background: var(--Secondary);
                 font-size: 0.875rem;
                 margin-top:0.5rem;
-                padding:0.3rem;
                 text-align:center;
                 width:100%;
+            }
+            .img-wrap {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                position: relative;
+                border-radius:0.15rem;
+                padding:1rem;
+                background: var(--Secondary);
             }
         }
     }
@@ -36,7 +82,6 @@ $title-height: 4rem;
 .main-content[observable="hidden"] {
     .post-title {
        h1 {
-        width: 100%;
         &:after {
             content: "...";
             position: absolute;
@@ -44,5 +89,23 @@ $title-height: 4rem;
             top:0;
         }
        }
+    }
+}
+
+blockquote {
+    font-size: 0.875rem;
+    font-style: italic;
+    padding:0.75rem;
+    margin:0.5rem 0.5rem 1rem 0.5rem;
+    border-radius: 0.25rem;
+    position: relative;
+    &:before {
+        content: "";
+        height: 100%;
+        width:0.2rem;
+        background: var(--Primary);
+        position: absolute;
+        top:0;
+        left:-0.5rem;
     }
 }

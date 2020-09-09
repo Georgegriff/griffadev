@@ -1,0 +1,72 @@
+
+.video-size {
+    max-width: 600px;
+    margin: 0 auto;
+    padding:1rem;
+    position: relative;
+    .lty-playbtn {
+        display: none;
+    }
+    @keyframes pulse {
+        0% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: scale(1.3);
+        }
+    }
+    a.no-js {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        transform: scale(1);
+        transition: opacity 250ms linear, transform  100ms ease-in-out;
+        opacity: 0.8;
+        &:focus, &:hover {
+            opacity: 1;
+            transform: scale(1.2);
+            &:after {
+                animation: pulse 1s infinite;
+            }
+        }
+        svg {
+            width: 20%;
+            height:auto;
+            z-index:3;
+        }
+        &:after {
+            content: "";
+            background: var(--Primary50);
+            position: absolute;
+            width: 20%;
+            border-radius: 50%;
+            padding-top:20%;
+            z-index: 1;
+            opacity: 0;
+        }
+
+    }
+
+    lite-youtube {
+        background-size: cover;
+        background-position: center;
+    }
+    .video-wrapper {
+        position: relative;
+        padding-top: 56.25%; /* 16:9, for an aspect ratio of 1:1 change to this value to 100% */
+      
+      }
+      .video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      
+}

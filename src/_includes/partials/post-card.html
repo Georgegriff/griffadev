@@ -1,17 +1,22 @@
 {% set hero = post.data.hero %}
-<a href="{{ post.url }}">
+<a title="{{post.data.title}}" href="{{ post.url }}">
     <div class="post-img-link">
         <div role="img" class="post-img">
             <div aria-hidden="true" class="overlay"></div>
-            <img width=400 height=200 alt="{{hero and hero.alt or "Default blog image"}}"
+            {%- if hero.image%}
+                <img width=400 height=200 alt="{{hero and hero.alt or "Default blog image"}}"
                 src="{{ assets.getHero(post, hero)}}" />
+            {% else %}
+            {% include assets.getHero(post, hero) %}
+            {%- endif %}
         </div>
     </div>
 </a>
 <div class="post-content">
-    <a href="{{ post.url }}">
+    <a title="{{post.data.title}}" href="{{ post.url }}">
         <div class="post-title-link">
             <span class="post-title post-heading">{{ post.data.title }}</span>
+            <p class="tagline">{{post.data.tagline}}</p>
         </div>
     </a>
     {% set tags = post.data.tags %}

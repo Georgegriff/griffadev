@@ -1,12 +1,10 @@
 <article class="content post-tiles">
-    <div class="sticky-title">
       <h2>
       <span>{{subtitle}}</span>
       {% if callToAction %}
         <a class="call-to-action" href="{{callToAction.href}}">{{callToAction.text}}</a>
       {% endif %}
       </h2>
-    </div>
 
     <ul class="tiles">
         {% for item in postslist %}

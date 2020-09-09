@@ -1,7 +1,8 @@
-@import 'variables';
+@import "variables";
 
 body {
   margin-bottom: 2rem;
+  --site-padding: #{$desktop-padding};
 }
 .wrapper {
   display: flex;
@@ -17,17 +18,23 @@ main {
   margin-left: $action-bar;
 }
 
-.site-header {
-  z-index: 50;
-  height: 3rem;
-  padding:2rem 5rem;
+.site-wrapper {
+  width: 100%;
   background: var(--Background);
-  height: $header;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
   position: sticky;
-  top:0;
+  top: 0;
+  height: $header;
+  z-index: 50;
+}
+
+.site-header {
+  height: 100%;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 var(--site-padding);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   h1 {
     flex: 1;
     display: inline-flex;
@@ -35,14 +42,17 @@ main {
   }
 }
 .content {
-  padding: 0 5rem;
+  padding: 0 var(--site-padding);
   > section {
-    padding-left:1px;
+    padding-left: 1px;
   }
 }
 
 /* todo figure out re-using */
 @media screen and (max-width: 45em) {
+  .site-header {
+    justify-content: space-between;
+  }
   body {
     margin-bottom: $action-bar + 2rem;
   }
@@ -57,7 +67,7 @@ main {
   }
 
   main {
-    margin:0;
+    margin: 0;
     flex: 1 !important;
   }
 }
@@ -71,6 +81,6 @@ main {
     display: inline-block;
     width: 0.75rem;
     height: 0.75rem;
-    margin-left:0.3rem;
+    margin-left: 0.3rem;
   }
 }

@@ -1,20 +1,20 @@
 {
-  "title": "Your Blog Name",
-  "url": "https://example.com/",
-  "description": "I am writing about my experiences as a naval navel-gazer.",
+  "title": "griffa.dev",
+  "url": "https://griffa.dev",
+  "description": "Web development ramblings of a guy on the internet.",
   "feed": {
-    "subtitle": "I am writing about my experiences as a naval navel-gazer.",
+    "subtitle": "Web development ramblings of a guy on the internet.",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
-    "id": "https://example.com/"
+    "id": "https://griffa.dev/"
   },
   "jsonfeed": {
     "path": "/feed/feed.json",
-    "url": "https://example.com/feed/feed.json"
+    "url": "https://griffa.dev/feed/feed.json"
   },
   "author": {
     "name": "George Griffiths",
-    "email": "youremailaddress@example.com",
+    "email": "georgegriffiths@live.com",
     "url": "https://griffa.dev/about"
   }
 }

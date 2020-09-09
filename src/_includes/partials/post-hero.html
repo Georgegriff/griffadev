@@ -2,6 +2,10 @@
 <article class="post-hero">
     <div class="img-wrapper">
         <div aria-hidden="true" class="overlay"></div>
+        {%- if hero.image%}
         <img width="1000" height="420" alt="{{hero and hero.alt or "Default blog image"}}" src="{{ assets.getPostHero(page, hero)}}" class="hero-img"></img>
+    {% else %}
+    {% include assets.getPostHero(post, hero) %}
+    {%- endif %}
     </div>
 </article>

@@ -1,5 +1,7 @@
 {% extends "layouts/base.njk" %}
 
+{% set pageCriticalStyles = ['css/blog.css'] %}
+
 {% block content %}
 <div slot="before">
     {% include "partials/post-hero.html" %}
@@ -10,7 +12,10 @@
         <h1>{{ title }}</h1>
     </div>
     {% set tags =  post.tags %}
+    {% set date =  post.date %}
+    <time class="post-date" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
     {% include "partials/post-tags.html" %}
+    <blockquote>{{tagline}}</blockquote>
     <section class="post-content">
         {{ content | safe }}
     </section>

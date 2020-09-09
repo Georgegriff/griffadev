@@ -10,6 +10,15 @@
     --Text50: #{$dark-text-50};
     --Highlight: #{$dark-highlight};
     --White: #{$white};
+
+    --HeroBorders: #{$dark-secondary};
+    --HeroBackground: var(--Background50);
+    --HeroBricks: var(--Background);
+    --HeroShirt: var(--Primary);
+    --HeroShirt50: var(--Primary50);
+    --HeroAccents: var(--Text);
+    --HeroWhite: #{$dark-text};
+    --HeroTriangle: var(--Highlight);
 }
 
 html, body {
@@ -50,6 +59,15 @@ html, body {
     --Text: #{$light-text};
     --Text50: #{$light-text-50};
     --Highlight: #{$light-highlight};
+
+    --HeroBorders: #{$dark-secondary};
+    --HeroBackground: var(--Background50);
+    --HeroBricks: var(--Background);
+    --HeroShirt: var(--Primary);
+    --HeroShirt50: var(--Primary50);
+    --HeroAccents: var(--Text);
+    --HeroWhite: #{$dark-text};
+    --HeroTriangle: var(--Highlight);
 }
 
 a {
@@ -74,3 +92,5 @@ a {
 
 /* todo move  to post.scss*/
 @import "./components/post";
+@import "./components/video";
+@import "../../node_modules/lite-youtube-embed/src/lite-yt-embed.css";
