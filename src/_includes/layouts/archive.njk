@@ -2,7 +2,7 @@
 
 {% extends "layouts/base.njk" %}
 
-{% set postslist = collections.posts %}
+{% set postslist = collections.posts | reverse %}
 
 {% block content %}
    {% include  "partials/posts.html"%}

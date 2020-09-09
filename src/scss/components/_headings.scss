@@ -2,7 +2,7 @@
 
 $h1-size:min(5vw, 7vh);
 $h1-size-mob:min(6vw, 8vh);
-$h1-size-large:min(2vw, 6vh);
+$h1-size-large:min(7vw, 10vh);
 
 h1 {
   width: auto;
@@ -89,7 +89,7 @@ h2 {
 @media screen and (min-width: 3000px) {
   h1 {
     font-size: $h1-size-large;
-    line-height: 2.5vw;
+    line-height: 5vw;
   }
 }
 
@@ -112,5 +112,16 @@ h1 {
   h1 {
     transform: translateY(4rem);
     opacity: 0;
+  }
+}
+
+@media screen and (min-width: 3000px) {
+  body {
+    line-height: 3rem;
+    font-size:2rem;
+  }
+
+  .post-date, .post-date, .post-tag, .tagline, blockquote {
+    font-size: 1.5rem !important;
   }
 }

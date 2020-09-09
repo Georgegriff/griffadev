@@ -8,8 +8,16 @@ $card-padding: 1rem;
     display: grid;
     max-width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, 26rem);
+    grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
     grid-gap: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 3000px) {
+  .post-tiles {
+    .tiles {
+      grid-template-columns: repeat(auto-fit,minmax(51rem,0fr));
+    }
   }
 }
 
