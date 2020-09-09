@@ -7,6 +7,8 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownitmisize = require("markdown-it-imsize");
 
+const siteMeta = require("./src/_data/metadata.json");
+
 module.exports = (eleventyConfig) => {
 
     /* Markdown Overrides */
@@ -18,7 +20,7 @@ module.exports = (eleventyConfig) => {
       permalink: true,
       permalinkClass: "direct-link",
       permalinkSymbol: "<copy-link></copy-link>"
-    }).use(markdownitmisize)
+    }).use(markdownitmisize);
 
     markdownLibrary.renderer.rules.image = (tokens) => {
       const token = tokens[0];
@@ -40,12 +42,20 @@ module.exports = (eleventyConfig) => {
 
     markdownLibrary.renderer.rules.link_open = function (tokens, idx, options, env, self) {
       // If you are sure other plugins can't add `target` - drop check below
-      var aIndex = tokens[idx].attrIndex('target');
-
+      const link = tokens[idx];
+      var aIndex = link.attrIndex('target');
+      const hrefIndex = link.attrIndex('href');
+      if(hrefIndex > -1) {
+        const href = link.attrs[hrefIndex][1];
+        const isRelativeUrl= href && (href.startsWith("/") || href.startsWith("#") || href.startsWith(siteMeta.url));
+        if (isRelativeUrl) {
+          return defaultRender(tokens, idx, options, env, self);
+        }
+      }
       if (aIndex < 0) {
-        tokens[idx].attrPush(['target', '_blank']); // add new attribute
+        link.attrPush(['target', '_blank']); // add new attribute
       } else {
-        tokens[idx].attrs[aIndex][1] = '_blank';    // replace value of existing attr
+        link.attrs[aIndex][1] = '_blank';    // replace value of existing attr
       }
 
       // pass token to default renderer.

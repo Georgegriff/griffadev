@@ -1,7 +1,8 @@
 @import "../variables";
 
-$h1-size:min(4vw, 7vh);
+$h1-size:min(5vw, 7vh);
 $h1-size-mob:min(6vw, 8vh);
+$h1-size-large:min(2vw, 6vh);
 
 h1 {
   width: auto;
@@ -25,7 +26,8 @@ h2 {
   top: $header;
   background: var(--Background);
   z-index: 3;
-  padding-bottom: 1rem;
+  padding-bottom: 1.5rem;
+  margin-left: -2px;
 
   &:after {
     width: 100%;
@@ -83,10 +85,17 @@ h2 {
   }
 }
 
+@media screen and (min-width: 3000px) {
+  h1 {
+    font-size: $h1-size-large;
+    line-height: 2.5vw;
+  }
+}
+
 
 h1 {
   transform: translate(0);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, opacity 0.6s linear;
 }
 
 
@@ -96,7 +105,6 @@ h1 {
     &:after {
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
-    width: 100%;
     margin-bottom: 0;
   }
 

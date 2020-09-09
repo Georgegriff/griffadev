@@ -8,7 +8,7 @@ customElements.define('intersect-detect', IntersectDetect);
 /* Dom events */
 const mainContainer = document.querySelector(".main-content");
 mainContainer.root = document;
-mainContainer.thresholds = [0.3, 0.6];
+mainContainer.thresholds = [0.7,0.3];
 
 var checkbox = document.querySelector('#theme');
 

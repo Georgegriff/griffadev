@@ -7,7 +7,16 @@
     .lty-playbtn {
         display: none;
     }
-    
+    @keyframes pulse {
+        0% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: scale(1.3);
+        }
+    }
     a.no-js {
         width: 100%;
         height: 100%;
@@ -15,14 +24,32 @@
         position: absolute;
         justify-content: center;
         align-items: center;
-        transition: opacity 250ms linear;
-        &:hover {
-            opacity: 0.5;
+        transform: scale(1);
+        transition: opacity 250ms linear, transform  100ms ease-in-out;
+        opacity: 0.8;
+        &:focus, &:hover {
+            opacity: 1;
+            transform: scale(1.2);
+            &:after {
+                animation: pulse 1s infinite;
+            }
         }
         svg {
-            width: 4rem;
-            height: 4rem;
+            width: 20%;
+            height:auto;
+            z-index:3;
         }
+        &:after {
+            content: "";
+            background: var(--Primary50);
+            position: absolute;
+            width: 20%;
+            border-radius: 50%;
+            padding-top:20%;
+            z-index: 1;
+            opacity: 0;
+        }
+
     }
 
     lite-youtube {

@@ -1,14 +1,12 @@
 @import "../colors";
+@import "../variables";
 
 .hero-wrap {
   background-color: var(--Background);
-  width: 100%;
-  padding: 0 5rem;
+  padding: 0 var(--site-padding);
 }
 .hero {
   display: flex;
-  max-width: 80vh;
-  height: auto;
   position: relative;
   align-items: center;
   margin-bottom: 2rem;
@@ -20,6 +18,9 @@
 
 /* todo figure out re-using */
 @media screen and (max-width: 80em) {
+  body {
+    --site-padding:  #{$mid-padding};
+  }
   .hero {
     svg {
       width: 100%;
@@ -48,11 +49,11 @@
 /* post heros */
 .post-hero {
   width: 100%;
-  margin-top: 1rem;
   .img-wrapper {
     position: relative;
+    margin: 0;
     width: 100%;
-    padding-top: 20%;
+    padding-top: 22.5%;
     .overlay {
       width: 100%;
       height: 100%;
@@ -82,15 +83,21 @@
 }
 
 @media screen and (max-width: 90em) {
+  body {
+    --site-padding:  #{$mid-padding};
+  }
   .post-hero {
   
     .img-wrapper {
-      padding-top:33%;
+      padding-top:48vh;
     }
   }
 }
 
 @media screen and (max-width: 75em) {
+  body {
+    --site-padding:  #{$mid-padding};
+  }
   .post-hero {
   
     .img-wrapper {
@@ -101,6 +108,10 @@
 
 /* todo figure out re-using */
 @media screen and (max-width: 45em) {
+  .post-hero .img-wrapper {
+    margin:0;
+    width: 100%;
+  }
   .header-wrap {
     flex: 1;
   }

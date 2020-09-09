@@ -1,5 +1,5 @@
 {% set hero = post.data.hero %}
-<a href="{{ post.url }}">
+<a title="{{post.data.title}}" href="{{ post.url }}">
     <div class="post-img-link">
         <div role="img" class="post-img">
             <div aria-hidden="true" class="overlay"></div>
@@ -13,7 +13,7 @@
     </div>
 </a>
 <div class="post-content">
-    <a href="{{ post.url }}">
+    <a title="{{post.data.title}}" href="{{ post.url }}">
         <div class="post-title-link">
             <span class="post-title post-heading">{{ post.data.title }}</span>
             <p class="tagline">{{post.data.tagline}}</p>

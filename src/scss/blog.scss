@@ -1,0 +1,22 @@
+@import "./variables";
+
+.site-header,
+.content {
+  max-width: $max-post-width;
+}
+
+@media screen and (min-width: 3000px) {
+  .site-header,
+  .content {
+    max-width: $max-post-large;
+  }
+}
+
+
+.main-content[observable="hidden"] {
+
+  h1 {
+    transform: translateY(-4rem);
+    opacity: 0;
+  }
+}

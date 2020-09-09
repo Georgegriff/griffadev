@@ -15,6 +15,8 @@ tags:
   - 11ty
 ---
 
+## Building something for myself
+
 I've been working with web technologies for the best part of a decade now, from my first terrible attempts at building websites in tools like `Adobe Dreamweaver`, to building complex apps in my day jobs, using frontend and backend technologies (a lot of `JavaScript`).
 
 However, something i've never had is a place of my own on the internet to just put stuff, so that's what I wanted to build, also it's probably another place I can just post pictures of my cats.

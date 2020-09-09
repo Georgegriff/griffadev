@@ -30,6 +30,11 @@
         fill: var(--Primary);
       }
     }
+    .action {
+      svg {
+        fill: var(--Text);
+      }
+    }
     a {
       display: flex;
       flex-direction: column;
@@ -56,9 +61,6 @@
       svg {
         width: 1.60rem;
         height: 1.60rem;
-
-        fill: var(--Text);
-
       }
 
       span {
