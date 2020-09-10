@@ -33,10 +33,15 @@ When it comes to implementing your theme in code I *strongly* recommend that you
 
 If you want you can use [SASS](https://sass-lang.com/) too, for example:
 
-```css
---Background: #{$light-bg};
---Background50: #{$light-bg-50};
---Secondary: #{$light-secondary};
+```css {"id":"mydemo", "title":"A live demo"}
+div {
+  --Text: var(--Primary);
+}
+```
+
+```html {"id":"mydemo"}
+<div style="color:var(--Text, blue)">I'm a live demo</div>
+<span>Helloo world</span>
 ```
 
 > Tip: also use custom properties as fills in your embedded svgs and have those automatically respond to your theme selection!
@@ -94,5 +99,9 @@ A technique which I found to work quite well is to choose your light theme prima
 > Tip: It is now possible to automatically check what users color scheme preference is using [prefers color scheme](https://caniuse.com/prefers-color-scheme).
 
  When you find colors you are happy with be sure to check them for sufficient contrast against  your text colors.
+
+ These the colors I went with for my first iteration:
+
+TODO live color swatch demo
 
  Now i've explored how I chose colors for my personal blog, I will next take a look at how I introduced illustrations, to make the design pop!

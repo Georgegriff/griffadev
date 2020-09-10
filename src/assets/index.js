@@ -2,8 +2,11 @@ import { IntersectDetect } from "./components/IntersectDetect";
 import "./scroll-collapse";
 // TODO move to page!!
 import "lite-youtube-embed/src/lite-yt-embed.js";
+import { LiveDemo } from "./components/LiveDemo";
 
 customElements.define('intersect-detect', IntersectDetect);
+// TODO move
+customElements.define('live-demo', LiveDemo);
 
 /* Dom events */
 const mainContainer = document.querySelector(".main-content");

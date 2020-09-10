@@ -2,10 +2,37 @@
 $title-height: 4rem;
 $date-height: 2.2rem;
 
+live-demo {
+    display: flex;
+    flex-direction: column;
+    height: 22rem;
+    background: var(--Secondary);
+    padding:1rem;
+    border-radius: 0.2rem;
+    pre {
+        background: none !important;
+    }
+    /* potential editing  */
+    /*pre {
+        padding: .2em .5em !important;
+        margin: 0 !important;
+        overflow: auto;
+        border-radius: 0 !important;
+    } */
+
+    /* to prevent  layout  shift add some padding for the demo button*/
+}
+
+/* for fragment scrolling */
+html,body {
+    scroll-padding-top: $header+$date-height + $title-height;
+}
+
 .content {
     display: flex;
     flex-direction: column;
     margin:0 auto;
+
 }
 .post {
     h2 {
@@ -98,10 +125,13 @@ $date-height: 2.2rem;
 }
 
 blockquote {
+    p {
+        margin:0 !important;
+    }
     font-size: 0.95rem;
     font-style: italic;
     padding:0.75rem;
-    margin:0.5rem 0.5rem 1rem 0.5rem;
+    margin:1rem 0.5rem;
     border-radius: 0.25rem;
     position: relative;
     &:before {

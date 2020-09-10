@@ -15,12 +15,80 @@ module.exports = (eleventyConfig) => {
     let markdownLibrary = markdownIt({
       html: true,
       breaks: true,
-      linkify: true
+      linkify: true,
     }).use(markdownItAnchor, {
       permalink: true,
       permalinkClass: "direct-link",
       permalinkSymbol: "<copy-link></copy-link>"
     }).use(markdownitmisize);
+
+    eleventyConfig.addPlugin(pluginSyntaxHighlight);
+
+     // Remember old renderer, if overridden, or proxy to default renderer
+     const defaultCodeRender = markdownLibrary.renderer.rules.fence || function(tokens, idx, options, env, self) {
+      return self.renderToken(tokens, idx, options);
+    };
+
+    markdownLibrary.renderer.rules.fence = (...args) => {
+      const [tokens, idx, options, env, self] = args;
+      env.parsedDemoIds = env.parsedDemoIds || [];
+      const parsedDemoIds = env.parsedDemoIds;
+      const token = tokens[idx];
+
+      const getDataFromInfo = (token) => {
+        const info = token.info || ''; // css {id:foo}
+        const lang = info.substr(0,info.indexOf(' ')); 
+        const data = info.substr(info.indexOf(' ')+1);
+        return {data:JSON.parse(data), lang};
+      }
+
+      const wrapCode = (lang, index) => {
+        const renderedCode = defaultCodeRender(tokens, index, options, env, self);
+        const languageKey = lang.toLowerCase() === "javascript" ? "js" : lang.toLowerCase();
+        return `<div contenteditable slot="${languageKey}" data-language="${languageKey}">${renderedCode}</div>`
+      };
+      let dataObj;
+      const hasDataObject = (token) => {
+        return token.info.indexOf(' {') > -1;
+      }
+      try {
+        dataObj = getDataFromInfo(token);
+      } catch(e) {
+        if(hasDataObject(token)) {
+          return `<pre>Error parsing JSON: ${e} of ${token.info}</pre>`;
+        }
+        return defaultCodeRender(...args);
+      }
+      if (dataObj) {
+          if(parsedDemoIds.includes(dataObj.data.id)) {
+            return '';
+          }
+          let matchingTokens = [wrapCode(dataObj.lang, idx)];
+          for (let i = idx+1; i < tokens.length; i++) {
+            if(tokens[i].type !== "fence") {
+              continue;
+            }
+            try {
+              const {data, lang} = getDataFromInfo(tokens[i]);
+              if(data && data.id === dataObj.data.id) {
+                matchingTokens.push(wrapCode(lang, i));
+              }
+            } catch(e) {
+              if(hasDataObject(tokens[i])) {
+                return `<pre>Error parsing JSON: ${e} of ${tokens[i].info}</pre>`;
+              }
+            }
+          }
+          parsedDemoIds.push(dataObj.data.id);
+          return `
+          <h3>${dataObj.data.title || dataObj.data.id}<a class="direct-link" href="#${dataObj.data.id}"><copy-link></copy-link></a></h3>
+          <live-demo id=${dataObj.data.id}>
+          ${matchingTokens.join("")}</live-demo>`;
+        // find all code with matching id
+      } else {
+        return defaultCodeRender(...args);
+      }
+    }
 
     markdownLibrary.renderer.rules.image = (tokens) => {
       const token = tokens[0];
@@ -36,7 +104,7 @@ module.exports = (eleventyConfig) => {
     }
 
     // Remember old renderer, if overridden, or proxy to default renderer
-    var defaultRender = markdownLibrary.renderer.rules.link_open || function(tokens, idx, options, env, self) {
+    const defaultLinkRender = markdownLibrary.renderer.rules.link_open || function(tokens, idx, options, env, self) {
       return self.renderToken(tokens, idx, options);
     };
 
@@ -49,7 +117,7 @@ module.exports = (eleventyConfig) => {
         const href = link.attrs[hrefIndex][1];
         const isRelativeUrl= href && (href.startsWith("/") || href.startsWith("#") || href.startsWith(siteMeta.url));
         if (isRelativeUrl) {
-          return defaultRender(tokens, idx, options, env, self);
+          return defaultLinkRender(tokens, idx, options, env, self);
         }
       }
       if (aIndex < 0) {
@@ -59,7 +127,7 @@ module.exports = (eleventyConfig) => {
       }
 
       // pass token to default renderer.
-      return defaultRender(tokens, idx, options, env, self);
+      return defaultLinkRender(tokens, idx, options, env, self);
     };
 
     eleventyConfig.setLibrary("md", markdownLibrary);
@@ -87,7 +155,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.setUseGitIgnore(false);
 
   eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(pluginSyntaxHighlight);
+  //eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
 
   eleventyConfig.setDataDeepMerge(true);
