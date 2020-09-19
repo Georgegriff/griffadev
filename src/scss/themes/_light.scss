@@ -1,0 +1,25 @@
+@mixin light {
+    --Background: #{$light-bg};
+    --Background50: #{$light-bg-50};
+    --Secondary: #{$light-secondary};
+    --Primary: #{$light-primary};
+    --Primary50: #{$light-primary-50};
+    --Text: #{$light-text};
+    --Text50: #{$light-text-50};
+    --Highlight: #{$light-highlight};
+
+    --HeroBorders: #{$dark-secondary};
+    --HeroWhite: #{$dark-text};
+
+    --code-text: var(--Text);
+    --code-background: transparent;
+    --code-punc: var(--Primary);
+    --code-token: var(--Primary);;
+    --code-boolean: var(--Primary);
+    --code-keyword: var(--Primary);
+    --code-operator: var(--Primary);
+    --code-number: #c616a5;
+    --code-attr-name: #1f780b;
+    --code-attr-value: #3846c0;
+    --code-regex: #644b0e;
+}

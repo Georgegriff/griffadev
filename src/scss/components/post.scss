@@ -173,7 +173,7 @@ blockquote {
         bottom:0;
         left:0;
         right:0;
-        opacity:0.65;
+        opacity:0.05;
         background-attachment: fixed;
     }
 }
@@ -203,12 +203,5 @@ blockquote {
             background-image: linear-gradient(to bottom, var(--Background) 11%, transparent 18%,var(--Background) 33vh)
             , url(/images/ill_back.svg);
         }
-    }
-}
-
-/* we want light theme a little lighter */
-#theme:checked + .wrapper .post-hero {
-    &:before {
-        opacity:0.05;
     }
 }

@@ -1,0 +1,25 @@
+@mixin  dark {
+    --Background: #{$dark-bg};
+    --Background50: #{$dark-bg-50};
+    --Secondary: #{$dark-secondary};
+    --Primary: #{$dark-primary};
+    --Primary50: #{$dark-primary-50};
+    --Text: #{$dark-text};
+    --Text50: #{$dark-text-50};
+    --Highlight: #{$dark-highlight};
+
+    --HeroBorders: #{$dark-secondary};
+    --HeroWhite: #{$dark-text};
+
+    --code-text: var(--Text);
+    --code-background:transparent;
+    --code-punc: var(--Primary);
+    --code-token: var(--Primary);;
+    --code-boolean: var(--Primary);
+    --code-keyword: var(--Primary);
+    --code-operator: var(--Primary);
+    --code-number: #B48EAD;
+    --code-attr-name: #A3BE8C;
+    --code-attr-value: #88C0D0;
+    --code-regex: #EBCB8B;
+}
