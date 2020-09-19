@@ -4,6 +4,117 @@ $btn-width: 1.2rem;
 $btn-height: 1.2rem;
 $btn-margin: 0.3rem;
 
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: background-color 250ms linear, fill 250ms linear;
+  transition-delay: 0ms;
+}
+
+:root {
+  @include light;
+  --White: #{$white};
+}
+
+.light, .dark {
+  /* important so theme switch animation doesn't break this */
+  transition: opacity 250ms linear !important;
+}
+
+#theme:checked + .wrapper, #theme:checked + .wrapper + .filler {
+  @include dark;  
+}
+
+#theme:checked + .wrapper {
+  .toggle-button {
+    &::after {
+      transform: translateX(($width - $btn-width - ($btn-margin * 2)));
+    }
+  }
+}
+
+/* we want dark theme a little darker */
+#theme:checked + .wrapper .post-hero {
+  &:before {
+    opacity:0.65;
+  }
+}
+/* we want light dark a little darker */
+#theme:checked + .wrapper {
+  &:before {
+      opacity:0.65;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root{
+      @include light; 
+  }
+  #theme:checked + .wrapper, #theme:checked + .wrapper + .filler {
+      @include dark;  
+  }
+
+  /* we want dark theme a little darker */
+  #theme:checked + .wrapper .post-hero {
+    &:before {
+      opacity:0.65;
+    }
+  }
+  /* we want light dark a little darker */
+  #theme:checked + .wrapper {
+    &:before {
+        opacity:0.65;
+    }
+  }
+
+  /* swap the  icon positions */
+  .toggle-icons {
+    flex-direction: row-reverse;
+  }
+
+  .light {
+    opacity: 0;
+  }
+
+  .dark {
+    opacity: 1;
+  }
+
+  #theme:checked + .wrapper {
+    .light {
+      opacity: 1;
+    }
+  
+    .dark {
+      opacity: 0;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root{
+      @include dark; 
+  }
+  #theme:checked + .wrapper, #theme:checked + .wrapper + .filler {
+      @include light;  
+  }
+
+    /* we want light theme a little lighter */
+    #theme:checked + .wrapper .post-hero {
+      &:before {
+        opacity:0.05;
+      }
+    }
+    /* we want light dark a little darker */
+    #theme:checked + .wrapper {
+      &:before {
+          opacity:0.05;
+      }
+    }
+}
+
+
 .toggle-li {
   margin-top:auto;
 }
@@ -28,8 +139,7 @@ $btn-margin: 0.3rem;
 
 .toggle-button {
   &:active {
-    display: none;
-    &:before {
+    &::after {
       box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
     }
   }
@@ -63,34 +173,18 @@ $btn-margin: 0.3rem;
     }
   }
 
-  &:before {
+  &:after {
     position: absolute;
     content: "";
     height: $btn-height;
     width: $btn-width;
     border-radius: 100%;
     background-color: var(--White);
-    transition: transform 0.3s ease-in-out;
+    /* important so theme switch animation doesn't break this */
+    transition: transform 0.3s ease-in-out !important;
     box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.3);
-  }
-}
-
-#theme:checked + .wrapper {
-  .toggle-button {
-    &::before {
-      transform: translateX(($width - $btn-width - ($btn-margin * 2)));
-    }
-  }
-  .light {
-    opacity: 0;
-    transition: opacity 250ms linear;
-  }
-}
-
-#theme:not(:checked) + .wrapper {
-  .dark {
-    opacity: 0;
-    transition: opacity 250ms linear;
+    transform: translateX(0);
+    will-change: transform;
   }
 }
 
@@ -99,17 +193,10 @@ $btn-margin: 0.3rem;
     border: 2px solid var(--Text);
   }
   .toggle-button {
-    &:before {
+    &:after {
       box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
     }
   }
-}
-html.transition,
-html.transition *,
-html.transition *:before,
-html.transition *:after {
-  transition: background-color 250ms linear, fill 250ms linear !important;
-  transition-delay: 0ms !important;
 }
 
 /* Remove all animations and transitions for people that prefer not to see them */
@@ -125,17 +212,6 @@ html.transition *:after {
     scroll-behavior: auto !important;
   }
 }
-
-#theme:checked + .wrapper {
-  .toggle-button {
-    &::before {
-      transform: translateX(
-        ($width - $btn-width - ($btn-margin * 2)) - (0.12rem * 2)
-      );
-    }
-  }
-}
-
 .toggle-mobile {
   display: none;
 }

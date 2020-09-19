@@ -15,20 +15,3 @@ const mainContainer = document.querySelector(".main-content");
 mainContainer.root = document;
 mainContainer.thresholds = [0.7,0.3];
 
-var checkbox = document.querySelector('#theme');
-
-checkbox.addEventListener('change', function() {
-    if(this.checked) {
-        trans()
-        // todo make it save and respect preferences!
-    } else {
-        trans()
-    }
-})
-
-let trans = () => {
-    document.documentElement.classList.add('transition');
-    window.setTimeout(() => {
-        document.documentElement.classList.remove('transition')
-    }, 1000)
-}

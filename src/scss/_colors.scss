@@ -2,19 +2,23 @@
 $dark-bg: #343434;
 $dark-bg-50: #3f3f3f;
 $dark-secondary: #2b2a2a;
-$dark-primary: #83b4f0;
-$dark-primary-50: #779fcf;
+$dark-primary:#74baff;
+$dark-primary-50: #74a9de;
 $dark-text: #F0F0F0;
 $dark-text-50: #DCDCDC;
 $dark-highlight: #FFF;
 /* Light */
 $light-bg:#FDFDFD;
 $light-bg-50:#F5F5F5;
-$light-secondary:#e8e7e7;
+$light-secondary:#f3f0f0;
 $light-primary:#1473E6;
+$light-primary-text: #0053b7;
 $light-primary-50:#1267CF;
 $light-text:#233241;
 $light-text-50:#2E4157;
 $light-highlight: #e4e3e3;
 
 $white: #f0f0f0;
+
+@import "./themes/dark";
+@import"./themes/light";
