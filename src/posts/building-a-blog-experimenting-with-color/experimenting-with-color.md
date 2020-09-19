@@ -8,6 +8,7 @@ date: '2020-09-09'
 hero:
   image: /images/custom-theme.png
   alt: "Picture of using Chrome dev tools to adjust CSS variables"
+  show: false
 tags:
   - Design
   - Color
@@ -100,7 +101,7 @@ When modifying the color you should see a Contrast Ratio:
 - You should try to target AAA.
 - This [article](https://web.dev/color-and-contrast-accessibility/) says it better I ever could.
 
-![Picture of chrome dev tools color contract picker](/images/bad-contrast.png "This is a terrible color choice, you want to get above the white lines in the color picker." =600x)
+![Picture of chrome dev tools color contract picker](/images/bad-contrast.png "This is a terrible color choice, you want to get above the white lines in the color picker." =800x)
 
 ### Supporting dark and light themes can be a challenge
 

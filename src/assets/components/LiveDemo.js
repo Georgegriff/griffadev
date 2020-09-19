@@ -51,6 +51,7 @@ export class LiveDemo extends LitElement {
             flex:1;
             margin:1rem 0rem;
             min-height: 30rem;
+            overflow: hidden !important;
         }
 
         button:active {
@@ -151,7 +152,7 @@ export class LiveDemo extends LitElement {
       selected:{type: String}
     };
   }
-  
+
   toggle() {
     this.toggled = !this.toggled;
 

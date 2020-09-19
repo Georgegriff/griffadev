@@ -5,6 +5,9 @@ series:
   title: Building a personal blog
   order: 1
 date: '2020-09-08'
+hero:
+  image: "/images/design-day1.png"
+  alt: 'Picture of day 1 design of blog'
 tags:
   - Design
   - Research
@@ -96,7 +99,7 @@ If you want to try it out I can only recommend (again) watching [UI Design For C
 After first day of research and design I had a first pass at a mobile layout for  a potential blog site.
 
 
-![Picture of initial designs for blogging site](/images/day1-design.png "The first pass at designs for griffa.dev" =600x)
+![Picture of initial designs for blogging site](/images/design-day1.png "The first pass at designs for griffa.dev" =1000x)
 
 In the next post I'll explore how I iterated on the above design, implementing dark and light themes, using CSS variables.
 
