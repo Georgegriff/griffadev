@@ -6,6 +6,7 @@ const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownitmisize = require("markdown-it-imsize");
+const { minify } = require("terser");
 
 const siteMeta = require("./src/_data/metadata.json");
 
@@ -166,6 +167,24 @@ module.exports = (eleventyConfig) => {
     }
 
     return array.slice(0, n);
+  });
+
+  eleventyConfig.addNunjucksAsyncFilter("jsmin", async function (
+    code,
+    callback
+  ) {
+    try {
+      if(process.env.NODE_ENV === 'production') {
+        const minified = await minify(code);
+        callback(null, minified.code);
+      } else {
+        callback(null, code);
+      }
+    } catch (err) {
+      console.error("Terser error: ", err);
+      // Fail gracefully.
+      callback(null, code);
+    }
   });
 
   eleventyConfig.addCollection("tagList", function (collection) {
