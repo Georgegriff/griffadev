@@ -69,10 +69,11 @@ select {
 
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01s !important;
+  *, *:before,*:after {
+    animation-duration: 0s !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01s !important;
+    transition-duration: 0s !important;
     scroll-behavior: auto !important;
+    animation-delay: 0s !important;
   }
 }

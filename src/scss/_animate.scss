@@ -1,0 +1,25 @@
+$dark-opacity:0.65;
+$light-opacity:0.05;
+
+@mixin animateBGDark($duration) {
+    opacity: $dark-opacity;
+    animation:bubble-in $duration forwards;
+    animation-delay: 0s;
+}
+
+@mixin animateBGLight($duration) {
+    opacity: $light-opacity;
+    animation:bubble-in $duration forwards;
+    animation-delay: 0s;
+}
+
+@keyframes bubble-in {
+    0% {
+        
+        clip-path: circle(9.1% at 0 0);
+    }
+
+    100% {
+        clip-path: circle(141.4% at 0 0);
+    }
+}
