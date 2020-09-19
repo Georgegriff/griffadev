@@ -1,12 +1,11 @@
 @import "./variables";
+@import "./syntax/code";
 
-.site-header,
 .content {
   max-width: $max-post-width;
 }
 
 @media screen and (min-width: 3000px) {
-  .site-header,
   .content {
     max-width: $max-post-large;
   }

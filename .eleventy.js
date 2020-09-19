@@ -15,12 +15,66 @@ module.exports = (eleventyConfig) => {
     let markdownLibrary = markdownIt({
       html: true,
       breaks: true,
-      linkify: true
+      linkify: true,
     }).use(markdownItAnchor, {
       permalink: true,
       permalinkClass: "direct-link",
       permalinkSymbol: "<copy-link></copy-link>"
     }).use(markdownitmisize);
+
+    eleventyConfig.addPlugin(pluginSyntaxHighlight);
+
+     // Remember old renderer, if overridden, or proxy to default renderer
+     const defaultCodeRender = markdownLibrary.renderer.rules.fence || function(tokens, idx, options, env, self) {
+      return self.renderToken(tokens, idx, options);
+    };
+
+    markdownLibrary.renderer.rules.fence = (...args) => {
+      const [tokens, idx, options, env, self] = args;
+      env.parsedDemoIds = env.parsedDemoIds || [];
+      const parsedDemoIds = env.parsedDemoIds;
+      const token = tokens[idx];
+
+      const getDataFromInfo = (token) => {
+        const info = token.info || '';
+        let lang = info.substr(0,info.indexOf(' ')); 
+        let id = info.substr(info.indexOf(' ')+1);
+        if(!lang) {
+          lang = id;
+          id = '';
+        }
+        return {id, lang};
+      }
+
+      const wrapCode = (lang, index) => {
+        const renderedCode = defaultCodeRender(tokens, index, options, env, self);
+        const languageKey = lang.toLowerCase() === "javascript" ? "js" : lang.toLowerCase();
+        return `<div contenteditable slot="${languageKey}" data-language="${languageKey}">${renderedCode}</div>`
+      };
+      let dataObj = getDataFromInfo(token);
+      if (dataObj && dataObj.id) {
+          if(parsedDemoIds.includes(dataObj.id)) {
+            return '';
+          }
+          let matchingTokens = [wrapCode(dataObj.lang, idx)];
+          for (let i = idx+1; i < tokens.length; i++) {
+            if(tokens[i].type !== "fence") {
+              continue;
+            }
+            const {id, lang} = getDataFromInfo(tokens[i]);
+            if(id &&id === dataObj.id) {
+              matchingTokens.push(wrapCode(lang, i));
+            }
+          }
+          parsedDemoIds.push(dataObj.id);
+          return `
+          <live-demo id=${dataObj.id}>
+          ${matchingTokens.join("")}</live-demo>`;
+        // find all code with matching id
+      } else {
+        return defaultCodeRender(...args);
+      }
+    }
 
     markdownLibrary.renderer.rules.image = (tokens) => {
       const token = tokens[0];
@@ -36,7 +90,7 @@ module.exports = (eleventyConfig) => {
     }
 
     // Remember old renderer, if overridden, or proxy to default renderer
-    var defaultRender = markdownLibrary.renderer.rules.link_open || function(tokens, idx, options, env, self) {
+    const defaultLinkRender = markdownLibrary.renderer.rules.link_open || function(tokens, idx, options, env, self) {
       return self.renderToken(tokens, idx, options);
     };
 
@@ -49,7 +103,7 @@ module.exports = (eleventyConfig) => {
         const href = link.attrs[hrefIndex][1];
         const isRelativeUrl= href && (href.startsWith("/") || href.startsWith("#") || href.startsWith(siteMeta.url));
         if (isRelativeUrl) {
-          return defaultRender(tokens, idx, options, env, self);
+          return defaultLinkRender(tokens, idx, options, env, self);
         }
       }
       if (aIndex < 0) {
@@ -59,7 +113,7 @@ module.exports = (eleventyConfig) => {
       }
 
       // pass token to default renderer.
-      return defaultRender(tokens, idx, options, env, self);
+      return defaultLinkRender(tokens, idx, options, env, self);
     };
 
     eleventyConfig.setLibrary("md", markdownLibrary);
@@ -87,7 +141,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.setUseGitIgnore(false);
 
   eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(pluginSyntaxHighlight);
+  //eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
 
   eleventyConfig.setDataDeepMerge(true);

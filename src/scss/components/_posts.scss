@@ -3,13 +3,22 @@ $card-padding: 1rem;
 .post-tiles {
   display: flex;
   flex-direction: column;
+  width: 100%;
   .tiles {
     margin-top:1.5rem;
     display: grid;
     max-width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(23rem, 30fr));
+    grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
     grid-gap: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 3000px) {
+  .post-tiles {
+    .tiles {
+      grid-template-columns: repeat(auto-fit,minmax(51rem,0fr));
+    }
   }
 }
 
@@ -17,6 +26,8 @@ $card-padding: 1rem;
 @media screen and (max-width: 45em) {
   .post-tiles {
     .tiles {
+      margin-top:1rem;
+      place-items: center;
       grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     }
   }

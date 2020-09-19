@@ -2,7 +2,7 @@
 
 $h1-size:min(5vw, 7vh);
 $h1-size-mob:min(6vw, 8vh);
-$h1-size-large:min(2vw, 6vh);
+$h1-size-large:min(7vw, 10vh);
 
 h1 {
   width: auto;
@@ -18,6 +18,7 @@ h2 {
   position: relative;
   display: block;
   z-index: 10;
+  font-size: 1.3rem;
 
 }
 
@@ -50,20 +51,21 @@ h2 {
     position: relative;
     display: flex;
   }
+}
 
-  .call-to-action {
-    position: absolute;
-    background: var(--Primary);
-    color: var(--Background);
-    right:0;
-    font-size: 1rem;
-    padding:0.25rem 1.5rem;
-    border-radius: 0.25rem;
-    margin-top:0.5rem;
-    transition: transform 150ms ease-out;
-    &:focus, &:hover {
-      transform: scale(0.98) translateY(0.1rem);
-    }
+.call-to-action {
+  position: absolute;
+  background: var(--Primary);
+  color: var(--Background);
+  right:0;
+  font-size: 1rem;
+  padding:0.25rem 1.5rem;
+  border-radius: 0.25rem;
+  margin-top:0.5rem;
+  transition: transform 150ms ease-out;
+  bottom: 1.1rem;
+  &:focus, &:hover {
+    transform: scale(0.98) translateY(0.1rem);
   }
 }
 
@@ -88,7 +90,21 @@ h2 {
 @media screen and (min-width: 3000px) {
   h1 {
     font-size: $h1-size-large;
-    line-height: 2.5vw;
+    line-height: 5vw;
+  }
+
+  h2 {
+    font-size: calc(#{$h1-size-large} * 0.3);
+    padding-bottom: 3rem;
+    padding:4rem 0;
+    &:after {
+      margin-top: 1rem;
+      height: 0.5rem;
+    }
+  }
+
+  h3 {
+    padding: 1.5rem 0;
   }
 }
 
@@ -111,5 +127,22 @@ h1 {
   h1 {
     transform: translateY(4rem);
     opacity: 0;
+  }
+}
+
+@media screen and (min-width: 3000px) {
+  body {
+    line-height: 3rem;
+    font-size:2rem;
+  }
+
+  .post-date, .post-date, .post-tag, .tagline, blockquote {
+    font-size: 1.5rem !important;
+  }
+
+  .call-to-action {
+    font-size: 2.5rem;
+    padding:0.75rem 4rem;
+    border-radius: 1rem;
   }
 }

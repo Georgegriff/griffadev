@@ -30,6 +30,7 @@
     "markdown-it-anchor": "^5.2.5",
     "markdown-it-imsize": "^2.0.1",
     "npm": "^6.14.8",
+    "prism-themes": "^1.4.0",
     "rollup": "^2.26.2",
     "rollup-plugin-output-manifest": "^1.0.2",
     "sass": "^1.26.10"

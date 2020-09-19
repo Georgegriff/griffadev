@@ -4,10 +4,10 @@ tagline: When i've started side projects in the past, I felt like I dug into cod
 series:
   title: Building a personal blog
   order: 1
-date: '2020-08-03'
+date: '2020-09-08'
 hero:
-  image: "/images/day1-design.png"
-  alt: 'blog  image'
+  image: "/images/design-day1.png"
+  alt: 'Picture of day 1 design of blog'
 tags:
   - Design
   - Research
@@ -24,7 +24,7 @@ This article details some of the first steps that I took along the journey to bu
 
 > It's at this point of writing this blog post I got very distracted, trying to find an appropriate picture. Maybe I should have titled this post: How to not get distracted whilst working on a new project, it even occurred to me to write a component to auto generate a picture of my cats, probably would've been worth it.
 
-![Picture of my cat, cat in front of Mac book](/images/chewie-macbook.jpg "This is Chewie, he is a good boy and sure is ready to code." =400x)
+![Picture of my cat, cat in front of Mac book](/images/chewie-macbook.jpg "This is Chewie, he is a good boy and sure is ready to code." =500x)
 
 
 ## Building a personal blog
@@ -99,9 +99,9 @@ If you want to try it out I can only recommend (again) watching [UI Design For C
 After first day of research and design I had a first pass at a mobile layout for  a potential blog site.
 
 
-![Picture of initial designs for blogging site](/images/day1-design.png "The first pass at designs for griffa.dev" =600x)
+![Picture of initial designs for blogging site](/images/design-day1.png "The first pass at designs for griffa.dev" =1000x)
 
-In the next post I'll explore how I iterated on the above design, implementing dark and light themes, as well as experimenting with illustration.
+In the next post I'll explore how I iterated on the above design, implementing dark and light themes, using CSS variables.
 
 TODO nav
 

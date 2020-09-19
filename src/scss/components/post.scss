@@ -1,13 +1,55 @@
 @import 'variables';
 $title-height: 4rem;
-$date-height: 2rem;
+$date-height: 2.2rem;
+
+live-demo {
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    border-radius: 0.2rem;
+    overflow: auto;
+    background: var(--Secondary);
+    div[contenteditable] {
+        margin:0.5rem;
+        height: 100%;
+        width: 100%;
+        &:focus{
+            outline: none;
+        }
+    }
+    pre {
+        &:focus{
+            outline: none;
+        }
+    }
+    pre[class*=language-] {
+        overflow: initial;
+    }
+    /* potential editing  */
+    /*pre {
+        padding: .2em .5em !important;
+        margin: 0 !important;
+        overflow: auto;
+        border-radius: 0 !important;
+    } */
+
+    /* to prevent  layout  shift add some padding for the demo button*/
+}
+
+/* for fragment scrolling */
+html,body {
+    scroll-padding-top:$header + $date-height + $title-height;
+}
 
 .content {
     display: flex;
     flex-direction: column;
-    margin:0 auto;
+    background: var(--Background);
+
 }
 .post {
+    margin: 0 auto;
     h2 {
         top: $header + $date-height;
     }
@@ -33,7 +75,7 @@ $date-height: 2rem;
 
     .post-date {
         align-self: flex-end;
-        font-size: 0.875rem;
+        font-size: 0.95rem;
         position: sticky;
         top: $header;
         width: 100%;
@@ -60,13 +102,12 @@ $date-height: 2rem;
                 position: relative;
             }
             figcaption {
-                font-size: 0.875rem;
+                font-size: 0.95rem;
                 margin-top:0.5rem;
                 text-align:center;
                 width:100%;
             }
             .img-wrap {
-                width: 100%;
                 display: flex;
                 align-items: center;
                 flex-direction: column;
@@ -74,6 +115,11 @@ $date-height: 2rem;
                 border-radius:0.15rem;
                 padding:1rem;
                 background: var(--Secondary);
+                img {
+                    object-fit: cover;
+                    max-height: 44vh;
+                    object-position: 0 32%;
+                }
             }
         }
     }
@@ -93,10 +139,13 @@ $date-height: 2rem;
 }
 
 blockquote {
-    font-size: 0.875rem;
+    p {
+        margin:0 !important;
+    }
+    font-size: 0.95rem;
     font-style: italic;
     padding:0.75rem;
-    margin:0.5rem 0.5rem 1rem 0.5rem;
+    margin:1rem 0.5rem;
     border-radius: 0.25rem;
     position: relative;
     &:before {
@@ -107,5 +156,59 @@ blockquote {
         position: absolute;
         top:0;
         left:-0.5rem;
+    }
+}
+
+.post-hero {
+    position: relative;
+    &:before {
+        content:"";
+        background-image: linear-gradient(to bottom, var(--Background)0%, transparent 20vw,var(--Background) 60vh)
+        , url(/images/ill_back.svg);
+        background-size:111%;
+        background-position:10% 30%;
+        background-repeat: no-repeat;
+        position: absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        opacity:0.65;
+        background-attachment: fixed;
+    }
+}
+
+@media screen and (max-width: 75em) {
+    .post-hero {
+        position: relative;
+        &:before {
+            background-size: 118%;
+            background-repeat: no-repeat;
+            background-position-x: 60%;
+            background-position-y: 0%;
+            background-image: linear-gradient(to bottom, var(--Background) 5%, transparent $header+8rem,var(--Background) 32vw)
+            , url(/images/ill_back.svg);
+        }
+    }
+}
+
+@media screen and (max-width: 45em) {
+    .post-hero {
+        position: relative;
+        &:before {
+            background-size: 118%;
+            background-repeat: no-repeat;
+            background-position-x: 60%;
+            background-position-y:3%;
+            background-image: linear-gradient(to bottom, var(--Background) 11%, transparent 18%,var(--Background) 33vh)
+            , url(/images/ill_back.svg);
+        }
+    }
+}
+
+/* we want light theme a little lighter */
+#theme:checked + .wrapper .post-hero {
+    &:before {
+        opacity:0.05;
     }
 }

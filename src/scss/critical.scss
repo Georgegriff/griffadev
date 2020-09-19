@@ -12,13 +12,19 @@
     --White: #{$white};
 
     --HeroBorders: #{$dark-secondary};
-    --HeroBackground: var(--Background50);
-    --HeroBricks: var(--Background);
-    --HeroShirt: var(--Primary);
-    --HeroShirt50: var(--Primary50);
-    --HeroAccents: var(--Text);
     --HeroWhite: #{$dark-text};
-    --HeroTriangle: var(--Highlight);
+
+    --code-text: var(--Text);
+    --code-background:transparent;
+    --code-punc: var(--Primary);
+    --code-token: var(--Primary);;
+    --code-boolean: var(--Primary);
+    --code-keyword: var(--Primary);
+    --code-operator: var(--Primary);
+    --code-number: #B48EAD;
+    --code-attr-name: #A3BE8C;
+    --code-attr-value: #88C0D0;
+    --code-regex: #EBCB8B;
 }
 
 html, body {
@@ -47,8 +53,10 @@ html, body {
     flex:1;
     flex-direction: column;
     color: var(--Text);
-    background: var(--Background);
+    background-color: var(--Background);
 }
+
+
 
 #theme:checked + .wrapper, #theme:checked + .wrapper + .filler {
     --Background: #{$light-bg};
@@ -61,13 +69,20 @@ html, body {
     --Highlight: #{$light-highlight};
 
     --HeroBorders: #{$dark-secondary};
-    --HeroBackground: var(--Background50);
-    --HeroBricks: var(--Background);
-    --HeroShirt: var(--Primary);
-    --HeroShirt50: var(--Primary50);
-    --HeroAccents: var(--Text);
     --HeroWhite: #{$dark-text};
-    --HeroTriangle: var(--Highlight);
+
+    --code-text: var(--Text);
+    --code-background: transparent;
+    --code-punc: var(--Primary);
+    --code-token: var(--Primary);;
+    --code-boolean: var(--Primary);
+    --code-keyword: var(--Primary);
+    --code-operator: var(--Primary);
+    --code-number: #c616a5;
+    --code-attr-name: #1f780b;
+    --code-attr-value: #3846c0;
+    --code-regex: #644b0e;
+    
 }
 
 a {

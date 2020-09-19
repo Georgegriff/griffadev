@@ -9,7 +9,7 @@
         {%- for link in external.links %}
             <li><a rel="noopener" target="_blank" href="{{link.url | url}}" class="action external">{% include link.icon %}<span>{{link.text}}</span></a></li>
         {%- endfor %}
-        <li>
+        <li class="toggle-li">
             <div class="theme-toggle toggle-desktop">{% include "./toggle.html" %}</div>
         </li>
     </ul>

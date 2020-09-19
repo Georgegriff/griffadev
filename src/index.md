@@ -1,7 +1,7 @@
 ---
 title: 'Rambling, Tutorials and Experiments.'
 layout: 'layouts/index.njk'
-subtitle: 'Recent Activity'
+subtitle: 'Recent activity'
 callToAction:
   href: '/posts/'
   text: 'Older posts'

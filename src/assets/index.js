@@ -2,8 +2,13 @@ import { IntersectDetect } from "./components/IntersectDetect";
 import "./scroll-collapse";
 // TODO move to page!!
 import "lite-youtube-embed/src/lite-yt-embed.js";
+import { LiveDemo } from "./components/LiveDemo";
+import {GriffSelect} from "./components/GriffSelect";
 
 customElements.define('intersect-detect', IntersectDetect);
+customElements.define('griff-select', GriffSelect);
+// TODO move
+customElements.define('live-demo', LiveDemo);
 
 /* Dom events */
 const mainContainer = document.querySelector(".main-content");
@@ -27,9 +32,3 @@ let trans = () => {
         document.documentElement.classList.remove('transition')
     }, 1000)
 }
-
-
-// remove the link so can work without js
-document.querySelector('lite-youtube a.no-js').addEventListener('click', (e) => {
-    e.preventDefault();
-})
