@@ -2,7 +2,7 @@
 
 .actionbar {
   position: fixed;
-  top:0;
+  top: 0;
   bottom: 0;
   right: 0;
   left: 0;
@@ -12,14 +12,25 @@
   background: var(--Secondary);
   color: var(--Text50);
   z-index: 9001;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
 
   .actions {
     margin: 1.15rem 0;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    justify-content: space-evenly;
     li {
       display: inline-flex;
+      justify-content: center;
+      width: auto;
+    }
+
+    .action-active a {
+      &:after {
+        opacity: 1;
+      }
     }
 
     .action-active {
@@ -40,12 +51,12 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      width: $action-bar;
+      width: 100%;
       height: $action-bar;
       margin-bottom: 1rem;
-      font-size:1rem;
+      font-size: 1rem;
       position: relative;
-      margin-top:0.15rem;
+      margin-top: 0.15rem;
 
       &:after {
         content: "";
@@ -59,48 +70,53 @@
       }
 
       svg {
-        width: 1.60rem;
-        height: 1.60rem;
+        width: 1.6rem;
+        height: 1.6rem;
       }
 
       span {
-        margin-top:0.5rem;
+        margin-top: 0.5rem;
       }
-
       &:hover, &:focus {
-        &:after {
-          opacity: 1;
-        }
+        color: var(--Primary);
+        outline: solid 1px var(--Primary);
+        outline-offset: -2px;
       }
     }
   }
 }
 
 @media screen and (max-width: 45em) {
-    .action-hide {
-      transform: translateY(10rem);
-    }
-    .actionbar {
-        transition: transform 250ms linear;
-        transition-delay: 250ms;
-        position: fixed;
-        top: auto;
-        height: $action-bar;
-        width: 100%;
+  .action-hide {
+    transform: translateY(10rem);
+  }
+  .actionbar {
+    transition: transform 250ms linear;
+    transition-delay: 250ms;
+    position: fixed;
+    top: auto;
+    height: $action-bar;
+    width: 100%;
 
-        .actions {
-          display: flex;
-          justify-content: space-evenly;
-          flex:1;
-          flex-direction: row;
-          margin:0;
+    .actions {
+      display: flex;
+      flex-direction: row;
+      margin:0 1rem;
+      padding:0;
+      width: 100%;
 
-          a {
-            justify-content: center;
-            &:after {
-              width: 85%;
-            }
-          }
+      li {
+        display: inline-flex;
+        list-style-type: none;
+      }
+
+      a {
+        justify-content: center;
+        width: $action-bar;
+        &:after {
+          width: 85%;
         }
+      }
     }
+  }
 }

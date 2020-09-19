@@ -18,9 +18,8 @@ main {
   margin-left: $action-bar;
 }
 
-.site-wrapper {
+.header-wrapper {
   width: 100%;
-  background: var(--Background);
   position: sticky;
   top: 0;
   height: $header;
@@ -28,6 +27,7 @@ main {
 }
 
 .site-header {
+  background: var(--Background);
   height: 100%;
   margin: 0 auto;
   width: 100%;
@@ -54,13 +54,13 @@ main {
     justify-content: space-between;
   }
   body {
-    margin-bottom: $action-bar + 2rem;
+    margin-bottom: $action-bar + 1rem;
   }
   .content {
-    padding: 0 2rem;
+    padding: 0 1rem;
   }
   .site-header {
-    padding: 2rem;
+    padding: 1rem;
   }
   .page-layout {
     flex-direction: column-reverse;

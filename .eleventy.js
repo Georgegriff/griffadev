@@ -36,10 +36,14 @@ module.exports = (eleventyConfig) => {
       const token = tokens[idx];
 
       const getDataFromInfo = (token) => {
-        const info = token.info || ''; // css {id:foo}
-        const lang = info.substr(0,info.indexOf(' ')); 
-        const data = info.substr(info.indexOf(' ')+1);
-        return {data:JSON.parse(data), lang};
+        const info = token.info || '';
+        let lang = info.substr(0,info.indexOf(' ')); 
+        let id = info.substr(info.indexOf(' ')+1);
+        if(!lang) {
+          lang = id;
+          id = '';
+        }
+        return {id, lang};
       }
 
       const wrapCode = (lang, index) => {
@@ -47,20 +51,9 @@ module.exports = (eleventyConfig) => {
         const languageKey = lang.toLowerCase() === "javascript" ? "js" : lang.toLowerCase();
         return `<div contenteditable slot="${languageKey}" data-language="${languageKey}">${renderedCode}</div>`
       };
-      let dataObj;
-      const hasDataObject = (token) => {
-        return token.info.indexOf(' {') > -1;
-      }
-      try {
-        dataObj = getDataFromInfo(token);
-      } catch(e) {
-        if(hasDataObject(token)) {
-          return `<pre>Error parsing JSON: ${e} of ${token.info}</pre>`;
-        }
-        return defaultCodeRender(...args);
-      }
-      if (dataObj) {
-          if(parsedDemoIds.includes(dataObj.data.id)) {
+      let dataObj = getDataFromInfo(token);
+      if (dataObj && dataObj.id) {
+          if(parsedDemoIds.includes(dataObj.id)) {
             return '';
           }
           let matchingTokens = [wrapCode(dataObj.lang, idx)];
@@ -68,21 +61,14 @@ module.exports = (eleventyConfig) => {
             if(tokens[i].type !== "fence") {
               continue;
             }
-            try {
-              const {data, lang} = getDataFromInfo(tokens[i]);
-              if(data && data.id === dataObj.data.id) {
-                matchingTokens.push(wrapCode(lang, i));
-              }
-            } catch(e) {
-              if(hasDataObject(tokens[i])) {
-                return `<pre>Error parsing JSON: ${e} of ${tokens[i].info}</pre>`;
-              }
+            const {id, lang} = getDataFromInfo(tokens[i]);
+            if(id &&id === dataObj.id) {
+              matchingTokens.push(wrapCode(lang, i));
             }
           }
-          parsedDemoIds.push(dataObj.data.id);
+          parsedDemoIds.push(dataObj.id);
           return `
-          <h3>${dataObj.data.title || dataObj.data.id}<a class="direct-link" href="#${dataObj.data.id}"><copy-link></copy-link></a></h3>
-          <live-demo id=${dataObj.data.id}>
+          <live-demo id=${dataObj.id}>
           ${matchingTokens.join("")}</live-demo>`;
         // find all code with matching id
       } else {

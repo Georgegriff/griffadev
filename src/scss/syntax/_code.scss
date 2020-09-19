@@ -1,0 +1,125 @@
+/**
+ * Nord Theme Originally by Arctic Ice Studio
+ * https://nordtheme.com
+ *
+ * Ported for PrismJS by Zane Hitchcoxc (@zwhitchcox) and Gabriel Ramos (@gabrieluizramos)
+ */
+
+ code[class*="language-"],
+ pre[class*="language-"] {
+     color: var(--code-text,  #f8f8f2);
+     background: none;
+     font-family: "Fira Code", Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+     text-align: left;
+     white-space: pre;
+     word-spacing: normal;
+     word-break: normal;
+     word-wrap: normal;
+     line-height: 1.5;
+     -moz-tab-size: 4;
+     -o-tab-size: 4;
+     tab-size: 4;
+     -webkit-hyphens: none;
+     -moz-hyphens: none;
+     -ms-hyphens: none;
+     hyphens: none;
+ }
+ 
+ /* Code blocks */
+ pre[class*="language-"] {
+     margin:0;
+     padding:0;     
+     overflow: auto;
+     border-radius: 0.3em;
+ }
+ 
+ :not(pre) > code[class*="language-"],
+ pre[class*="language-"] {
+     background: var(--code-background, var(--Secondary));
+ }
+ 
+ /* Inline code */
+ :not(pre) > code[class*="language-"] {
+     padding: .1em;
+     border-radius: .3em;
+     white-space: normal;
+ }
+ 
+ .token.comment,
+ .token.prolog,
+ .token.doctype,
+ .token.cdata {
+     color: #636f88;
+ }
+ 
+ .token.punctuation {
+     color: var(--code-punc, #81A1C1);
+ }
+ 
+ .namespace {
+     opacity: .7;
+ }
+ 
+ .token.property,
+ .token.tag,
+ .token.constant,
+ .token.symbol,
+ .token.deleted {
+     color: var(--code-token);
+ }
+ 
+ .token.number {
+     color: var(--code-number);
+ }
+ 
+ .token.boolean {
+     color: var(--code-boolean);
+ }
+ 
+ .token.selector,
+ .token.attr-name,
+ .token.string,
+ .token.char,
+ .token.builtin,
+ .token.inserted {
+     color: var(--code-attr-name);
+ }
+ 
+ .token.operator,
+ .token.entity,
+ .token.url,
+ .language-css .token.string,
+ .style .token.string,
+ .token.variable {
+     color: var(--code-operator);
+ }
+ 
+ .token.atrule,
+ .token.attr-value,
+ .token.function,
+ .token.class-name {
+     color: var(--code-attr-value);
+ }
+ 
+ .token.keyword {
+     color: var(--code-keyword);
+ }
+ 
+ .token.regex,
+ .token.important {
+     color: var(--code-regex);
+ }
+ 
+ .token.important,
+ .token.bold {
+     font-weight: bold;
+ }
+ 
+ .token.italic {
+     font-style: italic;
+ }
+ 
+ .token.entity {
+     cursor: help;
+ }
+ 

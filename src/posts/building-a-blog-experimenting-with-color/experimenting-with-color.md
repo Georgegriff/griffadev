@@ -1,6 +1,6 @@
 ---
 title: 'Using css custom properties for color and theming'
-tagline: I'm by no means a designer, but by doing a bit of research into color contract and accessibility, and use of CSS variables, I was able to build out a design that I was happy with.
+tagline: I'm by no means a designer, but with a bit of research into color contract and accessibility, making I was able to build out a design that I was happy with.
 series:
   title: Building a personal blog
   order: 2
@@ -24,44 +24,57 @@ In the previous post in this series I detailed my approach to research and desig
 ## Picking a color theme
 Choosing an initial color palette is something that I struggle with, thankfully, there are lots of sites out there for inspiration. One great one is [colorinspo](https://colorsinspo.com/), a great way do use this site is to have a bit of a play with possible colors schemes to find ideas you like, if you are using a design tool like Adobe XD, you could experiment with colors by duplicating your designs to create variants.
 
-The video linked below from [DesignCourse](https://www.youtube.com/channel/UCVyRiMvfUNMA1UPlDPzG5Ow) is a great example of doing exactly that.
-
 {% include "components/youtube.html" id:"s9p3nF4rFaU" %}
+
+The video linked above from [DesignCourse](https://www.youtube.com/channel/UCVyRiMvfUNMA1UPlDPzG5Ow) is a great example of doing exactly that.
 
 ## Using CSS Custom Properties
 When it comes to implementing your theme in code I *strongly* recommend that you use CSS custom properties, they are supported everywhere that [matters](https://caniuse.com/?search=css%20variables), and are great way to introduce a variety of colors schemes for your site.
 
 If you want you can use [SASS](https://sass-lang.com/) too, for example:
 
-```css {"id":"mydemo", "title":"A live demo"}
-div {
-  --Text: var(--Primary);
+```scss
+body  {
+  --Primary: #${myColor}
 }
-```
-
-```html {"id":"mydemo"}
-<div style="color:var(--Text, blue)">I'm a live demo</div>
-<span>Helloo world</span>
 ```
 
 > Tip: also use custom properties as fills in your embedded svgs and have those automatically respond to your theme selection!
 
-TODO  make shadow dom live demo
+### A live demo
 
-```html
-<style>
-    * {
-        --Primary: purple;
-        --Secondary: f0f0f0;
+```css css-var-demo
+* {
+        color: black;
+        --Primary: #dd0d00;
+        --Secondary: #e0dd6f;
     }
-</style>
-<p>This content will change <strong style="color:var(--Primary)">color</strong> when you change the theme</p>
+    div {
+      background: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items:center;
+      padding: 1rem;
+      height: 100%;
+      width: 100%;
+    }
+    svg {
+      width: 50px;
+      height: 50px;
+    }
+```
+```html css-var-demo
+<div>
+  <p>This content will change <strong style="color:var(--Primary)">color</strong>
+<span style="color:var(--Secondary);">when you change the --Primary or --Secondary</span></p>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
     <g transform="translate(-339 -150.484)">
         <path fill="var(--Secondary, #fff)" d="M-1978.639,24.261h0a1.555,1.555,0,0,1-1.555-1.551V9.291a1.555,1.555,0,0,1,1.555-1.551,1.527,1.527,0,0,1,.748.2l11.355,6.9a1.538,1.538,0,0,1,.793,1.362,1.526,1.526,0,0,1-.793,1.348l-11.355,6.516A1.52,1.52,0,0,1-1978.639,24.261Z" transform="translate(2329 150.484)"/>
         <path fill="var(--Primary, #000)" d="M16.563.563a16,16,0,1,0,16,16A16,16,0,0,0,16.563.563Zm7.465,17.548L12.672,24.627a1.551,1.551,0,0,1-2.3-1.355V9.853a1.552,1.552,0,0,1,2.3-1.355l11.355,6.9A1.553,1.553,0,0,1,24.027,18.111Z" transform="translate(338.438 149.922)" />
     </g>
 </svg>
+<div>
 ```
 
 If you build a site from the ground up with theming in mind, then you can rapidly prototype new experimental color schemes, here's a theme I generated just by having a quick play in chrome.

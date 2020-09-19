@@ -18,6 +18,7 @@ h2 {
   position: relative;
   display: block;
   z-index: 10;
+  font-size: 1.3rem;
 
 }
 
@@ -50,21 +51,21 @@ h2 {
     position: relative;
     display: flex;
   }
+}
 
-  .call-to-action {
-    position: absolute;
-    background: var(--Primary);
-    color: var(--Background);
-    right:0;
-    font-size: 1rem;
-    padding:0.25rem 1.5rem;
-    border-radius: 0.25rem;
-    margin-top:0.5rem;
-    transition: transform 150ms ease-out;
-    bottom: 1.1rem;
-    &:focus, &:hover {
-      transform: scale(0.98) translateY(0.1rem);
-    }
+.call-to-action {
+  position: absolute;
+  background: var(--Primary);
+  color: var(--Background);
+  right:0;
+  font-size: 1rem;
+  padding:0.25rem 1.5rem;
+  border-radius: 0.25rem;
+  margin-top:0.5rem;
+  transition: transform 150ms ease-out;
+  bottom: 1.1rem;
+  &:focus, &:hover {
+    transform: scale(0.98) translateY(0.1rem);
   }
 }
 
@@ -123,5 +124,11 @@ h1 {
 
   .post-date, .post-date, .post-tag, .tagline, blockquote {
     font-size: 1.5rem !important;
+  }
+
+  .call-to-action {
+    font-size: 2.5rem;
+    padding:0.75rem 4rem;
+    border-radius: 1rem;
   }
 }

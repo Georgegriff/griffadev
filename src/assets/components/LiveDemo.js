@@ -1,46 +1,56 @@
-import { LitElement, html, css, customElement, property } from 'lit-element';
+import { LitElement, html, css, customElement, property } from "lit-element";
+import { render } from "lit-html";
+import { unsafeHTML } from "lit-html/directives/unsafe-html";
 
 const collectInnerText = (slotsArray) => {
-   return Array.isArray(slotsArray) && slotsArray.reduce((str, curr)=> {
-        const txt = curr.innerText;
-        return `${str}${txt}`;
-    }, '');
-}
+  return (
+    Array.isArray(slotsArray) &&
+    slotsArray.reduce((str, curr) => {
+      const txt = curr.innerText;
+      return `${str}${txt}`;
+    }, "")
+  );
+};
+
+const _splitImports = (jsString) => {
+  const lines = (jsString || "").split("\n");
+  return lines.reduce(
+    ([imports, code], current) => {
+      if (
+        current.match(/import.{1,}from/g) ||
+        current.match(/export.{1,}from/g)
+      ) {
+        imports += current;
+      } else {
+        code += current;
+      }
+      return [imports, code];
+    },
+    ["", ""]
+  );
+};
+
 export class LiveDemo extends LitElement {
+  constructor() {
+    super();
+    this.hideText = "Close";
+    this.showText = "Demo";
+    this.toggled = false;
+    this.selected = "html";
+    this.languageOptions = [];
+  }
 
-    constructor() {
-        super();
-        this.hideText="Close";
-        this.showText="Demo";
-        this.toggled = false;
-    }
-
-    static get styles() {
-        return css`
+  static get styles() {
+    return css`
         :host {
             display:flex;
             flex-direction:column;
             position:relative;
             perspective: 500px;
             will-change: transform;
-
-        }
-
-        button {
-            justify-content: flex-end;
-            align-self: flex-end;
-            background: var(--Primary);
-            color: var(--Background);
-            font-size: 1rem;
-            font-weight:600;
-            padding: .25rem 1.5rem;
-            border-radius: .25rem;
-            transition: transform 150ms ease-out;
-            bottom: 1.1rem;
-            border:none;
-            cursor:pointer;
-            margin:1rem;
-            z-index:1;
+            flex:1;
+            margin:1rem 0rem;
+            min-height: 30rem;
         }
 
         button:active {
@@ -58,63 +68,177 @@ export class LiveDemo extends LitElement {
             flex:1;
             transform-style: preserve-3d;
             transition: all 0.45s ease-in-out;
-            will-change:transform;
+            will-change:transform
         }
 
         .demo-front,
         .demo-back {
-        backface-visibility: hidden;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background: var(--Background);
+            backface-visibility: hidden;
+            overflow: auto;
+            background: var(--Secondary);
+            position: absolute;
+            width: 100%;
+            height: 100%;
         }
 
         .demo-back {
-            background: var(--Secondary);
+
+            background: var(--Background50);
             transform: rotateX(180deg);
         }
-        `
-    }
 
-    static get properties() {
-        return { 
-          hideText: {type: String},
-          showText: {type: String},
-          toggled: {type: Boolean, reflect: true}
-        };
-    }
-
-    toggle = () => {
-        this.toggled = !this.toggled;
-
-        if(this.toggled) {
-            const html = collectInnerText(this.shadowRoot.querySelector('slot[name="html"]').assignedNodes({flatten: false}));
-            const css = collectInnerText(this.shadowRoot.querySelector('slot[name="css"]').assignedNodes({flatten: false}));
-            const wrappedCss = css ?`<style>${css}</style>`: '';
-            this.shadowRoot.querySelector('.code-exe').innerHTML = `${wrappedCss}${html}`;
-        } else {
-            setTimeout(() => {
-                this.shadowRoot.querySelector('.code-exe').innerHTML = '';
-            }, 600)
+        .css,.html.js {
+            height: 100%;
+            width: 100%;
         }
-    }
 
-    // Implement `render` to define a template for your element.
-    render() {
-        return html`
-            
-        
-            <div class="demo">
-                <div aria-hidden="${this.toggled}" class="demo-front">
-                    <slot name="css"></slot>
-                    <slot name="html"></slot>
-                    <slot name="js"></slot>
-                </div>
-                <div aria-hidden="${!this.toggled}" class="demo-back code-exe"></div>
-            </div>
-            <button @click="${this.toggle}">${!this.toggled ? this.showText : this.hideText}</button>
-            `
+        .controls {
+          display:flex;
+          background: var(--Secondary);
+          padding:0.5rem;
+          align-items:  center;
+        }
+
+        griff-select {
+          --griff-select-color: var(--Text);
+          --griff-select-background: var(--Background);
+          --griff-select-outline-color: var(--Primary);
+          --griff-border-color:  var(--Background50);
+          height:2.33rem;
+        }
+
+        button {
+            background: var(--Primary);
+            color: var(--Background);
+            font-size: 1rem;
+            font-weight:600;
+            padding: .25rem 1.5rem;
+            border-radius: .25rem;
+            transition: transform 150ms ease-out;
+            bottom: 1.1rem;
+            border:none;
+            cursor:pointer;
+            z-index:1;
+            margin:0.5rem;
+            height:2.33rem;
+            margin-left: auto;
+        }
+        .demo-front > div {
+          opacity:1;
+          transition: opacity 0.3s ease-in-out;
+        }
+        .demo-front div[aria-hidden="true"] {
+          opacity:0;
+          border: 0;
+          clip: rect(0 0 0 0);
+          height: auto;
+          margin: 0;
+          overflow: hidden;
+          padding: 0;
+          position: fixed;
+          width: 1px;
+          white-space: nowrap;
+        }
+
+        `;
+  }
+
+  static get properties() {
+    return {
+      hideText: { type: String },
+      showText: { type: String },
+      toggled: { type: Boolean, reflect: true },
+      selected:{type: String}
+    };
+  }
+  
+  toggle() {
+    this.toggled = !this.toggled;
+
+    if (this.toggled) {
+      const htmlContent = collectInnerText(
+        this.shadowRoot
+          .querySelector('slot[name="html"]')
+          .assignedNodes({ flatten: false })
+      );
+      const css = collectInnerText(
+        this.shadowRoot
+          .querySelector('slot[name="css"]')
+          .assignedNodes({ flatten: false })
+      );
+      const js = collectInnerText(
+        this.shadowRoot
+          .querySelector('slot[name="js"]')
+          .assignedNodes({ flatten: false })
+      );
+      const [imports, code] = _splitImports(js);
+      const allCode = `${imports}
+            (async () => {
+                try {
+                    ${code}
+                } catch(e) {
+                    console.error(e);
+                }
+            })();`;
+      const script = document.createElement("script");
+      script.textContent = allCode;
+      script.type = "module";
+      const content = () => html`
+        <style>
+          ${css}
+        </style>
+        ${unsafeHTML(htmlContent)} ${script}
+      `;
+      try {
+        this.shadowRoot
+          .querySelector(".code-exe")
+          .attachShadow({ mode: "open" });
+      } catch (e) {
+        // shush
+      }
+      render(content(), this.shadowRoot.querySelector(".code-exe").shadowRoot);
+    } else {
+      setTimeout(() => {
+        render("", this.shadowRoot.querySelector(".code-exe"));
+      }, 600);
     }
+  };
+
+  optionChange(e) {
+    this.selected = e.target.value;
+  }
+
+  _onSlotChange(e) {
+    const slot = e.target;
+    const lang = e.target.name;
+    const children = slot.assignedNodes({ flatten: true });
+    if(children.length) {
+      this.languageOptions = [...this.languageOptions, lang];
+      this.requestUpdate();
+    }
+  }
+
+  // Implement `render` to define a template for your element.
+  render() {
+    return html`
+      <div @slotchange=${this._onSlotChange}  class="demo">
+        <div aria-hidden="${this.toggled}" class="demo-front">
+            <div aria-hidden="${this.selected !== "html"}" ><slot name="html"></slot></div>
+            <div aria-hidden="${this.selected !== "css"}" ><slot name="css"></slot></div>
+            <div aria-hidden="${this.selected !== "js"}" ><slot name="js"></slot></div>
+        </div>
+        <div aria-hidden="${!this.toggled}" class="demo-back code-exe"></div>
+      </div>
+      <div class="controls">
+        <griff-select placeholder="Select language" value="${this.selected}">
+          <select @change="${this.optionChange}">
+              ${this.languageOptions.map((lang) => html`<option value="${lang}">${lang.toUpperCase()}</option>`)}
+          </select>
+        </griff-select>
+        <button @click="${this.toggle.bind(this)}">
+          ${!this.toggled ? this.showText : this.hideText}
+        </button>
+      </div>
+    `;
+  }
 }

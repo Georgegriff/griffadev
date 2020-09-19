@@ -25,6 +25,7 @@ $card-padding: 1rem;
 @media screen and (max-width: 45em) {
   .post-tiles {
     .tiles {
+      margin-top:1rem;
       place-items: center;
       grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     }

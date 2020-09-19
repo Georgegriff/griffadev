@@ -5,9 +5,6 @@ series:
   title: Building a personal blog
   order: 1
 date: '2020-09-08'
-hero:
-  image: "/images/design-day1.png"
-  alt: 'Picture of day 1 design of blog'
 tags:
   - Design
   - Research

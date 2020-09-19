@@ -1,4 +1,6 @@
 {% set hero = post.data.hero %}
+
+{% if post.data.hero %}
 <a title="{{post.data.title}}" href="{{ post.url }}">
     <div class="post-img-link">
         <div role="img" class="post-img">
@@ -12,6 +14,7 @@
         </div>
     </div>
 </a>
+{% endif %}
 <div class="post-content">
     <a title="{{post.data.title}}" href="{{ post.url }}" class="post-title-link">
         <div>
@@ -19,7 +22,6 @@
             <p class="tagline">{{post.data.tagline}}</p>
         </div>
     </a>
-    <div class="push"></div>
     {% set tags = post.data.tags %}
     {% include "partials/post-tags.html" %}
     <a href="{{ post.url }}">

@@ -1,3 +1,56 @@
 /* Index only components */
 @import "./components/posts";
 @import "./components/post-card";
+@import "./variables";
+
+.wrapper {
+    &:before {
+        content:"";
+        background-image: linear-gradient(to bottom, var(--Background) 0%, transparent 20vw,var(--Background) 60vh)
+        , url(/images/ill_back.svg);
+        background-size:111%;
+        background-position:10% 30%;
+        background-repeat: no-repeat;
+        position: absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        opacity:0.65;
+
+    }
+}
+
+/* we want light theme a little lighter */
+#theme:checked + .wrapper {
+    &:before {
+        opacity:0.05;
+    }
+}
+
+
+@media screen and (max-width: 75em) {
+    .wrapper {
+        &:before {
+            background-size: 118%;
+            background-repeat: no-repeat;
+            background-position-x: 60%;
+            background-position-y: 0%;
+            background-image: linear-gradient(to bottom, var(--Background) 5%, transparent $header+8rem,var(--Background) 32vw)
+            , url(/images/ill_back.svg);
+        }
+    }
+}
+
+@media screen and (max-width: 45em) {
+    .wrapper {
+        &:before {
+            background-size: 118%;
+            background-repeat: no-repeat;
+            background-position-x: 60%;
+            background-position-y:3%;
+            background-image: linear-gradient(to bottom, var(--Background) 11%, transparent 18%,var(--Background) 33vh)
+            , url(/images/ill_back.svg);
+        }
+    }
+}
