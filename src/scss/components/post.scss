@@ -1,6 +1,6 @@
 @import 'variables';
 $title-height: 4rem;
-$date-height: 2.2rem;
+$date-height: 3.2rem;
 
 live-demo {
     height: 30rem;
@@ -73,17 +73,16 @@ html,body {
     h3, h4 {
         margin:0.5rem 0;
     }
-
-    .post-date {
-        align-self: flex-end;
+    .post-meta-sticky {
         font-size: 0.95rem;
         position: sticky;
         top: $header;
         width: 100%;
-        text-align: right;
         background: var(--Background);
         z-index: 12;
         height: $date-height;
+        display: flex;
+        align-items: center;
     }
     .post-content {
         background: var(--Background);

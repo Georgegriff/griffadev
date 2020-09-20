@@ -75,30 +75,23 @@
       }
     }
 
-    .post-date {
-      font-weight: 600;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      font-size: 0.95rem;
-      padding-top:1rem;
-      position: relative;
-      &::before {
-        content: "";
-        position: absolute;
-        top:0;
-        left:0;
-        height: 0.15rem;
-        width: 100%;
-        background: var(--Primary);
-  
-      }
-    }
-
     .post-content {
       padding:$card-padding;
       display: flex;
       flex-direction: column;
       flex: 1;
     }
+}
+
+.post-bottom {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    height: 0.15rem;
+    width: 100%;
+    background: var(--Primary);
+  }
 }

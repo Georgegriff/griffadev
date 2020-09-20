@@ -26,7 +26,9 @@
     {% include "partials/post-tags.html" %}
     <a href="{{ post.url }}">
         <div class="post-bottom">
-            <time class="post-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+            {% set postContent = post.data.content %}
+            {% set date = post.date %}
+            {% include "partials/post-meta.html" %}
         </div>
     </a>
 </div>
