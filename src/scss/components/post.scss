@@ -159,4 +159,8 @@ blockquote {
     }
 }
 
+.post-before {
+    position: relative;
+}
+
 @include backHeros(".post-hero");

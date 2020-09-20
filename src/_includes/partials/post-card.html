@@ -1,7 +1,7 @@
 {% set hero = post.data.hero %}
 
 {% if post.data.hero %}
-{%- set seriesInfo = post | getSeriesInfo %}
+{%- set seriesInfo = post.data | getSeriesInfo %}
 {% include './series-banner.html' %}
 <a title="{{post.data.title}}" href="{{ post.url }}">
     <div class="post-img-link">

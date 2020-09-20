@@ -256,9 +256,7 @@ module.exports = (eleventyConfig) => {
     return seriesData;
   })
 
-  eleventyConfig.addFilter("getSeriesInfo", function(post) {
-    const series = post.data.series;
-    const seriesEntries = post.data.seriesEntries;
+  eleventyConfig.addFilter("getSeriesInfo", function({series, seriesEntries}) {
     if(!series || !seriesEntries) {
       return null;
     }

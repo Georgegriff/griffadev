@@ -62,9 +62,8 @@
     width: 100%;
     padding-top: 22.5%;
   }
-  img, .hero-img, svg {
-    -o-object-fit: cover;
-    object-fit: cover;
+  .hero-img {
+   
     max-width: $max-post-width;
     width: 100%;
     margin: 0 auto;
@@ -74,13 +73,19 @@
     right: 0;
     bottom: 0;
     position: absolute;
+    img, svg {
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+    }
   }
 }
 
 
 @media screen and (min-width: 3000px) {
   .post-hero {
-    img, .hero-img, svg {
+    .hero-img {
       width: $max-post-large;
     }
   }
@@ -99,6 +104,9 @@
 }
 
 @media screen and (max-width: 75em) {
+  .post-hero .series-info {
+    right:1rem;
+  }
   body {
     --site-padding:  #{$mid-padding};
   }

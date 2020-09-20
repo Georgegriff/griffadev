@@ -107,56 +107,6 @@
   align-items: flex-end;
 }
 
-.series-info {
-  position: absolute;
-  top:0;
+.post-card .series-info {
   right:1rem;
-  z-index: 1;
-  width:3rem;
-  background: var(--White);
-  padding:0 0.1rem 0.1rem 0.1rem;
-  clip-path: polygon(50% 0%, 100% 0, 100% 85%, 50% 100%, 0 85%, 0 0);
-  .num-wrap {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-top: var(--font-size-small);
-    padding-top:var(--font-size-small);
-    &:before {
-      content:"SERIES";
-      position: absolute;
-      top:0.25rem;
-      width: 100%;
-      text-align: center;
-      font-size:  calc(0.6 * var(--font-size-small));
-      font-style: italic;
-    }
-    &:after {
-      content: "";
-      margin-top:0.25rem;
-      height:0.08rem;
-      width: 75%;
-      background:var(--Text);
-      position: absolute;
-      top: 76%;
-    }
-  }
-  .series-bg {
-    padding:0.25rem 0.25rem 2rem 0.25rem;
-    clip-path: polygon(50% 0%, 100% 0, 100% 85%, 50% 100%, 0 85%, 0 0);
-    background:var(--Secondary);
-  }
-  .current {
-    font-weight: bold;
-    font-size: calc(3 * var(--font-size-small));
-    line-height: calc(1.1 * var(--font-size-small));
-    margin-bottom: 0.5rem;
-  }
-  .total {
-    font-size:  calc(0.6 * var(--font-size-small));
-    font-style: italic;
-    padding: 0;
-  }
 }

@@ -3,16 +3,16 @@
 {% set pageCriticalStyles = ['css/blog.css'] %}
 
 {% block content %}
-<div slot="before">
+{% set seriesInfo = {series:series, seriesEntries: seriesEntries} | getSeriesInfo %}
+<div class="post-before" slot="before">
     {% include "partials/post-hero.html" %}
 </div>
+
 
 <article class="post content">
     <div slot="observable" class="post-title">
         <h1 class="text-in thirdin">{{ title }}</h1>
     </div>
-    {% set tags =  post.tags %}
-    {% set date =  post.date %}
     {% set postContent = content %}
     {% set date = page.date %}
     <div class="post-meta-sticky">
