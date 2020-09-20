@@ -211,7 +211,7 @@
 
 @keyframes growdiagonal {
   0% {
-    clip-path: polygon(60% 0, 100% 0, 100% 42%, 92% 8%);
+    clip-path: polygon(89% 0, 100% 0%, 100% 11%, 100% 0);
   }
 
   100% {
@@ -219,23 +219,38 @@
   }
 }
 
+.grow-diagonal-bottom {
+  animation: growdiagonalbtm 0.7s forwards;
+}
+
+@keyframes growdiagonalbtm {
+  0% {
+    clip-path: polygon(0 82%, 0 100%, 14% 100%, 0% 100%);
+  }
+
+  100% {
+    clip-path: polygon(0 0,100% 0, 100% 100%, 0 100%);
+  }
+}
+
+
+
 .computer {
   opacity: 0;
   animation: computer 2s forwards;
-  fill:var(--Primary);
+  fill:var(--White);
 }
 
 
 @keyframes computer {
   0% {
     transform: translateY(-90px) translate(955 -496.046) !important;
-    fill:var(--Background);
     opacity: 0;
   }
 
   100% {
     transform: translate(955 -996.046) !important;
-    opacity: 1;
+    opacity:1;
     fill:var(--HeroBorders);
   }
 }
