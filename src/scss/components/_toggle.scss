@@ -1,3 +1,4 @@
+
 $width: 3.5rem;
 $height: 1.5rem;
 $btn-width: 1.2rem;
@@ -34,39 +35,62 @@ html.transition *:after {
   }
 }
 
-/* we want dark theme a little darker */
-#theme:checked + .wrapper .post-hero {
-  &:before {
-    opacity:0.65;
-  }
-}
-/* we want light dark a little darker */
+
+$long-anim:2s;
+$short-anim:.75s;
+/* Defaults */
 #theme:checked + .wrapper {
   &:before {
-      opacity:0.65;
+    @include animateBGDark($long-anim);
+  }
+  .post-hero {
+    &:before {
+      @include animateBGDark($short-anim);
+    }
+  }
+}
+
+#theme + .wrapper {
+  &:before {
+    @include animateBGLight($long-anim);
+  }
+  .post-hero {
+    &:before {
+      @include animateBGLight($short-anim);
+    }
   }
 }
 
 @media (prefers-color-scheme: light) {
-  :root{
+  :root {
       @include light; 
   }
   #theme:checked + .wrapper, #theme:checked + .wrapper + .filler {
       @include dark;  
   }
 
-  /* we want dark theme a little darker */
-  #theme:checked + .wrapper .post-hero {
+  #theme + .wrapper {
     &:before {
-      opacity:0.65;
+      @include animateBGLight($long-anim);
+    }
+    .post-hero {
+      &:before {
+        @include animateBGLight($short-anim);
+      }
     }
   }
-  /* we want light dark a little darker */
+
   #theme:checked + .wrapper {
     &:before {
-        opacity:0.65;
+      @include animateBGDark($long-anim);
+    }
+    .post-hero {
+      &:before {
+        @include animateBGDark($short-anim);
+      }
     }
   }
+
 
   /* swap the  icon positions */
   .toggle-icons {
@@ -93,27 +117,39 @@ html.transition *:after {
 }
 
 @media (prefers-color-scheme: dark) {
-  :root{
-      @include dark; 
-  }
-  #theme:checked + .wrapper, #theme:checked + .wrapper + .filler {
-      @include light;  
-  }
 
-    /* we want light theme a little lighter */
-    #theme:checked + .wrapper .post-hero {
+    :root {
+        @include dark; 
+    }
+  
+    /* we want dark theme a little darker */
+    #theme + .wrapper {
       &:before {
-        opacity:0.05;
+        @include animateBGDark($long-anim);
+      }
+      .post-hero {
+        &:before {
+          @include animateBGDark($short-anim);
+        }
       }
     }
-    /* we want light dark a little darker */
+  
+    #theme:checked + .wrapper, #theme:checked + .wrapper + .filler {
+        @include light;  
+    }
+  
     #theme:checked + .wrapper {
       &:before {
-          opacity:0.05;
+        @include animateBGLight($long-anim);
       }
-    }
+      .post-hero {
+        &:before {
+          @include animateBGLight($short-anim);
+        }
+      }
+    
+  }
 }
-
 
 .toggle-li {
   margin-top:auto;
