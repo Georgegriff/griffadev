@@ -13,7 +13,11 @@
     </div>
     {% set tags =  post.tags %}
     {% set date =  post.date %}
-    <time class="post-date" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+    {% set postContent = content %}
+    {% set date = page.date %}
+    <div class="post-meta-sticky">
+        {% include "partials/post-meta.html" %}
+    </div>
     {% include "partials/post-tags.html" %}
     <blockquote>{{tagline}}</blockquote>
     <section class="post-content">

@@ -1,0 +1,13 @@
+.post-meta {
+    position: relative;
+    padding-top: 1rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    .post-date {
+      margin-left: auto;
+    }
+  
+  }

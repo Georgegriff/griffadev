@@ -1,4 +1,4 @@
-const { DateTime } = require("luxon");
+const { DateTime, Duration } = require("luxon");
 const fs = require("fs");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -7,6 +7,7 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownitmisize = require("markdown-it-imsize");
 const { minify } = require("terser");
+const readingTime= require('eleventy-plugin-time-to-read');
 
 const siteMeta = require("./src/_data/metadata.json");
 
@@ -142,8 +143,8 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.setUseGitIgnore(false);
 
   eleventyConfig.addPlugin(pluginRss);
-  //eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
+  eleventyConfig.addPlugin(readingTime);
 
   eleventyConfig.setDataDeepMerge(true);
 
@@ -158,6 +159,10 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.addFilter("readableDate", dateObj => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
+  });
+
+  eleventyConfig.addFilter("getMins", mins => {
+    return Duration.fromISO(mins * 1000);
   });
 
   // Get the first `n` elements of a collection.
