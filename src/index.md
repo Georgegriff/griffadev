@@ -2,6 +2,7 @@
 title: 'Rambling, Tutorials and Experiments.'
 layout: 'layouts/index.njk'
 subtitle: 'Recent activity'
+containerClass: anim-bg
 callToAction:
   href: '/posts/'
   text: 'Older posts'

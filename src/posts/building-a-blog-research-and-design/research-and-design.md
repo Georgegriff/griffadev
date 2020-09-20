@@ -3,6 +3,7 @@ title: 'Good research, planning and design is the best foundation for starting a
 tagline: When i've started side projects in the past, I felt like I dug into code too quickly, without thinking about what I actually was building first, I wanted to try something a bit different this time.
 series:
   title: Building a personal blog
+  description: This series of posts details some of explorations and learning that I took whilst building this site, including building static sites 11ty, theming with CSS Custom properties and designing for accessibility.
   order: 1
 date: '2020-09-08'
 hero:

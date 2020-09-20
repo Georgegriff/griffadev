@@ -6,8 +6,29 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    .post-date {
+    :last-child {
       margin-left: auto;
     }
-  
+    .post-meta-detail {
+      font-weight: normal;
+      font-style: italic;
+    }
   }
+
+.first-post-series {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  padding-bottom:1rem;
+  span {
+    font-weight: 800;
+  }
+}
+
+.post-series-link {
+  &:hover, &:focus {
+    color: var(--PrimaryText);
+  }
+}

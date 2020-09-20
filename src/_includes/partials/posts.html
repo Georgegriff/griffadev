@@ -1,11 +1,6 @@
 <article class="content post-tiles">
   <div class="content-wrap">
-    <h2>
-      <span>{{subtitle}}</span>
-      {% if callToAction %}
-      <a class="call-to-action" href="{{callToAction.href}}">{{callToAction.text}}</a>
-      {% endif %}
-    </h2>
+    {% include './cta-heading.html' %}
 
     <ul class="tiles">
       {% for item in postslist %}
