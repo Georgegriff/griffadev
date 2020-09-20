@@ -3,8 +3,7 @@
         position: relative;
         &:before {
             content:"";
-            background-image: linear-gradient(to bottom, var(--Background)0%, transparent 20vw,var(--Background) 60vh)
-            , url(/images/ill_back.svg);
+            background-image: linear-gradient(to bottom,var(--Background) 0,transparent 33%,var(--Background) 84%),url(/images/ill_back.svg);
             background-size:111%;
             background-position:10% 25%;
             background-repeat: no-repeat;
