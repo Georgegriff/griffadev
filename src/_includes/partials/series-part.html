@@ -1,4 +1,6 @@
 <div class="series-num-wrap">
     <span class="series-current">{{seriesInfo.order}}</span>
-    <span class="series-total">OF&nbsp;{{seriesInfo.total}}</span>
+    {% if seriesInfo.showTotal %}
+        <span class="series-total">OF&nbsp;{{seriesInfo.total}}</span>
+    {% endif %}
 </div>

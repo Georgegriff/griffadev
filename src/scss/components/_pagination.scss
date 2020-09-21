@@ -1,0 +1,57 @@
+@mixin directionIcon {
+    content: "";
+    display: inline-block;
+    background-color: var(--Primary);
+    -webkit-mask-image: url(/images/next.svg);
+    -webkit-mask-size: 100%;
+    mask-size: 100%;
+    mask-image: url(/images/next.svg);
+    width: 1rem;
+    height: 1rem;
+  }
+  
+
+.pagination-links {
+  font-size: var(--font-size-small);
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+.pagination-next,
+.pagination-prev {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.pagination-direction {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.pagination-prev {
+  .pagination-direction {
+    &:before {
+      @include directionIcon;
+      transform: rotate(180deg);
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.pagination-next {
+  margin-left: auto;
+  align-items: flex-end;
+  .pagination-direction {
+    &:after {
+      @include directionIcon;
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+
+.pagination {
+    margin-top:1rem;
+}

@@ -19,6 +19,6 @@ eleventyComputed:
   subtitle: "{{ series.title }}"
   subtitleDetail: "{{series.posts.length}} part series"
 permalink: /series/{{ series.title |  slug }}/
+paginationPrevText: 'Newer series'
+paginationNextText: 'Older series'
 ---
-
-Flubber

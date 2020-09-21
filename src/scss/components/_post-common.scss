@@ -52,25 +52,30 @@
     font-size:  calc(0.6 * var(--font-size-small));
     font-style: italic;
   }
-  &:after {
-    content: "";
-    margin-top:calc(3 * var(--font-size-small));
-    height:0.08rem;
-    width: 75%;
-    background:var(--Text);
-    position: absolute;
-  }
 }
 
 .series-current {
   font-weight: bold;
   font-size: calc(3.3 * var(--font-size-small));
+  color: var(--Primary);
   line-height: unset;
 }
 .series-total {
+  position: relative;
+  &:before {
+    content: "";
+    margin-left: -50%;
+    content: "";
+    height: .08rem;
+    width: 200%;
+    background: var(--Text);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
   font-size:  calc(0.6 * var(--font-size-small));
   font-style: italic;
-  padding: 0;
+  padding: 0.5rem 0 0 0;
 }
 
 .series-info {
@@ -91,10 +96,10 @@
 }
 
 @media screen and (min-width: 3000px) {
-.series-num-wrap {
-  padding-top:3rem;
-}
-  .series-num-wrap:after {
-    margin-top: 1rem;
+  .series-num-wrap {
+    padding-top:3rem;
+  }
+  .series-total:before {
+    top: calc(var(--font-size-small) * 0.5);
   }
 }

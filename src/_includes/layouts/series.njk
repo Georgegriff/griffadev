@@ -5,5 +5,8 @@
 {% set postslist = series.posts %}
 
 {% block content %}
+   {% if series.description %}
+      {% set subtitleDetail = series.description %}
+   {% endif %}
    {% include  "partials/posts.html"%}
 {% endblock %}
