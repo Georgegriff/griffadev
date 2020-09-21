@@ -7,7 +7,7 @@ series:
   order: 1
 date: '2020-09-08'
 hero:
-  image: "/images/design-day1.png"
+  imagde: "/images/design-day1.png"
   alt: 'Picture of day 1 design of blog'
 tags:
   - Design
@@ -103,7 +103,3 @@ After first day of research and design I had a first pass at a mobile layout for
 ![Picture of initial designs for blogging site](/images/design-day1.png "The first pass at designs for griffa.dev" =1000x)
 
 In the next post I'll explore how I iterated on the above design, implementing dark and light themes, using CSS variables.
-
-TODO nav
-
-

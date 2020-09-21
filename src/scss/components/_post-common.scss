@@ -27,10 +27,50 @@
   }
 }
 
-.post-series-link {
+.post-series-link, .post-series-nav a {
   &:hover, &:focus {
     color: var(--PrimaryText);
   }
+}
+
+.series-num-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 0rem;
+  padding-top:calc(0.3 * var(--font-size-small));
+  margin-bottom: 0;
+  position: relative;
+  &:before {
+    content:"PART";
+    position: absolute;
+    top:calc(var(--font-size-small) * .25);
+    width: 100%;
+    text-align: center;
+    font-size:  calc(0.6 * var(--font-size-small));
+    font-style: italic;
+  }
+  &:after {
+    content: "";
+    margin-top:calc(3 * var(--font-size-small));
+    height:0.08rem;
+    width: 75%;
+    background:var(--Text);
+    position: absolute;
+  }
+}
+
+.series-current {
+  font-weight: bold;
+  font-size: calc(3.3 * var(--font-size-small));
+  line-height: unset;
+}
+.series-total {
+  font-size:  calc(0.6 * var(--font-size-small));
+  font-style: italic;
+  padding: 0;
 }
 
 .series-info {
@@ -39,60 +79,22 @@
   right:0;
   z-index: 1;
   width:calc(var(--font-size-small) * 4);
-  background: var(--White);
+  background: var(--Text);
   padding:0 0.1rem 0.1rem 0.1rem;
   clip-path: polygon(50% 0%, 100% 0, 100% 85%, 50% 100%, 0 85%, 0 0);
-  .num-wrap {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-top: 0rem;
-    padding-top:calc(0.3 * var(--font-size-small));
-    margin-bottom: 0;
-    position: relative;
-    &:before {
-      content:"PART";
-      position: absolute;
-      top:calc(var(--font-size-small) * .25);
-      width: 100%;
-      text-align: center;
-      font-size:  calc(0.6 * var(--font-size-small));
-      font-style: italic;
-    }
-    &:after {
-      content: "";
-      margin-top:calc(3 * var(--font-size-small));
-      height:0.08rem;
-      width: 75%;
-      background:var(--Text);
-      position: absolute;
-    }
-  }
   .series-bg {
     padding:0.25rem 0.25rem 2rem 0.25rem;
     clip-path: polygon(50% 0%, 100% 0, 100% 85%, 50% 100%, 0 85%, 0 0);
     background:var(--Background);
   }
-  .current {
-    font-weight: bold;
-    font-size: calc(3 * var(--font-size-small));
-    line-height: unset;
-    margin-bottom: 0.5rem;
-  }
-  .total {
-    font-size:  calc(0.6 * var(--font-size-small));
-    font-style: italic;
-    padding: 0;
-  }
+
 }
 
 @media screen and (min-width: 3000px) {
-.series-info .num-wrap {
+.series-num-wrap {
   padding-top:3rem;
 }
-  .series-info .num-wrap:after {
+  .series-num-wrap:after {
     margin-top: 1rem;
   }
 }

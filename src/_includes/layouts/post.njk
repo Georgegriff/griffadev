@@ -20,8 +20,10 @@
     </div>
     {% include "partials/post-tags.html" %}
     <blockquote>{{tagline}}</blockquote>
+    {% include 'partials/series-nav.html' %}
     <section class="post-content">
         {{ content | safe }}
     </section>
+    {% include 'partials/series-nav.html' %}
 </article>
 {% endblock %}

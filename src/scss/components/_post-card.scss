@@ -43,7 +43,7 @@
     --post-card-height: auto;
     --post-card-width: 25rem;
     min-width: 260px;
-    max-width: 800px;
+    max-width: 1000px;
     height: 100%;
     background: var(--Secondary);
     display: flex;
@@ -105,6 +105,9 @@
   flex: 1;
   display: flex;
   align-items: flex-end;
+  a {
+    font-style: normal
+  }
 }
 
 .post-card .series-info {
