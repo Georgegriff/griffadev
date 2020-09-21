@@ -46,9 +46,9 @@ module.exports = {
       icon: "img/linkedin.svg",
       text: "Share to LinkedIn",
       url(title, tags = [], page) {
-        return `https://www.linkedin.com/sharing/share-offsite/?url=${getUrl(
+        return `https://www.linkedin.com/shareArticle?mini=true&url=?url=${getUrl(
           page
-        )}&title=${encodeURIComponent(title)}&source=DEV`;
+        )}&title=${encodeURIComponent(title)}`;
       }
     },
     {
