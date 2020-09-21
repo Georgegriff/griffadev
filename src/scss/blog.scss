@@ -1,5 +1,9 @@
 @import "./variables";
 @import "./syntax/code";
+/* todo move  to post.scss*/
+@import "./components/post";
+@import "./components/video";
+@import "../../node_modules/lite-youtube-embed/src/lite-yt-embed.css";
 
 .content {
   max-width: $max-post-width;
