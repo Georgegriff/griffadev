@@ -208,6 +208,11 @@ module.exports = (eleventyConfig) => {
     return [...tagSet];
   });
 
+    // Returns a collection of blog posts in reverse date order
+    eleventyConfig.addCollection("archive", (collection) => {
+      return [...collection.getFilteredByGlob("./src/posts/**/*.md")].reverse();
+    });
+
   eleventyConfig.addCollection("series", function(collection) {
     const posts = collection.getFilteredByGlob("./src/posts/**/*.md");
     const seriesCollection = {}
@@ -229,16 +234,23 @@ module.exports = (eleventyConfig) => {
       if(!seriesCollection[series.title].description && series.description) {
         seriesCollection[series.title].description = series.description;
       }
+      if(!seriesCollection[series.title].last_modified || (post.date > seriesCollection[series.title].last_modified)) {
+        seriesCollection[series.title].last_modified = post.date;
+      }
+      if(typeof(series.showTotal) !== "undefined") {
+        seriesCollection[series.title].showTotal = series.showTotal;
+      }
       post.data.seriesEntries= seriesCollection[series.title];
     });
     const seriesData = Object.keys(seriesCollection).map((title) => {
       const data = seriesCollection[title];
       return {
+        ...data,
         title,
-        description: data.description,
         posts: Object.values(data.posts)
       }
-    })
+      // note this mutates
+    }).sort((a, b) => b.last_modified - a.last_modified);
     return seriesData;
   })
 
@@ -253,6 +265,7 @@ module.exports = (eleventyConfig) => {
 
     return {
       order: series.order,
+      showTotal: seriesEntries.showTotal,
       next,
       prev,
       hasPrev: Boolean(prev),
@@ -261,10 +274,6 @@ module.exports = (eleventyConfig) => {
       title: series.title,
       description: seriesEntries.description
     }
-  })
-
-  eleventyConfig.addFilter("getPostsFromSeries", (series) => {
-    debugger;
   })
 
   eleventyConfig.addFilter("debugger", (...args) => {

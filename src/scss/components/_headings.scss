@@ -26,11 +26,13 @@ h2 {
   .subtitle {
     margin-right: 9.3rem;
   }
-  .subtitleDetail {
-    font-style: italic;
-    font-weight: normal;
-    display: inline-block;
-  }
+}
+
+.subtitle-detail {
+  font-style: italic;
+  font-weight: normal;
+  display: block;
+  margin-bottom: 1rem;
 }
 
 h2 {

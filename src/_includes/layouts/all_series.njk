@@ -3,6 +3,6 @@
 {% set pageCriticalStyles = ['css/index.css'] %}
 
 {% block content %}
-{% set seriesList = collections.series %}
+{% set seriesList = pagination.items %}
 {% include "partials/series-list.html" %}
 {% endblock %}
