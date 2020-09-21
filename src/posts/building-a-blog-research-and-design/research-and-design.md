@@ -7,7 +7,7 @@ series:
   order: 1
 date: '2020-09-08'
 hero:
-  imagde: "/images/design-day1.png"
+  image: "/images/design-day1.png"
   alt: 'Picture of day 1 design of blog'
 tags:
   - Design
