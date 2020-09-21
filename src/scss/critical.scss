@@ -49,10 +49,7 @@ a {
 @import "./components/custom-element-fallbacks";
 @import "./components/collapse";
 @import "./components/post-tags";
-
+@import "./components/post-card";
+@import "./components/posts";
 @import "./components/post-common";
 
-/* todo move  to post.scss*/
-@import "./components/post";
-@import "./components/video";
-@import "../../node_modules/lite-youtube-embed/src/lite-yt-embed.css";

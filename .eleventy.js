@@ -8,6 +8,7 @@ const markdownItAnchor = require("markdown-it-anchor");
 const markdownitmisize = require("markdown-it-imsize");
 const { minify } = require("terser");
 const readingTime= require('eleventy-plugin-time-to-read');
+const helpers = require("./src/_data/helpers");
 
 const siteMeta = require("./src/_data/metadata.json");
 
@@ -196,22 +197,7 @@ module.exports = (eleventyConfig) => {
     let tagSet = new Set();
     collection.getAll().forEach(function (item) {
       if ("tags" in item.data) {
-        let tags = item.data.tags;
-
-        tags = tags.filter(function (item) {
-          switch (item) {
-            // this list should match the `filter` list in tags.md
-            case "all":
-            case "nav":
-            case "post":
-            case "posts":
-            case "series":
-              return false;
-          }
-
-          return true;
-        });
-
+        const tags = item.data.tags.filter(helpers.filterCollectionTags);
         for (const tag of tags) {
           tagSet.add(tag);
         }
