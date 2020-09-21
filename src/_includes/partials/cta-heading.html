@@ -1,0 +1,8 @@
+<h2 class="cta-heading {% if callToAction %}call-to-action-heading {% endif %}">
+    <div class="subtitle">
+        <span>{{subtitle}}</span>&nbsp;<span class="subtitleDetail">{{subtitleDetail}}</span>
+    </div>
+    {% if callToAction %}
+    <a class="call-to-action" href="{{callToAction.href}}">{{callToAction.text}}</a>
+    {% endif %}
+</h2>

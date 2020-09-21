@@ -16,7 +16,7 @@ module.exports = {
             // choose a random  image from pool of images
 
             // keep a cache of previous used image if not the same, allow it
-            return `img/hero.svg`;
+            return `img/hero-static.svg`;
         }
         const dir = post.template.fileSlug.dirs.join("/");
         return `${hero.image}`;

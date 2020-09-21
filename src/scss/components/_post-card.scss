@@ -2,8 +2,10 @@
 @import "../colors";
 
 .post-card {
+  position: relative;
   border-radius: 3px;
   transition: transform 250ms ease-out;
+  overflow: hidden;
   z-index: 1;
   &:hover, &:focus {
     transform: scale(0.98) translateY(0.3rem);
@@ -16,11 +18,11 @@
     display: flex;
     align-items: flex-end;
     flex-wrap: wrap;
+    margin-top:1rem;
 
   }
     .post-title-link {
         min-height: 7rem;
-        padding-bottom:1rem;
         position: relative;
         > div {
           display: flex;
@@ -40,12 +42,12 @@
     }
     --post-card-height: auto;
     --post-card-width: 25rem;
-    max-width: 800px;
+    min-width: 260px;
+    max-width: 1000px;
     height: 100%;
     background: var(--Secondary);
     display: flex;
     flex-direction: column;
-    overflow: hidden;
     .post-img-link {
       .post-img {
         height: 11rem;
@@ -94,4 +96,20 @@
     width: 100%;
     background: var(--Primary);
   }
+}
+
+.post-series {
+  font-size: var(--font-size-small);
+  font-style: italic;
+  margin-top:0.5rem;
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  a {
+    font-style: normal
+  }
+}
+
+.post-card .series-info {
+  right:1rem;
 }

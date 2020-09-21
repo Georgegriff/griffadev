@@ -200,11 +200,12 @@ module.exports = (eleventyConfig) => {
 
         tags = tags.filter(function (item) {
           switch (item) {
-            // this list should match the `filter` list in tags.njk
+            // this list should match the `filter` list in tags.md
             case "all":
             case "nav":
             case "post":
             case "posts":
+            case "series":
               return false;
           }
 
@@ -220,6 +221,72 @@ module.exports = (eleventyConfig) => {
     // returning an array in addCollection works in Eleventy 0.5.3
     return [...tagSet];
   });
+
+  eleventyConfig.addCollection("series", function(collection) {
+    const posts = collection.getFilteredByGlob("./src/posts/**/*.md");
+    const seriesCollection = {}
+    posts.forEach((post) => {
+      if(!post.data.series) {
+        return;
+      }
+      const series = post.data.series;
+      if(!series.title) {
+        throw new Error(`series defined but no title present in item: ${post.inputPath}`);
+      }
+      if(!series.order) {
+        throw new Error(`series defined but no order for article supplied in item: ${post.inputPath}`);
+      }
+      if(!seriesCollection[series.title]) {
+        seriesCollection[series.title] = {posts: {}, description: ''};
+      }
+      seriesCollection[series.title].posts[series.order - 1] = post;
+      if(!seriesCollection[series.title].description && series.description) {
+        seriesCollection[series.title].description = series.description;
+      }
+      post.data.seriesEntries= seriesCollection[series.title];
+    });
+    const seriesData = Object.keys(seriesCollection).map((title) => {
+      const data = seriesCollection[title];
+      return {
+        title,
+        description: data.description,
+        posts: Object.values(data.posts)
+      }
+    })
+    return seriesData;
+  })
+
+  eleventyConfig.addFilter("getSeriesInfo", function({series, seriesEntries}) {
+    if(!series || !seriesEntries) {
+      return null;
+    }
+    const posts = seriesEntries.posts;
+    const postIndex = series.order - 1;
+    const next = posts[postIndex +1]
+    const prev = posts[postIndex - 1]
+
+    return {
+      order: series.order,
+      next,
+      prev,
+      hasPrev: Boolean(prev),
+      hasNext: Boolean(next),
+      total: Object.keys(posts).length,
+      title: series.title,
+      description: seriesEntries.description
+    }
+  })
+
+  eleventyConfig.addFilter("getPostsFromSeries", (series) => {
+    debugger;
+  })
+
+  eleventyConfig.addFilter("debugger", (...args) => {
+    //tip!
+    console.log(...args)
+    debugger;
+  })
+
   return {
       templateFormats: [
         "md",

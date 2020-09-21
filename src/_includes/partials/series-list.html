@@ -1,0 +1,16 @@
+<article class="content post-tiles">
+  <div class="content-wrap">
+    {% include './cta-heading.html' %}
+  
+      <ul class="tiles">
+        {% for item in seriesList %}
+        {% set series = item %}
+        {% set seriesUrl %}/series/{{ series.title | slug}}/{% endset %}
+        <li class="post-card">
+          {% include "./series-card.html" %}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  
+  </article>

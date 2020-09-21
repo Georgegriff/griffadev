@@ -1,0 +1,21 @@
+{% if seriesInfo %}
+{% set seriesUrl %}/series/{{ seriesInfo.title | slug}}/{% endset %}
+<nav class="post-series-nav" aria-label="Series">
+    <div class="series-part">
+        {% include './series-part.html' %}
+        <div class="series-nav-title"><div class="series-descriptor">SERIES: </div><a title="Navigate to series" href="{{seriesUrl}}"><span>{{series.title}}</span></a> </div> 
+    </div>
+    
+    <div class="series-links">
+        {% if seriesInfo.hasPrev %}
+        {% set prev = seriesInfo.prev %}
+        <a class="series-prev" title="{{prev.data.title}}" href="{{prev.url}}"><span class="series-direction">Previous post</span></a>
+        {% endif %}
+        {% if seriesInfo.hasNext %}
+        {% set next = seriesInfo.next %}
+        <a class="series-next" title="{{next.data.title}}" href="{{next.url}}"><span class="series-direction">Next post</span></a>
+        {% endif %}
+    </div>
+</nav>
+
+{% endif %}

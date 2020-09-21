@@ -1,11 +1,12 @@
 {% set hero = post.data.hero %}
 
-{% if post.data.hero %}
+{%- set seriesInfo = post.data | getSeriesInfo %}
+{% include './series-banner.html' %}
 <a title="{{post.data.title}}" href="{{ post.url }}">
     <div class="post-img-link">
         <div role="img" class="post-img">
             <div aria-hidden="true" class="overlay"></div>
-            {%- if hero.image%}
+            {%- if hero and hero.image%}
                 <img width=400 height=200 alt="{{hero and hero.alt or "Default blog image"}}"
                 src="{{ assets.getHero(post, hero)}}" />
             {% else %}
@@ -14,7 +15,6 @@
         </div>
     </div>
 </a>
-{% endif %}
 <div class="post-content">
     <a title="{{post.data.title}}" href="{{ post.url }}" class="post-title-link">
         <div>
@@ -22,6 +22,10 @@
             <p class="tagline">{{post.data.tagline}}</p>
         </div>
     </a>
+    {%- if seriesInfo %}
+        {% set seriesUrl %}/series/{{ seriesInfo.title | slug}}/{% endset %}
+        <span class="post-series">SERIES:&nbsp;<a class="post-series-link" title="{{seriesInfo.title}}" href="{{seriesUrl}}">{{seriesInfo.title}}</a></span>
+    {%- endif %}
     {% set tags = post.data.tags %}
     {% include "partials/post-tags.html" %}
     <a href="{{ post.url }}">
