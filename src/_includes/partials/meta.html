@@ -1,0 +1,44 @@
+{% set pageTitle = title + ' - ' + metadata.title %}
+
+{# We don't want any duplication. This is likely for the home page. #}
+{% if metadata.name === title %}
+    {% set pageTitle = title %}
+{% endif %}
+
+{% set siteTitle = metadata.title %}
+{% set currentUrl = metadata.url + page.url %}
+{% if hero %}
+    {% set socialImage = metadata.url + hero.image %}
+{% endif %}
+
+{% if not socialImage %} 
+  {% set socialImage = metadata.url + '/images/social-share.png' %} 
+{% endif %}
+
+{% if not tagline %}
+    {% set metaDesc = description or metadata.description %}
+{% endif %}
+
+<title>{{ pageTitle }}</title>
+<link rel="canonical" href="{{ currentUrl }}"/>
+
+<meta property="og:site_name" content="{{ siteTitle }}"/>
+<meta property="og:title" content="{{ pageTitle }}"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="{{ currentUrl }}"/>
+
+{% if socialImage %}
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta property="og:image" content="{{ socialImage }}"/>
+    <meta name="twitter:image" content="{{ socialImage }}"/>
+    <meta property="og:image:alt" content="Page image for {{ metadata.title }}"/>
+    <meta name="twitter:image:alt" content="Page image for {{ metadata.titles }}"/>
+{% endif %}
+
+{% if tagline %}
+    <meta name="description" content="{{ tagline }}"/>
+    <meta name="twitter:description" content="{{ tagline }}"/>
+    <meta property="og:description" content="{{ tagline }}"/>
+{% endif %}
+
+<link rel="icon" href="/images/meta/favicon.svg" type="image/svg+xml" />

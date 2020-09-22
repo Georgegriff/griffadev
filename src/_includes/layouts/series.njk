@@ -1,11 +1,14 @@
 {% set pageCriticalStyles = ['css/index.css'] %}
 
+{% set description = series.description %}
+{% set title = series.title %}
+
 {% extends "layouts/base.njk" %}
 
 {% set postslist = series.posts %}
 
 {% block content %}
-   {% if series.description %}
+   {% if description %}
       {% set subtitleDetail = series.description %}
    {% endif %}
    {% include  "partials/posts.html"%}
