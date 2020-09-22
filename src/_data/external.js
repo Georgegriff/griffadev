@@ -9,7 +9,7 @@ const genericShare = {
       siteMeta.author.twitter} ${tags
       .filter(helpers.filterCollectionTags)
       .map((tag) => `#${tag}`)
-      .join(" ")} ${url}`;
+      .join(" ")}`;
     return {
       text,
       title,
