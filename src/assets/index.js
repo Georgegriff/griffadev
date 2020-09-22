@@ -7,14 +7,9 @@ import { LiveDemo } from "./components/LiveDemo";
 import {GriffSelect} from "./components/GriffSelect";
 
 
-window.addEventListener('load',() => {
-    // safari is really annoying and for some reason the use of slots here breaks the animation
-    setTimeout(() => {
-        customElements.define('intersect-detect', IntersectDetect);
-    })
-    customElements.define('griff-select', GriffSelect);
-    customElements.define('live-demo', LiveDemo);
-})
+customElements.define('intersect-detect', IntersectDetect);
+customElements.define('griff-select', GriffSelect);
+customElements.define('live-demo', LiveDemo);
 // TODO move
 
 /* Dom events */

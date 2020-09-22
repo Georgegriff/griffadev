@@ -126,19 +126,6 @@ body {
   }
 }
 
-.main-content[observable="hidden"] {
-  .post-title {
-    h1 {
-      &:after {
-        content: "...";
-        position: absolute;
-        right: 1rem;
-        top: 0;
-      }
-    }
-  }
-}
-
 blockquote {
   p {
     margin: 0 !important;

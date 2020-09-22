@@ -4,9 +4,10 @@
 
 {% block content %}
 {% set seriesInfo = {series:series, seriesEntries: seriesEntries} | getSeriesInfo %}
-<div class="post-before" slot="before">
+<div class="post-before">
     {% include "partials/post-hero.html" %}
 </div>
+<div slot="before"></div>
 
 
 <article class="post content">
