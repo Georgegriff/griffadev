@@ -48,7 +48,7 @@ module.exports = {
       url(title, tags = [], page) {
         return `https://www.linkedin.com/shareArticle?mini=true&url=${getUrl(
           page
-        )}&title=${encodeURIComponent(title)}`;
+        )}&title=${encodeURIComponent(title)}&source=griiff`;
       }
     },
     {
