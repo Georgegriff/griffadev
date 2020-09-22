@@ -1,9 +1,9 @@
 {
   "title": "griffa.dev",
   "url": "https://griffa.dev",
-  "description": "Web development ramblings of a guy on the internet.",
+  "description": "Tutorials, blog posts on web technologies.",
   "feed": {
-    "subtitle": "Web development ramblings of a guy on the internet.",
+    "subtitle": "Tutorials, blog posts on web technologies.",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
     "id": "https://griffa.dev/"
