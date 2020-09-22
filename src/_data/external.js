@@ -39,7 +39,7 @@ module.exports = {
       url(title, tags = [], page) {
         const twitterUrl = "https://twitter.com/intent/tweet?text=";
         const {text, url} = genericShare.data(title, tags, page);
-        return `${twitterUrl}${encodeURIComponent(`${text} ${url}`)}`;
+        return `${twitterUrl}${encodeURIComponent(`${text}`)}`;
       }
     },
     {
