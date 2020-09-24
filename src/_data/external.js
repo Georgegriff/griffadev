@@ -9,7 +9,7 @@ const genericShare = {
       siteMeta.author.twitter} ${tags
       .filter(helpers.filterCollectionTags)
       .map((tag) => `#${tag}`)
-      .join(" ")} ${url}`;
+      .join(" ")}`;
     return {
       text,
       title,
@@ -39,7 +39,7 @@ module.exports = {
       url(title, tags = [], page) {
         const twitterUrl = "https://twitter.com/intent/tweet?text=";
         const {text, url} = genericShare.data(title, tags, page);
-        return `${twitterUrl}${encodeURIComponent(`${text}`)}`;
+        return `${twitterUrl}${encodeURIComponent(`${text} ${url}`)}`;
       }
     },
     {
