@@ -277,12 +277,12 @@
 @keyframes tilt {
   0% {
     opacity: 0;
-    transform: matrix(1.02, 0.036, -0.050, 0.999, -414.036, -103.666);
+    transform: matrix(1, -0.015, -.045, 1, -272.484, -168.328);
   }
 
   100% {
     opacity: 1;
-    transform: rotate(0deg) matrix(1.05, 0.036, -0.050, 0.999, -414.036, -103.666);
+    transform: matrix(1, -0.015, -.025, 1, -252.484, -168.328);
 
   }
 }
