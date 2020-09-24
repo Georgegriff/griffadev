@@ -1,6 +1,6 @@
 @import "variables";
 $title-height: 4rem;
-$meta-height: 5rem;
+$meta-height: 4.9rem;
 
 live-demo {
   height: 30rem;
@@ -48,6 +48,8 @@ body {
   display: flex;
   flex-direction: column;
   background: var(--Background);
+  position: relative;
+  z-index: 1;
 }
 .post {
   margin: 0 auto;
@@ -235,5 +237,3 @@ ul.social-share {
         color: var(--PrimaryText);
     }
 }
-
-@include backHeros(".post-hero");

@@ -103,3 +103,17 @@
     top: calc(var(--font-size-small) * 0.5);
   }
 }
+
+
+.post-title {
+  width: min(100% - 2rem, #{$max-post-width});
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.post-wrap {
+  background: var(--Background);
+  position: relative;
+  z-index: 1;
+  padding-top: 1rem;
+}

@@ -124,13 +124,6 @@ h2 {
   }
 }
 
-
-h1 {
-  transform: translate(0);
-  transition: transform 0.3s ease-in-out, opacity 0.6s linear;
-}
-
-
 .main-content[observable="hidden"] {
   h2 {
     transform: translate(0, 0);
@@ -160,5 +153,18 @@ h1 {
     font-size: 2.5rem;
     padding:0.75rem 4rem;
     border-radius: 1rem;
+  }
+}
+
+
+.post-title {
+  transform: translate(0);
+  transition: transform 0.3s ease-in-out, opacity 0.6s linear;
+}
+[observable="hidden"] {
+
+  .post-title {
+    transform: translateY(-4rem);
+    opacity: 0;
   }
 }

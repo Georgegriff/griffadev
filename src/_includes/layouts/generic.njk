@@ -3,16 +3,18 @@
 {% set pageCriticalStyles = ['css/about.css'] %}
 
 {% block content %}
-{% include "partials/post-hero.html" %}
-<div slot="before">
+<div slot="observable">
+{% include "partials/post-hero.html" %
 </div>
 
-<article class="post content">
-    <div slot="observable" class="post-title">
-        <h1 class="text-in thirdin">{{ title }}</h1>
-    </div>w
-    <section class="post-content">
-        {{ content | safe }}
-    </section>
-</article>
+< class="post-title">
+    <h1 class="text-in thirdin">{{ title }}</h1>
+</>
+<div class="post-wrap">
+    <article class="post content">
+        <section class="post-content">
+            {{ content | safe }}
+        </section>
+    </article>
+</div>
 {% endblock %}

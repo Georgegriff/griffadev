@@ -4,29 +4,29 @@
 
 {% block content %}
 {% set seriesInfo = {series:series, seriesEntries: seriesEntries} | getSeriesInfo %}
-<div class="post-before">
+<div slot="observable">
     {% include "partials/post-hero.html" %}
 </div>
-<div slot="before"></div>
 
-
-<article class="post content">
-    <div slot="observable" class="post-title">
-        <h1 class="text-in thirdin">{{ title }}</h1>
-    </div>
-    {% set postContent = content %}
-    {% set date = page.date %}
-    <div class="post-meta-sticky">
-        {% include 'partials/share-page.html' %}
-        {% include "partials/post-meta.html" %}
-    </div>
-    {% include "partials/post-tags.html" %}
-    <blockquote>{{tagline}}</blockquote>
-    {% include 'partials/series-nav.html' %}
-    <section class="post-content">
-        {{ content | safe }}
-    </section>
-    {% include 'partials/series-nav.html' %}
-    {% include 'partials/recommended-posts.html' %}
-</article>
+<div class="post-title">
+    <h1 class="text-in thirdin">{{ title }}</h1>
+</div>
+<div class="post-wrap">
+    <article class="post content">
+        {% set postContent = content %}
+        {% set date = page.date %}
+        <div class="post-meta-sticky">
+            {% include 'partials/share-page.html' %}
+            {% include "partials/post-meta.html" %}
+        </div>
+        {% include "partials/post-tags.html" %}
+        <blockquote>{{tagline}}</blockquote>
+        {% include 'partials/series-nav.html' %}
+        <section class="post-content">
+            {{ content | safe }}
+        </section>
+        {% include 'partials/series-nav.html' %}
+        {% include 'partials/recommended-posts.html' %}
+    </article>
+</div>
 {% endblock %}

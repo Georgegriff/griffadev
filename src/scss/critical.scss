@@ -32,7 +32,6 @@ a {
     flex:1;
     flex-direction: column;
     color: var(--Text);
-    background-color: var(--Background);
 }
 
 
@@ -52,5 +51,8 @@ a {
 @import "./components/post-card";
 @import "./components/posts";
 @import "./components/post-common";
+@import "./components/post";
 @import "./components/pagination";
+@include backHeros(".anim-bg");
+
 

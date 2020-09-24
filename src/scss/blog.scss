@@ -1,25 +1,4 @@
 @import "./variables";
 @import "./syntax/code";
-/* todo move  to post.scss*/
-@import "./components/post";
 @import "./components/video";
 @import "../../node_modules/lite-youtube-embed/src/lite-yt-embed.css";
-
-.content {
-  max-width: $max-post-width;
-}
-
-@media screen and (min-width: 3000px) {
-  .content {
-    max-width: $max-post-large;
-  }
-}
-
-
-.main-content[observable="hidden"] {
-
-  h1 {
-    transform: translateY(-4rem);
-    opacity: 0;
-  }
-}
