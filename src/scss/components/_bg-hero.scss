@@ -1,10 +1,12 @@
+$gradient-col: var(--Background);
+
 @mixin backHeros($class) {
     #{$class} {
         position: relative;
         &:before {
             content: "";
             /* css variables don`t work here in safari :/ */
-            background-image: linear-gradient(to bottom,#343434 0,transparent 33%,#343434 84%),url(/images/ill_back.svg);
+            background-image: linear-gradient(to bottom,$gradient-col 0,transparent 33%,$gradient-col 84%),url(/images/ill_back.svg);
             background-size:111%;
             background-position:10% 25%;
             background-repeat: no-repeat;
@@ -27,7 +29,7 @@
                 background-repeat: no-repeat;
                 background-position-x: 60%;
                 background-position-y:0%;
-                background-image: linear-gradient(to bottom, #343433 5%, transparent 27%,#343434 50vw)
+                background-image: linear-gradient(to bottom, $gradient-col 5%, transparent 27%,$gradient-col 50vw)
                 , url(/images/ill_back.svg);
             }
         }
@@ -41,7 +43,7 @@
                 background-repeat: no-repeat;
                 background-position-x: 60%;
                 background-position-y:3%;
-                background-image: linear-gradient(to bottom, #343433 11%, transparent 18%,#343433 30vh)
+                background-image: linear-gradient(to bottom,$gradient-col 11%, transparent 18%,$gradient-col 30vh)
                 , url(/images/ill_back.svg);
             }
         }

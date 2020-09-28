@@ -36,8 +36,8 @@ html.transition *:after {
   }
 }
 
-$long-anim: 1.4s;
-$short-anim: 0.75s;
+$long-anim: 1.5s;
+$short-anim: 0.9s;
 /* Defaults */
 #theme:checked + .anim-bg {
   &:before {

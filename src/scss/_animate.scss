@@ -5,12 +5,14 @@ $light-opacity:0.05;
     opacity: $dark-opacity;
     animation:bubble-in $duration forwards;
     animation-delay: 0s;
+    will-change: clip-path, transform;
 }
 
 @mixin animateBGLight($duration) {
     opacity: $light-opacity;
     animation:bubble-in $duration forwards;
     animation-delay: 0s;
+    will-change: clip-path, transform;
 }
 
 @keyframes bubble-in {
