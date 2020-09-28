@@ -1,6 +1,6 @@
 ---
 title: 'Using css custom properties for color and theming'
-tagline: I'm by no means a designer, but with a bit of research into color contract and accessibility, making I was able to build out a design that I was happy with.
+tagline: I'm by no means a designer, but with a bit of research into color contrast and accessibility, making I was able to build out a design that I was happy with.
 series:
   title: Building a personal blog
   order: 2
@@ -14,6 +14,7 @@ tags:
   - Color
   - Illustration
   - Accessibility
+  - UX
 ---
 
 In the previous post in this series I detailed my approach to research and design, for this building a personal blog series. This time, i'm going to provide some detail on how I approached choosing a color scheme for the site, which next to layout and font, is up there with the most important things to get right on a site.
@@ -54,7 +55,7 @@ As I mentioned, i'm no designer, I don't know any rules around making sure a var
 The most important aspect of your color choice should be ensuring that you have sufficient color contrast for your text against your background color.
 This is not just to produce a nice looking design, but to also make sure that it is accessible to everyone.
 
-You can go about this in many ways, if you like to design in the browser, or just like hacking around in dev tools, I found that using Chrome dev tools for checking color contract was extremely effective. There are also plugins available in design applications, such as Adobe XD.
+You can go about this in many ways, if you like to design in the browser, or just like hacking around in dev tools, I found that using Chrome dev tools for checking color contrast was extremely effective. There are also plugins available in design applications, such as Adobe XD.
 
 To use chrome to debug color contrast, I open up a random website, inspect an element that contains text e.g. a title, and then set its `background` and `color` properties. Dev tools will then provide you with color contrast information.
 
@@ -65,7 +66,7 @@ When modifying the color you should see a Contrast Ratio:
 - You should try to target AAA.
 - This [article](https://web.dev/color-and-contrast-accessibility/) says it better I ever could.
 
-![Picture of chrome dev tools color contract picker](/images/bad-contrast.png "This is a terrible color choice, you want to get above the white lines in the color picker." =800x)
+![Picture of chrome dev tools color contrast picker](/images/bad-contrast.png "This is a terrible color choice, you want to get above the white lines in the color picker." =800x)
 
 ### Supporting dark and light themes can be a challenge
 
