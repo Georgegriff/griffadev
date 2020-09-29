@@ -2,3 +2,7 @@
 @import "./syntax/code";
 @import "./components/video";
 @import "../../node_modules/lite-youtube-embed/src/lite-yt-embed.css";
+
+* {
+    word-break: break-word;
+}
