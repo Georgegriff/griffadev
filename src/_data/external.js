@@ -27,7 +27,7 @@ module.exports = {
     },
     {
       text: "Twitter",
-      url: "https://twitter.com/intent/follow?screen_name=griffadev",
+      url:  siteMeta.author.twitter_url,
       icon: "img/twitter.svg",
     }
   ],

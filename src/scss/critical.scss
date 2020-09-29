@@ -34,7 +34,6 @@ a {
     color: var(--Text);
 }
 
-
 /* Utilities */
 @import "./utilities/layout";
 @import "./utilities/visually-hidden";
@@ -53,6 +52,7 @@ a {
 @import "./components/post-common";
 @import "./components/post";
 @import "./components/pagination";
+@import "./components/author";
 @include backHeros(".anim-bg");
 
 

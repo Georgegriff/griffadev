@@ -95,35 +95,36 @@ body {
       color: var(--PrimaryText);
     }
 
-    figure {
-      margin: 0.5rem 0;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      img {
-        box-shadow: 0 1px 9px 0 rgba(0, 0, 0, 0.4);
-        position: relative;
-      }
-      figcaption {
-        font-size: 0.95rem;
-        margin-top: 0.5rem;
-        text-align: center;
-        width: 100%;
-      }
-      .img-wrap {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        position: relative;
-        border-radius: 0.15rem;
-        padding: 1rem;
-        background: var(--Secondary);
-        img {
-          object-fit: cover;
-          max-height: 44vh;
-          object-position: 0 32%;
-        }
-      }
+   
+  }
+}
+figure {
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  img {
+    box-shadow: 0 1px 9px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+  }
+  figcaption {
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+    text-align: center;
+    width: 100%;
+  }
+  .img-wrap {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    border-radius: 0.15rem;
+    padding: 1rem;
+    background: var(--Secondary);
+    img {
+      object-fit: cover;
+      max-height: 44vh;
+      object-position: 0 32%;
     }
   }
 }
