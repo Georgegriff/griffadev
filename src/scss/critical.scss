@@ -34,17 +34,6 @@ a {
     color: var(--Text);
 }
 
-.sponsor {
-    font-size: var(--font-size-small);
-    div {
-        margin-bottom:0.5rem;
-    }
-    a {
-        color: var(--PrimaryText);
-    }
-}
-
-
 /* Utilities */
 @import "./utilities/layout";
 @import "./utilities/visually-hidden";

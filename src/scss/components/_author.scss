@@ -1,13 +1,27 @@
+.sponsor {
+    font-size: var(--font-size-small);
+    div {
+        margin-bottom:0.5rem;
+    }
+    a {
+        color: var(--PrimaryText);
+    }
+}
+
 .author-data {
     display: flex;
+    .sponsor {
+        flex: 1;
+    }
 }
-.author-info {
+figure.author-info {
     font-size: var(--font-size-small);
     display: flex;
     margin-left: auto;
     min-width: 12em;
     justify-content: flex-end;
-    margin-left: 2rem;
+    flex-direction: row;
+    
     a {
         color:var(--PrimaryText);
     }
@@ -17,12 +31,14 @@
         margin-left:0.5rem;
         justify-content: center;
         height: 3rem;
+        width: auto;
     }
     img {
         border: solid 2px var(--Primary);
         border-radius: 50%;
         height: 3rem;
         width: 3rem;
+        object-fit: cover;
     }
     .author-name {
        

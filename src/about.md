@@ -7,4 +7,4 @@ eleventyNavigation:
   order: 2
 ---
 
-{% include "partials/sponsor.html" %}
+{% include "partials/author-data.html" %}
