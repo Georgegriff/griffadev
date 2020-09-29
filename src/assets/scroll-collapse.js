@@ -25,7 +25,7 @@ window.addEventListener(
             .querySelector(".actionbar")
             .classList.remove("action-hide");
           }
-      }, 400)
+      }, 300)
      
     } else {
           document
