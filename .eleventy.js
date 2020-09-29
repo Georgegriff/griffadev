@@ -282,6 +282,30 @@ module.exports = (eleventyConfig) => {
     debugger;
   })
 
+  eleventyConfig.addFilter("githubIssue", (page) => {
+    const inputPath = encodeURIComponent(page.inputPath);
+    // remove leading dot
+    const githubData =  {
+      branch: "main",
+      repo: "https://github.com/Georgegriff/griffadev",
+      titlePrefix:"Content+correction:"
+    };
+    const issueUrl = `${githubData.repo}/blob/${githubData.branch}${page.inputPath.substr(1)}`
+    const body = `Hello, i've noticed an issue in:
+    ${issueUrl} \n\n**Describe the problem**\n
+  A clear and concise description of what the problem is\n
+  **Existing content**\n
+  What is there at the moment?\n
+  **Expected content**\n
+  What would you expect instead? A PR is more than welcome :smiley:\n
+  **Screenshots**\n
+  If applicable, add screenshots to help explain your problem\n
+  **Additional context**\n
+  Add any other context about the problem here.
+    `;
+    return `${githubData.repo}/issues/new?title=${githubData.titlePrefix}+${inputPath}&body=${encodeURIComponent(body)}`;
+  })
+
   return {
       templateFormats: [
         "md",

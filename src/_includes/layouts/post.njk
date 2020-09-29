@@ -26,7 +26,10 @@
             {{ content | safe }}
         </section>
         {% include 'partials/series-nav.html' %}
-        {% include 'partials/recommended-posts.html' %}
+        <footer>
+            {% include 'partials/something-wrong.html' %}
+            {% include 'partials/recommended-posts.html' %}
+        </footer>
     </article>
 </div>
 {% endblock %}
