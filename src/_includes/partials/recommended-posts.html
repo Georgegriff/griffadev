@@ -1,15 +1,15 @@
 {% set recommendedPosts = helpers.getSiblingContent(collections.posts, page) %}
 {% if recommendedPosts %}
-<footer class="other-reading post-tiles">
-    <h3>You might also like</h3>
-    {% set postslist = recommendedPosts %}
-    <ul class="tiles">
-        {% for item in postslist %}
-        {% set post = item %}
-        <li class="post-card">
-          {% include "./post-card.html" %}
-        </li>
-        {% endfor %}
-      </ul>
-</footer>
+<div class="post-tiles">
+  <h3>You might also like</h3>
+  {% set postslist = recommendedPosts %}
+  <ul class="tiles">
+    {% for item in postslist %}
+    {% set post = item %}
+    <li class="post-card">
+      {% include "./post-card.html" %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
 {% endif %}
