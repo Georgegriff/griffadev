@@ -34,6 +34,16 @@ a {
     color: var(--Text);
 }
 
+.sponsor {
+    font-size: var(--font-size-small);
+    div {
+        margin-bottom:0.5rem;
+    }
+    a {
+        color: var(--PrimaryText);
+    }
+}
+
 
 /* Utilities */
 @import "./utilities/layout";
@@ -53,6 +63,7 @@ a {
 @import "./components/post-common";
 @import "./components/post";
 @import "./components/pagination";
+@import "./components/author";
 @include backHeros(".anim-bg");
 
 

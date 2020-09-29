@@ -6,3 +6,5 @@ eleventyNavigation:
   key: About
   order: 2
 ---
+
+{% include "partials/sponsor.html" %}
