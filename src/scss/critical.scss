@@ -34,6 +34,14 @@ a {
     color: var(--Text);
 }
 
+footer {
+    margin-top:2rem;
+
+    .post-tiles {
+        margin-top:4rem;
+    }
+}
+
 /* Utilities */
 @import "./utilities/layout";
 @import "./utilities/visually-hidden";

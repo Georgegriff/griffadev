@@ -8,6 +8,6 @@ date: '2020-09-19'
 tags:
   - 11ty
   - WebComponents
-  - "@eleven_ty"
-  - "@OpenWc"
+  - eleventy
+  
 ---

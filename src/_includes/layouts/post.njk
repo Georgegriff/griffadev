@@ -16,8 +16,10 @@
         {% set postContent = content %}
         {% set date = page.date %}
         <div class="post-meta-sticky">
-            {% include 'partials/share-page.html' %}
-            {% include "partials/post-meta.html" %}
+            <div>
+                {% include 'partials/share-page.html' %}
+                {% include "partials/post-meta.html" %}
+            </div>
         </div>
         {% include "partials/post-tags.html" %}
         <blockquote>{{tagline}}</blockquote>

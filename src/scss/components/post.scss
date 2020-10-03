@@ -1,6 +1,6 @@
 @import "variables";
 $title-height: 4rem;
-$meta-height: 4.9rem;
+$meta-height: 4.8rem;
 
 live-demo {
   height: 30rem;
@@ -54,7 +54,8 @@ body {
 .post {
   margin: 0 auto;
   h2 {
-    top: $header + $meta-height;
+    min-height: 5rem;
+    top: $header + $meta-height - 0.2rem;
   }
   > section {
     z-index: 1;
@@ -76,17 +77,6 @@ body {
   h4 {
     margin: 0.5rem 0;
   }
-  .post-meta-sticky {
-    font-size: 0.95rem;
-    position: sticky;
-    top: $header;
-    width: 100%;
-    background: var(--Background);
-    z-index: 12;
-    height: $meta-height;
-    display: flex;
-    flex-direction: column;
-  }
   .post-content {
     background: var(--Background);
     z-index: 10;
@@ -96,6 +86,24 @@ body {
     }
 
    
+  }
+}
+.post-meta-sticky {
+  position: sticky;
+  top: $header;
+  width: 100%;
+  z-index: 12;
+  height: $meta-height;
+  overflow: hidden;
+  background: var(--Background);
+  & > * {
+    font-size: 0.95rem;
+    display: flex;
+    flex-direction: column;
+    width: calc(100% + (2 *var(--site-padding)));
+    margin-left: calc(-1 * var(--site-padding));
+    padding-left: var(--site-padding);
+    padding-right: var(--site-padding);
   }
 }
 figure {
@@ -195,7 +203,7 @@ ul.social-share {
   align-items: center;
   justify-content: flex-end;
   height: 1.6rem;
-  padding-top:0.5rem;
+  margin-top:0.5rem;
   li {
     margin-left: 1rem;
   }
