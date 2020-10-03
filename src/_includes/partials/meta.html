@@ -16,7 +16,7 @@
 {% endif %}
 
 {% if not tagline %}
-    {% set metaDesc = description or metadata.description %}
+    {% set tagline = description or metadata.description %}
 {% endif %}
 
 <title>{{ pageTitle }}</title>
