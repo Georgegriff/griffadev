@@ -19,7 +19,7 @@ tags:
 
 In the previous post in this series I detailed my approach to research and design, for this building a personal blog series. This time, i'm going to provide some detail on how I approached choosing a color scheme for the site, which next to layout and font, is up there with the most important things to get right on a site.
 
-![Picture of cat laying down](/images/beau_paint_me.jpg "Paint me like one of your french girls." =700x)
+![Picture of cat laying down](/images/beau_paint_me.jpg "Paint me like one of your french girls.")
 
 > Oh, I forgot to mention, this site is just an excuse for me to share photos of my cats, the above is Beau, he loves to meow for attention when comes back inside the house.
 
@@ -45,7 +45,7 @@ body  {
 
 If you build a site from the ground up with theming in mind, then you can rapidly prototype new experimental color schemes, here's a theme I generated just by having a quick play in chrome. In the picture you can really see the power of using CSS custom properties in everywhere, including in SVG.
 
-![Picture of settings custom properties in Chrome dev tools](/images/custom-theme.png "Experimenting with new color schemes is so easy if you use css custom properties." =900x)
+![Picture of settings custom properties in Chrome dev tools](/images/custom-theme.png "Experimenting with new color schemes is so easy if you use css custom properties.")
 
 When I use custom properties for theming, I tend to start off with a small set of colors e.g. *--Text*, *--Background*, *--Primary*, *--Secondary* and expand as needed, for example you might want *--Primary50* which could be a darker variant of your primary color.
 As I mentioned, i'm no designer, I don't know any rules around making sure a variable maps perfectly to a shade on a color palette, but I suspect as your site grows you'll start to get a feel for how many colors you need.
@@ -66,7 +66,7 @@ When modifying the color you should see a Contrast Ratio:
 - You should try to target AAA.
 - This [article](https://web.dev/color-and-contrast-accessibility/) says it better I ever could.
 
-![Picture of chrome dev tools color contrast picker](/images/bad-contrast.png "This is a terrible color choice, you want to get above the white lines in the color picker." =800x)
+![Picture of chrome dev tools color contrast picker](/images/bad-contrast.png "This is a terrible color choice, you want to get above the white lines in the color picker.")
 
 ### Supporting dark and light themes can be a challenge
 

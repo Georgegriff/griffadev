@@ -25,7 +25,7 @@ This article details some of the first steps that I took along the journey to bu
 
 > It's at this point of writing this blog post I got very distracted, trying to find an appropriate picture. Maybe I should have titled this post: How to not get distracted whilst working on a new project, it even occurred to me to write a component to auto generate a picture of my cats, probably would've been worth it.
 
-![Picture of my cat, cat in front of Mac book](/images/chewie-macbook.jpg "This is Chewie, he is a good boy and sure is ready to code." =500x)
+![Picture of my cat, cat in front of Mac book](/images/chewie-macbook.jpg "This is Chewie, he is a good boy and sure is ready to code.")
 
 
 ## Building a personal blog
@@ -58,7 +58,7 @@ This doesn't really do the videos justice, I can only recommend watching them:
 A quick one, but I found setting up a simple project on Github really helped me with tracking my progress and ideas, it also gave a nice feeling moving things over to done.
 I made a label for `posts`, which meant it was easy for me to track ideas for things I wanted to write about.
 
-![Picture of my Github project board](/images/github-project.png "A snapshot of my Github project." =600x)
+![Picture of my Github project board](/images/github-project.png "A snapshot of my Github project.")
 
 There was a another recent guest video on [Traversy Media](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA) which describes some of the techniques I have used for planning out this project, as well as some other great advice.
 

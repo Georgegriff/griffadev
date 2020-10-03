@@ -5,7 +5,6 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
-const markdownitmisize = require("markdown-it-imsize");
 const { minify } = require("terser");
 const readingTime= require('eleventy-plugin-time-to-read');
 const helpers = require("./src/_data/helpers");
@@ -23,7 +22,7 @@ module.exports = (eleventyConfig) => {
       permalink: true,
       permalinkClass: "direct-link",
       permalinkSymbol: "<copy-link></copy-link>"
-    }).use(markdownitmisize);
+    });
 
     eleventyConfig.addPlugin(pluginSyntaxHighlight);
 
@@ -86,11 +85,16 @@ module.exports = (eleventyConfig) => {
         return attrs;
       }, {})
       return String.raw`<figure>
-        <div class="img-wrap"><img width="${attrs.width}" height="${attrs.height || ""}" src="${attrs.src}" alt="${attrs.alt || token.content}">
+        <div class="img-wrap" ><img src="${attrs.src}" alt="${attrs.alt || token.content}">
         <figcaption>${attrs.alt|| attrs.title || token.content}</figcaption>
       </div>
       </figure>`
     }
+
+    if (process.env.NODE_ENV === 'production') {
+      eleventyConfig.addPlugin(require("./plugins/img-dim.js"));
+    }
+
 
     // Remember old renderer, if overridden, or proxy to default renderer
     const defaultLinkRender = markdownLibrary.renderer.rules.link_open || function(tokens, idx, options, env, self) {

@@ -114,6 +114,15 @@ figure {
   img {
     box-shadow: 0 1px 9px 0 rgba(0, 0, 0, 0.4);
     position: relative;
+
+    /*
+      Make image rasterization lazy. This means that e.g. the cost of the
+      blurry placeholder is never paid if images load before entering
+      the viewport.
+      Context
+      - https://web.dev/content-visibility/#skipping-rendering-work-with-content-visibility
+    */
+    content-visibility: auto; 
   }
   figcaption {
     font-size: 0.95rem;
@@ -129,10 +138,14 @@ figure {
     border-radius: 0.15rem;
     padding: 1rem;
     background: var(--Secondary);
+    picture {
+     height: 100%;
+     width: 100%;
+    }
     img {
+      height: auto;
+      max-height:56vh;
       object-fit: cover;
-      max-height: 44vh;
-      object-position: 0 32%;
     }
   }
 }

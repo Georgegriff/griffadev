@@ -33,7 +33,7 @@ I did not want:
 
 With all of the above in mind, I did some research, some of which I went into in [Part 1](https://griffa.dev/posts/good-research-planning-and-design-is-the-best-foundation-for-starting-a-new-project/) of this series, and I came to the conclusion that I wanted to use a static site generator, and the tool that I chose was [Eleventy (11ty)](https://11ty.dev).
 
-![Ginger cat sat outside of glass door looking like he wants to come inside](/images/naughty-chewie.jpg "Chewie suggested using React for a static blog, so I told him to sit outside and think about what he's done." =600x)
+![Ginger cat sat outside of glass door looking like he wants to come inside](/images/naughty-chewie.jpg "Chewie suggested using React for a static blog, so I told him to sit outside and think about what he's done.")
 
 > Okay just to get this out of the way, the only thing i dislike about 11ty is, i'm never sure whether to write it as 11ty or Eleventy, and I think the creator is just trolling us because even the twitter account is `@eleven_ty`. Well, "ty" [Zach](https://twitter.com/zachleat), "ty" for Eleventy.
 
