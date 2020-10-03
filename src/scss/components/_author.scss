@@ -12,6 +12,9 @@
     display: flex;
     .sponsor {
         flex: 1;
+        a {
+            display: inline-block;
+        }
     }
 }
 figure.author-info {

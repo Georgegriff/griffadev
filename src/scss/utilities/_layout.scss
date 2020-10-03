@@ -42,13 +42,6 @@ main {
   }
 }
 
-.fade-in {
-  height: 2rem;
-  background: linear-gradient(180deg,transparent 0,var(--Background) 50%);
-  position: relative;
-  z-index: 1;
-}
-
 .content {
   padding: 0;
   margin:0;

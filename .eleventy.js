@@ -149,7 +149,9 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginNavigation);
-  eleventyConfig.addPlugin(readingTime);
+  eleventyConfig.addPlugin(readingTime, {
+    speed: "300 words a minute"
+  });
 
   eleventyConfig.setDataDeepMerge(true);
 
