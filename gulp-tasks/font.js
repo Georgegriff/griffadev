@@ -14,7 +14,7 @@ const fonts = async () => {
 
   const instanceCssFile = new GetGoogleFonts({
     outputDir: './src/_includes/fonts',
-    path: "./fonts/",
+    path: "/fonts/",
     overwriting: true,
     cssFile: './fonts.css'
   });
