@@ -11,13 +11,15 @@
 
 
         <!-- todo preload right fonts, can we do this magically? -->
-        <link crossorigin="anonymous" rel="preload" as="font" type="font/woff2" href="/fonts/Nunito-400-latin5.woff2" />
-        <link crossorigin="anonymous" rel="preload" as="font" type="font/woff2" href="/fonts/Nunito-600-latin10.woff2" />
-        <link crossorigin="anonymous" rel="preload" as="font" type="font/woff2" href="/fonts/Nunito-800-latin15.woff2"/>
+        <link rel="preload" as="font" type="font/woff2" href="/fonts/Nunito-400-latin5.woff2" crossorigin="anonymous" />
+        <link rel="preload" as="font" type="font/woff2" href="/fonts/Nunito-600-latin10.woff2" crossorigin="anonymous" />
+        <link rel="preload" as="font" type="font/woff2" href="/fonts/Nunito-800-latin15.woff2" crossorigin="anonymous"/>
 
 
-        <link rel="preload" as="style" media="print" href="/fonts/fonts.css?{{ assetHash }}" onload="this.media='all'"/>
         <link rel="stylesheet" href="/fonts/fonts.css?{{ assetHash }}" media="print" onload="this.media='all'">
+        <style>
+            {% include "fonts/fonts.css" %}
+        </style>
         <style>
             {% include "css/critical.css" %}
         </style>

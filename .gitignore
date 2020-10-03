@@ -13,6 +13,7 @@ Thumbs.db
 node_modules
 dist
 src/_includes/css
+src/_includes/fonts
 src/_includes/img
 src/_includes/manifest.json
 .vscode/
