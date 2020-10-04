@@ -117,7 +117,7 @@ One of the best things about the 11ty ecosystem is its curated collection of [st
 I know it might seem like i'm contradicting myself a bit from earlier, from when I complained about complex scaffolded projects, but here's how I tackled both learning and scaffolding out my own project.
 
 - I recommend starting out with an empty repository, and copying in what you need from other starter projects. The reason for this is you will be able to learn exactly what is already possible, and what all the code in your project means.
-- In order to know what to copy you obviously a good starting point, I recommend starting out with the official [eleventy-base-blog](https://github.com/11ty/eleventy-base-blog) and go through each of the files in turn making sure you understand how they fit in. If you watched the video earlier the pieces should start to fall into place.
+- In order to know what to copy, you obviously a good starting point, I recommend starting out with the official [eleventy-base-blog](https://github.com/11ty/eleventy-base-blog) and go through each of the files in turn making sure you understand how they fit in. If you watched the video earlier the pieces should start to fall into place.
 
 Some of the most important concepts to get to grips with are:
 - [Layouts](https://www.11ty.dev/docs/layouts/)
@@ -130,10 +130,9 @@ This doesn't just mean next and previous pages, it can mean generating pages fro
 
 ## A Next level 11ty course
 
-A few days into this project, some drama happened over in React/Gatsby land on twitter, and as a result I came across this amazing course:
-https://twitter.com/hankchizljaw/status/1294299562362970112
+A few days into this project, some drama happened over in React/Gatsby land on twitter, and as a result I came across this amazing course: [Learn Eleventy From Scratch](https://piccalil.li/course/learn-eleventy-from-scratch) 
 
-[Learn Eleventy From Scratch](https://piccalil.li/course/learn-eleventy-from-scratch) is seriously awesome, and worth every penny, it's also a stealth CSS course. One thing to note is this is a text based course, which i'd never really done before, but I actually really liked because I was able to move at my own pace. I found that doing this course allowed me to really solidify my understanding of 11ty, so I was able to bring together influences from various project and tutorials, and change them to work for me.
+This course is seriously awesome, it's also a stealth CSS course. One thing to note is this is a text based course, which i'd never really done before, but I actually really liked because I was able to move at my own pace. I found that doing this course allowed me to really solidify my understanding of 11ty, so thats I was able to bring together influences from various project and tutorials, and change them to work for me, to build out my site.
 
 ## I got to building
 

@@ -41,7 +41,7 @@ h2 {
   background: var(--Background);
   z-index: 3;
   padding-bottom: 1.5rem;
-  margin-left: -2px;
+  margin-left:  -2px;
 
   &:after {
     width: 100%;
@@ -128,7 +128,7 @@ h2 {
   h2 {
     transform: translate(0, 0);
     &:after {
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      clip-path: polygon(0 0, 90% 0, 90% 100%, 0 100%);
     }
     margin-bottom: 0;
   }

@@ -1,6 +1,6 @@
 @import "variables";
 $title-height: 4rem;
-$meta-height: 4.8rem;
+$meta-height: 5.3rem;
 
 live-demo {
   height: 30rem;
@@ -96,6 +96,7 @@ body {
   height: $meta-height;
   overflow: hidden;
   background: var(--Background);
+  margin-left: -2px;
   & > * {
     font-size: 0.95rem;
     display: flex;
