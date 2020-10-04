@@ -110,7 +110,7 @@ It's a long video, but well worth it, the video format is a really relaxed pair 
 
 I was so excited after this video, I felt like i'd been given superpowers!
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Just watching this, I don&#39;t remember the last time I was so impressed by simplicity. Loved that in the video Jason asked to go from basics! <a href="https://t.co/95f0CXBNXA">https://t.co/95f0CXBNXA</a> <a href="https://twitter.com/jlengstorf?ref_src=twsrc%5Etfw">@jlengstorf</a> <a href="https://twitter.com/zachleat?ref_src=twsrc%5Etfw">@zachleat</a></p>&mdash; griffadev (@griffadev) <a href="https://twitter.com/griffadev/status/1292911029865906177?ref_src=twsrc%5Etfw">August 10, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+https://twitter.com/griffadev/status/1292911029865906177  
 
 One of the best things about the 11ty ecosystem is its curated collection of [starter projects](https://www.11ty.dev/docs/starter/), these range from simple to very complex, for example by [incorporating performance optimizations](https://github.com/google/eleventy-high-performance-blog).
 
@@ -131,14 +131,15 @@ This doesn't just mean next and previous pages, it can mean generating pages fro
 ## A Next level 11ty course
 
 A few days into this project, some drama happened over in React/Gatsby land on twitter, and as a result I came across this amazing course:
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Fuck it: use the code GET_ME_OFF_GATSBY and you can have my 11ty course for £69 instead of £160. <br><br>I wanna help those who rightly feel uneasy about using it.<br><br> <a href="https://t.co/A70Iyw1WIA">https://t.co/A70Iyw1WIA</a></p>&mdash; Andy Bell (@hankchizljaw) <a href="https://twitter.com/hankchizljaw/status/1294299562362970112?ref_src=twsrc%5Etfw">August 14, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+https://twitter.com/hankchizljaw/status/1294299562362970112
 
 [Learn Eleventy From Scratch](https://piccalil.li/course/learn-eleventy-from-scratch) is seriously awesome, and worth every penny, it's also a stealth CSS course. One thing to note is this is a text based course, which i'd never really done before, but I actually really liked because I was able to move at my own pace. I found that doing this course allowed me to really solidify my understanding of 11ty, so I was able to bring together influences from various project and tutorials, and change them to work for me.
 
 ## I got to building
 
 Over the course of a month or two, just using my evenings after my day job and some weekends, through the hell-scape of 2020, I built out [griffa.dev](https://griffa.dev), and had a lot of fun along the way. I won't lie and pretend that everything went smoothly, I get distracted very easily, the first few days working on it went something like this:
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Building a website in a new technology:<br>Day 1: find a template and clone it<br>Day 2: introduce some custom build step<br>Day 3: watch a video/course, consequently start from scratch<br>Day 4: rewrite custom build again <br><br>😂Sometime I&#39;ll be happy enough to start doing something productive</p>&mdash; griffadev (@griffadev) <a href="https://twitter.com/griffadev/status/1295057860397850625?ref_src=twsrc%5Etfw">August 16, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+https://twitter.com/griffadev/status/1295057860397850625
 
 ### Show me the code
 

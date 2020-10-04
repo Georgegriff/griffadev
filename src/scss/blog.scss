@@ -14,3 +14,11 @@
         color: var(--PrimaryText);
     }
 }
+
+.eleventy-plugin-embed-twitter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 365px;
+    margin-bottom: 1rem;
+}

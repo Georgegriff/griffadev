@@ -95,6 +95,10 @@ module.exports = (eleventyConfig) => {
       eleventyConfig.addPlugin(require("./plugins/img-dim.js"));
     }
 
+    eleventyConfig.addPlugin(require("eleventy-plugin-embed-twitter"), {
+      cacheText: true
+    });
+
 
     // Remember old renderer, if overridden, or proxy to default renderer
     const defaultLinkRender = markdownLibrary.renderer.rules.link_open || function(tokens, idx, options, env, self) {
