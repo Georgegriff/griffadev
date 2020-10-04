@@ -2,7 +2,9 @@
 
 {% extends "layouts/base.njk" %}
 
-{% set postslist = collections[ tag ] %}
+{% set pagination = helpers.getPagination(pagination, paged) %}
+
+{% set postslist = paged.elements %}
 
 {% block content %}
    {% include  "partials/posts.html"%}

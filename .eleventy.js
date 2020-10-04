@@ -202,9 +202,8 @@ module.exports = (eleventyConfig) => {
       callback(null, code);
     }
   });
-
   eleventyConfig.addCollection("tagList", function (collection) {
-    let tagSet = new Set();
+    const tagSet = new Set();
     collection.getAll().forEach(function (item) {
       if ("tags" in item.data) {
         const tags = item.data.tags.filter(helpers.filterCollectionTags);
@@ -213,10 +212,47 @@ module.exports = (eleventyConfig) => {
         }
       }
     });
+    
+    let paginatedTaggedPosts = [];
 
-    // returning an array in addCollection works in Eleventy 0.5.3
+    [...tagSet].forEach((name) => {
+        const pageSize = 15;
+
+        const elements = collection.getFilteredByTag(name)
+        .sort((a, b) => b.date - a.date);
+        const pages = Math.ceil(elements.length / pageSize);
+
+        for (let i = 0; i < pages; i++) {
+          const startFrom = i * pageSize;
+          const tagData = {
+            name,
+            pageNumber: i,
+            elements: elements.slice(startFrom, startFrom + pageSize),
+            index: i,
+            pages,
+            hasNext: i < pages -1,
+            hasPrev: i > 0
+          }
+          paginatedTaggedPosts.push(tagData);
+        }
+      });
+
+    return paginatedTaggedPosts;
+  });
+
+  eleventyConfig.addCollection("tagNames", (collection) => {
+    const tagSet = new Set();
+    collection.getAll().forEach(function (item) {
+      if ("tags" in item.data) {
+        const tags = item.data.tags.filter(helpers.filterCollectionTags);
+        for (const tag of tags) {
+          tagSet.add(tag);
+        }
+      }
+    });
     return [...tagSet];
   });
+
 
     // Returns a collection of blog posts in reverse date order
     eleventyConfig.addCollection("archive", (collection) => {
@@ -290,6 +326,11 @@ module.exports = (eleventyConfig) => {
     //tip!
     console.log(...args)
     debugger;
+  })
+
+
+  eleventyConfig.addFilter("nameFromObject", (arr) => {
+    return arr.map((ent) => ent.name);
   })
 
   eleventyConfig.addFilter("githubIssue", (page) => {

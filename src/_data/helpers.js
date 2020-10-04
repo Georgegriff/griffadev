@@ -32,5 +32,16 @@ module.exports = {
     }
 
     return filteredItems;
+  },
+  getPagination: (pagination, paged) => {
+    if(!paged.hasNext) {
+      delete pagination.href.next;
+    }
+    if(!paged.hasPrev) {
+      delete pagination.href.previous;
+    }
+    return {
+      ...pagination
+    };
   }
 };

@@ -5,9 +5,8 @@
 
 {% extends "layouts/base.njk" %}
 
-{% set postslist = series.posts %}
-
-{% block content %}
+x{% block content %}
+   {% set postslist = series.posts %}
    {% if description %}
       {% set subtitleDetail = series.description %}
    {% endif %}

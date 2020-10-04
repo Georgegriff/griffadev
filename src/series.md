@@ -9,6 +9,7 @@ pagination:
     - post
     - posts
     - tagList
+    - tagNames
     - series
   addAllPagesToCollections: true
 layout: layouts/series.njk
