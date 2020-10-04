@@ -30,7 +30,11 @@
             {% endfor %}
         {% endif %}
     </head>
+    {% if not skipLinkAnchor %}
+        {% set skipLinkAnchor = "#main-content" %}
+    {% endif %}
     <body>
+        <a class="skip-link call-to-action" href="{{skipLinkAnchor}}">Skip to content</a>
         <input aria-label="Switch theme colors" type="checkbox" id="theme" name="theme" class="visually-hidden">
         <div class="wrapper page-layout anim-bg {{containerClass}}">
             {% include "partials/header.html" %}
