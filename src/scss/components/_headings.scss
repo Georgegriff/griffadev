@@ -60,17 +60,20 @@ h2 {
   }
 }
 
-.call-to-action {
+.call-to-action-absolute {
   position: absolute;
+  bottom: 1.1rem;
+  right:0;
+}
+
+.call-to-action {
   background: var(--Primary);
   color: var(--ActionColor);
-  right:0;
   font-size: 1rem;
   padding:0.25rem 1.5rem;
   border-radius: 0.25rem;
   margin-top:0.5rem;
   transition: transform 150ms ease-out;
-  bottom: 1.1rem;
   &:focus, &:hover {
     transform: scale(0.98) translateY(0.1rem);
   }

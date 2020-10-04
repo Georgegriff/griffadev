@@ -42,6 +42,17 @@ footer {
     }
 }
 
+.skip-link {
+    position: absolute;
+    top:0;
+    right:0;
+    z-index: 99;
+    margin-top:1.5rem;
+    &:not(:focus) {
+        @extend .visually-hidden;
+    }
+}
+
 /* Utilities */
 @import "./utilities/layout";
 @import "./utilities/visually-hidden";
