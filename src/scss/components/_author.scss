@@ -12,9 +12,19 @@
     display: flex;
     .sponsor {
         flex: 1;
+        line-height: calc(var(--font-size-small) * 1.3);
         a {
             display: inline-block;
         }
+
+        .sponsor-title {
+            font-weight: 600;
+            padding-bottom: 0.5rem;
+            display: block;
+        }
+    }
+    figure {
+        align-items: flex-start;
     }
 }
 figure.author-info {
