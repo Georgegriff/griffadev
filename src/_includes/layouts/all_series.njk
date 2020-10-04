@@ -3,6 +3,7 @@
 {% set pageCriticalStyles = ['css/index.css'] %}
 
 {% block content %}
+{% include "partials/post-hero.html" %}
 {% set seriesList = pagination.items %}
 {% include "partials/series-list.html" %}
 {% endblock %}

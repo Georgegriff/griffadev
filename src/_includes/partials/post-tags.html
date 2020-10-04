@@ -1,8 +1,8 @@
 <div class="post-tags">
     {% for tag in tags %}
-        {%- if collections.tagList.indexOf(tag) != -1 -%}
+        {%- if collections.tagNames.indexOf(tag) != -1 -%}
             {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
-            <a href="{{ tagUrl | url }}" class="post-tag">#{{ tag | title | replace(' ', '') }}</a>
+            <a href="{{ tagUrl | url }}" class="post-tag">#{{ tag | replace(' ', '') }}</a>
         {%- endif -%}
     {% endfor %}
 </div>
