@@ -1,0 +1,9 @@
+{% extends "layouts/base.njk" %}
+
+{% set pageCriticalStyles = ['css/index.css'] %}
+
+{% block content %}
+{% set tagsList = pagination.items %}
+{% include "partials/post-hero.html" %}
+{% include "partials/tags-list.html" %}
+{% endblock %}

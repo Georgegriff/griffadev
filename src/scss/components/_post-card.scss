@@ -100,13 +100,13 @@ $card-padding: 1rem;
 
 .post-series {
   font-size: var(--font-size-small);
-  font-style: italic;
+  font-weight: 600;
   margin-top:0.5rem;
   flex: 1;
   display: flex;
   align-items: flex-end;
   a {
-    font-style: normal
+    font-weight: normal;
   }
 }
 

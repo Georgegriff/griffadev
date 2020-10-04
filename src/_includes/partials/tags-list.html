@@ -1,0 +1,16 @@
+<article class="content">
+    <div class="content-wrap">
+        {% include './cta-heading.html' %}
+        <ul class="tags-list">
+            {% for item in tagsList %}
+            {% set tag = item %}
+            {% set tagUrl %}/tags/{{ tag | slug}}/{% endset %}
+            <li class="tag-link">
+                <a href="{{tagUrl}}">#{{tag}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% include 'partials/pagination.html' %}
+    </div>
+
+</article>

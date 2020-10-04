@@ -8,7 +8,7 @@ date: '2020-09-12'
 tags:
   - Design
   - UX
-  - Illustrations
+  - Illustration
 ---
 
 # TODO

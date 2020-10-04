@@ -8,7 +8,6 @@ date: '2020-09-15'
 tags:
   - 11ty
   - JavaScript
-  - eleventy
 ---
 
 This article details some of the different resources that I used for learning 11ty to build out my personal website. This is not a tutorial, it is more of a description of the journey that I went on, with the hope some of the steps that I took might help others.

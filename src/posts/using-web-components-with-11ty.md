@@ -7,7 +7,5 @@ series:
 date: '2020-09-19'
 tags:
   - 11ty
-  - WebComponents
-  - eleventy
-  
+  - WebComponents  
 ---
