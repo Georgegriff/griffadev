@@ -53,6 +53,12 @@ footer {
     }
 }
 
+.kofi {
+    height: 2rem !important;
+    width: auto !important;
+    background-image: none !important;
+}
+
 /* Utilities */
 @import "./utilities/layout";
 @import "./utilities/visually-hidden";

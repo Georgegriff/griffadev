@@ -10,12 +10,25 @@
   align-items: center;
   flex-direction: row-reverse;
   margin-bottom: 2rem;
+  margin-top: 5rem;
   .header-wrap {
     margin-top:1rem;
   }
   svg {
     min-width: 65%;
     height: 120%;
+  }
+}
+
+@media screen and (min-width: 60em) {
+  .hero {
+    margin-top:7rem;
+  }
+}
+
+@media screen and (min-width: 65em) {
+  .hero {
+    margin-top:0;
   }
 }
 
@@ -37,7 +50,6 @@
   .hero {
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 0;
     width: 100%;
     .header-wrap {
       margin-top:0.5rem;
@@ -331,6 +343,18 @@ $global-delay:0.5s;
 
 .fourthin {
   animation-delay:$global-delay + .7s;
+}
+
+.fifthin {
+  animation-delay:$global-delay + 1s;
+}
+
+.sixthin {
+  animation-delay:$global-delay + 1.3s;
+}
+
+.seventhin {
+  animation-delay:$global-delay + 1.6s;
 }
 
 

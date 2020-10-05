@@ -40,7 +40,7 @@ h2 {
   top: $header;
   background: var(--Background);
   z-index: 3;
-  padding-bottom: 1.5rem;
+  padding-bottom: 4rem;
   margin-left:  -2px;
 
   &:after {
@@ -51,7 +51,7 @@ h2 {
     height: 0.2rem;
     transform: translateZ(0);
     will-change: clip-path, transform;
-    clip-path: polygon(0 0,40vw 0, 40vw 100%, 0 100%);
+    clip-path: polygon(0 0,20vw 0, 20vw 100%, 0 100%);
     margin-top: 0.2rem;
     background: var(--Primary);
     transition-delay: 0ms;
@@ -62,7 +62,7 @@ h2 {
 
 .call-to-action-absolute {
   position: absolute;
-  bottom: 1.1rem;
+  bottom: 3.6rem;
   right:0;
 }
 
@@ -131,7 +131,7 @@ h2 {
   h2 {
     transform: translate(0, 0);
     &:after {
-      clip-path: polygon(0 0, 90% 0, 90% 100%, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
     margin-bottom: 0;
   }

@@ -7,6 +7,12 @@
    <div slot="observable" class="collapse">
       {% include  "partials/hero.html"%}
    </div>
-   <div class="fade-in"></div>
+   <span id="tagline" class="site-tag"><span class="first-there">Hi,</span><span class="second-there">check out my recent posts, I mainly focus the web.</span></span>
+   <div class="hero-scroll-down seventhin">
+      <a aria-label="Skip to recent articles" href="#tagline">
+         <span>Recent activity</span>
+         {% include 'img/chevron_down.svg' %}
+      </a>
+   </div>
    {% include  "partials/posts.html"%}
 {% endblock %}

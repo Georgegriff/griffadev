@@ -15,5 +15,5 @@ customElements.define('live-demo', LiveDemo);
 /* Dom events */
 const mainContainer = document.querySelector(".main-content");
 mainContainer.root = document;
-mainContainer.thresholds = [0.3,0.3];
+mainContainer.thresholds = [0.96,0.3];
 

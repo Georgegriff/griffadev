@@ -28,15 +28,3 @@
     --code-attr-value: #7fe3ff;
     --code-regex: #EBCB8B;
 }
-
-@mixin dark-fade {
-    height: 2rem;
-    background: linear-gradient(
-      to bottom,
-      rgba($dark-bg, 0) 0,
-      var(--Background) 80%,
-      var(--Background) 100%
-    );
-    position: relative;
-    z-index: 1;
-}

@@ -6,7 +6,7 @@ $gradient-col: var(--Background);
         &:before {
             content: "";
             /* css variables don`t work here in safari :/ */
-            background-image: linear-gradient(to bottom,$gradient-col 0,transparent 33%,$gradient-col 84%),url(/images/ill_back.svg);
+            background-image: linear-gradient(to bottom,$gradient-col 0,transparent 33%,$gradient-col 100%),url(/images/ill_back.svg);
             background-size:111%;
             background-position:10% 25%;
             background-repeat: no-repeat;
@@ -25,11 +25,11 @@ $gradient-col: var(--Background);
         #{$class} {
             position: relative;
             &:before {
-                background-size: 118%;
+                background-size: 138%;
                 background-repeat: no-repeat;
                 background-position-x: 60%;
                 background-position-y:0%;
-                background-image: linear-gradient(to bottom, $gradient-col 5%, transparent 27%,$gradient-col 50vw)
+                background-image: linear-gradient(to bottom, $gradient-col 5%, transparent 27%,$gradient-col 80vh)
                 , url(/images/ill_back.svg);
             }
         }
@@ -39,11 +39,11 @@ $gradient-col: var(--Background);
         #{$class} {
             position: relative;
             &:before {
-                background-size: 118%;
+                background-size: 168%;
                 background-repeat: no-repeat;
                 background-position-x: 60%;
-                background-position-y:3%;
-                background-image: linear-gradient(to bottom,$gradient-col 11%, transparent 18%,$gradient-col 30vh)
+                background-position-y:23%;
+                background-image: linear-gradient(to bottom,$gradient-col 11%, transparent 18%,$gradient-col 75vh)
                 , url(/images/ill_back.svg);
             }
         }
