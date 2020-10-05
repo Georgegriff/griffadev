@@ -31,12 +31,13 @@
                 {{ content | safe }}
             </section>
             {% include 'partials/series-nav.html' %}
-            <footer>
-                {% include 'partials/author-data.html' %}
-                {% include 'partials/something-wrong.html' %}
-                {% include 'partials/recommended-posts.html' %}
-            </footer>
         </article>
     </article>
 </div>
+{% endblock %}
+{% block footer %}
+        {% include 'partials/author-data.html' %}
+        {% include 'partials/share-page.html' %}
+        {% include 'partials/something-wrong.html' %}
+        {% include 'partials/recommended-posts.html' %}
 {% endblock %}

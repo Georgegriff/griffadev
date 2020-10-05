@@ -1,5 +1,5 @@
 {% if pagination.href.next or pagination.href.previous %}
-<footer class="pagination">
+<div class="pagination">
     <nav class="pagination-links" aria-label="Pagination links">
         {% if pagination.href.previous %}
         <a class="pagination-prev" href="{{ pagination.href.previous }}">
@@ -12,5 +12,5 @@
         </a>
         {% endif %}
     </nav>
-</footer>
+</div>
 {% endif %}

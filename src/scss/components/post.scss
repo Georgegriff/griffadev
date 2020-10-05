@@ -96,7 +96,6 @@ body {
   height: $meta-height;
   overflow: hidden;
   background: var(--Background);
-  margin-left: -2px;
   & > * {
     font-size: 0.95rem;
     display: flex;

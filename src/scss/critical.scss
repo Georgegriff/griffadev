@@ -34,12 +34,37 @@ a {
     color: var(--Text);
 }
 
-footer {
-    margin-top:2rem;
+.footer-wrap {
+    background: var(--Background50);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
 
+footer {
     .post-tiles {
         margin-top:4rem;
     }
+
+    .sharing {
+        .social-share {
+            justify-content: flex-start;
+            margin: 1rem 0;
+            li {
+                margin-right: 1rem;
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+.copyright {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: var(--font-size-small);
+    vertical-align: middle;
+    padding: 2rem 0;
 }
 
 .skip-link {

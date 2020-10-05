@@ -43,5 +43,8 @@ module.exports = {
     return {
       ...pagination
     };
+  },
+  get year() {
+    return new Date().getFullYear()
   }
 };

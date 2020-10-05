@@ -43,6 +43,12 @@
                 <intersect-detect class="main-content">
                     {% block content %}{% endblock %}
                 </intersect-detect>
+                <div class="footer-wrap">
+                    <footer>
+                        {% block footer %}{% endblock %}
+                        {% include 'partials/copyright.html' %}
+                    </footer>
+                </div>
             </main>
         </div>
         <div class="filler"></div>
