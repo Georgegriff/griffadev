@@ -26,9 +26,8 @@ module.exports = {
   port: 8081,
   watch: true,
   rootDir: ".",
-  middlewares: [
+  middleware: [
       serve11tyAssets({dist: "dist"})
     ],
-  nodeResolve: true,
-  moduleDirs: ["node_modules"],
+  nodeResolve: true
 };
