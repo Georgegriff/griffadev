@@ -81,7 +81,6 @@ A technique which I found to work quite well is to choose your light theme prima
 
  These the colors I went with for my first iteration:
 
-TODO made this live demo made sense
 ### A live demo
 
 ```css css-var-demo
