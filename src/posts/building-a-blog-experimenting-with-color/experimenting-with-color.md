@@ -117,4 +117,4 @@ A technique which I found to work quite well is to choose your light theme prima
 <div>
 ```
 
- Now i've explored how I chose colors for my personal blog, I will next take a look at how I introduced illustrations, to make the design pop!
+ Now i'd explored how I chose colors for my personal blog, my next steps involved investigating illustrations, to make my design pop! [Undraw](https://undraw.co/) is an awesome tool for this, however, I strongly recommend making your own illustrations, or heavily customizing illustrations that you find, them make them your own.
