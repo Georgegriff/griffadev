@@ -172,6 +172,14 @@ module.exports = (eleventyConfig) => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
   });
 
+  eleventyConfig.addFilter("sitemapDateTimeString", (dateObj) => {
+    const dt = DateTime.fromJSDate(dateObj, { zone: "utc" });
+    if (!dt.isValid) {
+      return "";
+    }
+    return dt.toISO();
+  });
+
   eleventyConfig.addFilter("getMins", mins => {
     return Duration.fromISO(mins * 1000);
   });

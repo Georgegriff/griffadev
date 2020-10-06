@@ -4,7 +4,7 @@ layout: 'layouts/index.njk'
 subtitle: 'Recent activity'
 callToAction:
   href: '/posts/'
-  text: 'Older posts'
+  text: 'All posts'
 eleventyNavigation:
   image: img/posts.svg
   key: Posts

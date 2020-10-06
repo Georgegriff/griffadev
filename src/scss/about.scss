@@ -1,3 +1,5 @@
+@import './variables';
+
 .about-container {
     height: 30rem;
     margin:2rem 0;
@@ -6,3 +8,5 @@
         margin:2rem 0;
     }
 }
+
+@import './components/header-align';

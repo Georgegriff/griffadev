@@ -23,10 +23,10 @@ main {
   top: 0;
   height: $header;
   z-index: 50;
+  background: var(--Background);
 }
 
 .site-header {
-  background: var(--Background);
   height: 100%;
   margin: 0 auto;
   width: 100%;
@@ -69,7 +69,7 @@ $tagline-height:3rem;
   position: relative;
   z-index: 1;
   animation: wiggle 0.7s forwards;
-  transform: translateY(-10px);
+  transform: translateY(-20px);
   transition:  opacity 0.3s ease-in-out !important;
   opacity: 0;
 
@@ -104,14 +104,14 @@ $tagline-height:3rem;
   text-align: center;
   > * {
     opacity: 0;
-    transition: transform 0.6s ease-in-out, opacity 0.3s ease-in-out;
+    transition: transform 0.45s ease-in, opacity 0.6s ease-in-out;
   }
   .first-there {
     font-size: 3rem;
     font-weight: bold;
   }
   .second-there {
-    transition-delay: 0.8s;
+    transition-delay: 0s;
   }
 }
 
@@ -119,6 +119,7 @@ $tagline-height:3rem;
   .hero-scroll-down {
     a {
         opacity: 0;
+        transform: translateY(3rem);
       }
   }
 
@@ -127,6 +128,10 @@ $tagline-height:3rem;
       opacity: 1;
       transform: translateY(-4rem);
     }
+  }
+
+  .second-there {
+    transition-delay: 0.8s;
   }
 }
 

@@ -1,0 +1,15 @@
+.breadcrumbs {
+    font-size: var(--font-size-small);
+    display: flex;
+    align-items: center;
+    a {
+        color: var(--PrimaryText);
+    }
+    svg {
+        width: calc(var(--font-size-small) *.8);
+        height: calc(var(--font-size-small) *.8);
+        transform: rotate(-90deg);
+        margin:0 0.45rem;
+        fill: var(--Text50);
+    }
+}

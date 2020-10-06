@@ -1,3 +1,6 @@
+{% set inlineJs %}
+        {% include "scripts/inline-critical.js" %}
+{% endset %}
 <!DOCTYPE html>
 <html data-theme="light" lang="en">
     <head>
@@ -37,7 +40,11 @@
         <a class="skip-link call-to-action" href="{{skipLinkAnchor}}">Skip to content</a>
         <input aria-label="Switch theme colors" type="checkbox" id="theme" name="theme" class="visually-hidden">
         <div class="wrapper page-layout anim-bg {{containerClass}}">
-            {% include "partials/header.html" %}
+          {# Deliberate to not break sibling selector and run before themed code #}
+          <script>
+            {{ inlineJs | jsmin | safe }}
+          </script>  
+          {% include "partials/header.html" %}
             {% include "partials/actionbar.html" %}
             <main id="main-content">
                 <intersect-detect class="main-content">
@@ -52,12 +59,6 @@
             </main>
         </div>
         <div class="filler"></div>
-        {% set inlineJs %}
-            {% include "scripts/inline-critical.js" %}
-        {% endset %}
-        <script>
-            {{ inlineJs | jsmin | safe }}
-        </script>
         <!-- TODO  split  js into pages -->
         <script src="{{ assets.getPath("index.js")}}" type="module"></script>
     </body>

@@ -17,6 +17,7 @@
     <article class="post content">
         {% set postContent = content %}
         {% set date = page.date %}
+        {% include 'partials/breadcrumbs.html' %}
         <div class="post-meta-sticky">
             <div>
                 {% include 'partials/share-page.html' %}

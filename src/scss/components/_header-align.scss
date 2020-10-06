@@ -1,0 +1,16 @@
+/* bring logo in line with article container */
+.header-wrapper {
+    margin-left:$action-bar;
+    width: calc(100% - #{$action-bar});
+}
+.site-header {
+    width: min(100% - 2rem, #{$max-post-width});
+    padding:0;
+}
+
+@media screen and (max-width: 45em) {
+    .header-wrapper {
+        margin: initial;
+        width: 100%;
+    }
+}
