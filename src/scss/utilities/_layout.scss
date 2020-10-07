@@ -44,6 +44,22 @@ main {
   width: min(100% - 2rem, #{$max-post-width});
 }
 
+.sticky-footer {
+  position: sticky;
+  top: $header /2;
+  background: var(--Background50);
+  z-index: 2;
+  padding-bottom: 1rem;
+
+}
+
+.footer-wrap {
+  background: var(--Background50);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
 .content {
   padding: 0;
   margin:0;
@@ -57,11 +73,9 @@ main {
   }
 }
 
-$icon-size:9rem;
+$icon-size:10rem;
 $tagline-height:3rem;
 .hero-scroll-down {
-  /* dont want it on mobile */
-  display: none;
   justify-content: center;
   align-items: center;
   height: $icon-size;
@@ -104,6 +118,7 @@ $tagline-height:3rem;
   text-align: center;
   > * {
     opacity: 0;
+    transform: translateY(6rem);
     transition: transform 0.45s ease-in, opacity 0.6s ease-in-out;
   }
   .first-there {
@@ -126,7 +141,7 @@ $tagline-height:3rem;
   .site-tag {
     > * {
       opacity: 1;
-      transform: translateY(-4rem);
+      transform: translateY(0rem);
     }
   }
 
@@ -155,16 +170,11 @@ $tagline-height:3rem;
 }
 
 .hero-wrap {
-  height: calc(65vh - (#{$icon-size} + #{$tagline-height}));
+  height: calc(100vh - (#{$icon-size} + #{$header} + #{$tagline-height}));
 }
 
 @media screen and (min-width: 80em) {
-  .hero-scroll-down {
-    display: flex;
-  }
-  .hero-wrap {
-    height: calc(100vh - (#{$icon-size} + #{$header} + #{$tagline-height}));
-  }
+
 
   .content {
     .content-wrap {
@@ -175,6 +185,9 @@ $tagline-height:3rem;
 
 /* todo figure out re-using */
 @media screen and (max-width: 45em) {
+  .hero-wrap {
+    height: calc(100vh - (#{$icon-size} + #{$tagline-height} + #{$header} + #{$action-bar}));
+  }
   .site-header {
     justify-content: space-between;
   }
@@ -193,9 +206,29 @@ $tagline-height:3rem;
     flex: 1 !important;
   }
 
-  .footer-wrap {
+  .footer-wrap, .sticky-footer {
     background: var(--Background);
   }
+
+  .sticky-footer {
+    position: initial;
+    top: initial;
+    padding-bottom: initial;
+  }
+  footer {
+    .sharing {
+      position: sticky;
+      top: $header;
+      padding-bottom: 1rem;
+      background: var(--Background);
+      z-index: 2;
+      .social-share {
+        justify-content: flex-end;
+      }
+    }
+  }
+
+
 }
 
 @media screen and (min-width: 3000px) {

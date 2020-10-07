@@ -4,9 +4,6 @@ const getUrl = (page) => encodeURIComponent(`${siteMeta.url}${page.url}`);
 
 const genericShare = {
   data(title, tags = [], page) {
-    if(!tags) {
-      tags = [];
-    }
     const url = `${siteMeta.url}${page.url}`;
     const text = `${title} ${
       siteMeta.author.twitter} ${tags

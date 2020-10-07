@@ -37,9 +37,11 @@
 </div>
 {% endblock %}
 {% block footer %}
-        {% include 'partials/author-data.html' %}
-        {% include 'partials/share-page.html' %}
+        <div class="sticky-footer">
+            {% include 'partials/author-data.html' %}
+        </div>
         {% include 'partials/something-wrong.html' %}
+        {% include 'partials/share-page.html' %}
         {% include 'partials/recommended-posts.html' %}
         {% include 'partials/comments-section.html' %}
 {% endblock %}

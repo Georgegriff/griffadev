@@ -36,7 +36,7 @@ export class LiveDemo extends LitElement {
     this.hideText = "Close";
     this.showText = "Demo";
     this.toggled = false;
-    this.selected = "html";
+    this.selected = "";
     this.languageOptions = [];
   }
 
@@ -215,6 +215,14 @@ export class LiveDemo extends LitElement {
     const children = slot.assignedNodes({ flatten: true });
     if(children.length) {
       this.languageOptions = [...this.languageOptions, lang];
+      const innerText = collectInnerText(children);
+
+      if(innerText.length) {
+        if(!this.selected) {
+          this.selected = lang;
+        }
+      }
+    
       this.requestUpdate();
     }
   }

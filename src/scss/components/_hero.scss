@@ -10,25 +10,33 @@
   align-items: center;
   flex-direction: row-reverse;
   margin-bottom: 2rem;
-  margin-top: 5rem;
+  margin-top: 2rem;
   .header-wrap {
     margin-top:1rem;
   }
   svg {
-    min-width: 65%;
+    min-width: 72%;
     height: 120%;
   }
 }
 
 @media screen and (min-width: 60em) {
-  .hero {
-    margin-top:7rem;
+  .hero .header-wrap {
+    margin-top: 2rem;
   }
 }
 
 @media screen and (min-width: 65em) {
   .hero {
     margin-top:0;
+  }
+}
+
+@media screen and (max-width: 90em) {
+  .hero {
+    svg {
+      min-width: 65%;
+    }
   }
 }
 
@@ -51,10 +59,7 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    .header-wrap {
-      margin-top:0.5rem;
-      margin-left:0.5rem;
-    }
+
     svg {
       order: 1;
       width: 100%;
@@ -134,26 +139,34 @@
   }
 }
 
+@media screen and (max-width: 70em) {
+  .header-wrap {
+    flex: 1;
+    order: 2;
+    text-align: center;
+  }
+
+
+  .hero {
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+
+    svg {
+      width: 100%;
+    }
+  }
+}
+
+
 /* todo figure out re-using */
 @media screen and (max-width: 45em) {
   .post-hero .img-wrapper {
     margin:0;
     width: 100%;
   }
-  .header-wrap {
-    flex: 1;
-  }
+
   .hero-wrap {
     padding: 0rem 1rem;
-  }
-
-  .hero {
-    flex-wrap: nowrap;
-    margin-bottom: 1rem;
-
-    svg {
-      flex: 3;
-    }
   }
 
   .post-hero {

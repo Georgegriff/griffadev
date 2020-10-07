@@ -11,8 +11,6 @@ hero:
   show: false
 tags:
   - Design
-  - Color
-  - Illustration
   - Accessibility
   - UX
 ---
@@ -57,16 +55,19 @@ This is not just to produce a nice looking design, but to also make sure that it
 
 You can go about this in many ways, if you like to design in the browser, or just like hacking around in dev tools, I found that using Chrome dev tools for checking color contrast was extremely effective. There are also plugins available in design applications, such as Adobe XD.
 
+![Chrome dev tools accessibility popover](/images/chrome-accessibility-popover.png "Chrome recently added a new fantastic accessibility popover in into devtools when you hover over an element.")
+
 To use chrome to debug color contrast, I open up a random website, inspect an element that contains text e.g. a title, and then set its `background` and `color` properties. Dev tools will then provide you with color contrast information.
 
 When modifying the color you should see a Contrast Ratio:
 - 🚫 Means the contrast is not good enough.
 - ✅ Single check mark means it passed AA conformance.
 - ✅✅ Double check mark means it passes AAA conformance, gold standard level of accessibility.
-- You should try to target AAA.
+- Ideally, you should try to target AAA and some suites e.g. government website have to meet this criteria.
 - This [article](https://web.dev/color-and-contrast-accessibility/) says it better I ever could.
 
 ![Picture of chrome dev tools color contrast picker](/images/bad-contrast.png "This is a terrible color choice, you want to get above the white lines in the color picker.")
+
 
 ### Supporting dark and light themes can be a challenge
 

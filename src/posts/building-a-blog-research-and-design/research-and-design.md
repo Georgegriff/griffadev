@@ -12,7 +12,6 @@ hero:
 tags:
   - Design
   - Research
-  - Beginner
   - 11ty
 ---
 
@@ -59,6 +58,10 @@ A quick one, but I found setting up a simple project on Github really helped me 
 I made a label for `posts`, which meant it was easy for me to track ideas for things I wanted to write about.
 
 ![Picture of my Github project board](/images/github-project.png "A snapshot of my Github project.")
+
+I also made heavy use of a Notes app throughout the project, which really helped with not just a todo list, but documenting any bugs I found whilst using the site.
+
+![Picture of my Notes app](/images/notes.png "Track completed and uncompleted checkbox tasks.")
 
 There was a another recent guest video on [Traversy Media](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA) which describes some of the techniques I have used for planning out this project, as well as some other great advice.
 

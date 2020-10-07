@@ -3,16 +3,19 @@ title: 'Using Web Components With 11ty'
 tagline: I took a progressive enhancement approach to using frontend javascript for my blog, Web Components are the perfect fit here.
 series:
   title: Building a personal blog
-  order: 5
-date: '2020-10-06'
+  order: 4
+date: '2020-10-07'
 tags:
   - 11ty
   - WebComponents
+  - JavaScript
 ---
 
 I've talked about earlier in this series that I wanted to bring things back to basics with this blog, focusing on web fundamentals e.g. html and css. In addition to this, by using 11ty, i'm able to author in Markdown, meaning i'm free to add HTML anywhere in my posts.
 
 However, whist i'm focusing on HTML/CSS, there are areas where it makes sense to sprinkle in JavaScript, for extra interactivity, this is where Web Components come in.
+
+![Picture of my fighting cats Chewie and Beau](/images/fighting-cats.gif "Hey! He mentioned web components, get him! (Chewie and Beau are friends really)")
 
 A Google engineer said it better than I could:
 
@@ -20,7 +23,7 @@ https://twitter.com/justinfagnani/status/1212847104718061569
 
 In this article I'll explain how I went about setting up a development environment for Web Components, as well as simple production optimizations.
 
-But first, I want to discuss he approach that i've taken for consuming web components in this site. All content should be available without JavaScript/Web Components available, but where they are available, the content should be progressively enhanced.
+But first, I want to discuss the approach that i've taken for consuming web components in this site. All content should be available without JavaScript/Web Components available, but where they are available, the content should be progressively enhanced.
 
 ## Progressive enhancement web component use cases
 
@@ -51,20 +54,29 @@ There's a couple of things going on above:
 - onclick to prevent opening a new tab.
 
 Explaining the onclick: Whats happening here is.
-- If Web Components/JavaScript are not available on the site, the onclick is ignored, and link as expected, do this by checking if `customElements` is supported in the browser.
-- When JS is enabled, when the link is clicked, the tab does not open, and the click is instead handled by `lite-youtube`.
+- If Web Components/JavaScript are not available on the site, the onclick is ignored, and links as expected, I do this by checking if `customElements` is supported in the browser.
+- When JS/Web Components are enabled and the link is clicked, the tab does not open, and the click is instead handled by `lite-youtube`, resulting in a youtube embed.
+
+Like so:
+
+{% include "components/youtube.html" id:"j8mJrhhdHWc" %}
 
 ### Live code demos
 
-At some point I will have to do a post goes into more detail here exactly how my live demos are authored using Markdown in 11ty, but they are ultimately rendered using a web component.
+At some point I will have to do a post that goes into more detail of exactly how my live demos are authored using Markdown in 11ty, but they are ultimately rendered using a web component.
 
 Let's get meta, here is a Live demo web component that renders itself.
 
 ```html live-demo-demo
 
   <live-demo id="my-live-demo">
-    <div slot="js">
-        alert("From the demo in a demo")
+    <div slot="html">
+        &lt;div class=&quot;my-div&quot;&gt;styled by the css&lt;/div&gt;
+    </div>
+      <div slot="css">
+        .my-div {
+          color: var(--Primary, blue);
+        }
     </div>
 </div>
 ```
@@ -73,15 +85,16 @@ Let's get meta, here is a Live demo web component that renders itself.
   live-demo {
     width: 400px;
     height: 300px;
+    margin:3rem;
     min-height: auto;
     display: flex;
   }
 ```
-The approach i've taken here is that when the web component is not available, the code is just rendered and syntax highlighted, but when JS is available a live demo component appears.
+The approach i've taken here is that when the web component is not available, the code is just rendered and syntax highlighted, but when JS is available a live demo component appears. If you were to  disable JavaScript in  your browser you should just see the code snippets instead.
 
 I made use of slots, one for `js` one for `html` and one for `css`. The web component then takes the text content and renders it appropriately.
 
-This approach is `alot` like [https://open-wc.org/mdjs/](mdjs), which I hope to use in the future for my blog, but it was fun to see about how I could build this myself.
+This approach is `a lot` like [https://open-wc.org/mdjs/](mdjs), which I hope to use in the future for my blog, but it was fun to see about how I could build this myself.
 
 ## Setting up a dev environment for 11ty and Web Components
 

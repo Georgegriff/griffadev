@@ -34,13 +34,6 @@ a {
     color: var(--Text);
 }
 
-.footer-wrap {
-    background: var(--Background50);
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-}
-
 footer {
     .post-tiles {
         margin-top:2rem;
@@ -52,12 +45,7 @@ footer {
 
     .sharing {
         .social-share {
-            justify-content: flex-start;
             margin: 1rem 0;
-            li {
-                margin-right: 1rem;
-                margin-left: 0;
-            }
         }
     }
 }

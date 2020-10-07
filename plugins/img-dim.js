@@ -63,6 +63,9 @@ const processImage = async (img, outputPath) => {
   if (dimensions.type == "svg") {
     return;
   }
+  if (dimensions.type == "gif") {
+    return;
+  }
   if (img.tagName == "IMG") {
     img.setAttribute("decoding", "async");
     img.setAttribute("loading", "lazy");

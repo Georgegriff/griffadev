@@ -4,10 +4,9 @@ window.addEventListener("load",() => {
         if (nativeShare) {
             nativeShare.style.display = "flex";
             // hide the built in links
-            const links = document.querySelectorAll(`.social-share .url-share`);
-           // [...links].forEach((link) => link.style.display = 'none')
-            nativeShare.addEventListener('click', (e) => {
+            nativeShare.querySelector("button").addEventListener('click', (e) => {
                 const button = e.currentTarget;
+
                 navigator.share({
                     text:button.getAttribute("data-text"),
                     title: button.getAttribute("data-title"),

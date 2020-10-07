@@ -137,13 +137,15 @@ figure {
     border-radius: 0.15rem;
     padding: 1rem;
     background: var(--Secondary);
-    picture {
+    picture, img {
      height: 100%;
      width: 100%;
+     display: flex;
+     justify-content: center;
     }
     img {
-      height: auto;
-      max-height:56vh;
+      width: auto;
+      height:min(56vh, 56vw);
       object-fit: cover;
     }
   }
@@ -210,7 +212,7 @@ blockquote {
   }
 }
 
-ul.social-share {
+.social-share {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -230,12 +232,19 @@ ul.social-share {
 }
 
 .native-share {
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
   display: flex;
-  cursor: pointer;
+  button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: 1.6rem;
+    height: 1.6rem;
+    svg {
+      height: 90%;
+      width: 90%;
+    }
+  }
 }
 
 .icon-share {
