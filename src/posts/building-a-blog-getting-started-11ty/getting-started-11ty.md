@@ -4,7 +4,7 @@ tagline: I work with React and painfully slow Webpack builds every day, using 11
 series:
   title: Building a personal blog
   order: 3
-date: '2020-10-07'
+date: '2020-10-06'
 tags:
   - 11ty
   - JavaScript
