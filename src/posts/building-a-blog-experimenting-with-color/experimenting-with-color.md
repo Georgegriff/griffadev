@@ -17,7 +17,7 @@ tags:
 
 In the previous post in this series I detailed my approach to research and design, for this building a personal blog series. This time, i'm going to provide some detail on how I approached choosing a color scheme for the site, which next to layout and font, is up there with the most important things to get right on a site.
 
-![Picture of cat laying down](/images/beau_paint_me.jpg "Paint me like one of your french girls.")
+![Picture of cat laying down](/images/beau_paint_me.jpg "Draw me like one of your french girls.")
 
 > Oh, I forgot to mention, this site is just an excuse for me to share photos of my cats, the above is Beau, he loves to meow for attention when comes back inside the house.
 
