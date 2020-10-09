@@ -12,7 +12,7 @@ tags:
   - VSCode
 ---
 
-The 11ty documentation is  really great, but when it comes to developing and debugging, I really prefer to use an live debugger.
+The 11ty documentation is  really great, but when it comes to developing and debugging, I really prefer to use a live debugger.
 It can help to understand a problem, but also can serve as a really great way of understanding how you might go about hooking into a framework, in this case 11ty.
 
 ## Using a filter to debug 11ty
@@ -48,10 +48,10 @@ In my code I can check out the variables, and have them logged to the console.
 ```
 {% endraw %}
 
-This might seem really silly, but I found this incredible useful, especially when hooked up with a live debugger (shown later).
+This might seem really silly, but I found this incredibly useful, especially when hooked up with a live debugger (shown later).
 On save of a file, I get the object that was passed to the filter, this can be really handy in seeing what variables you have to play with.
 
-Example console.log output:
+Example `console.log` output:
 
 ```bash
 {
@@ -82,25 +82,25 @@ Where this becomes really great is if you use the VSCode debugger to run 11ty, a
 
 ## Debugging with VS Code
 
-Sure you could console.log, but using the VS Code debugger for this can be extremely helpful, to do some of that variable treasure hunting.
+Sure you could `console.log`, but using the VS Code debugger for this can be extremely helpful to do some of that variable treasure hunting.
 
 To do this, you will need to create a new debug task, you can do this in the UI, but a quick way is to:
 
 1. Create a folder in your workspace called `.vscode`
-2. Create a file called `launch.json`
+2. Create a file called inside `.vscode` folder called `launch.json`
 3. Add a debug task for the `eleventy` runner, here is an example:
 
 ```json
-        {
-            "name": "11ty",
-            "type": "node",
-            "request": "launch",
-            "program": "${workspaceRoot}/node_modules/.bin/eleventy",
-            "stopOnEntry": false,
-            "args": [],
-            "cwd": "${workspaceRoot}",
-            "console": "internalConsole",
-        }
+  {
+      "name": "11ty",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceRoot}/node_modules/.bin/eleventy",
+      "stopOnEntry": false,
+      "args": [],
+      "cwd": "${workspaceRoot}",
+      "console": "internalConsole",
+  }
 ```
 
 If you want to put it in live watch mode, set args to:
@@ -113,20 +113,17 @@ If you want to put it in live watch mode, set args to:
 
 ![VSCode showing code paused on a line](/images/debugging-11ty.png "You can now inspect all the variables you want.")
 
-
-The approach also works really well with helping you write custom collections, or data too!
+This approach also works really well with writing custom [collections](https://www.11ty.dev/docs/collections/), or using [data](https://www.11ty.dev/docs/data/).
 
 ```js
   eleventyConfig.addCollection("series", function(collection) {
     // i dont know whats in collection.
     debugger;
   });
-  
 ```
 
-Putting this together, the following GIF shows how this can be a nice workflow.
+Putting this together, the following GIF shows how this can be a nice interactive workflow.
 
 ![VSCode showing code paused on a line](/images/debugging_11ty.gif "Really interactive way of debugging and developing")
-
 
 I hope this was helpful to people, 11ty is so lightning fast, that marrying it with the VS Code debugger when you're writing JavaScript is super interactive.
