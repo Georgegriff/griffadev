@@ -88,7 +88,7 @@ Global data files are either JSON or javascript, you can see from the code snipp
 - icon
 - url function: passing in the page title, tags for my blog post and the current 11ty page object.
 
-Lets take a look at how this is implemented; I have the following file `src/_data/external.js`, this is where the code earlier gets `external` from as its variable name.
+Let's take a look at how this is implemented; I have the following file `src/_data/external.js`, this is where the code earlier gets `external` from as its variable name.
 
 The file looks like this.
 
@@ -136,7 +136,7 @@ module.exports = {
 Hopefully, you can see how the html maps over to the javascript. Each of the websites share the content in slightly different ways.
 You might be noticing `genericShare.data` is missing, you'd be right.
 
-Lets take a look at that function:
+Let's take a look at that function:
 
 ```js
 
@@ -193,7 +193,7 @@ For a full implementation reference, checkout my Github repo for my blog:
 
 ### Adding in the Web Share API
 
-Now we've implemented the basic behavior for everyone, lets progressively enhance the website for browsers that support the Web Share API.
+Now we've implemented the basic behavior for everyone, we can progressively enhance the website for browsers that support the Web Share API.
 
 Updating the HTML template:
 
