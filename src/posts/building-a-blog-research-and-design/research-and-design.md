@@ -1,6 +1,6 @@
 ---
 title: 'Good research, planning and design is the best foundation for starting a new project'
-tagline: When i've started side projects in the past, I felt like I dug into code too quickly, without thinking about what I actually was building first, I wanted to try something a bit different this time.
+description: When i've started side projects in the past, I felt like I dug into code too quickly, without thinking about what I actually was building first, I wanted to try something a bit different this time.
 series:
   title: Building a personal blog
   description: This series of posts details some of explorations and learning that I took whilst building this site, including building static sites 11ty, theming with CSS Custom properties and designing for accessibility.
@@ -36,7 +36,8 @@ Not very original, I know, but as part of this project I wanted to try and strip
 I watch `a lot` of YouTube, mostly Gaming related content, but over the years i've watched several programming related channels, one of the best, and most well known, is [Traversy Media](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA).
 
 The specific video that got me really inspired to build something myself was a guest video by [Design Course](https://www.youtube.com/channel/UCVyRiMvfUNMA1UPlDPzG5Ow), another great channel. This  video spoke to me because i'm quite happy coding but i've always wanted to brush up on my design skills.
-{%- include "components/youtube.html" id: "0JCUH5daCCE" %}
+
+{% youtube "0JCUH5daCCE" %}
 
 The above video, sent me on a bit of a binge of [Design Course](https://www.youtube.com/channel/UCVyRiMvfUNMA1UPlDPzG5Ow) content, it all helped me a lot with focusing on good design, instead of getting bogged down by code.
 
@@ -65,7 +66,7 @@ I also made heavy use of a Notes app throughout the project, which really helped
 
 There was a another recent guest video on [Traversy Media](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA) which describes some of the techniques I have used for planning out this project, as well as some other great advice.
 
-{%- include "components/youtube.html" id: "Z_gjlIji8hU" %}
+{% youtube "Z_gjlIji8hU" %}
 
 ### Technology choices
 I don't want technology choice to be a focus of this post, I wanted to focus on things I did to plan and design my project. 

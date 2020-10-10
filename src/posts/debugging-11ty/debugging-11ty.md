@@ -1,6 +1,6 @@
 ---
 title: 'Tips for debugging in 11ty'
-tagline: Some quick debugging tips that I came up with whilst building my personal blog.
+description: Some quick debugging tips that I came up with whilst building my personal blog.
 date: '2020-10-09'
 hero:
   image: "/images/debugging-11ty.png"

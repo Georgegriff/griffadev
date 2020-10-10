@@ -1,6 +1,6 @@
 ---
 title: 'Using Web Components With 11ty'
-tagline: I took a progressive enhancement approach to using frontend javascript for my blog, Web Components are the perfect fit here.
+description: I took a progressive enhancement approach to using frontend javascript for my blog, Web Components are the perfect fit here.
 series:
   title: Building a personal blog
   order: 4
@@ -19,7 +19,7 @@ However, whist i'm focusing on HTML/CSS, there are areas where it makes sense to
 
 A Google engineer said it better than I could:
 
-https://twitter.com/justinfagnani/status/1212847104718061569
+{% twitter "1212847104718061569" %}
 
 In this article I'll explain how I went about setting up a development environment for Web Components, as well as simple production optimizations.
 
@@ -59,7 +59,7 @@ Explaining the onclick: Whats happening here is.
 
 Like so:
 
-{% include "components/youtube.html" id:"j8mJrhhdHWc" %}
+{% youtube "j8mJrhhdHWc" %}
 
 ### Live code demos
 

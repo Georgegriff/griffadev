@@ -1,6 +1,6 @@
 ---
 title: 'How I got started with 11ty'
-tagline: I work with React and painfully slow Webpack builds every day, using 11ty for my blog was a breath of fresh air. By using the 11ty starter projects and awesome courses and tutorials for help, I felt like I had superpowers!
+description: I work with React and painfully slow Webpack builds every day, using 11ty for my blog was a breath of fresh air. By using the 11ty starter projects and awesome courses and tutorials for help, I felt like I had superpowers!
 series:
   title: Building a personal blog
   order: 3
@@ -102,14 +102,14 @@ It's fair to say that even with the documentation site starting point, I wasn't 
 
 After a quick "learn 11ty" search in YouTube I came across the following video:
 
-{% include "components/youtube.html" id:"j8mJrhhdHWc" %}
+{% youtube "j8mJrhhdHWc" %}
 
 It's a long video, but well worth it, the video format is a really relaxed pair programming session and has the creator of 11ty helping a newbie hack around in 11ty. One of things that I found most impressive with 11ty was that [Jason](https://twitter.com/jlengstorf) was able to just write files and most things just worked.
 
 
 I was so excited after this video, I felt like i'd been given superpowers!
 
-https://twitter.com/griffadev/status/1292911029865906177  
+{% twitter "1292911029865906177" %}
 
 One of the best things about the 11ty ecosystem is its curated collection of [starter projects](https://www.11ty.dev/docs/starter/), these range from simple to very complex, for example by [incorporating performance optimizations](https://github.com/google/eleventy-high-performance-blog).
 
@@ -137,7 +137,7 @@ This course is seriously awesome, it's also a stealth CSS course. One thing to n
 
 Over the course of a month or two, just using my evenings after my day job and some weekends, through the hell-scape of 2020, I built out [griffa.dev](https://griffa.dev), and had a lot of fun along the way. I won't lie and pretend that everything went smoothly, I get distracted very easily, the first few days working on it went something like this:
 
-https://twitter.com/griffadev/status/1295057860397850625
+{% twitter "1295057860397850625" %}
 
 ### Show me the code
 

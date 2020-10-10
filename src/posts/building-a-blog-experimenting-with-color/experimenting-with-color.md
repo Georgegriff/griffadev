@@ -1,6 +1,6 @@
 ---
 title: 'Using css custom properties for color and theming'
-tagline: I'm by no means a designer, but with a bit of research into color contrast and accessibility, making I was able to build out a design that I was happy with.
+description: I'm by no means a designer, but with a bit of research into color contrast and accessibility, making I was able to build out a design that I was happy with.
 series:
   title: Building a personal blog
   order: 2
@@ -24,7 +24,7 @@ In the previous post in this series I detailed my approach to research and desig
 ## Picking a color theme
 Choosing an initial color palette is something that I struggle with, thankfully, there are lots of sites out there for inspiration. One great one is [colorinspo](https://colorsinspo.com/), a great way do use this site is to have a bit of a play with possible colors schemes to find ideas you like, if you are using a design tool like Adobe XD, you could experiment with colors by duplicating your designs to create variants.
 
-{% include "components/youtube.html" id:"s9p3nF4rFaU" %}
+{% youtube "s9p3nF4rFaU" %}
 
 The video linked above from [DesignCourse](https://www.youtube.com/channel/UCVyRiMvfUNMA1UPlDPzG5Ow) is a great example of doing exactly that.
 

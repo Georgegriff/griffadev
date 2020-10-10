@@ -26,7 +26,7 @@
         </div>
         {% include "partials/post-tags.html" %}
         <article id="article-content">
-            <blockquote>{{tagline}}</blockquote>
+            <blockquote>{{description}}</blockquote>
             {% include 'partials/series-nav.html' %}
             <section class="post-content">
                 {{ content | safe }}

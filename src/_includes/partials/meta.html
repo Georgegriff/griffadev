@@ -15,9 +15,7 @@
   {% set socialImage = metadata.url + '/images/social-share.png' %} 
 {% endif %}
 
-{% if not tagline %}
-    {% set tagline = description or metadata.description %}
-{% endif %}
+{% set tagline = description or metadata.description %}
 
 <title>{{ pageTitle }}</title>
 <link rel="canonical" href="{{ currentUrl }}"/>

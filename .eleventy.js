@@ -336,6 +336,15 @@ module.exports = (eleventyConfig) => {
     debugger;
   })
 
+  eleventyConfig.addShortcode("twitter", (id) => {
+    return `https://twitter.com/anyuser/status/${id}`;
+  });
+
+  const YouTube = require("./src/_includes/components/youtube");
+  eleventyConfig.addShortcode("youtube", (id) => {
+    return YouTube({id});
+  });
+
 
   eleventyConfig.addFilter("nameFromObject", (arr) => {
     return arr.map((ent) => ent.name);
