@@ -7,14 +7,6 @@
     word-break: break-word;
 }
 
-.something-wrong {
-    margin:0.5rem 0;
-    font-size: var(--font-size-small);
-    a {
-        color: var(--PrimaryText);
-    }
-}
-
 .eleventy-plugin-embed-twitter {
     display: flex;
     justify-content: center;

@@ -56,7 +56,6 @@ footer {
     text-align: center;
     font-size: var(--font-size-small);
     vertical-align: middle;
-    padding: 2rem 0;
 }
 
 .skip-link {
@@ -74,6 +73,15 @@ footer {
     height: 2rem !important;
     width: auto !important;
     background-image: none !important;
+}
+
+.something-wrong {
+    margin:0.5rem 0;
+    text-align: center;
+    font-size: var(--font-size-small);
+    a {
+        color: var(--PrimaryText);
+    }
 }
 
 /* Utilities */
