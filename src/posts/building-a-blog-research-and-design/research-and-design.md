@@ -81,7 +81,7 @@ However, it's a good idea to search around for prior art, or libraries/framework
 - Lots more out there (I went with Eleventy)
 
 #### Other sites I investigated for inspiration
-- [web.dev](https://web.dev/) - Web development blog/learning site by Google, built using Eleventy and Web Components, they posted about their architecture [here](https://web.dev/how-we-build-webdev-and-use-web-components/).
+- [web.dev](https://web.dev/) - Web development blog/learning site by Google, built using Eleventy and Web Components, [they posted about their architecture here](https://web.dev/how-we-build-webdev-and-use-web-components/).
 - [dev.to](https://dev.to) - Really awesome blogging site, not sure as to their architecture
 - [open-wc](https://open-wc.org/) - Awesome Web Component Recommendations, built using Eleventy.
 -  There's also Medium, I guess.

@@ -304,5 +304,5 @@ You can see my full metadata over on [Github](https://github.com/Georgegriff/gri
 
 ## Summary
 
-Support for the Web Share API is growing and with it progressive enhancement is a really great approach to building modern websites, I wrote about using this approach for fast sites, with interactivity sprinkled in [here](https://griffa.dev/posts/using-web-components-with-11ty/).
+Support for the Web Share API is growing and with it progressive enhancement is a really great approach to building modern websites, I wrote about using this approach for fast sites, with interactivity sprinkled in: [Using Web Components With  11ty](https://griffa.dev/posts/using-web-components-with-11ty/).
 

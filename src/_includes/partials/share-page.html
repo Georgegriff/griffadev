@@ -4,7 +4,7 @@
     {% set genericShareData = external.genericShare.data(title, tags, page) %}
     <li class="native-share" style="display: none;" hidden><button data-title="{{genericShareData.title}}" data-url="{{genericShareData.url}}" data-text="{{genericShareData.text}}" aria-label="Native share">{% include 'img/share.svg' %}</button></li>
     {%- for link in external.sharing %}
-              <li><a class="icon-share url-share" title="{{link.text}}" target="_blank" href="{{link.url(title, tags, page) | url}}" class="action external">{% include link.icon %}</a></li>
+              <li><a rel="noopener" class="icon-share url-share" title="{{link.text}}" target="_blank" href="{{link.url(title, tags, page) | url}}" class="action external">{% include link.icon %}</a></li>
           {%- endfor %}
   </ul>
 </nav>

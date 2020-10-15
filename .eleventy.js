@@ -19,9 +19,12 @@ module.exports = (eleventyConfig) => {
       breaks: true,
       linkify: true,
     }).use(markdownItAnchor, {
+      permalinkAttrs: (slug) => ({
+          "aria-label": slug.replace(/-/g , " ")
+      }),
       permalink: true,
       permalinkClass: "direct-link",
-      permalinkSymbol: "<copy-link></copy-link>"
+      permalinkSymbol: "<copy-link></copy-link>",
     });
 
     eleventyConfig.addPlugin(pluginSyntaxHighlight);
@@ -115,6 +118,8 @@ module.exports = (eleventyConfig) => {
         const isRelativeUrl= href && (href.startsWith("/") || href.startsWith("#") || href.startsWith(siteMeta.url));
         if (isRelativeUrl) {
           return defaultLinkRender(tokens, idx, options, env, self);
+        } else {
+          link.attrPush(['rel', 'noopener']); // add new attribute
         }
       }
       if (aIndex < 0) {
