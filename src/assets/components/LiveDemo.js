@@ -109,6 +109,7 @@ export class LiveDemo extends LitElement {
         }
 
         button {
+            font-family: inherit;
             background: var(--Primary);
             color: var(--Background);
             font-size: 1rem;
