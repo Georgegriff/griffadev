@@ -80,7 +80,7 @@ Let's get our new syntax working!
 
 First off, lets do the `npm install` dance:
 
-```js
+```bash
 npm i eslint @babel/core @babel/eslint-parser @babel/preset-env -D
 ```
 
