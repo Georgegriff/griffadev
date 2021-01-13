@@ -1,6 +1,6 @@
 ---
 title: 'Building a responsive, progressively enhanced, masonry layout with only CSS and HTML'
-description: Masonry layouts, think bricks, think Pintrest, have had many solutions in the web over the years. Many use too much JavaScript, but there is some exciting new things coming to CSS grid to enable Masonry layouts. But you don't have to wait, you could implement today, using progressive enhancement. Progressive enhancement is like technical debt that fixes itself.
+description: Masonry layouts, think bricks, think Pinterest, have had many solutions in the web over the years. Many use too much JavaScript, but there is some exciting new things coming to CSS grid to enable Masonry layouts. But you don't have to wait, you could implement today, using progressive enhancement. Progressive enhancement is like technical debt that fixes itself.
 date: '2021-01-13'
 hero:
   image: "/images/masonry.png"
@@ -11,7 +11,7 @@ tags:
 ---
 A few days ago I found that I had talked myself into re-designing a website, that I had previously worked a few years ago when I was a student, for my brothers' [guitar teaching business](https://cgguitar.co.uk/) (if you click that link and view it before the rework, yeah I know the site needs work, thats what i'm doing here).
 
-As part of the redesign I was trying to think of ways to lay out testimonials from students, which may have varying length/content, I stumbled onto the idea of using a masonry layout (think bricks, think Pintrest).
+As part of the redesign I was trying to think of ways to lay out testimonials from students, which may have varying length/content, I stumbled onto the idea of using a masonry layout (think bricks, think Pinterest).
 
 ![Mock masonry design testimonials that inspired this tutorial](/images/masonry.png)
 
