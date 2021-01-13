@@ -2,6 +2,18 @@
 $title-height: 4rem;
 $meta-height: 5.3rem;
 
+
+.live-demo-toggled, .live-demo-toggled * {
+  z-index: initial;
+  pointer-events: none;
+  overflow-y: hidden; 
+}
+
+.live-demo-toggled live-demo * {
+  overflow-y: auto;
+  pointer-events: all;
+}
+
 live-demo {
   height: 30rem;
   display: flex;

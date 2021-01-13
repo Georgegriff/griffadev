@@ -1,6 +1,7 @@
 import { LitElement, html, css, customElement, property } from "lit-element";
 import { render } from "lit-html";
 import { unsafeHTML } from "lit-html/directives/unsafe-html";
+import {closeIcon, expandIcon} from './icons.js'
 
 const collectInnerText = (slotsArray) => {
   return (
@@ -33,8 +34,10 @@ const _splitImports = (jsString) => {
 export class LiveDemo extends LitElement {
   constructor() {
     super();
-    this.hideText = "Close";
+    this.hideText = "Code";
     this.showText = "Demo";
+    this.minimizeText = "Minimize";
+    this.maximizeText = "Maximize"
     this.toggled = false;
     this.selected = "";
     this.languageOptions = [];
@@ -51,7 +54,6 @@ export class LiveDemo extends LitElement {
             flex:1;
             margin:1rem 0rem;
             min-height: 30rem;
-            overflow: hidden !important;
         }
 
         button:active {
@@ -142,6 +144,37 @@ export class LiveDemo extends LitElement {
           white-space: nowrap;
         }
 
+        .push {
+          flex: 1;
+          display: flex;
+        }
+        .icon-btn {
+          background: none;
+          border: none;
+          display: flex;
+          padding: 0;
+          margin: 0;
+          justify-content: flex-end;
+          align-items: center;
+          margin-right: 1rem;
+          fill: var(--Primary);
+          height: 2rem;
+          width: auto;
+        }
+
+        :host([expanded]) {
+          z-index: 100000 !important;
+          position: fixed;
+          top: 0;
+          left: 2.5%;
+          right: 0;
+          bottom: 0;
+          height: 95% !important;
+          width: 95% !important;
+          border: solid 2px var(--Primary);
+          pointer-events: all !important; 
+        }
+
         `;
   }
 
@@ -149,9 +182,21 @@ export class LiveDemo extends LitElement {
     return {
       hideText: { type: String },
       showText: { type: String },
+      minimizeText: {type: String},
+      maximizeText: {type: String},
       toggled: { type: Boolean, reflect: true },
-      selected:{type: String}
+      selected:{type: String},
+      expanded: { type: Boolean, reflect: true }
     };
+  }
+
+  toggleFullScreen() {
+    this.expanded = !this.expanded;
+    if (this.expanded) {
+      document.body.classList.add('live-demo-toggled');
+    } else {
+      document.body.classList.remove('live-demo-toggled');
+    }
   }
 
   toggle() {
@@ -233,8 +278,8 @@ export class LiveDemo extends LitElement {
     return html`
       <div @slotchange=${this._onSlotChange}  class="demo">
         <div aria-hidden="${this.toggled}" class="demo-front">
-            <div aria-hidden="${this.selected !== "html"}" ><slot name="html"></slot></div>
             <div aria-hidden="${this.selected !== "css"}" ><slot name="css"></slot></div>
+            <div aria-hidden="${this.selected !== "html"}" ><slot name="html"></slot></div>
             <div aria-hidden="${this.selected !== "js"}" ><slot name="js"></slot></div>
         </div>
         <div aria-hidden="${!this.toggled}" class="demo-back code-exe"></div>
@@ -245,6 +290,10 @@ export class LiveDemo extends LitElement {
               ${this.languageOptions.map((lang) => html`<option value="${lang}">${lang.toUpperCase()}</option>`)}
           </select>
         </griff-select>
+        <span class="push"></span>
+        <button class="icon-btn" @click="${this.toggleFullScreen.bind(this)}" title=${!this.expanded ? this.minimizeText : this.maximizeText} aria-label=${!this.expanded ? this.minimizeText : this.maximizeText}>
+          ${!this.expanded ? expandIcon : closeIcon}
+        </button>
         <button @click="${this.toggle.bind(this)}">
           ${!this.toggled ? this.showText : this.hideText}
         </button>
