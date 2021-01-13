@@ -59,7 +59,7 @@ Here is the full finished demo code:
 ```css demo
 .masonry {
     --masonry-gap: 1rem;
-    --masonry-brick-width: 300px;
+    --masonry-brick-width: 180px;
     column-gap: var(--masonry-gap);
     column-fill: initial;
     column-width: var(--masonry-brick-width);
@@ -189,7 +189,7 @@ To see the effect you will need to be view these examples in a browser that supp
       gap: 1rem;
       grid-template-rows: masonry;
       /* magic responsiveness */
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
 
 }
 
@@ -236,7 +236,7 @@ The masonry specification also allows for a new property: `align-tracks`, which 
       display: grid;
       gap: 1rem;
       grid-template-rows: masonry;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
       /* no more wonky bottom */
       align-tracks: stretch;
       /* just so you can see the edge in the example */
@@ -270,7 +270,7 @@ For the css we're going to make use of some column properties:
 ```css
     column-gap: 1rem;
     column-fill: initial;
-    column-width: 300px;
+    column-width: 180px;
 ```
 
 Setting a `column-width` will set a minimum width of a column before columns need to shrink down, meaning on smaller devices we can get a single column, the same as with our CSS grid implementation.
@@ -326,7 +326,7 @@ Same html as before, with some changes to the css:
 ```css masonry-fallback-basic
 .masonry {
     --masonry-gap: 1rem;
-    --masonry-brick-width: 300px;
+    --masonry-brick-width: 180px;
     column-gap: var(--masonry-gap);
     column-fill: initial;
     column-width: var(--masonry-brick-width);
@@ -396,7 +396,7 @@ Again, with no changes to the HTML again, we're going to implement an `@supports
 ```css progressive-enhancement
 .masonry {
     --masonry-gap: 1rem;
-    --masonry-brick-width: 300px;
+    --masonry-brick-width: 180px;
     column-gap: var(--masonry-gap);
     column-fill: initial;
     column-width: var(--masonry-brick-width);
@@ -490,7 +490,7 @@ Here's the full demo:
 ```css bonus
 .masonry {
     --masonry-gap: 1rem;
-    --masonry-brick-width: 300px;
+    --masonry-brick-width: 180px;
     column-gap: var(--masonry-gap);
     column-fill: initial;
     column-width: var(--masonry-brick-width);
