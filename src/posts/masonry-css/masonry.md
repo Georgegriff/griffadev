@@ -9,7 +9,7 @@ tags:
   - HTML
   - CSS
 ---
-A few days ago I found that I had talked myself into re-designing a website, that I had previously worked a few years ago when I was a student, for my brothers' [guitar teaching business](https://cgguitar.co.uk/) (if you click that link and view it before the rework, yeah I know the site needs work, thats what i'm doing here).
+A few days ago I found that I had talked myself into re-designing a website. The website is for my brothers' [guitar teaching business](https://cgguitar.co.uk/) which I had previously worked a few years ago, when I was a student.  (if you click that link and view it before the rework, yeah I know the site needs work, that's what i'm doing here).
 
 As part of the redesign I was trying to think of ways to lay out testimonials from students, which may have varying length/content, I stumbled onto the idea of using a masonry layout (think bricks, think Pinterest).
 
@@ -23,10 +23,10 @@ When looking into the solution I knew I wanted to adhere to a couple of rules:
 
 ### What are we building
 
-- Masonary layout using `grid-template-rows: masonry`
-- CSS Columns as a fallback   
+- Masonry layout using `grid-template-rows: masonry`
+- CSS Columns as a fallback
 
-This article will explain how to build out the following responsive masonry cards layout with only HTML and CSS. 
+This article will explain how to build out the following responsive masonry cards layout with only HTML and CSS.
 This final demo uses some features only available in Firefox, behind a flag, which is detailed in the article.
 
 Here is the full finished demo code:
@@ -110,13 +110,22 @@ Here is the full finished demo code:
 }
 ```
 
-### You'd think Grid could do it
+### You'd think CSS Grid could do it
 
 CSS Grid is amazing, and you'd think it would have shipped with a simple way of doing masonry layouts, the initial versions of the spec however, did not ship anything to really help out with these layouts.
 
 But fear not, Firefox has something cooking! 
 
 > Before I continue, the specification we're going to look into is experimental, and at the time of writing only is available in Firefox behind a flag, however, this article will outline how you could use the feature today and fallback to another approach for browsers without support.
+
+### Enabling Masonry layout in Firefox
+
+It's January 2021, i'm using Firefox 84.0.2, depending on how the spec has progressed, you may not need to enable this flag, it may even be available in other browsers, [this link may have more information](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout).
+
+To enable in Firefox:
+1. type `about:config` into your address bar
+2. Accept the warnings
+3. In the search box find: `layout.css.grid-template-masonry-value.enabled` and enable it.
 
 Over on MDN you can find this article: [CSS Grid Layout > Masonry Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout)
 
@@ -150,21 +159,13 @@ It details, an example very similar to this:
   <div class="item" style="block-size: 2.8em;"></div>
 </div>
 ```
-With this small amount of CSS we can get a layout which is almost what we want already, exciting! lets improve it, and enable masonry layouts
+With this small amount of CSS we can get a layout which is almost what we want already, exciting! It has hardcoded sizing, lets improve it, and enable responsive masonry layouts,
 
-### Enabling Masonry layout in Firefox
+## Building out our example
 
-It's January 2021, i'm using Firefox 84.0.2, depending on how the spec has progressed, you may not need to enable this flag, it may even be available in other browsers, [this link may have more information](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout).
+Let's start with a fresh example, starting with a little html and "lorem ipsum" to generate some "bricks" for masonry layout.
 
-To enable in Firefox:
-1. type `about:config` into your address bar
-2. Accept the warnings
-3. In the search box find: `layout.css.grid-template-masonry-value.enabled` and enable it.
-
-
-Let's start with a fresh example, starting with a little html and lorem ipsum to generate some "bricks" for masonry layout.
-
-To see the effect you will need to be view these examples in a browser that supports masonry layouts.
+To see the effect you will need to be view these examples in a browser that supports masonry layouts (at the time of writing Firefox behind a flag).
 
 ```html masonry-wonky-bottom
     <div class="masonry">
@@ -204,7 +205,7 @@ This code will result in a masonry style layout, which automatically reduces the
 
 ![Animated resizing of demo showing masonry layout with responsive columns with css grid](/images/responsive-grid.gif)
 
-If you run this example you should notice that there is no clean edge on the bottom, it has a `wonky bottom`
+If you run this example you should notice that there is no clean edge on the bottom, it has a `wonky bottom`.
 
 ![Image of result of demo showing masonry layout without a flat bottom](/images/wonky-bottom.png)
 
@@ -212,7 +213,7 @@ If you run this example you should notice that there is no clean edge on the bot
 
 The masonry specification also allows for a new property: `align-tracks`, which you can set to `stretch` to fix this problem.
 
-`align-tracks` also has some other supports modes, beware of potentially issues with `align-tracks` if you want a masonry layout where a "brick" can span multiple columns, hopefully these things will get ironed out as the spec progresses.
+`align-tracks` also has some other [support modes](https://developer.mozilla.org/en-US/docs/Web/CSS/align-tracks), beware of potential issues with `align-tracks` if you want a masonry layout where a "brick" can span multiple columns, hopefully these things will get ironed out as the spec progresses.
 
 ```html masonry-straight-bottom
     <div class="masonry">
@@ -257,11 +258,12 @@ And now as if by magic, the bottom edge is now straight.
 
 ### What about a fallback
 
-Okay, so now we made something work in a single browser only, and it's not even shipped there, not ideal. Let's try to acheive something similar, this time with CSS columns.
+Okay, so now we made something work in a single browser only, and it's not even shipped there, not ideal.
+Let's try to achieve something similar, this time with CSS columns.
 
 I'd never used CSS columns before looking into them for implementing this masonry layout, they are actually quite clever, and they can made to be responsive, without media queries, which we will take a look at now.
 
-For this example, i'm going to start to make use of [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) which will become extremly useful once we enable our progressive enhancement, we can use these variables to share sizes and other config.
+For this example, i'm going to start to make use of [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) which will become extremely useful once we enable our progressive enhancement, we can use these variables to share sizes and other config.
 
 For the css we're going to make use of some column properties:
 
@@ -301,7 +303,7 @@ Optional example:
 }
 ```
 
-We're not going to do that, we're just going to make use of `column-width`.
+We're not going to do that, we're just going to make use of `column-width` and allow our columns to grow up to a maximum card width.
 
 Same html as before, with some changes to the css:
 
@@ -344,7 +346,7 @@ Same html as before, with some changes to the css:
 }
 ```
 
-The result is very similar, however, there are two main diferences:
+The result is very similar, however, there are two main differences:
 - The order of items goes down the columns as opposed to across the rows with css grid. Columns: ⬇️ Grid: ➡️
 - We have the wonky bottom back (there is no easy fix with css columns)
 
@@ -373,7 +375,7 @@ Now we've seen how to implement a masonry layout in the future and with a fallba
 }
 ```
 
-Again, with no changes to the HTML again, we're going to implement an `@suports` just for the masonry layout using css grid:
+Again, with no changes to the HTML again, we're going to implement an `@supports` just for the masonry layout using css grid:
 
 ```html progressive-enhancement
     <div class="masonry">
@@ -429,11 +431,11 @@ Again, with no changes to the HTML again, we're going to implement an `@suports`
 
 Now with this example, depending on what your browser supports, you will either get the CSS Grid or the CSS Columns version.
 
-As long as the `grid-template-rows: masonry` doesn't change between now and more borwsers shipping, we have just written some CSS that will automatically upgrade itself over time, fixing the technical debt/ux "bug" of a wonky bottom and vertical ordering instead of horizontal.
+As long as the `grid-template-rows: masonry` doesn't change between now and more browsers shipping, we have just written some CSS that will automatically upgrade itself over time, fixing the technical debt/UX "bug" of a wonky bottom and vertical ordering instead of horizontal.
 
 ## Bonus round
 
-In my implementation I was toying around with having different cards backgrounds every n-th "brick" in the masonry layout.
+In my implementation I was toying around with having different cards backgrounds every nth "brick" in the masonry layout.
 
 ```css
 .brick:nth-child(4n - 7) {
@@ -539,7 +541,7 @@ Here's the full demo:
 }
 ```
 
-Thanks for reading all the way through, I hope this was useful and one day soon-ish we will be able to easily deal with wonky bottoms in just CSS.
+Thanks for reading all the way through, I hope this was useful and one day soonish we will be able to easily deal with wonky bottoms in just CSS.
 
 
 
