@@ -1,7 +1,7 @@
 ---
 title: 'Building a responsive, progressively enhanced, masonry layout with only CSS and HTML'
 description: Masonry layouts, think bricks, think Pintrest, have had many solutions in the web over the years. Many use too much JavaScript, but there is some exciting new things coming to CSS grid to enable Masonry layouts. But you don't have to wait, you could implement today, using progressive enhancement. Progressive enhancement is like technical debt that fixes itself.
-date: '2021-01-12'
+date: '2021-01-13'
 hero:
   image: "/images/masonry.png"
   alt: 'Image of a masonry layout'
