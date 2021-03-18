@@ -70,9 +70,11 @@ footer {
 }
 
 .kofi {
-    height: 2rem !important;
-    width: auto !important;
-    background-image: none !important;
+    img {
+        height: 2rem !important;
+        width: auto !important;
+        background-image: none !important;
+    }
 }
 
 .something-wrong {

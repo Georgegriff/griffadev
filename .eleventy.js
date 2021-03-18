@@ -9,6 +9,7 @@ const { minify } = require("terser");
 const readingTime= require('eleventy-plugin-time-to-read');
 const helpers = require("./src/_data/helpers");
 
+
 const siteMeta = require("./src/_data/metadata.json");
 
 module.exports = (eleventyConfig) => {
@@ -28,6 +29,8 @@ module.exports = (eleventyConfig) => {
     });
 
     eleventyConfig.addPlugin(pluginSyntaxHighlight);
+
+    eleventyConfig.addPlugin(require("./plugins/image-transform"))
 
      // Remember old renderer, if overridden, or proxy to default renderer
      const defaultCodeRender = markdownLibrary.renderer.rules.fence || function(tokens, idx, options, env, self) {
@@ -94,9 +97,6 @@ module.exports = (eleventyConfig) => {
       </figure>`
     }
 
-    if (process.env.NODE_ENV === 'production') {
-      eleventyConfig.addPlugin(require("./plugins/img-dim.js"));
-    }
 
     eleventyConfig.addPlugin(require("eleventy-plugin-embed-twitter"), {
       cacheText: true
