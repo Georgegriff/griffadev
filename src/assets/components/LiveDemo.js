@@ -54,6 +54,7 @@ export class LiveDemo extends LitElement {
             flex:1;
             margin:1rem 0rem;
             min-height: 30rem;
+            overflow: hidden;
         }
 
         button:active {
