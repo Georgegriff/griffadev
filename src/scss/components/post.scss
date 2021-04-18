@@ -52,7 +52,7 @@ live-demo {
 /* for fragment scrolling */
 html,
 body {
-  scroll-padding-top: $header + $meta-height + $title-height;
+  scroll-padding-top: $header + $title-height;
 }
 
 .content {
@@ -65,8 +65,8 @@ body {
 .post {
   margin: 0 auto;
   h2 {
-    min-height: 3rem;
-    top: $header + $meta-height - 0.2rem;
+    min-height: 5rem;
+    top: $header - 0.2rem;
   }
   > section {
     z-index: 1;
@@ -100,8 +100,7 @@ body {
   }
 }
 .post-meta-sticky {
-  position: sticky;
-  top: $header;
+  
   width: 100%;
   z-index: 12;
   height: $meta-height;
