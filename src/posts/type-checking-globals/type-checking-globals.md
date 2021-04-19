@@ -9,7 +9,7 @@ tags:
 date: '2021-04-18'
 hero:
   image: "/images/documentation.png"
-  alt: 'Image of a masonry layout'
+  alt: 'VS Code documentation for the tensor2d function.'
 ---
 
 I've been learning a little bit of artificial intelligence/machine learning in my spare time and I recently started learning a little TensorflowJS. The quickest and simplest way of getting TensorflowJS is a good old script tag. When you are experimenting and prototyping you *really* don't want to waste time with build tools.
