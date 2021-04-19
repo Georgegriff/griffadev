@@ -1,8 +1,10 @@
 // this list should match the `filter` list in tags.md
 const tagFilters = ["all", "nav", "post", "posts", "series"];
 
+const filterTags = (tag) => !tagFilters.includes(tag);
 module.exports = {
-  filterCollectionTags: (tag) => !tagFilters.includes(tag),
+  filterCollectionTags: filterTags,
+  removeCollectionTags: (tags) => tags.filter(filterTags),
   getSiblingContent(collection, item, limit = 2, random = true) {
     let filteredItems = collection.filter((x) => {
         // make sure the recommendation is not the or previous article
