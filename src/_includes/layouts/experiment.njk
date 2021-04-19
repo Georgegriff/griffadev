@@ -1,0 +1,15 @@
+{% extends "layouts/base.njk" %}
+{% set pageCriticalStyles = ['css/experiments.css']  %}
+{% block content %}
+
+<div class="post-wrap">
+    <article class="post content">
+        <h1>{{ title }}</h1>
+        <section class="post-content">
+        <div class="experiment-container">
+            {{ content | safe }}
+        </div>
+        </section>
+    </article>
+</div>
+{% endblock %}

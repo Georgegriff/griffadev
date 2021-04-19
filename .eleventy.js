@@ -152,6 +152,7 @@ module.exports = (eleventyConfig) => {
     open: true,
   });
   eleventyConfig.addPassthroughCopy("src/images");
+  eleventyConfig.addPassthroughCopy("src/experiments/**/assets/**");
   eleventyConfig.addPassthroughCopy({"src/posts/**/images/*.*": "images"});
 
   eleventyConfig.setUseGitIgnore(false);

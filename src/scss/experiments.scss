@@ -1,0 +1,64 @@
+h1 .direct-link {
+    display: none;
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+input[type="text"] {
+    background: var(--Background);
+    line-height: 1.29;
+    cursor: pointer;
+    border: 2px solid var(--Secondary);
+    border-radius: 0.5rem;
+    appearance: none;
+    outline-offset: 3px;
+    text-overflow: ellipsis;
+    font-size: 1rem;
+    padding: 0.25rem 1.5rem;
+    height: 2.3rem;
+    font-weight: 600;
+    color: var(--Text);
+    width: 500px;
+
+    &:focus {
+        outline-color: var(--Primary);
+    }
+}
+
+button {
+    font-family: inherit;
+    background: var(--Primary);
+    color: var(--Background);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.25rem 1.5rem;
+    border-radius: 0.25rem;
+    transition: transform 150ms ease-out 0s;
+    bottom: 1.1rem;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    margin: 0.5rem;
+    height: 2.33rem;
+}
+
+.experiment-container {
+    margin-top: 3rem;
+    min-height: 90vh;
+    background: var(--Background);
+}
+
+ol {
+    padding-left:0;
+}
+
+.list-item {
+    list-style-type: none;
+}
+
+.results-card {
+    margin-bottom: 2rem;
+}
