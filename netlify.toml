@@ -19,3 +19,7 @@
 		"bing",
 		"yandex"
 	]
+[[headers]]
+  for = "/feed/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "*" 
