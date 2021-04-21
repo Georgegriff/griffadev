@@ -93,7 +93,7 @@ export class GriffLoader extends HTMLElement {
 
     static get observedAttributes() { return ['hidden']; }
 
-    setLoadingAttributes = (isVisible) => {
+    setLoadingAttributes(isVisible) {
         if(isVisible) {
             this.setAttribute("role", "status");
             this.setAttribute("aria-live", "polite");
