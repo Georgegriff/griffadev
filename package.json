@@ -44,6 +44,7 @@
   "dependencies": {
     "lit-element": "^2.4.0",
     "lit-html": "^1.2.1",
-    "lite-youtube-embed": "0.0.0"
+    "lite-youtube-embed": "0.0.0",
+    "query-selector-shadow-dom": "^1.0.0"
   }
 }
