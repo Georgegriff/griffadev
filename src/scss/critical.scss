@@ -86,6 +86,10 @@ footer {
     }
 }
 
+griff-loader {
+    --loader-color: var(--Primary);
+}
+
 /* Utilities */
 @import "./utilities/layout";
 @import "./utilities/visually-hidden";

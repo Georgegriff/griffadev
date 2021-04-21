@@ -13,6 +13,7 @@ const criticalStyles = [
   "critical.scss",
   "index.scss",
   "about.scss",
+  "experiments.scss",
   "blog.scss"
 ];
 

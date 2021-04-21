@@ -1,6 +1,8 @@
 import { LitElement, html, css, customElement, property } from "lit-element";
 import { render } from "lit-html";
 import { unsafeHTML } from "lit-html/directives/unsafe-html";
+import { querySelectorAllDeep } from "query-selector-shadow-dom";
+import { querySelectorDeep } from "query-selector-shadow-dom";
 import {closeIcon, expandIcon} from './icons.js'
 
 const collectInnerText = (slotsArray) => {
@@ -41,6 +43,11 @@ export class LiveDemo extends LitElement {
     this.toggled = false;
     this.selected = "";
     this.languageOptions = [];
+
+    window.querySelectorShadowDom = {
+      querySelectorAll: querySelectorAllDeep,
+      querySelectorDeep: querySelectorDeep
+    };
   }
 
   static get styles() {
@@ -220,14 +227,17 @@ export class LiveDemo extends LitElement {
           .assignedNodes({ flatten: false })
       );
       const [imports, code] = _splitImports(js);
+      this.querySelectorDeep = querySelectorDeep;
+      this.querySelectorAllDeep = querySelectorAllDeep
+      window.__liveDemoRef = this;
       const allCode = `${imports}
-            (async () => {
+            (async function () {
                 try {
                     ${code}
                 } catch(e) {
                     console.error(e);
                 }
-            })();`;
+            }.bind(window.__liveDemoRef))();`;
       const script = document.createElement("script");
       script.textContent = allCode;
       script.type = "module";

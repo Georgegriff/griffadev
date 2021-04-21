@@ -5,10 +5,12 @@ import "./navigator-share";
 import "lite-youtube-embed/src/lite-yt-embed.js";
 import { LiveDemo } from "./components/LiveDemo";
 import {GriffSelect} from "./components/GriffSelect";
+import { GriffLoader } from "./components/Loader";
 
 
 customElements.define('intersect-detect', IntersectDetect);
 customElements.define('griff-select', GriffSelect);
+customElements.define('griff-loader', GriffLoader);
 customElements.define('live-demo', LiveDemo);
 // TODO move
 
