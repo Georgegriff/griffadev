@@ -43,15 +43,21 @@ const cosineSimilarity = (vector1, vector2) => {
 
 async function search(userInput, data) {
     const t0 = performance.now();
+    const t4 = performance.now();
     const dataTensor = await model.embed(data.map((d) => d.searchData));
     const userInputTensor = await model.embed(userInput);
+    const t5 = performance.now();
+    console.log(`Embedding vectors took ${t5 - t4} milliseconds.`);
     const inputVector = await userInputTensor.array();
     const dataVector = await dataTensor.array();
     
     const allPredictions = userInput.map((input, index) => {
   
       const predictions = dataVector.map((dataEntry, dataEntryIndex) => {
+        const t2 = performance.now();
         const similarity = cosineSimilarity(inputVector[index], dataEntry);
+        const t3 = performance.now();
+        console.log(`Cosine similarity calc took ${t3 - t2} milliseconds.`);
       
         return {
           similarity,
@@ -59,7 +65,7 @@ async function search(userInput, data) {
         }
         // sort descending
       }).sort((a, b) => b.similarity - a.similarity).slice(0,MAX_RESULTS);
-  
+      const t2 = performance.now();
       return {
         "input": input,
         predictions: predictions

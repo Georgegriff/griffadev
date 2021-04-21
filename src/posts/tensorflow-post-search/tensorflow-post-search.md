@@ -22,7 +22,7 @@ The demo that I developed as part of this article is a "search engine" using my 
 
 Search is a solved problem and there are better ways of achieving the same thing, but I created this to learn and to have a bit of fun!
 
-If you want to check out a live demo for what I built in this post, I've [hosted it on my website](https://griffa.dev/experiments/natural-language-search/).
+If you want to check out a live demo for what I built in this post, I've <a href="https://griffa.dev/experiments/natural-language-search/" target="_blank">hosted it on my website</a>[]().
 
 ## Sentence similarity with TensorflowJS
 
@@ -468,7 +468,7 @@ const loadBlogPosts = async () => {
   const feed = await res.json();
   const data = feed.items.map((item) => {
     return {
-      searchData: `${item.title} ${item.summary} ${(item.tags || []).join(", ")}`,
+        searchData: `${item.title} ${item.summary}`,
       title: item.title,
       description: item.summary
     }

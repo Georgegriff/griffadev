@@ -41,11 +41,11 @@ const loadData = async () => {
   return data;
 };
 
-const search = async (searchInput, dataa) => {
+const search = async (searchInput, data) => {
   if(!searchInput) {
     return;
   }
-  resultsEl.innerHTML = '';
+  resultsEl.innerHTML = 'Searching posts...';
   setLoading(true)
 
   const allResults = await Searcher.search([searchInput], data);
@@ -56,6 +56,7 @@ const search = async (searchInput, dataa) => {
   const results = allResults[0]
 
 
+  resultsEl.innerHTML = '';
   results.predictions.forEach(({result, similarity}) => {
     const li = document.createElement('li');
     li.classList.add("list-item")
@@ -83,11 +84,12 @@ const readQueryFromSearchParams = () => {
   return queryParams.get("q");
 }
 
+let blogPosts;
 searchEl.addEventListener('change', async (e) => {
   const searchInput = e.target.value;
   updateSearchParams(searchInput);
   try {
-    await search(searchInput)
+    await search(searchInput, blogPosts);
   } catch(e) {
     console.error(e)
   }
@@ -95,9 +97,12 @@ searchEl.addEventListener('change', async (e) => {
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
+  if(!blogPosts) {
+    return;
+  }
   updateSearchParams(searchEl.value);
   try {
-    await search(searchEl.value)
+    await search(searchEl.value, blogPosts);
   } catch(e) {
     console.error(e)
   }
@@ -110,10 +115,13 @@ if(!query) {
   updateSearchParams(query);
 } 
 setSearchField(decodeURIComponent(query));
-setLoading(true)
+setLoading(true);
 
-const [data] = await Promise.all([loadData(),Searcher.load()]);
-await search(query, data);
+(async ()  => {
+  resultsEl.innerHTML = 'Contacting Skynet...';
+  [blogPosts] = await Promise.all([loadData(),Searcher.load()]);
+  await search(query, blogPosts);
+})();
 
 
 
