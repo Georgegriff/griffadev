@@ -6,7 +6,7 @@ tags:
   - MachineLearning
   - TensorflowJS
   - 11ty
-date: '2021-04-21'
+date: '2021-04-22'
 hero:
   image: /images/demo-tf-search-screenshot.png
   alt: "Demo application showing search results for Natural language search of blog posts"
