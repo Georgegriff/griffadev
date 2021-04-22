@@ -120,6 +120,7 @@ setLoading(true);
 (async ()  => {
   resultsEl.innerHTML = 'Contacting Skynet...';
   [blogPosts] = await Promise.all([loadData(),Searcher.load()]);
+  document.querySelector(".search-inputs").disabled = false;
   await search(query, blogPosts);
 })();
 

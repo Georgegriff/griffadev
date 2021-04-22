@@ -1,3 +1,5 @@
+@import "colors";
+
 h1 .direct-link {
     display: none;
 }
@@ -5,9 +7,18 @@ h1 .direct-link {
 form {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
-input[type="text"] {
+fieldset {
+    border: none;
+    margin:0;
+    padding: 0;
+}
+
+
+
+.input-field {
     background: var(--Background);
     line-height: 1.29;
     cursor: pointer;
@@ -18,13 +29,22 @@ input[type="text"] {
     text-overflow: ellipsis;
     font-size: 1rem;
     padding: 0.25rem 1.5rem;
-    height: 2.3rem;
+    height: 2.5rem;
     font-weight: 600;
     color: var(--Text);
     width: 500px;
 
     &:focus {
         outline-color: var(--Primary);
+    }
+}
+
+input,button {
+    &:disabled {
+        background: $grey;
+        cursor: not-allowed;
+        color: var(--White);
+        opacity:0.4;
     }
 }
 
@@ -35,6 +55,7 @@ button {
     font-size: 1rem;
     font-weight: 600;
     padding: 0.25rem 1.5rem;
+    outline-offset: 3px;
     border-radius: 0.25rem;
     transition: transform 150ms ease-out 0s;
     bottom: 1.1rem;
@@ -43,6 +64,9 @@ button {
     z-index: 1;
     margin: 0.5rem;
     height: 2.33rem;
+    &:focus {
+        outline-color: var(--Primary);
+    }
 }
 
 .experiment-container {
