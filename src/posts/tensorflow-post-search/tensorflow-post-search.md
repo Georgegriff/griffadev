@@ -581,7 +581,7 @@ In case you missed the links earlier:
 If I was to continue this idea through i'd probably explore some of the following:
 - Making the code more production ready using module imports and a build tool chain.
 - Investigate ways to use TensorflowJS at build time of my blog to pre-calculate embeddings for posts.
-- See if there is in-fact ways to doo cosine similarity directly in TensorflowJS, again, i'd love to know if anybody knows how!
+- See if there is in-fact ways to do cosine similarity directly in TensorflowJS, again, i'd love to know if anybody knows how!
 
 I hope to continue my Machine learning journey, I have some other blog related ideas that I might try to explore in the future:
 - Recommending similar blog posts
