@@ -19,6 +19,11 @@ a {
     text-decoration: none;
 }
 
+.site-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
 .filler {
     position: fixed;
     height: 100%;

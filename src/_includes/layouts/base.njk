@@ -41,27 +41,29 @@
     {% endif %}
     <body>
         <a class="skip-link call-to-action" href="{{skipLinkAnchor}}">Skip to content</a>
-        <input aria-label="Switch theme colors" type="checkbox" id="theme" name="theme" class="visually-hidden">
-        <div class="wrapper page-layout anim-bg {{containerClass}}">
-          {# Deliberate to not break sibling selector and run before themed code #}
-          <script>
-            {{ inlineJs | jsmin | safe }}
-          </script>  
-          {% include "partials/header.html" %}
-            {% include "partials/actionbar.html" %}
-            <main id="main-content">
-                <intersect-detect class="main-content">
-                    {% block content %}{% endblock %}
-                </intersect-detect>
-                <div class="footer-wrap">
-                    <footer>
-                        {% block footer %}{% endblock %}
-                        {% include 'partials/copyright.html' %}
-                    </footer>
-                </div>
-            </main>
+        <div class="site-wrap">
+            <input aria-label="Switch theme colors" type="checkbox" id="theme" name="theme" class="visually-hidden">
+            <div class="wrapper page-layout anim-bg {{containerClass}}">
+            {# Deliberate to not break sibling selector and run before themed code #}
+            <script>
+                {{ inlineJs | jsmin | safe }}
+            </script>  
+            {% include "partials/header.html" %}
+                {% include "partials/actionbar.html" %}
+                <main id="main-content">
+                    <intersect-detect class="main-content">
+                        {% block content %}{% endblock %}
+                    </intersect-detect>
+                    <div class="footer-wrap">
+                        <footer>
+                            {% block footer %}{% endblock %}
+                            {% include 'partials/copyright.html' %}
+                        </footer>
+                    </div>
+                </main>
+            </div>
+            <div class="filler"></div>
         </div>
-        <div class="filler"></div>
         <!-- TODO  split  js into pages -->
         <script src="{{ assets.getPath("index.js")}}" type="module"></script>
     </body>
