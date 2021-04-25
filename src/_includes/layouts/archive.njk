@@ -2,7 +2,7 @@
 
 {% extends "layouts/base.njk" %}
 
-{% set postslist = pagination.items | reverse %}
+{% set postslist = pagination.items %}
 {% block content %}
    {% include  "partials/posts.html"%}
 {% endblock %}
