@@ -4,8 +4,8 @@
 
 {% set pageCriticalStyles = ['css/blog.css'] %}
 
-{% block content %}
 {% set enableAds = true  %}
+{% block content %}
 {% set seriesInfo = {series:series, seriesEntries: seriesEntries} | getSeriesInfo %}
 <div slot="observable">
     {% include "partials/post-hero.html" %}

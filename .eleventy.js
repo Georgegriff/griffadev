@@ -25,7 +25,7 @@ module.exports = (eleventyConfig) => {
       }),
       permalink: true,
       permalinkClass: "direct-link",
-      permalinkSymbol: "<copy-link></copy-link>",
+      permalinkSymbol: '<span class="copy-link"></span>',
     });
 
     eleventyConfig.addPlugin(pluginSyntaxHighlight);

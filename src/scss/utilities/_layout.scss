@@ -255,7 +255,7 @@ $tagline-height:3rem;
 
 .direct-link {
   display: inline-block;
-  copy-link {
+  .copy-link {
     background-color: var(--Text);
     mask: url(/images/link.svg) no-repeat center / contain;
     -webkit-mask: url(/images/link.svg) no-repeat center / contain;
