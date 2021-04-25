@@ -62,6 +62,7 @@ export class LiveDemo extends LitElement {
             margin:1rem 0rem;
             min-height: 30rem;
             overflow: hidden;
+            height: 30rem;
         }
 
         button:active {
@@ -91,6 +92,7 @@ export class LiveDemo extends LitElement {
             width: 100%;
             height: 100%;
         }
+        
 
         .demo-back {
 
@@ -138,6 +140,8 @@ export class LiveDemo extends LitElement {
         .demo-front > div {
           opacity:1;
           transition: opacity 0.3s ease-in-out;
+          height: 100%;
+          display: flex;
         }
         .demo-front div[aria-hidden="true"] {
           opacity:0;
@@ -289,9 +293,9 @@ export class LiveDemo extends LitElement {
     return html`
       <div @slotchange=${this._onSlotChange}  class="demo">
         <div aria-hidden="${this.toggled}" class="demo-front">
-            <div aria-hidden="${this.selected !== "css"}" ><slot name="css"></slot></div>
-            <div aria-hidden="${this.selected !== "html"}" ><slot name="html"></slot></div>
-            <div aria-hidden="${this.selected !== "js"}" ><slot name="js"></slot></div>
+            <div aria-hidden="${this.selected !== "css"}" ><copy-to-clipboard button-float="false"><slot name="css"></slot></copy-to-clipboard></div>
+            <div aria-hidden="${this.selected !== "html"}" ><copy-to-clipboard button-float="false"><slot name="html"></slot></copy-to-clipboard></div>
+            <div aria-hidden="${this.selected !== "js"}" ><copy-to-clipboard button-float="false"><slot name="js"></slot></copy-to-clipboard></div>
         </div>
         <div aria-hidden="${!this.toggled}" class="demo-back code-exe"></div>
       </div>

@@ -15,7 +15,6 @@ $meta-height: 5.3rem;
 }
 
 live-demo {
-  height: 30rem;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -23,7 +22,6 @@ live-demo {
   background: var(--Secondary);
   margin-bottom: 1rem;
   div[contenteditable] {
-    margin: 0.5rem;
     height: 100%;
     width: 100%;
     &:focus {
@@ -36,7 +34,7 @@ live-demo {
     }
   }
   pre[class*="language-"] {
-    overflow: initial;
+    overflow: auto;
   }
   /* potential editing  */
   /*pre {

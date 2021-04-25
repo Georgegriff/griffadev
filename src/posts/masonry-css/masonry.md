@@ -80,7 +80,7 @@ Here is the full finished demo code:
     }
 
     .masonry > * {
-        margin-bottom: initial;
+      margin-bottom: initial;
     }
 }
 
@@ -185,11 +185,11 @@ To see the effect you will need to be view these examples in a browser that supp
 
 ```css masonry-wonky-bottom
 .masonry {
-      display: grid;
-      gap: 1rem;
-      grid-template-rows: masonry;
-      /* magic responsiveness */
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    display: grid;
+    gap: 1rem;
+    grid-template-rows: masonry;
+    /* magic responsiveness */
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
 
 }
 
@@ -233,14 +233,14 @@ The masonry specification also allows for a new property: `align-tracks`, which 
 
 ```css masonry-straight-bottom
 .masonry {
-      display: grid;
-      gap: 1rem;
-      grid-template-rows: masonry;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      /* no more wonky bottom */
-      align-tracks: stretch;
-      /* just so you can see the edge in the example */
-      padding-bottom: 3rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-rows: masonry;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    /* no more wonky bottom */
+    align-tracks: stretch;
+    /* just so you can see the edge in the example */
+    padding-bottom: 3rem;
 
 }
 
@@ -511,7 +511,7 @@ Here's the full demo:
     }
 
     .masonry > * {
-        margin-bottom: initial;
+      margin-bottom: initial;
     }
 }
 

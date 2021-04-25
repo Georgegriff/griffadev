@@ -80,7 +80,8 @@ module.exports = (eleventyConfig) => {
           ${matchingTokens.join("")}</live-demo>`;
         // find all code with matching id
       } else {
-        return defaultCodeRender(...args);
+        const rendered = defaultCodeRender(...args);
+        return `<copy-to-clipboard>${rendered}</copy-to-clipboard>`;
       }
     }
 
