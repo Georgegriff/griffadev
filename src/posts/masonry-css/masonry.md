@@ -9,7 +9,7 @@ tags:
   - HTML
   - CSS
 ---
-A few days ago I found that I had talked myself into re-designing a website. The website is for my brothers' [guitar teaching business](https://cgguitar.co.uk/) which I had previously worked a few years ago, when I was a student.  (if you click that link and view it before the rework, yeah I know the site needs work, that's what i'm doing here).
+A few days ago I found that I had talked myself into re-designing a website. The website is for my brothers' [guitar teaching business](https://cgguitar.co.uk/) which I had previously worked a few years ago, when I was a student.
 
 As part of the redesign I was trying to think of ways to lay out testimonials from students, which may have varying length/content, I stumbled onto the idea of using a masonry layout (think bricks, think Pinterest).
 
