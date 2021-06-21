@@ -1,5 +1,5 @@
 ---
-title: Adding Dynamic content from an API to a static website at build time
+title: Adding dynamic content from an API to a static website at build time
 description: You may not need client side JavaScript to add dynamic content from an API. In this article I will show the approach I recently took to embed YouTube playlists into an website created by a static site generator (Elventy), and how this approach lends itself to less JavaScript and progressive enhancement.
 tags:
   - 11ty
