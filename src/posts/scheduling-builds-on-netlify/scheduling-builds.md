@@ -10,6 +10,9 @@ series:
   title: Static sites with dynamic content
   order: 2
 date: '2021-06-21'
+hero:
+  image: /images/circle-ci-build.png
+  alt: "CircleCI scheduled build"
 ---
 
 I recently launched a re-write of my brothers Guitar teaching business website: [cgguitar.co.uk](https://www.cgguitar.co.uk), during this rewrite I implemented a feature where I wanted to [fetch YouTube playlists at build time](https://griffa.dev/posts/adding-dynamic-content-from-an-api-to-a-static-website-at-build-time/).
