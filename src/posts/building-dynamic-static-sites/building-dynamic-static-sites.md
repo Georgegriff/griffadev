@@ -75,8 +75,6 @@ The awesome thing about this plugin is that once the data is fetched it is cache
 
 ## Embedding YouTube playlists at build time
 
-![Embedded YouTube Playlists in the CG Guitar website](/images/cg-guitar-videos.png "What I built with this technique")
-
 For my feature I decided I wanted to be able to pick and choose which YouTube playlists that I wanted to show in the website, it is however possible to fetch all YouTube playlists for an account too. I wanted to be able to choose so that I could add, order and describe new playlists in my CMS (Netlify CMS).
 
 The playlists in the website are defined as markdown in the code in a folder named [playlists](https://github.com/Georgegriff/cgguitar-site/tree/main/src/playlists), Netlify CMS is configured to [read these files](https://github.com/Georgegriff/cgguitar-site/blob/178a8ae66a4b22f4566dfe579b748369abf0f297/admin/config.yml#L649) e.g:
