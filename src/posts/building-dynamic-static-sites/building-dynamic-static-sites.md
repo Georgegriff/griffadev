@@ -21,9 +21,9 @@ I recently launched a re-write of my brothers Guitar teaching business website: 
 - Provide a great baseline experience with No JavaScript whatsoever.
 - Limit the number of calls to external services to keep the page load fast.
 
-In this post I'll describe my approach to getting embedded YouTube playlist content into the website, at build time, reducing the number calls to YouTube client side to only the embedded video and thumbnails, no calls out to the YouTube Data API. In addition to this i'll show you how you can keep the site up to date with easy to configure cron jobs (scheduled builds).
+In this post I'll describe my approach to getting embedded YouTube playlist content into the website, at build time, reducing the number calls to YouTube client side to only the embedded video and thumbnails, no calls out to the YouTube Data API. In addition to this, i'll show you how you can keep the site up to date with easy to configure cron jobs (scheduled builds).
 
-The feature that I built which I will explain is an embedded YouTube playlist component which fetches all the data and stats for the YouTube at build time and renders them directly into the HTML. You can check out the feature live over at [https://www.cgguitar.co.uk/videos/#guitar-lessons](https://www.cgguitar.co.uk/videos/#guitar-lessons).
+The feature that I built, that I will explain, is an embedded YouTube playlist component which fetches all the data and stats for YouTube playlists at build time and renders their video metadata/thumbnails directly into the HTML. You can check out the feature live over at [https://www.cgguitar.co.uk/videos/#guitar-lessons](https://www.cgguitar.co.uk/videos/#guitar-lessons).
 
 ![Embedded YouTube Playlists in the CG Guitar website](/images/cg-guitar-videos.png "The YouTube Playlists feature I built with this technique.")
 
@@ -33,7 +33,7 @@ Calling out to external APIs/services from your client side JavaScript can intro
 
 **Security** - if you want to hide your token or keep it secure you either have to:
 - Ensure your token only works on your websites domain, but this doesn't stop people using it from outside of a web browser.
-- Add some complex proxy set up where you add the token on the server, requires having a server or proxy configuration.
+- Add some complex proxy set up where you hide the token on a server you manage, requires having a server or proxy configuration.
 
 **Rate limiting/charges** - most APIs have limits to the number of API calls you can make, or will start charging you for usage:
 - Your website content doesn't scale, each visitor would be using your token to call the external services for every visit.
@@ -46,8 +46,8 @@ Calling out to external APIs/services from your client side JavaScript can intro
 
 ## Moving your calls to external APIs to build time
 
-This is approach is not a silver bullet, not every feature would support this, e.g. if you want to work with user submitted content,
-but if all you are showing is content that changes infrequently, moving the data fetching to build time can be a really great solution.
+This is approach is not a silver bullet, not every feature would support this, e.g. if you want to work with user submitted content.
+However, if all you are showing is content that changes infrequently, moving the data fetching to build time can be a really great solution.
 
 The static site I built for my brothers' business uses [Eleventy](https://11ty.dev), a fantastic static site generator.
 I wrote about getting started with 11ty in [How I got started with 11ty](https://griffa.dev/posts/how-i-got-started-with-11ty/).
@@ -77,7 +77,7 @@ The awesome thing about this plugin is that once the data is fetched it is cache
 
 ![Embedded YouTube Playlists in the CG Guitar website](/images/cg-guitar-videos.png "What I built with this technique")
 
-For my feature I decided I wanted to be able to pick and choose which YouTube playlists that I wanted to show in the website, it is however possible to fetch all YouTube playlists too. I wanted to be able to choose so that I could add, order and describe new playlists in my CMS (Netlify CMS).
+For my feature I decided I wanted to be able to pick and choose which YouTube playlists that I wanted to show in the website, it is however possible to fetch all YouTube playlists for an account too. I wanted to be able to choose so that I could add, order and describe new playlists in my CMS (Netlify CMS).
 
 The playlists in the website are defined as markdown in the code in a folder named [playlists](https://github.com/Georgegriff/cgguitar-site/tree/main/src/playlists), Netlify CMS is configured to [read these files](https://github.com/Georgegriff/cgguitar-site/blob/178a8ae66a4b22f4566dfe579b748369abf0f297/admin/config.yml#L649) e.g:
 
@@ -91,7 +91,7 @@ id: PLA0cAQ-2uoeoJoFfUz9oq9qhmlnsjFRhU
 
 ![Netlify CMS showing defined playlists](/images/netlify-cms-videos.png "Each of these entries contains a name, id and description.")
 
-The first step to getting my playlists into 11ty is to define them as a collection, to do this inside of the `src/playlists` folder i create a [playlists.json](https://github.com/Georgegriff/cgguitar-site/blob/main/src/playlists/playlists.json).
+The first step to getting my playlists into 11ty is to define them as a collection, to do this inside of the `src/playlists` folder I create a [playlists.json](https://github.com/Georgegriff/cgguitar-site/blob/main/src/playlists/playlists.json).
 
 ```js
 {
@@ -128,7 +128,7 @@ This is an 11ty filter which is defined in my `.eleventy.js` config file.
   })
 ```
 
-Let's take a dive a layer deeper: getPlaylists is making a call to `getPlaylistItem` which is where i'm actually doing the data caching.
+Let's take a dive a layer deeper: `getPlaylists` is making a call to `getPlaylistItem` which is where i'm actually doing the data caching.
 
 ```js
 module.exports.getPlaylists = async (playlists) => {
@@ -149,7 +149,9 @@ module.exports.getPlaylists = async (playlists) => {
 }
 ```
 
-This function is looping through all of my playlists and fetching the items (videos) in tat playlist. It also adding the name, description and direct link to YouTube for the whole playlist.
+This function is looping through all of my playlists and fetching the items (videos) in that playlist. It is also adding the name, description and direct link to YouTube for the whole playlist.
+
+Now for `getPlaylistItem`:
 
 ```js
 const getPlaylistItem = async (playlistId) => {
@@ -188,14 +190,15 @@ const getPlaylistItem = async (playlistId) => {
 };
 ```
 
-The first few thing this function does is:
+The first few things this function does is:
 - Set base url for YouTube API: https://www.googleapis.com/youtube/v3/playlistItems
 - Set the max number of items in a playlist to return on a page
 - Pass in APIKey and build up url in accordance with the [API Docs](https://developers.google.com/youtube/v3/docs/playlistItems/list).
 
 > You will want to store your API key as an environment variable e.g. `const apiKey = process.env.YT_API_KEY;`. For production you can add this environment variable where ever you choose to build/host the site e.g. on Netlify.
 
-Next up it fetches some extra metadata. `fetchMetaInfo` fetches things like view count and likes, this is another API call which we would be concerned about if this was client side, but since it's build time, who cares! Implementation available on [Github](https://github.com/Georgegriff/cgguitar-site/blob/178a8ae66a4b22f4566dfe579b748369abf0f297/src/_filters/youtube.js#L57).
+Next up it fetches some extra metadata. `fetchMetaInfo` fetches things like view count and likes, this is another API call which we would be concerned about if this was client side, but since it's build time, who cares!
+Implementation available on [Github](https://github.com/Georgegriff/cgguitar-site/blob/178a8ae66a4b22f4566dfe579b748369abf0f297/src/_filters/youtube.js#L57).
 
 Finally i'm looping through all the data and returning an array of `videos` for each playlist and a flag `hasMore` if the playlist has more than then 20 items shown. In my HTML when I see this flag I add an link out to YouTube to watch the full playlist.
 
@@ -203,7 +206,7 @@ The above code a modified version of the original, where i'm doing a a few extra
 
 ## Progressive Enhancement
 
-Now you have your website fetching the external data, let's see how could approach displaying the content in your HTML.
+Now I have the website fetching the external data, let's see how I could approach displaying the content in the HTML.
 
 When designing an dynamic experience its a good idea to think about what is the minimal experience you can provide without needing JavaScript, and build from there.
 You could start out very simply and just load a link `<a>` to the YouTube videos, perhaps the thumbnail could open a tab to YouTube, this needs no JS at all, and is what I did:
@@ -231,8 +234,8 @@ You could start out very simply and just load a link `<a>` to the YouTube videos
 ```
 {%- endraw -%}
 
-You will see that i'm wrapping the whole  code in a `youtube-component` Custom Element.
-When the component loads without JavaScript it is just a link out to YouTube, which is then upgraded to a full playlist experience. This will disable the default "link" behavior.
+You will see that i'm wrapping the whole  code in a `youtube-playlist` Custom Element.
+When the component loads without JavaScript it is just a link out to YouTube, which is then upgraded to a full playlist experience. This will disable the default "link" behavior too.
 
 I'm not going to go into the implementation of my Web Component in this post but you can check out the source code on [Github](https://github.com/Georgegriff/cgguitar-site/blob/178a8ae66a4b22f4566dfe579b748369abf0f297/src/scripts/components/youtube-playlist/YoutubePlaylist.js). The general idea is to consume `<li>` list items as child content inside of my `<youtube-playlist>` and when JavaScript loads move this content in the Shadow DOM, and make them look pretty/interactive.
 
