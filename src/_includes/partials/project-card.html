@@ -1,0 +1,44 @@
+{% set hero = project.data.hero %}
+{%- set projectType = project.data.type -%}
+{%- include './card-type-banner.html' -%}
+{%- set github = project.data.github | fetchGithubRepo %}
+<a target="_blank" title="{{project.data.title }}" href="{{ project.data.url}}">
+    <div class="post-img-link">
+        <div role="img" class="post-img">
+            <div aria-hidden="true" class="overlay"></div>
+            {%- if hero and hero.image%}
+                <img width=400 height=200 alt="{{hero and hero.alt or "Default blog image"}}"
+                src="{{hero.image}}" />
+            {% else %}
+            {% include 'img/hero-static.svg' %}
+            {%- endif %}
+        </div>
+    </div>
+</a>
+<div class="post-card-content">
+    <a target="_blank" title="{{project.data.title}}" href="{{ project.data.url }}" class="post-title-link">
+        <div>
+            <span class="post-heading">{{ project.data.title }}</span>
+            <p class="tagline">{{project.data.description}}</p>
+        </div>
+    </a>
+    <div class="post-bottom">
+        <div class="post-type-icons">
+            {%- ifAsync github and github.url -%}
+            <a title="View project on Github"  href="{{github.url}}" target="_blank">
+                {%- include "img/github.svg" -%}
+            </a>
+            {%- endif -%}
+            {%- ifAsync github and github.stars -%}
+            <span  aria-label="stars on Github">
+                {%- include "img/star.svg" -%}
+            </span>
+            {%- endif -%}
+             {%- if project.data.url -%}
+                <a title="View project" class="external-link" href="{{project.data.url}}" target="_blank">
+                    {%- include "img/external.svg" -%}
+                </a>
+            {%- endif -%}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+{% extends "layouts/base.njk" %}
+
+{% set pageCriticalStyles = ['css/about.css'] %}
+
+{% block content %}
+<div slot="observable">
+{% include "partials/post-hero.html" %}
+</div>
+<div class="post-title">
+    <h1 class="text-in thirdin">{{ title }}</h1>
+</div>
+{%- include "partials/projects.html" -%}
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'partials/something-wrong.html' %}
+{% endblock %}
+

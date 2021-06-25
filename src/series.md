@@ -11,6 +11,7 @@ pagination:
     - tagList
     - tagNames
     - series
+    - projects
   addAllPagesToCollections: true
 layout: layouts/series.njk
 callToAction:

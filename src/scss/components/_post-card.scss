@@ -1,6 +1,6 @@
 
 @import "../colors";
-$card-padding: 1rem;
+$card-padding: 2rem;
 
 .post-card {
   position: relative;
@@ -19,7 +19,7 @@ $card-padding: 1rem;
     display: flex;
     align-items: flex-end;
     flex-wrap: wrap;
-    margin-top:1rem;
+    margin:1rem 0;
 
   }
     .post-title-link {
@@ -38,11 +38,10 @@ $card-padding: 1rem;
        .tagline {
          margin-top:1rem;
          font-size: 0.95rem;
-         font-style: italic;
        }
     }
     --post-card-height: auto;
-    --post-card-width: 25rem;
+    --post-card-width: 27rem;
     min-width: 260px;
     max-width: 1000px;
     background: var(--Secondary);
@@ -50,7 +49,7 @@ $card-padding: 1rem;
     flex-direction: column;
     .post-img-link {
       .post-img {
-        height: 11rem;
+        height: 14rem;
         width: 100%;
         position: relative;
         overflow: hidden;
@@ -87,6 +86,8 @@ $card-padding: 1rem;
 
 .post-bottom {
   position: relative;
+  margin-top: 1rem;
+  padding-top: 1rem;
   &::before {
     content: "";
     position: absolute;
@@ -94,7 +95,32 @@ $card-padding: 1rem;
     left:0;
     height: 0.15rem;
     width: 100%;
-    background: var(--Primary);
+    background: var(--Background);
+  }
+
+  svg {
+    width: auto;
+    height:100%;
+    fill: currentColor;
+  }
+  .external-link {
+    color: var(--Accent);
+    margin-left: auto;
+  }
+  .post-type-icons {
+    display: flex;
+    gap: 1rem;
+    height: 2rem;
+    color: var(--Text);
+    align-items: center;
+    & > * {
+      height: 100%;
+    }
+    a {
+      &:hover, &:focus {
+        color: var(--Primary);
+      }
+    }
   }
 }
 
@@ -118,5 +144,53 @@ $card-padding: 1rem;
 @media screen and (max-width: 45em) {
   .post-card {
     width: 100%;
+  }
+}
+
+.first-card {
+  background: var(--Background50);
+  padding: $card-padding;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  a {
+    margin-top: 1rem;
+    color: var(--Primary);
+    &:hover, &:focus {
+      color: var(--Text);
+    }
+  }
+  h2 {
+    font-weight: 600;
+    position: initial;
+    font-size: 2rem;
+    max-width: 20ch;
+    background: transparent;
+    &::after {
+      display: none;
+    }
+  }
+  .first-card-links {
+    margin-top: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    .social-card-link {
+      color: var(--Text);
+      &:hover, &:focus {
+          color: var(--Primary);
+      }
+      svg {
+        fill: currentColor;
+        height: 4rem;
+        width: auto;
+       
+      }
+    }
   }
 }

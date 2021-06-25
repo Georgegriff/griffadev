@@ -11,6 +11,7 @@ const helpers = require("./src/_data/helpers");
 
 
 const siteMeta = require("./src/_data/metadata.json");
+const { fetchGithubInfo } = require("./src/filters/meta");
 
 module.exports = (eleventyConfig) => {
 
@@ -343,6 +344,17 @@ module.exports = (eleventyConfig) => {
     debugger;
   })
 
+
+  eleventyConfig.addNunjucksAsyncFilter("fetchGithubRepo", async (github, callback) => {
+    try {
+      const data = await fetchGithubInfo(github);
+      callback(null, data);
+    } catch(e) {
+      callback(e, null);
+    }
+  })
+
+
   eleventyConfig.addShortcode("twitter", (id) => {
     return `https://twitter.com/anyuser/status/${id}`;
   });
@@ -380,6 +392,10 @@ module.exports = (eleventyConfig) => {
     `;
     return `${githubData.repo}/issues/new?title=${githubData.titlePrefix}+${inputPath}&body=${encodeURIComponent(body)}`;
   })
+
+  eleventyConfig.setLiquidOptions({
+    dynamicPartials: true
+  });
 
   return {
       templateFormats: [

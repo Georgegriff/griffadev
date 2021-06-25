@@ -95,6 +95,41 @@
 
 }
 
+.post-type-banner {
+  position: absolute;
+  top: -2px;
+  right: 1rem;
+  z-index: 1;
+  width: calc(var(--font-size-small) * 5);
+  background: var(--Text);
+  padding: 0 .1rem .1rem .1rem;
+  clip-path: polygon(50% 0,100% 0,100% 85%,50% 100%,0 85%,0 0);
+  .banner-bg {
+    padding:0.25rem 0.25rem 2rem 0.25rem;
+    clip-path: polygon(50% 0%, 100% 0, 100% 85%, 50% 100%, 0 85%, 0 0);
+    background:var(--Background);
+  }
+  .post-banner-icon-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 0rem;
+    padding-top:calc(0.3 * var(--font-size-small));
+    margin-bottom: 0;
+    color: var(--Text);
+    font-size: 0.55rem;
+    text-transform: uppercase;
+
+    & svg {
+      fill: var(--Primary);
+      height: 2rem;
+      margin-top: 2rem;
+    }
+  }
+}
+
 @media screen and (min-width: 3000px) {
   .series-num-wrap {
     padding-top:3rem;
