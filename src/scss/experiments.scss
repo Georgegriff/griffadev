@@ -33,6 +33,7 @@ fieldset {
     font-weight: 600;
     color: var(--Text);
     width: 500px;
+    max-width: 90vw;
 
     &:focus {
         outline-color: var(--Primary);
