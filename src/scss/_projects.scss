@@ -11,3 +11,10 @@
     gap: 2rem;
     grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
 }
+
+@media screen and (max-width: 45em) {
+    .project-tiles {
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+      }
+  }
+  
