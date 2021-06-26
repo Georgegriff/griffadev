@@ -1,0 +1,27 @@
+<article id="recent-articles" class="content post-tiles">
+  <div class="content-wrap">
+    <ul class="project-tiles">
+    <li class="first-card">
+      <h2>Things i've worked on</h2>
+      <p>I'm a Software Developer and Computer Science graduate currently working for IBM.</p>
+      <p>In addition to my blog posts, in my spare time i've worked on some of these projects and experiments, using various technologies.</p>
+      <a href="/">Recent blog posts</a>
+      <div class="first-card-links">
+        <a class="social-card-link" target="blank" title="My Github profile" href="{{metadata.author.github}}">
+          {%- include "img/github.svg" %}
+        </a>
+         <a class="social-card-link" target="blank" title="My Twitter profile" href="{{metadata.author.twitter_url}}">
+          {%- include "img/twitter.svg" %}
+        </a>
+      </div>
+      <a hidden class="bottom-link" href="/cv/">For professional history, check out my CV.</a>
+    </li>
+    {%- asyncEach project in collections.projects | reverse -%}
+      <li class="post-card project-card">
+        {% include "./project-card.html" %}
+      </li>
+      {% endeach %}
+    </ul>
+  </div>
+
+</article>

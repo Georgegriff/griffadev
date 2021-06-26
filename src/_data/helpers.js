@@ -1,5 +1,5 @@
 // this list should match the `filter` list in tags.md
-const tagFilters = ["all", "nav", "post", "posts", "series"];
+const tagFilters = ["all", "nav", "post", "posts", "series", "projects"];
 
 const filterTags = (tag) => !tagFilters.includes(tag);
 module.exports = {

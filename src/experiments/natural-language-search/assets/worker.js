@@ -1,6 +1,6 @@
-importScripts("https://unpkg.com/comlink/dist/umd/comlink.min.js");
-importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest");
-importScripts("https://cdn.jsdelivr.net/npm/@tensorflow-models/universal-sentence-encoder");
+importScripts("https://unpkg.com/comlink@4.3.0/dist/umd/comlink.min.js");
+importScripts("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.4.0");
+importScripts("https://cdn.jsdelivr.net/npm/@tensorflow-models/universal-sentence-encoder@1.3.2");
 
 const MAX_RESULTS = 8;
 

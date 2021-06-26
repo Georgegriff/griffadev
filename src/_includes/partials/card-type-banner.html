@@ -1,0 +1,14 @@
+{%- if projectType %}
+{%- set projectIcon = "img/project.svg" -%}
+{%- if projectType === "experiment" %}
+    {%- set projectIcon = "img/experiment.svg" -%}
+{%- endif %}
+<div class="post-type-banner">
+    <div class="banner-bg">
+        <div class="post-banner-icon-wrap">
+        <span>{{projectType}}</span>
+        {%- include projectIcon %}  
+        </div>
+    </div>
+</div>
+{%- endif %}

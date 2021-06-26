@@ -1,0 +1,54 @@
+{% set hero = project.data.hero %}
+{%- set projectType = project.data.type -%}
+{%- include './card-type-banner.html' -%}
+{%- set github = project.data.github | fetchGithubRepo %}
+<a target="_blank" title="{{project.data.title }}" href="{{ project.data.url}}">
+    <div class="post-img-link">
+        <div role="img" class="post-img">
+            <div aria-hidden="true" class="overlay"></div>
+            {%- if hero and hero.image%}
+                <img width=400 height=200 alt="{{hero and hero.alt or "Default blog image"}}"
+                src="{{hero.image}}" />
+            {% else %}
+            {% include 'img/hero-static.svg' %}
+            {%- endif %}
+        </div>
+    </div>
+</a>
+<div class="post-card-content">
+    <a target="_blank" title="{{project.data.title}}" href="{{ project.data.url }}" class="post-title-link">
+        <div>
+            <span class="post-heading">{{ project.data.title }}</span>
+            <p class="tagline">{{project.data.description}}</p>
+        </div>
+    </a>
+    <div class="post-bottom">
+        <div class="post-type-icons">
+            {%- if github and github.url -%}
+            <a class="icon-with-text" title="View project on Github" href="{{github.url}}" target="_blank">
+                {%- include "img/github.svg" -%}
+                <span>github</span>
+            </a>
+            {%- endif -%}
+            {%- if github and github.stars -%}
+            <a target="_blank" href="{{github.url}}/stargazers"  class="icon-with-text" aria-label="{{github.stars}} stars on Github">
+                {%- include "img/star.svg" -%}
+                <span>{{github.stars}} stars</span>
+            </a>
+            {%- endif -%}
+            {%- ifAsync project.data.npm -%}
+            {% set downloads = project.data.npm | fetchNPMWeeklyDownloads -%}
+            <a target="_blank" href="https://www.npmjs.com/package/{{project.data.npm}}" class="icon-with-text" title="{{downloads}} weekly downloads on NPM" aria-label="{{downloads}} weekly downloads on NPM">
+                {%- include "img/download.svg" -%}
+                <span>{{downloads}} weekly</span>
+            </a>
+            {%- endif -%}
+            {%- if project.data.url -%}
+                <a title="View project" class="external-link icon-with-text" href="{{project.data.url}}" target="_blank">
+                    {%- include "img/external.svg" -%}
+                    <span>Open</span>
+                </a>
+            {%- endif -%}
+        </div>
+    </div>
+</div>

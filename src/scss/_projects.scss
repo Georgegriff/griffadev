@@ -1,0 +1,13 @@
+.project-card {
+    .post-img-link .post-img {
+        height: 18rem;
+    }
+}
+
+.project-tiles {
+    display: grid;
+    margin-top:1rem;
+    place-items: center;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
+}
