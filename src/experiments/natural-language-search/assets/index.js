@@ -111,7 +111,7 @@ form.addEventListener("submit", async (e) => {
 let query = readQueryFromSearchParams();
 // example
 if(!query) {
-  query = 'How can i create my own blog posts with javascript?'
+  query = 'How can i debug 11ty?'
   updateSearchParams(query);
 } 
 setSearchField(decodeURIComponent(query));
