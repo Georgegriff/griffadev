@@ -5,7 +5,6 @@ type: project
 github:
   user: Georgegriff
   repository: cgguitar-site
-  stars: true
 url: https://cgguitar.co.uk
 date: '2021-06-22'
 technology:

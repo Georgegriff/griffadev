@@ -14,7 +14,7 @@
           {%- include "img/twitter.svg" %}
         </a>
       </div>
-      <a class="bottom-link" href="/cv/">For professional history, check out my CV.</a>
+      <a hidden class="bottom-link" href="/cv/">For professional history, check out my CV.</a>
     </li>
     {%- asyncEach project in collections.projects | reverse -%}
       <li class="post-card project-card">

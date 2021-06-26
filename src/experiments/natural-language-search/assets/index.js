@@ -118,10 +118,14 @@ setSearchField(decodeURIComponent(query));
 setLoading(true);
 
 (async ()  => {
-  resultsEl.innerHTML = 'Contacting Skynet...';
-  [blogPosts] = await Promise.all([loadData(),Searcher.load()]);
-  document.querySelector(".search-inputs").disabled = false;
-  await search(query, blogPosts);
+  try {
+    resultsEl.innerHTML = 'Downloading Tensorflow Model...';
+    [blogPosts] = await Promise.all([loadData(),Searcher.load()]);
+    document.querySelector(".search-inputs").disabled = false;
+    await search(query, blogPosts);
+  } catch(e) {
+    console.error(e);
+  }
 })();
 
 

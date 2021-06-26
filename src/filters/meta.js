@@ -23,18 +23,22 @@ const _fetchGithubRepo = ({user, repository}) => {
 };
 module.exports = {
 
-    async fetchGithubInfo({user, repository, stars = false} = {}) {
+    async fetchGithubInfo({user, repository, stars = false, url} = {}) {
        if(!user || !repository) {
-           return {};
+           if(url) {
+               return { url };
+           } else {
+               return {}
+           }
        }
        const repo = await _fetchGithubRepo({user, repository});
        return {
-           url: repo.html_url,
+           url: url ? url : repo.html_url,
            stars: stars ? shortenLargeNumber(repo.stargazers_count) : undefined
        }
     },
-    async fetchNPMWeeklyDownload ({package} = {}) {
-        if(package) {
+    async fetchNPMWeeklyDownloads (package) {
+        if(!package) {
             return;
         }
         const url = `https://api.npmjs.org/downloads/point/last-week/${package}`;

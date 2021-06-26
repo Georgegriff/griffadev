@@ -11,7 +11,7 @@ const helpers = require("./src/_data/helpers");
 
 
 const siteMeta = require("./src/_data/metadata.json");
-const { fetchGithubInfo } = require("./src/filters/meta");
+const { fetchGithubInfo, fetchNPMWeeklyDownloads } = require("./src/filters/meta");
 
 module.exports = (eleventyConfig) => {
 
@@ -348,6 +348,17 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addNunjucksAsyncFilter("fetchGithubRepo", async (github, callback) => {
     try {
       const data = await fetchGithubInfo(github);
+      callback(null, data);
+    } catch(e) {
+      callback(e, null);
+    }
+  })
+
+  eleventyConfig.addNunjucksAsyncFilter("fetchNPMWeeklyDownloads", async (package, callback) => {
+    try {
+      const data = await fetchNPMWeeklyDownloads(
+        package
+      );
       callback(null, data);
     } catch(e) {
       callback(e, null);

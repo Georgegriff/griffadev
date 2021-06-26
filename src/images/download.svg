@@ -1,1 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="74.118" height="90"><path data-name="Icon material-file-download" d="M74.118 31.765H52.941V0H21.176v31.765H0l37.059 37.059zM0 79.412V90h74.118V79.412z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 101 100">
+    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">
+        <path d="M96.279 68.881v17.413c0 4.808-4.541 8.706-10.142 8.706H15.142C9.542 95 5 91.1 5 86.294V68.881" />
+        <path d="M22.413 41.741l28.226 21.766 28.227-21.766" />
+        <path d="M50.639 57.239V5" />
+    </g>
+</svg>

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx gulp && concurrently \"npx gulp watch\" \"npx eleventy --watch\" \"web-dev-server\"",
+    "start": "npx gulp && concurrently \"npx gulp watch\" \"web-dev-server\" \"npx eleventy --watch\"",
     "build": "rm -rf dist && NODE_ENV=production rollup -c rollup.config.js && NODE_ENV=production npx gulp && NODE_ENV=production npx eleventy"
   },
   "keywords": [],

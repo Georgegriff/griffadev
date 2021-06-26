@@ -1,17 +1,19 @@
 ---
 title: CodeceptJS
-description: Supercharged End 2 End testing. Core contributor/open source development team member.
+description: Supercharged End 2 End testing. Contributor/open source development team member. Implementing feature, issues triage, pull request reviews and preparing releases.
 type: project
 github:
-  url:
-npm: 'yyy'
-url: https://cgguitar.co.uk
-date: '2021-04-22'
+  user: codeceptjs
+  repository: CodeceptJS
+  stars: true
+npm: codeceptjs
+url: https://codecept.io/
+date: '2021-01-22'
 technology:
   - JavaScript
   - Web Components
   - Open Source
 hero:
-  image: /images/projects/CGGuitar.jpg
-  alt: "Screenshots of CG Guitar website on various devices"
+  image: /images/projects/codecept.png
+  alt: "Screenshots of a CodeceptJS test case"
 ---
