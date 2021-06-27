@@ -4,7 +4,7 @@ description: This an experiment where I use a custom element to convert an uploa
 github:
   url: 'https://github.com/Georgegriff/griffadev/tree/main/src/experiments/img-to-css-grid'
 url: https://griffa.dev/experiments/img-to-css-grid/
-date: '2019-03-04'
+date: '2021-01-24'
 type: experiment
 technology:
   - JavaScript
