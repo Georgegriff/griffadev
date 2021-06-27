@@ -6,6 +6,11 @@
 <div class="post-wrap">
     <article class="post content">
         <h1>{{ title }}</h1>
+        <div class="breadcrumbs">
+            <a href="/">Home</a>
+            {% include 'img/chevron_right.svg' %}
+            <a href="/me/">All projects</a>
+        </div>
         <section class="post-content">
         <div class="experiment-container">
             {{ content | safe }}
