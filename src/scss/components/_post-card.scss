@@ -7,6 +7,7 @@ $card-padding: 2rem;
   border-radius: 3px;
   transition: transform 250ms ease-out;
   overflow: hidden;
+  width: 100%;  
   z-index: 1;
   &:hover, &:focus {
     transform: scale(0.98) translateY(0.3rem);
@@ -149,13 +150,6 @@ $card-padding: 2rem;
   right:1rem;
 }
 
-
-@media screen and (max-width: 45em) {
-  .post-card {
-    width: 100%;
-  }
-}
-
 .first-card {
   background: var(--Background50);
   padding: $card-padding;
@@ -174,12 +168,13 @@ $card-padding: 2rem;
       color: var(--Text);
     }
   }
-  h2 {
+  h3 {
     font-weight: 600;
     position: initial;
     font-size: 2rem;
     max-width: 20ch;
     background: transparent;
+    margin-bottom: 1rem;
     &::after {
       display: none;
     }

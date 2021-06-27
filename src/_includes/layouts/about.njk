@@ -9,6 +9,14 @@
 <div class="post-title">
     <h1 class="text-in thirdin">{{ title }}</h1>
 </div>
+{%- set firstCard = {
+  "title": "Things i've worked on",
+  "link": {
+    "href": "/",
+    "text": "Recent blog posts"
+  }
+}
+-%}
 {%- include "partials/projects.html" -%}
 
 {% endblock %}

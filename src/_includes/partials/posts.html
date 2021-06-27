@@ -3,6 +3,7 @@
     {% include './cta-heading.html' %}
     
     <ul class="tiles">
+      {%- include "./first-card.html" %}
       {% for item in postslist %}
       {% set post = item %}
       <li class="post-card">

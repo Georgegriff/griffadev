@@ -15,6 +15,14 @@
          {% include 'img/chevron_down.svg' %}
       </a>
    </div>
+   {%- set firstCard = {
+   "title": "Some of my ramblings",
+   "link": {
+      "href": "/me/",
+      "text": "You can learn more about over here."
+   }
+   }
+   -%}
    {% include  "partials/posts.html"%}
 {% endblock %}
 
