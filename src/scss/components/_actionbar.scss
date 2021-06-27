@@ -14,6 +14,7 @@
   z-index: 9001;
   overflow-x: auto;
   overflow-y: hidden;
+  border-right: solid 3px var(--Accent);
 
   .actions {
     margin: 1.15rem 0;
@@ -97,6 +98,8 @@
     top: auto;
     height: $action-bar;
     width: 100%;
+    border-right:none;
+    border-top: solid 3px var(--Accent);
 
     .actions {
       display: flex;
