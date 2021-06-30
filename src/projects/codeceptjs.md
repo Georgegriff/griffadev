@@ -1,6 +1,6 @@
 ---
 title: CodeceptJS
-description: Supercharged End 2 End testing. Contributor/open source development team member. Implementing feature, issues triage, pull request reviews and preparing releases.
+description: Supercharged End 2 End testing. Contributor/open source development team member. Implementing features, issues triage, pull request reviews and preparing releases.
 type: project
 github:
   user: codeceptjs
