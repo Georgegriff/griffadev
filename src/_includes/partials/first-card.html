@@ -1,17 +1,38 @@
-{%- if firstCard  %}
+{%- if firstCard %}
 <li class="first-card">
-    <h3>{{firstCard.title}}</h3>
-    <p>I'm a Senior Frontend Developer and Computer Science graduate currently working for Immersive labs 🙂</p>
-    <p>In addition to my professional work and blog posts, in my spare time i've worked on some projects and experiments, using various technologies.</p>
-    <a href="{{firstCard.link.href}}">{{firstCard.link.text}}</a>
-    <div class="first-card-links">
-    <a class="social-card-link" target="blank" title="My Github profile" href="{{metadata.author.github}}">
-        {%- include "img/github.svg" %}
+  <h3>{{firstCard.title}}</h3>
+  <p>
+    I'm a Senior Frontend Developer and Computer Science graduate currently
+    working for an exciting Cybersecurity education company called Immersive
+    labs 🙂.
+  </p>
+  <p>
+    In addition to my professional work and blog posts, in my spare time i've
+    worked on some projects and experiments, using various technologies.
+  </p>
+  <a href="{{firstCard.link.href}}">{{firstCard.link.text}}</a>
+  <div class="first-card-links">
+    <a
+      class="social-card-link"
+      target="blank"
+      title="My Github profile"
+      href="{{metadata.author.github}}"
+    >
+      {%- include "img/github.svg" %}
     </a>
-        <a class="social-card-link" target="blank" title="My Twitter profile" href="{{metadata.author.twitter_url}}">
-        {%- include "img/twitter.svg" %}
+    <a
+      class="social-card-link"
+      target="blank"
+      title="My Twitter profile"
+      href="{{metadata.author.twitter_url}}"
+    >
+      {%- include "img/twitter.svg" %}
     </a>
-    </div>
-    {# <a class="bottom-link" href="/cv/">For professional history, check out my CV.</a> #}
+  </div>
+  {#
+  <a class="bottom-link" href="/cv/"
+    >For professional history, check out my CV.</a
+  >
+  #}
 </li>
 {%- endif %}
