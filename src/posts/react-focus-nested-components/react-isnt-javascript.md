@@ -12,7 +12,7 @@ This is my first blog post I've written about React, despite reluctantly using i
 
 Recently, I was writing an animated slide-in sidebar component, which could be opened to reveal some additional details for another component in the page. One of my goals was to ensure that the tab and focus order of the page made sense when the details pane was opened, namely, I wanted to be able to "steal" focus on open and restore focus back to the original button on close. For example on button press (with space-bar) you should be able to open the details panel, have the panel but focused and close it again with the space-bar. Focus is then returned back to the original button and you can hit "tab" to move to the next item.
 
-Here is a simplified example of what I wass building, with some HTTP Status code kitties, try it out for yourself over in [this Code sandbox](https://codesandbox.io/s/http-status-cats-working-8tr1l?file=/src/App.jsx).
+Here is a simplified example of what I was building, with some HTTP Status code kitties, try it out for yourself over in [this Code sandbox](https://codesandbox.io/s/http-status-cats-working-8tr1l?file=/src/App.jsx).
 
 ![Animation showing using the keyboard and focus state to open and close a panel](/images/focus-drawer.gif)
 
@@ -151,7 +151,7 @@ Seeing this in the code, it was a non obvious fix, especially when reviewing ano
 - Would we have even caught this if we didn't have good tests?
 - Would we have ever found the cause of it months later when the code wasn't as fresh in the mind?
 - If React is "Just Javascript" how come it so royally breaks one of JavaScript best features of nesting functions and creating closures.
-- Why isn't this front and center of React docs and default lint rules?
+- Why isn't this front and centre of React docs and default lint rules?
 
 I did some digging on the last two points:
 
