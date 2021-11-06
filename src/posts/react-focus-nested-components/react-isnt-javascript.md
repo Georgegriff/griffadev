@@ -144,7 +144,7 @@ Here is a broken example: https://codesandbox.io/s/http-status-cats-broken-fiu72
 
 ![Animation showing broken focus on close of the panel](/images/focus-drawer-broken.gif)
 
-What's going on here is React is rendering the contents of the "App" component on each render and because the inner component is not memoized or anyway react is just throwing it in the bin and re-rendering. Internally this will be causing the dom element to be removed and re-added thus breaking the focus state being returned to the original button.
+What's going on here is React is rendering the contents of the "App" component on each render and because the inner component is not memoized or anyway react is just throwing it in the bin and re-rendering. Internally this will be causing the DOM element to be removed and re-added thus breaking the focus state being returned to the original button.
 
 Seeing this in the code, it was a non obvious fix, especially when reviewing another persons code, it got me thinking on some things:
 
