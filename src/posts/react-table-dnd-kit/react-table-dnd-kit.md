@@ -1,11 +1,18 @@
 ---
-title: Beautiful Drag and drop interactions with react hooks.
+title: Beautiful drag and drop interactions with react hooks.
 description: Recently I needed to enhance a table with drag and drop re-ordering in React. There are lots of solutions out there from roll your own to a library with large dependencies. In this article I explore using an exciting new library called dnd-kit as well as how to integrate it with react-table.
 tags:
   - JavaScript
   - React
 date: "2021-12-20"
+hero:
+  image: "/images/react-table-dnd-kit.png"
+  alt: "Drag and drop table using react-table and dnd-kit"
 ---
+
+In this article we'll explore how you could build a drag and drop sortable table.
+
+![Drag and drop table using react-table and dnd-kit.](/images/react-table-dnd-kit.png)
 
 When looking for drag and drop libraries in React there are a lot of options, some of the popular ones are:
 
