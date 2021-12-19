@@ -31,7 +31,7 @@ One common thing also brought up when looking at these libraries is those that o
 
 As part of this investigation I seriously considered `react-beautiful-dnd`, whilst it has great support and demos, I hit a few stumbling blocks along to way. It's [footprint](https://bundlephobia.com/package/react-beautiful-dnd@13.1.0) was also a hard sell to add into the application for a single use-case. I also encountered [this issue](https://github.com/atlassian/react-beautiful-dnd/issues/316) whilst I was investigating a different use case where I wanted horizontal and vertical re-ordering in a grid.
 
-After trying out some other libraries I eventually settled on @dnd-kit, which I have to say is absolutely fantastic. It is technically still in beta, but despite this its documentation is quite mature. On the [docs](https://docs.dndkit.com)site it says the following:
+After trying out some other libraries I eventually settled on @dnd-kit, which I have to say is absolutely fantastic. It is technically still in beta, but despite this its documentation is quite mature. On the [docs](https://docs.dndkit.com) site it says the following:
 
 > dnd kit is currently in beta. Issues and bugs should be expected for early releases. The core concepts are stable, but some of the APIs may change in the future.
 
