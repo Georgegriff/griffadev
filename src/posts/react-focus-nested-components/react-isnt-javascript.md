@@ -140,6 +140,17 @@ const Codes = () => (
 
 The difference is very subtle, but very important, what had been added by making `Codes` a function was a functional React component nested inside of another functional component. Remember `Codes` was a variable inside of `App`. This is the sort of thing which can easily not get picked up in code review but it breaks a lot of things.
 
+Even more interestingly, is that if you the following everything is fine.:
+
+```js
+<h1>HTTP Status Cats</h1>;
+{
+  Codes();
+}
+```
+
+Which is interesting considering that React functionally components are widely considered just a JavaScript function call, clearly when using JSX and mounting it as a React component react does "stuff".
+
 Here is a broken example: https://codesandbox.io/s/http-status-cats-broken-fiu72?file=/src/App.jsx:508-554
 
 ![Animation showing broken focus on close of the panel](/images/focus-drawer-broken.gif)

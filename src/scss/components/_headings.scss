@@ -1,13 +1,13 @@
 @import "../variables";
 
-$h1-size:min(5vw, 7vh);
-$h1-size-mob:min(6vw, 8vh);
-$h1-size-large:min(7vw, 8vh);
+$h1-size: min(5vw, 7vh);
+$h1-size-mob: min(6vw, 8vh);
+$h1-size-large: min(7vw, 8vh);
 
 h1 {
   width: auto;
   display: inline-block;
-  flex:1;
+  flex: 1;
   font-size: $h1-size;
   line-height: 4.5vw;
   height: 100%;
@@ -19,7 +19,6 @@ h2 {
   display: block;
   z-index: 10;
   font-size: 1.3rem;
-
 }
 
 .call-to-action-heading {
@@ -47,37 +46,36 @@ h2 {
     content: "";
     position: absolute;
     display: block;
-    height: 0.2rem;
+    height: 0.3rem;
     transform: translateZ(0);
     will-change: clip-path, transform;
-    clip-path: polygon(0 0,20vw 0, 20vw 100%, 0 100%);
+    clip-path: polygon(0 0, 20vw 0, 20vw 100%, 0 100%);
     margin-top: 0.2rem;
     background: var(--Primary);
     transition-delay: 0ms;
     transition: clip-path 0.3s linear;
-    
   }
 }
 
 .call-to-action-absolute {
   position: absolute;
   bottom: 2.6rem;
-  right:0;
+  right: 0;
 }
 
 .call-to-action {
   background: var(--Primary);
   color: var(--ActionColor);
   font-size: 1rem;
-  padding:0.25rem 1.5rem;
+  padding: 0.25rem 1.5rem;
   border-radius: 0.25rem;
-  margin-top:0.5rem;
+  margin-top: 0.5rem;
   transition: transform 150ms ease-out;
-  &:focus, &:hover {
+  &:focus,
+  &:hover {
     transform: scale(0.98) translateY(0.1rem);
   }
 }
-
 
 :root {
   --font-size-small: 0.875rem;
@@ -114,7 +112,7 @@ h2 {
   h2 {
     font-size: calc(#{$h1-size-large} * 0.3);
     padding-bottom: 3rem;
-    padding:4rem 0;
+    padding: 4rem 0;
     &:after {
       margin-top: 1rem;
       height: 0.5rem;
@@ -144,27 +142,29 @@ h2 {
 @media screen and (min-width: 3000px) {
   body {
     line-height: 3rem;
-    font-size:2rem;
+    font-size: 2rem;
   }
 
-  .post-date, .post-date, .post-tag, .tagline, blockquote {
+  .post-date,
+  .post-date,
+  .post-tag,
+  .tagline,
+  blockquote {
     font-size: 1.5rem !important;
   }
 
   .call-to-action {
     font-size: 2.5rem;
-    padding:0.75rem 4rem;
+    padding: 0.75rem 4rem;
     border-radius: 1rem;
   }
 }
-
 
 .post-title {
   transform: translate(0);
   transition: transform 0.3s ease-in-out, opacity 0.6s linear;
 }
 [observable="hidden"] {
-
   .post-title {
     transform: translateY(-4rem);
     opacity: 0;

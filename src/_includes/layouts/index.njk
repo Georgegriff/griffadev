@@ -1,14 +1,15 @@
 {% set pageCriticalStyles = ['css/index.css'] %}
-{% set postslist = collections.posts | reverse | head(-15) %}
+{% set postslist = collections.posts  | head(-15) | reverse %}
 {% set enableAds = true %}
-
 {% extends "layouts/base.njk" %}
-
 {% block content %}
    <div slot="observable" class="collapse">
       {% include  "partials/hero.html"%}
    </div>
-   <span id="tagline" class="site-tag"><span class="first-there">Hi,</span><span class="second-there">check out my recent posts, I mainly focus on the web.</span></span>
+   <span id="tagline" class="site-tag">
+      <span class="first-there">Hi,</span>
+      <span class="second-there">check out my recent posts, I mainly focus on the web.</span>
+   </span>
    <div class="hero-scroll-down seventhin">
       <a aria-label="Skip to recent articles" href="#tagline">
          <span>Recent activity</span>
@@ -25,7 +26,6 @@
    -%}
    {% include  "partials/posts.html"%}
 {% endblock %}
-
 {% block footer %}
-    {% include 'partials/something-wrong.html' %}
+   {% include 'partials/something-wrong.html' %}
 {% endblock %}
