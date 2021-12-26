@@ -1,28 +1,40 @@
 import { LitElement, html, css } from 'lit-element';
 
-const copyText = (element) => {
-    const selection = window.getSelection();
-
-    // Save the current selection
-    const currentRange = selection.rangeCount === 0
-        ? null : selection.getRangeAt(0);
-
-    // Select the text content of code element
-    const range = document.createRange();
-    range.selectNodeContents(element);
-    selection.removeAllRanges();
-    selection.addRange(range);
-
+const copyText = async (element) => {
+   
     // Copy to the clipboard
-    try {
-        document.execCommand('copy');
-    } catch (err) {
-        // Unable to copy
-    } finally {
-        // Restore the previous selection
-        selection.removeAllRanges();
-        currentRange && selection.addRange(currentRange);
+    if('clipboard' in navigator) {
+        try {
+            await navigator.clipboard.writeText(element.innerText);
+        } catch(err) {
+            // Unable to copy
+            throw new Error("copy failed");
+        }
+    } else {
+        try {
+            document.execCommand('copy');
+            const selection = window.getSelection();
+    
+            // Save the current selection
+            const currentRange = selection.rangeCount === 0
+                ? null : selection.getRangeAt(0);
+        
+            // Select the text content of code element
+            const range = document.createRange();
+            range.selectNodeContents(element);
+            selection.removeAllRanges();
+            selection.addRange(range);
+        
+        } catch (err) {
+            // Unable to copy
+            throw new Error("copy failed");
+        } finally {
+            // Restore the previous selection
+            selection.removeAllRanges();
+            currentRange && selection.addRange(currentRange);
+        }
     }
+ 
 }
 
 
@@ -31,6 +43,7 @@ export class CopyToClipboard extends LitElement {
         super();
         this._copyText = "Copy text";
         this._copiedText = "Copied!";
+        this._copyFailed = "Failed! :(";
         this.copyText = this._copyText;
     }
     static get styles() {
@@ -92,13 +105,17 @@ export class CopyToClipboard extends LitElement {
         `
     }
 
-    copy() {
+    async copy() {
         const slottedElements = this.shadowRoot.querySelector("slot").assignedNodes({
             flatten: true
         })
         if(slottedElements && slottedElements.length) {
-            copyText(slottedElements[0]);
-            this.copyText = this._copiedText;
+            try {
+                await copyText(slottedElements[0]);
+                this.copyText = this._copiedText;
+            } catch(e) {
+                this.copyText = this._copyFailed;
+            }
             this.requestUpdate();
         } else {
             console.error('Not slotted elements found to copy.');
