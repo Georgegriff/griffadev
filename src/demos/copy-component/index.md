@@ -39,7 +39,7 @@ From CDN:
 
 Any HTML inside of the `copy-component` tag will be made copy-able. You will likely want to add in a button to trigger the copy, to do this you must set the attribute `slot="button"` on your button (or a parent of the button). Formatting is preserved on copy.
 
-Of course, all of the "Copy buttons" use `copy-component` :).
+Of course, all of the "Copy buttons" on this website use `copy-component` :).
 
 ```html basic-usage
 <script type="module" src="https://cdn.skypack.dev/copy-component?min"></script>
@@ -95,7 +95,7 @@ Custom events are fired the following:
 ```
 
 ```js event-usage
-document.body.addEventListener("copy-success", () => {
+document.body.addEventListener("copy", () => {
   document.getElementById("copy-button").innerText = "Copied!";
 });
 ```
@@ -126,3 +126,5 @@ copy-component button:active {
 ```
 
 Check out the [codepen](https://codepen.io/georgegriff/pen/XWeVgBV).
+
+## With a Web Component library

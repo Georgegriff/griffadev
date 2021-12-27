@@ -239,16 +239,16 @@ export class LiveDemo extends LitElement {
                       get: (target, prop) => {
                         if(prop === "querySelector") {
                           return (...args) => {
-                            return this.querySelectorDeep(...args);
+                            return this.querySelectorDeep(...args, this);
                           }
                         } else if(prop === "querySelectorAll") {
                           return (...args) => {
-                            return this.querySelectorAllDeep(...args);
+                            return this.querySelectorAllDeep(...args, this);
                           };
                         } else if(prop === "getElementById") {
                           return (...args) => {
-                            const [query, ...rest] = [...args];
-                            return this.querySelectorDeep(\`#\$\{query\}\`, ...rest);
+                            const [query] = [...args];
+                            return this.querySelectorDeep(\`#\$\{query\}\`, this);
                           };
                         } else if(typeof(target[prop]) === "function") {
                           return (...args) => {
