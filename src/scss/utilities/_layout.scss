@@ -117,6 +117,9 @@ $tagline-height: 3rem;
   .hero-scroll-down {
     margin-top: -$action-bar;
   }
+  main.with-nav {
+    margin-left: 0;
+  }
 }
 
 .site-tag {
