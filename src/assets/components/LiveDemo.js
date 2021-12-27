@@ -237,11 +237,7 @@ export class LiveDemo extends LitElement {
                 try {
                     const handler = {
                       get: (target, prop) => {
-                        if(prop === "addEventListener") {
-                          return (...args) => {
-                            return this.addEventListener(...args);
-                          }
-                        } else if(prop === "querySelector") {
+                        if(prop === "querySelector") {
                           return (...args) => {
                             return this.querySelectorDeep(...args);
                           }

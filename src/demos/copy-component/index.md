@@ -95,9 +95,7 @@ Custom events are fired the following:
 ```
 
 ```js event-usage
-debugger;
-document.addEventListener("copy", () => {
-  debugger;
+document.body.addEventListener("copy-success", () => {
   document.getElementById("copy-button").innerText = "Copied!";
 });
 ```
@@ -105,6 +103,7 @@ document.addEventListener("copy", () => {
 ```css event-usage
 copy-component {
   position: relative;
+  display: flex;
   border: 2px lightgrey dashed;
 }
 
@@ -125,3 +124,5 @@ copy-component button:active {
   background: rgba(0, 0, 0, 0.8);
 }
 ```
+
+Check out the [codepen](https://codepen.io/georgegriff/pen/XWeVgBV).
