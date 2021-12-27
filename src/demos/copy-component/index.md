@@ -95,6 +95,7 @@ Custom events are fired the following:
 ```
 
 ```js event-usage
+debugger;
 document.addEventListener("copy", () => {
   document.getElementById("copy-button").innerText = "Copied!";
 });
