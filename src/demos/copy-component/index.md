@@ -84,7 +84,6 @@ Custom events are fired the following:
 `copy-failed` - when copy fails
 
 ```html event-usage
-<script type="module" src="https://cdn.skypack.dev/copy-component?min"></script>
 <copy-component>
   <p>
     Hello<br />
