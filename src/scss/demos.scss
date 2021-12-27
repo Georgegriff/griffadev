@@ -1,0 +1,125 @@
+@import "colors";
+@import "./syntax/code";
+
+h1 .direct-link {
+  display: none;
+}
+
+.card-wrapper {
+  z-index: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+}
+
+.code-hero {
+  max-width: 88%;
+  margin: 1rem;
+  border: solid 2px var(--Primary);
+}
+
+@media screen and (max-width: 60em) {
+  .code-hero {
+    max-width: 77%;
+  }
+}
+
+form {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.input-field {
+  background: var(--Background);
+  line-height: 1.29;
+  cursor: pointer;
+  border: 2px solid var(--Secondary);
+  border-radius: 0.5rem;
+  appearance: none;
+  outline-offset: 3px;
+  text-overflow: ellipsis;
+  font-size: 1rem;
+  padding: 0.25rem 1.5rem;
+  height: 2.5rem;
+  font-weight: 600;
+  color: var(--Text);
+  width: 500px;
+  max-width: 90vw;
+
+  &:focus {
+    outline-color: var(--Primary);
+  }
+}
+
+input,
+button {
+  &:disabled {
+    background: $grey;
+    cursor: not-allowed;
+    color: var(--White);
+    opacity: 0.4;
+  }
+}
+
+button {
+  font-family: inherit;
+  background: var(--Primary);
+  color: var(--Background);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.25rem 1.5rem;
+  outline-offset: 3px;
+  border-radius: 0.25rem;
+  transition: transform 150ms ease-out 0s;
+  bottom: 1.1rem;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  margin: 0.5rem;
+  height: 2.33rem;
+  &:focus {
+    outline-color: var(--Primary);
+  }
+}
+
+.experiment-container {
+  margin-top: 1rem;
+  min-height: 90vh;
+  background: var(--Background);
+}
+
+ol {
+  padding-left: 0;
+}
+
+.list-item {
+  list-style-type: none;
+}
+
+.results-card {
+  margin-bottom: 2rem;
+}
+
+.code-hero {
+  copy-to-clipboard {
+    margin-bottom: 0;
+  }
+}
+
+.demo-card {
+  margin-top: 2rem;
+  margin-bottom: var(--site-padding);
+}

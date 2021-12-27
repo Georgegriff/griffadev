@@ -3,9 +3,9 @@ title: Natural language post search
 description: An experiment exploring the use of Machine learning for searching blog posts using Tensorflow.
 type: experiment
 github:
-  url: 'https://github.com/Georgegriff/griffadev/tree/main/src/experiments/natural-language-search'
-url: https://griffa.dev/experiments/natural-language-search/
-date: '2020-12-22'
+  url: "https://github.com/Georgegriff/griffadev/tree/main/src/demos/natural-language-search"
+url: https://griffa.dev/demos/natural-language-search/
+date: "2020-12-22"
 technology:
   - JavaScript
   - Web Components

@@ -1,20 +1,19 @@
 .project-card {
-    .post-img-link .post-img {
-        height: 18rem;
-    }
+  .post-img-link .post-img {
+    height: 18rem;
+  }
 }
 
 .project-tiles {
-    display: grid;
-    margin-top:1rem;
-    place-items: center;
-    gap: 2rem;
-    grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
+  display: grid;
+  margin-top: 1rem;
+  place-items: center;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
 }
 
 @media screen and (max-width: 45em) {
-    .project-tiles {
-        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-    }
+  .project-tiles {
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  }
 }
-  

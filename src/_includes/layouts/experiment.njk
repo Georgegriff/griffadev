@@ -1,21 +1,20 @@
 {% extends "layouts/base.njk" %}
-{% set enableAds = true  %}
-{% set pageCriticalStyles = ['css/experiments.css']  %}
+{% set enableAds = true %}
+{% set pageCriticalStyles = ['css/demos.css'] %}
 {% block content %}
-
-<div class="post-wrap">
-    <article class="post content">
-        <h1>{{ title }}</h1>
-        <div class="breadcrumbs">
-            <a href="/">Home</a>
-            {% include 'img/chevron_right.svg' %}
-            <a href="/me/">All projects</a>
-        </div>
-        <section class="post-content">
-        <div class="experiment-container">
-            {{ content | safe }}
-        </div>
-        </section>
-    </article>
-</div>
+    <div class="post-wrap">
+        <article class="post content">
+            <h1>{{ title }}</h1>
+            <div class="breadcrumbs">
+                <a href="/">Home</a>
+                {% include 'img/chevron_right.svg' %}
+                <a href="/me/">All projects</a>
+            </div>
+            <section class="post-content">
+                <div class="experiment-container">
+                    {{ content | safe }}
+                </div>
+            </section>
+        </article>
+    </div>
 {% endblock %}
