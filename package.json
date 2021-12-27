@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.0",
+    "@11ty/eleventy": "^0.12.1",
     "@11ty/eleventy-cache-assets": "^2.2.1",
     "@11ty/eleventy-img": "^0.8.2",
     "@11ty/eleventy-navigation": "^0.1.6",
@@ -20,7 +20,7 @@
     "@open-wc/building-rollup": "^1.7.0",
     "@rollup/stream": "^1.0.0",
     "@web/dev-server": "0.0.13",
-    "concurrently": "^5.3.0",
+    "concurrently": "^6.5.1",
     "datauri": "^3.0.0",
     "deepmerge": "^4.2.2",
     "eleventy-plugin-embed-twitter": "^1.0.1",
@@ -29,7 +29,7 @@
     "get-google-fonts": "^1.2.2",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
-    "gulp-sass": "^4.1.0",
+    "gulp-sass": "^5.0.0",
     "image-size": "^0.9.1",
     "jsdom": "^16.5.1",
     "luxon": "^1.21.3",
@@ -43,6 +43,7 @@
     "terser": "^5.3.2"
   },
   "dependencies": {
+    "copy-component": "0.0.6",
     "lit-element": "^2.4.0",
     "lit-html": "^1.2.1",
     "lite-youtube-embed": "0.0.0",

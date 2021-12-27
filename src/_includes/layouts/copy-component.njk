@@ -1,0 +1,19 @@
+{% extends "layouts/base.njk" %}
+{% set pageCriticalStyles = ['css/demos.css'] %}
+{% set nav = false %}
+{% set codeHero %}
+<copy-to-clipboard>
+    <pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> copy-component</code></pre>
+</copy-to-clipboard>
+{% endset %}
+{% block content %}
+    <div class="card-wrapper">
+        <h1>Add a copy button to any HTML</h1>
+        {% include "partials/demo-card.html" %}
+        <div class="post-wrap">
+            <article class="post content">
+                {{ content | safe }}
+            </article>
+        </div>
+    </div>
+{% endblock content %}
