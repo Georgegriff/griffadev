@@ -39,7 +39,7 @@ From CDN:
 
 Any HTML inside of the `copy-component` tag will be made copy-able. You will likely want to add in a button to trigger the copy, to do this you must set the attribute `slot="button"` on your button (or a parent of the button). Formatting is preserved on copy.
 
-Of course, all of the "Copy buttons" on this website use `copy-component` :).
+Of course, all of the "Copy buttons" on this website use `copy-component` 😊.
 
 ```html basic-usage
 <script type="module" src="https://cdn.skypack.dev/copy-component?min"></script>
@@ -139,7 +139,7 @@ class CopyToClipboard extends LitElement {
     super();
     this._copyText = "Copy text";
     this._copiedText = "Copied!";
-    this._copyFailed = "Failed! :(";
+    this._copyFailed = "Failed! 😞";
     this.copyText = this._copyText;
   }
   static get styles() {

@@ -6,7 +6,7 @@ export class CopyToClipboard extends LitElement {
     super();
     this._copyText = "Copy text";
     this._copiedText = "Done!";
-    this._copyFailed = "Failed! :(";
+    this._copyFailed = "Failed! 😞";
     this.copyText = this._copyText;
   }
   static get styles() {

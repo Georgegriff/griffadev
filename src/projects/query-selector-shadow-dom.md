@@ -1,7 +1,7 @@
 ---
 title: query-selector-shadow-dom
 description: NPM package I created and maintain. It's a utility which helps with testing Web Components using Shadow DOM.
-type: "project"
+type: "Library"
 github:
   user: Georgegriff
   repository: query-selector-shadow-dom
