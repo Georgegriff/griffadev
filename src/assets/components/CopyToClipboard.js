@@ -1,11 +1,11 @@
-import "copy-component";
-import { LitElement, html, css } from "lit-element";
+import { LitElement, html, css } from "lit";
+export { CopyComponent } from "copy-component/CopyComponent";
 
 export class CopyToClipboard extends LitElement {
   constructor() {
     super();
     this._copyText = "Copy text";
-    this._copiedText = "Copied!";
+    this._copiedText = "Done!";
     this._copyFailed = "Failed! :(";
     this.copyText = this._copyText;
   }
@@ -33,9 +33,10 @@ export class CopyToClipboard extends LitElement {
 
       button {
         font-family: inherit;
+        text-transform: uppercase;
         background: var(--Primary);
         color: var(--Background);
-        font-size: 1rem;
+        font-size: 0.875rem;
         font-weight: 600;
         padding: 0.25rem 1.5rem;
         border-top-left-radius: 0.25rem;
@@ -77,7 +78,7 @@ export class CopyToClipboard extends LitElement {
 
   render() {
     return html`
-      <copy-component
+      <copy-to-clipboard-copy
         @copy=${this._onCopy.bind(this)}
         @copy-failed=${this._onCopyFailed.bind(this)}
       >
@@ -89,7 +90,7 @@ export class CopyToClipboard extends LitElement {
         >
           ${this.copyText}
         </button>
-      </copy-component>
+      </copy-to-clipboard-copy>
     `;
   }
 }

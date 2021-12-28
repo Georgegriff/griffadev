@@ -1,4 +1,4 @@
-import { LitElement, html, css } from "lit-element";
+import { LitElement, html, css } from "lit";
 
 export class IntersectDetect extends LitElement {
   static get styles() {
@@ -10,7 +10,6 @@ export class IntersectDetect extends LitElement {
 
       .scroller {
         height: 100%;
-
       }
 
       #intersection {
@@ -37,19 +36,19 @@ export class IntersectDetect extends LitElement {
     let root = this.rootElement || null;
     // todo re-use
     var observer = new IntersectionObserver(
-       (entries) => {
+      (entries) => {
         // no intersection with screen
         const entry = entries[0];
         if (entry.intersectionRatio <= thresholds[0]) {
           this._fireIntersecting(entry, false);
           this.setAttribute("observable", "hidden");
           // fully intersects with screen
-        } else if(entry.intersectionRatio >= thresholds[1]){
+        } else if (entry.intersectionRatio >= thresholds[1]) {
           this._fireIntersecting(entry, true);
           this.setAttribute("observable", "visible");
         }
       },
-      { threshold:  thresholds, root }
+      { threshold: thresholds, root }
     );
 
     observer.observe(this.shadowRoot.querySelector("#observable"));
@@ -58,18 +57,17 @@ export class IntersectDetect extends LitElement {
   static get properties() {
     return {
       thresholds: String,
-      rootElement: HTMLElement
+      rootElement: HTMLElement,
     };
   }
 
   render() {
-    return html`
-    <slot name="before"></slot>
-    <div class="scroller">
-      <div id="observable">
+    return html` <slot name="before"></slot>
+      <div class="scroller">
+        <div id="observable">
           <slot name="observable"></slot>
-      </div>
-      <slot></slot> 
-    </div>`;
+        </div>
+        <slot></slot>
+      </div>`;
   }
 }

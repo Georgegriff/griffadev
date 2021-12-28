@@ -1,6 +1,6 @@
-import { LitElement, html, css, customElement, property } from "lit-element";
-import { render } from "lit-html";
-import { unsafeHTML } from "lit-html/directives/unsafe-html";
+import { LitElement, html, css } from "lit";
+import { render } from "lit";
+import { unsafeHTML } from "lit/directives/unsafe-html";
 import { querySelectorAllDeep } from "query-selector-shadow-dom";
 import { querySelectorDeep } from "query-selector-shadow-dom";
 import { closeIcon, expandIcon } from "./icons.js";
@@ -20,7 +20,9 @@ const _splitImports = (jsString) => {
   return lines.reduce(
     ([imports, code], current) => {
       if (
-        current.match(/import.{1,}from/g) ||
+        current.match(
+          /import(?:['"\s]*([\w*${}\s,]+)from\s*)?['"\s]['"\s](.*[@\w_-]+)['"\s].*/gm
+        ) ||
         current.match(/export.{1,}from/g)
       ) {
         imports += current;
@@ -268,6 +270,7 @@ export class LiveDemo extends LitElement {
                 }
             }.bind(window.__liveDemoRef))();`;
       const script = document.createElement("script");
+      console.log(allCode);
       script.textContent = allCode;
       script.type = "module";
       const content = () => html`

@@ -1,10 +1,10 @@
 ---
-title: 'Using Web Components With 11ty'
+title: "Using Web Components With 11ty"
 description: I took a progressive enhancement approach to using frontend javascript for my blog, Web Components are the perfect fit here.
 series:
   title: Building a personal blog
   order: 4
-date: '2020-10-07'
+date: "2021-12-28"
 tags:
   - 11ty
   - WebComponents
@@ -32,6 +32,7 @@ Here are a couple of uses cases I had for progressively enhanced content, using 
 ### YouTube embed
 
 To embed a YouTube video via progressive enhancement, you first need to identify what is the minimal HTML-only implementation of the content, this is:
+
 - A link which when clicked navigates to the video.
 - An image thumbnail to be used for the link to wrap.
 - A caption for the video, important for accessibility.
@@ -43,17 +44,30 @@ The second part of this is identifying a component to use to embed the YouTube p
 `npm install lite-youtube-embed`
 
 ```html
-<lite-youtube class="video" videoid="j8mJrhhdHWc" style="background-image: url('https://i.ytimg.com/vi/j8mJrhhdHWc/hqdefault.jpg');">
-      <a onclick="('customElements' in window) && event.preventDefault()" title="Play Video" class="no-js" target="_blank" href="https://youtube.com?w=j8mJrhhdHWc">{% include "img/play.svg" %}</a>
+<lite-youtube
+  class="video"
+  videoid="j8mJrhhdHWc"
+  style="background-image: url('https://i.ytimg.com/vi/j8mJrhhdHWc/hqdefault.jpg');"
+>
+  <a
+    onclick="('customElements' in window) && event.preventDefault()"
+    title="Play Video"
+    class="no-js"
+    target="_blank"
+    href="https://youtube.com?w=j8mJrhhdHWc"
+    >{% include "img/play.svg" %}</a
+  >
 </lite-youtube>
 ```
 
 There's a couple of things going on above:
+
 - background-image server from youtube CDN.
 - There is an `<a>` by default, this will open the youtube video in a new tab
 - onclick to prevent opening a new tab.
 
 Explaining the onclick: Whats happening here is.
+
 - If Web Components/JavaScript are not available on the site, the onclick is ignored, and links as expected, I do this by checking if `customElements` is supported in the browser.
 - When JS/Web Components are enabled and the link is clicked, the tab does not open, and the click is instead handled by `lite-youtube`, resulting in a youtube embed.
 
@@ -82,15 +96,16 @@ Let's get meta, here is a Live demo web component that renders itself.
 ```
 
 ```css live-demo-demo
-  live-demo {
-    width: 400px;
-    height: 300px;
-    margin:3rem;
-    min-height: auto;
-    display: flex;
-  }
+live-demo {
+  width: 400px;
+  height: 300px;
+  margin: 3rem;
+  min-height: auto;
+  display: flex;
+}
 ```
-The approach i've taken here is that when the web component is not available, the code is just rendered and syntax highlighted, but when JS is available a live demo component appears. If you were to  disable JavaScript in  your browser you should just see the code snippets instead.
+
+The approach i've taken here is that when the web component is not available, the code is just rendered and syntax highlighted, but when JS is available a live demo component appears. If you were to disable JavaScript in your browser you should just see the code snippets instead.
 
 I made use of slots, one for `js` one for `html` and one for `css`. The web component then takes the text content and renders it appropriately.
 
@@ -105,7 +120,7 @@ Setting up a development environment for 11ty and web components is pretty simpl
 If you want to use some components or libraries from NPM e.g. lit-html/lit-element you will need a way to transform `bare imports` into relative urls that work in the browser, e.g.
 
 ```js
-import { LitElement } from "lit-element";
+import { LitElement } from "lit";
 ```
 
 would become something like:
@@ -145,6 +160,7 @@ and combine them into a npm script:
 
 Combining the above will give us a dev server, however we have not told it how find our 11ty `_site` folder, as well as resolving our node modules.
 In order to do this we will need to introduce a small config file and implement a simple middleware to do the following:
+
 - If the request is an 11ty asset serve it from `_site` by appending `_site` to url.
 - If the request is for a html page serve it from `_site`
 - Otherwise move to `next()` which will allow JS files to be handled by logic to resolve ESM imports.
@@ -156,13 +172,13 @@ module.exports = {
   port: 8000,
   watch: true,
   rootDir: ".",
-  middleware: [
-      serve11tyAssets({dist: "_site_"})
-    ],
-  nodeResolve: true
+  middleware: [serve11tyAssets({ dist: "_site_" })],
+  nodeResolve: true,
 };
 ```
+
 This should all be quite straight forward to understand hopefully:
+
 - port: Local port for the server
 - watch: Makes browser reload whenever something changes
 - rootDir: This should be the root dir that contains `node_modules` and the 11ty `_site` folder.
@@ -179,24 +195,24 @@ const URL = require("url").URL;
  *
  * Check if asset lives in 11ty _site folder, if not serve from root folder.
  */
-const serve11tyAssets = ({dist = "_site"} = {}) => {
-    return async (context, next) => {
-        // Node URL requires a full url so... whatever.com (url isnot important)
-        const pathName = new URL(`https://whatever.com${context.url}`).pathname;
-        // is the request for a html file?
-        const url = pathName.endsWith("/") ? `${pathName}index.html` : pathName;
-        try {
-            // check if the file exists, if so, modify the url to come from `_site` folder.
-            const stats = await fs.stat(path.join(dist, url));
-            if (stats.isFile()) {
-                context.url = `/${dist}${pathName}`
-            }
-            return next();
-        } catch  {
-            return next();
-        }
+const serve11tyAssets = ({ dist = "_site" } = {}) => {
+  return async (context, next) => {
+    // Node URL requires a full url so... whatever.com (url isnot important)
+    const pathName = new URL(`https://whatever.com${context.url}`).pathname;
+    // is the request for a html file?
+    const url = pathName.endsWith("/") ? `${pathName}index.html` : pathName;
+    try {
+      // check if the file exists, if so, modify the url to come from `_site` folder.
+      const stats = await fs.stat(path.join(dist, url));
+      if (stats.isFile()) {
+        context.url = `/${dist}${pathName}`;
+      }
+      return next();
+    } catch {
+      return next();
     }
-}
+  };
+};
 ```
 
 Hopefully this example makes sense, and shows how simple it is to add vanilla JavaScript modules into your 11ty development server.
@@ -205,7 +221,6 @@ You can easily add new tools into this chain if you need as well e.g. gulp
 ```js
     "start": "npx gulp && concurrently \"npx gulp watch\" \"npx eleventy --watch\" \"web-dev-server\""
 ```
-
 
 ## Production optimization of JavaScript
 
@@ -223,23 +238,24 @@ import { createBasicConfig } from "@open-wc/building-rollup";
 import outputManifest from "rollup-plugin-output-manifest";
 
 const entrypoints = {
-  index: "src/assets/index.js"
+  index: "src/assets/index.js",
 };
 
 const baseConfig = createBasicConfig({
-  outputDir: "dist/assets"
+  outputDir: "dist/assets",
 });
 
 export default merge(baseConfig, {
   input: entrypoints,
-  plugins: [outputManifest({
+  plugins: [
+    outputManifest({
       // ../ to go outside of dist and into include
-      fileName: '../../src/_includes/manifest.json',
+      fileName: "../../src/_includes/manifest.json",
       // assets is my folder of choice for js files
-      publicPath: 'assets/'
-  })]
+      publicPath: "assets/",
+    }),
+  ],
 });
-
 ```
 
 You can add extra entrypoints, which is helpful, if you only want to load some components on some pages.
@@ -251,27 +267,31 @@ Create a file called `src/_data/assets.js`, which will be read as [Global Data F
 
 ```js
 module.exports = {
-    getPath: (assetName) => {
-        if (process.env.NODE_ENV === "production") {
-            const assets = require("../_includes/manifest.json");
-            const modulePath = assets[assetName];
-            if(!modulePath) {
-              throw new Error(`error with getAsset, ${assetName} does not exist in manifest.json`);
-            }
-            return `/${modulePath}`;
-        } else {
-            return `/src/assets/${assetName}`;
-        }
+  getPath: (assetName) => {
+    if (process.env.NODE_ENV === "production") {
+      const assets = require("../_includes/manifest.json");
+      const modulePath = assets[assetName];
+      if (!modulePath) {
+        throw new Error(
+          `error with getAsset, ${assetName} does not exist in manifest.json`
+        );
+      }
+      return `/${modulePath}`;
+    } else {
+      return `/src/assets/${assetName}`;
     }
-}
+  },
+};
 ```
 
 Then in 11ty templates:
 
 {% raw %}
+
 ```html
     <script src="{{ assets.getPath("index.js")}}" type="module"></script>
 ```
+
 {% endraw %}
 
 Doing this allowed me to just serve the unmodified src code when in development, but embed the production assets, which have hashes in their names for cache busting.

@@ -126,4 +126,109 @@ copy-component button:active {
 
 Check out the [codepen](https://codepen.io/georgegriff/pen/XWeVgBV).
 
-## With a Web Component library
+## Web Component library
+
+Here's an example using the component within lit
+
+```js lit-copy
+import { LitElement, html, css } from "https://cdn.skypack.dev/lit";
+import "https://cdn.skypack.dev/copy-component";
+
+class CopyToClipboard extends LitElement {
+  constructor() {
+    super();
+    this._copyText = "Copy text";
+    this._copiedText = "Copied!";
+    this._copyFailed = "Failed! :(";
+    this.copyText = this._copyText;
+  }
+  static get styles() {
+    return css`
+      :host {
+        display: flex;
+        flex-direction: column;
+        margin: 0.5rem;
+        padding: 0.5rem;
+        position: relative;
+        border: 2px dashed #82212c;
+        max-height: 450px;
+        overflow: auto;
+      }
+      :host([hidden]) {
+        display: none;
+      }
+
+      button {
+        font-family: inherit;
+        text-transform: uppercase;
+        background: #82212c;
+        color: #1a1a1a;
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 0.25rem 1.5rem;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0;
+        border: none;
+        cursor: pointer;
+        z-index: 1;
+        height: 2.5rem;
+        margin-left: auto;
+      }
+
+      button:active {
+        background: #5a363a;
+      }
+
+      .floating-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+
+      ::slotted(*) {
+        margin: 0 !important;
+        height: 100%;
+        padding-bottom: 2.5rem;
+      }
+    `;
+  }
+
+  _onCopy() {
+    this.copyText = this._copiedText;
+    this.requestUpdate();
+  }
+
+  _onCopyFailed() {
+    this.copyText = this._copyFailed;
+    this.requestUpdate();
+  }
+
+  render() {
+    return html`
+      <copy-component
+        @copy=${this._onCopy.bind(this)}
+        @copy-failed=${this._onCopyFailed.bind(this)}
+      >
+        <slot></slot>
+        <button
+          slot="button"
+          class="floating-btn"
+          aria-label="Copy to clipboard"
+        >
+          ${this.copyText}
+        </button>
+      </copy-component>
+    `;
+  }
+}
+
+customElements.define("copy-it", CopyToClipboard);
+```
+
+```html lit-copy
+<copy-it>
+  <p>Some text to copy</p>
+  <br />
+  <p>Formatting is preserved!</p>
+</copy-it>
+```
