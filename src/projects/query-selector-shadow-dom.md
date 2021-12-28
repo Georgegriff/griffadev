@@ -8,7 +8,7 @@ github:
   stars: true
 npm: query-selector-shadow-dom
 url: https://github.com/Georgegriff/query-selector-shadow-dom
-date: '2021-05-22'
+date: "2021-05-22"
 technology:
   - JavaScript
   - Web Components
@@ -16,4 +16,5 @@ technology:
 hero:
   image: /images/projects/query-selector-shadow-dom.png
   alt: "Screenshots of Chrome developer tools showing custom elements with shadow roots"
+linkText: "Source"
 ---

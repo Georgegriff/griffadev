@@ -109,6 +109,7 @@ export class LiveDemo extends LitElement {
         background: var(--Secondary);
         padding: 0.5rem;
         align-items: center;
+        flex-wrap: wrap;
       }
 
       griff-select {

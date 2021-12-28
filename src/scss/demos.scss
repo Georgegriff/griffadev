@@ -30,6 +30,12 @@ h1 .direct-link {
   }
 }
 
+@media screen and (max-width: 45em) {
+  .code-hero {
+    max-width: 100%;
+  }
+}
+
 form {
   display: flex;
   align-items: center;

@@ -64,7 +64,7 @@ copy-component *:not([slot="button"]) {
 copy-component button {
   position: absolute;
   text-transform: uppercase;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.3);
   color: white;
   top: 0;
   right: 0;

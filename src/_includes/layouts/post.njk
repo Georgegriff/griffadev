@@ -1,48 +1,44 @@
 {% extends "layouts/base.njk" %}
-
 {% set skipLinkAnchor = "#article-content" %}
-
 {% set pageCriticalStyles = ['css/blog.css'] %}
-
-{% set enableAds = true  %}
+{% set enableAds = true %}
 {% block content %}
-{% set seriesInfo = {series:series, seriesEntries: seriesEntries} | getSeriesInfo %}
-<div slot="observable">
-    {% include "partials/post-hero.html" %}
-</div>
-
-<div class="post-title">
-    <h1 class="text-in thirdin">{{ title }}</h1>
-</div>
-<div class="post-wrap">
-    <article class="post content">
-        {% set postContent = content %}
-        {% set date = page.date %}
-        {% include 'partials/breadcrumbs.html' %}
-        <div class="post-meta-sticky">
-            <div>
-                {% include 'partials/share-page.html' %}
-                {% include "partials/post-meta.html" %}
+    {% set seriesInfo = {series:series, seriesEntries: seriesEntries} | getSeriesInfo %}
+    <div slot="observable">
+        {% include "partials/post-hero.html" %}
+    </div>
+    <div class="post-title">
+        <h1 class="text-in thirdin">{{ title }}</h1>
+    </div>
+    <div class="post-wrap">
+        <div class="post content">
+            {% set postContent = content %}
+            {% set date = page.date %}
+            {% include 'partials/breadcrumbs.html' %}
+            <div class="post-meta-sticky">
+                <div>
+                    {% include 'partials/share-page.html' %}
+                    {% include "partials/post-meta.html" %}
+                </div>
             </div>
+            {% include "partials/post-tags.html" %}
+            <article id="article-content">
+                <blockquote>{{ description }}</blockquote>
+                {% include 'partials/series-nav.html' %}
+                <section class="post-content">
+                    {{ content | safe }}
+                </section>
+                {% include 'partials/series-nav.html' %}
+            </article>
         </div>
-        {% include "partials/post-tags.html" %}
-        <article id="article-content">
-            <blockquote>{{description}}</blockquote>
-            {% include 'partials/series-nav.html' %}
-            <section class="post-content">
-                {{ content | safe }}
-            </section>
-            {% include 'partials/series-nav.html' %}
-        </article>
-    </article>
-</div>
+    </div>
 {% endblock %}
 {% block footer %}
-        <div class="sticky-footer">
-            {% include 'partials/author-data.html' %}
-            {% include 'partials/share-page.html' %}
-        </div>
-        {% include 'partials/something-wrong.html' %}
-        {% include 'partials/recommended-posts.html' %}
-        {% include 'partials/comments-section.html' %}
+    <div class="sticky-footer">
+        {% include 'partials/author-data.html' %}
+        {% include 'partials/share-page.html' %}
+    </div>
+    {% include 'partials/something-wrong.html' %}
+    {% include 'partials/recommended-posts.html' %}
+    {% include 'partials/comments-section.html' %}
 {% endblock %}

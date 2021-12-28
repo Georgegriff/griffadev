@@ -16,6 +16,7 @@ technology:
 hero:
   image: /images/projects/copy-component.png
   alt: "Screenshots of copy-component custom element"
+linkText: "Source"
 ---
 
 ## title: copy-component - a vanilla web component
