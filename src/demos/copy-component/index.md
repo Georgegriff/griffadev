@@ -29,11 +29,23 @@ Import the module to be handled by your bundler (or not). If you'd prefer to jus
 import "copy-component";
 ```
 
+```html
+<copy-component>
+  <p>
+    Hello<br />
+    world
+  </p>
+  <button slot="button">Copy</button>
+</copy-component>
+```
+
 From CDN:
 
 ```html
 <script type="module" src="https://cdn.skypack.dev/copy-component?min"></script>
 ```
+
+Here is an un-styled [Codepen](https://codepen.io/georgegriff/pen/BawJbKE).
 
 ## Basic usage
 
