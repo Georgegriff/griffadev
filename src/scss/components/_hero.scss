@@ -8,11 +8,12 @@
   display: flex;
   position: relative;
   align-items: center;
+  gap: 1rem;
   flex-direction: row-reverse;
   margin-bottom: 2rem;
   margin-top: 2rem;
   .header-wrap {
-    margin-top:1rem;
+    margin-top: 1rem;
   }
   svg {
     min-width: 72%;
@@ -28,7 +29,7 @@
 
 @media screen and (min-width: 65em) {
   .hero {
-    margin-top:0;
+    margin-top: 0;
   }
 }
 
@@ -43,7 +44,7 @@
 /* todo figure out re-using */
 @media screen and (max-width: 80em) {
   body {
-    --site-padding:  #{$mid-padding};
+    --site-padding: #{$mid-padding};
   }
   .hero {
     svg {
@@ -80,7 +81,6 @@
     padding-top: 22.5%;
   }
   .hero-img {
-   
     max-width: $max-post-width;
     width: 100%;
     height: 100%;
@@ -91,7 +91,8 @@
     bottom: 0;
     position: absolute;
     overflow: hidden;
-    img, svg {
+    img,
+    svg {
       display: flex;
       width: 100%;
       height: 100%;
@@ -103,7 +104,6 @@
   }
 }
 
-
 @media screen and (min-width: 3000px) {
   .post-hero {
     .hero-img {
@@ -114,27 +114,25 @@
 
 @media screen and (max-width: 90em) {
   body {
-    --site-padding:  #{$mid-padding};
+    --site-padding: #{$mid-padding};
   }
   .post-hero {
-  
     .img-wrapper {
-      padding-top:48vh;
+      padding-top: 48vh;
     }
   }
 }
 
 @media screen and (max-width: 75em) {
   .post-hero .series-info {
-    right:1rem;
+    right: 1rem;
   }
   body {
-    --site-padding:  #{$mid-padding};
+    --site-padding: #{$mid-padding};
   }
   .post-hero {
-  
     .img-wrapper {
-      padding-top:42%;
+      padding-top: 42%;
     }
   }
 }
@@ -146,7 +144,6 @@
     text-align: center;
   }
 
-
   .hero {
     flex-wrap: wrap;
     margin-bottom: 1rem;
@@ -157,11 +154,10 @@
   }
 }
 
-
 /* todo figure out re-using */
 @media screen and (max-width: 45em) {
   .post-hero .img-wrapper {
-    margin:0;
+    margin: 0;
     width: 100%;
   }
 
@@ -171,14 +167,13 @@
 
   .post-hero {
     .img-wrapper {
-      padding-top:42%;
+      padding-top: 42%;
     }
     .hero-title {
       margin: 0 2rem;
     }
   }
 }
-
 
 /* animation */
 .fadein {
@@ -202,12 +197,11 @@
 
 @keyframes grow {
   0% {
-    clip-path: polygon(0 0,0px 0, 0px 100%, 0 100%);
+    clip-path: polygon(0 0, 0px 0, 0px 100%, 0 100%);
   }
 
   100% {
-    clip-path: polygon(0 0,100% 0, 100% 100%, 0 100%);
-
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 }
 
@@ -221,8 +215,7 @@
   }
 
   100% {
-    clip-path: polygon(0 0,100% 0, 100% 100%, 0 100%);
-
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 }
 
@@ -233,14 +226,12 @@
 @keyframes growleft {
   0% {
     clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
-   }
+  }
 
   100% {
-    clip-path: polygon(0 0,100% 0, 100% 100%, 0 100%);
-
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 }
-
 
 .grow-diagonal {
   animation: growdiagonal 0.7s forwards;
@@ -252,7 +243,7 @@
   }
 
   100% {
-    clip-path: polygon(0 0,100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 }
 
@@ -266,18 +257,15 @@
   }
 
   100% {
-    clip-path: polygon(0 0,100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 }
-
-
 
 .computer {
   opacity: 0;
   animation: computer 2s forwards;
-  fill:var(--White);
+  fill: var(--White);
 }
-
 
 @keyframes computer {
   0% {
@@ -287,31 +275,27 @@
 
   100% {
     transform: translate(955 -996.046) !important;
-    opacity:1;
-    fill:var(--HeroBorders);
+    opacity: 1;
+    fill: var(--HeroBorders);
   }
 }
 
-
-
 .person {
-  animation: tilt .6s forwards;
+  animation: tilt 0.6s forwards;
   opacity: 0;
 }
 
 @keyframes tilt {
   0% {
     opacity: 0;
-    transform: matrix(1, -0.015, -.045, 1, -272.484, -168.328);
+    transform: matrix(1, -0.015, -0.045, 1, -272.484, -168.328);
   }
 
   100% {
     opacity: 1;
-    transform: matrix(1, -0.015, -.025, 1, -252.484, -168.328);
-
+    transform: matrix(1, -0.015, -0.025, 1, -252.484, -168.328);
   }
 }
-
 
 .text-in {
   animation: transdown 0.7s forwards;
@@ -336,38 +320,35 @@
   100% {
     transform: translateY(0px);
     opacity: 1;
-
   }
 }
 
-$global-delay:0.5s;
+$global-delay: 0.5s;
 
 .firstin {
-  animation-delay:$global-delay + .1s;
+  animation-delay: $global-delay + 0.1s;
 }
 
 .secondin {
-  animation-delay:$global-delay +.3s;
+  animation-delay: $global-delay + 0.3s;
 }
 
 .thirdin {
-  animation-delay:$global-delay + .5s;
+  animation-delay: $global-delay + 0.5s;
 }
 
 .fourthin {
-  animation-delay:$global-delay + .7s;
+  animation-delay: $global-delay + 0.7s;
 }
 
 .fifthin {
-  animation-delay:$global-delay + 1s;
+  animation-delay: $global-delay + 1s;
 }
 
 .sixthin {
-  animation-delay:$global-delay + 1.3s;
+  animation-delay: $global-delay + 1.3s;
 }
 
 .seventhin {
-  animation-delay:$global-delay + 1.6s;
+  animation-delay: $global-delay + 1.6s;
 }
-
-
