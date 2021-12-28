@@ -76,6 +76,34 @@ copy-component button:active {
 }
 ```
 
+## Limitations
+
+In order to preserve the formatting of copied content you must wrap your content you want to copy in single parent dom node i.e.
+
+```html
+<copy-component>
+  <div>
+    <p>Stuff to copy</p>
+    <br />
+    <p>Copy me too!</p>
+  </div>
+  <button slot="button">Copy me!</button>
+</copy-component>
+```
+
+NOT
+
+```html
+<copy-component>
+  <p>Stuff to copy</p>
+  <br />
+  <p>Copy me too!</p>
+  <button slot="button">Copy me!</button>
+</copy-component>
+```
+
+This is due to how shadow dom works, it is not possible to get the formatted inner text of a single slot without also getting the text of the other slots (e.g. the button slot).
+
 ## Events
 
 Custom events are fired the following:
@@ -227,10 +255,36 @@ customElements.define("copy-it", CopyToClipboard);
 
 ```html lit-copy
 <copy-it>
-  <p>Some text to copy</p>
-  <br />
-  <p>Formatting is preserved!</p>
+  <div>
+    <p>Some text to copy</p>
+    <br />
+    <p>Formatting is preserved!</p>
+  </div>
 </copy-it>
 ```
 
 Check out the [codepen](https://codepen.io/georgegriff/pen/jOGYvaY).
+
+## Static site generator (11ty)
+
+To automatically add copyable text snippets to your 11ty site from your markdown checkout this 11ty plugin.
+
+````md
+```html
+<p>Your blog post code</p>
+```
+````
+
+plus `.eleventy.config.js`:
+
+```js
+eleventyConfig.addPlugin(//plugin coming soon);
+```
+
+equals auto-copyable code:
+
+```html
+<p>Your blog post code</p>
+```
+
+Customisation will be available.
