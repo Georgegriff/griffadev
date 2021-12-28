@@ -4,7 +4,7 @@ description: I took a progressive enhancement approach to using frontend javascr
 series:
   title: Building a personal blog
   order: 4
-date: "2021-12-28"
+date: "2020-10-07"
 tags:
   - 11ty
   - WebComponents
