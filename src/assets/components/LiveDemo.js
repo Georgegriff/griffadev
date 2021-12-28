@@ -10,7 +10,7 @@ const collectInnerText = (slotsArray) => {
     Array.isArray(slotsArray) &&
     slotsArray.reduce((str, curr) => {
       const txt = curr.innerText;
-      return `${str}${txt}`;
+      return `${str}\n${txt}`;
     }, "")
   );
 };
@@ -25,9 +25,9 @@ const _splitImports = (jsString) => {
         ) ||
         current.match(/export.{1,}from/g)
       ) {
-        imports += current;
+        imports += `\n${current}`;
       } else {
-        code += current;
+        code += `\n${current}`;
       }
       return [imports, code];
     },
@@ -271,6 +271,7 @@ export class LiveDemo extends LitElement {
             }.bind(window.__liveDemoRef))();`;
       const script = document.createElement("script");
       script.textContent = allCode;
+      console.log(allCode);
       script.type = "module";
       const content = () => html`
         <style>
