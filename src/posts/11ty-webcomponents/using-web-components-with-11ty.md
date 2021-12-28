@@ -11,9 +11,9 @@ tags:
   - JavaScript
 ---
 
-I've talked about earlier in this series that I wanted to bring things back to basics with this blog, focusing on web fundamentals e.g. html and css. In addition to this, by using 11ty, i'm able to author in Markdown, meaning i'm free to add HTML anywhere in my posts.
+I've talked about earlier in this series that I wanted to bring things back to basics with this blog, focusing on web fundamentals e.g. html and css. In addition to this, by using 11ty, I'm able to author in Markdown, meaning I'm free to add HTML anywhere in my posts.
 
-However, whist i'm focusing on HTML/CSS, there are areas where it makes sense to sprinkle in JavaScript, for extra interactivity, this is where Web Components come in.
+However, whist I'm focusing on HTML/CSS, there are areas where it makes sense to sprinkle in JavaScript, for extra interactivity, this is where Web Components come in.
 
 ![Picture of my fighting cats Chewie and Beau](/images/fighting-cats.gif "Hey! He mentioned web components, get him! (Chewie and Beau are friends really)")
 
@@ -23,7 +23,7 @@ A Google engineer said it better than I could:
 
 In this article I'll explain how I went about setting up a development environment for Web Components, as well as simple production optimizations.
 
-But first, I want to discuss the approach that i've taken for consuming web components in this site. All content should be available without JavaScript/Web Components available, but where they are available, the content should be progressively enhanced.
+But first, I want to discuss the approach that I've taken for consuming web components in this site. All content should be available without JavaScript/Web Components available, but where they are available, the content should be progressively enhanced.
 
 ## Progressive enhancement web component use cases
 
@@ -105,7 +105,7 @@ live-demo {
 }
 ```
 
-The approach i've taken here is that when the web component is not available, the code is just rendered and syntax highlighted, but when JS is available a live demo component appears. If you were to disable JavaScript in your browser you should just see the code snippets instead.
+The approach I've taken here is that when the web component is not available, the code is just rendered and syntax highlighted, but when JS is available a live demo component appears. If you were to disable JavaScript in your browser you should just see the code snippets instead.
 
 I made use of slots, one for `js` one for `html` and one for `css`. The web component then takes the text content and renders it appropriately.
 
@@ -260,7 +260,7 @@ export default merge(baseConfig, {
 
 You can add extra entrypoints, which is helpful, if you only want to load some components on some pages.
 
-In order to hook this back into `11ty` i'm making use of `rollup-plugin-output-manifest`. This outputs a `manifest.json` file.
+In order to hook this back into `11ty` I'm making use of `rollup-plugin-output-manifest`. This outputs a `manifest.json` file.
 You could output this as a [data file](https://www.11ty.dev/docs/data-global/) if you wanted to, but I wanted to add a little more logic to my scripts so I could do different things depending on if in `production` mode or not.
 
 Create a file called `src/_data/assets.js`, which will be read as [Global Data File](https://www.11ty.dev/docs/data-global/).
@@ -302,4 +302,4 @@ If you are wondering how to set the NODE_ENV flag, here is my build script.
     "build": "rm -rf dist && NODE_ENV=production rollup -c rollup.config.js && NODE_ENV=production npx eleventy"
 ```
 
-And that's my setup, i'm sure there are better ways of doing this but it got the job done for me, hopefully this was useful.
+And that's my setup, I'm sure there are better ways of doing this but it got the job done for me, hopefully this was useful.

@@ -92,7 +92,7 @@ These are 2D arrays (on the GPU) with 512 entries in each of the arrays, which r
 
 Next, in order to find potentially good results based our input sentence we need to check how similar our input vector is to the vectors of the blog post titles, we can achieve this by calculating Cosine Similarity between the vectors, which will give us a value between -1 and 1. 1 being most similar and -1 being not very similar at all.
 
-I'm not going to explain the mathematics of cosine similarity, but i've provided an implementation of it.
+I'm not going to explain the mathematics of cosine similarity, but I've provided an implementation of it.
 If you want to know how it works, there are lots of great explanations on YouTube, [such as this one.](https://www.youtube.com/watch?v=5lvS8078ykA).
 
 Define these at the top of your index.js file.

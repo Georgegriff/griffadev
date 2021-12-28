@@ -71,7 +71,7 @@ p {
 </div>
 ```
 
-Before today I've always shied away from full understanding all of the shorthand property capability that is baked into the background `attribute` but today i'm going to change that, let's work it out together, let's deconstruct this bit of css that constructs the progress indicator card together:
+Before today I've always shied away from full understanding all of the shorthand property capability that is baked into the background `attribute` but today I'm going to change that, let's work it out together, let's deconstruct this bit of css that constructs the progress indicator card together:
 
 ```css
 .progress-card {

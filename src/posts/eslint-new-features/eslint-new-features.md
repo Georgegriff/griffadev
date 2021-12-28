@@ -1,10 +1,10 @@
 ---
-title: 'Setting up ESLint to work with new or proposed JavaScript features such as private class fields.'
+title: "Setting up ESLint to work with new or proposed JavaScript features such as private class fields."
 description: It turns out configuring ESLint to use Stage 3 proposals is actually a massive pain, and sends you down a rabbit hole of Babel, assumed knowledge, renamed packages and half answered questions.
-date: '2020-12-01'
+date: "2020-12-01"
 hero:
   image: "/images/eslint-classes.png"
-  alt: 'Picture of JavaScript class showing invalid syntax for a private class member'
+  alt: "Picture of JavaScript class showing invalid syntax for a private class member"
 tags:
   - QuickTip
   - JavaScript
@@ -25,16 +25,16 @@ For this article, i'll be using this code example of using Private class fields,
 
 ```js
 export class Animal {
-    // this is a private class field!
-    #noise = '';
+  // this is a private class field!
+  #noise = "";
 
-    constructor(noise) {
-        this.#noise = noise;
-    }
+  constructor(noise) {
+    this.#noise = noise;
+  }
 
-    makeNoise() {
-        console.log(this.#noise);
-    }
+  makeNoise() {
+    console.log(this.#noise);
+  }
 }
 ```
 
@@ -56,6 +56,7 @@ and to update your ESLint config file over to use:
 ```
 
 Sadly, it seems this is not an entire solution, it seems to make a couple of assumptions:
+
 - You have babel-core installed
 - You have a babel configuration file set up that knows how to transform code with a preset.
 - Its possible that when the answer was posted `babel-eslint` did indeed solve al the problems.
@@ -72,7 +73,7 @@ Additionally, it seems since this answer was posted, things have moved on and th
 
 The ESLint website does have some information about the Past, Present and Future of the babel-eslint over on its [website](https://babeljs.io/blog/2020/07/13/the-state-of-babel-eslint).
 
-Finding this information out was a bit of an adventure, and even on the official babel or ESLint website, it's super unclear that you need to set up a babel config, and then still, what to put in it. I'm pretty sure the only reason I managed to figure it out in the end was because i'm familiar with the mess that is configuring Webpack, Jest and Babel.
+Finding this information out was a bit of an adventure, and even on the official babel or ESLint website, it's super unclear that you need to set up a babel config, and then still, what to put in it. I'm pretty sure the only reason I managed to figure it out in the end was because I'm familiar with the mess that is configuring Webpack, Jest and Babel.
 
 ## Configuring ESLint
 
@@ -99,19 +100,18 @@ You can generate one using: `./node_modules/.bin/eslint --init` or just copy thi
 
 ```json
 {
-    "env": {
-        "browser": true,
-        "es2021": true,
-        "node": true
-    },
-    "extends": "eslint:recommended",
-    "parser": "@babel/eslint-parser",
-    "parserOptions": {
-        "ecmaVersion": 12,
-        "sourceType": "module"
-    },
-    "rules": {
-    }
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": "eslint:recommended",
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "rules": {}
 }
 ```
 
@@ -132,9 +132,7 @@ Create a file called `.babelrc` and populate it with:
 
 ```json
 {
-  "presets": [
-    ["@babel/preset-env"]
-  ]
+  "presets": [["@babel/preset-env"]]
 }
 ```
 
@@ -149,7 +147,7 @@ Now if you run `npm run lint` again you will hit the final error:
   1 | export class Animal {
 > 2 |     #noise = '';
     |     ^
-  3 | 
+  3 |
   4 |     constructor(noise) {
   5 |         this.#noise = noise;
 
@@ -165,14 +163,17 @@ To do this change your `.babelrc` over to:
 
 ```json
 {
-    "presets": [
-      ["@babel/preset-env",
+  "presets": [
+    [
+      "@babel/preset-env",
       {
         "shippedProposals": true
-      }]
+      }
     ]
-  }
+  ]
+}
 ```
+
 > From the Babel docs: "set the shippedProposals option to true. This will enable polyfills and transforms for proposal which have already been shipped in browsers for a while."
 
 ## If you are using Jest
@@ -182,7 +183,8 @@ If you are using Jest, it will automatically pick up `.babelrc` files, this migh
 ```js
 ReferenceError: regeneratorRuntime is not defined
 ```
-By dumb luck, i've been through the pain of this message many times, and knew exactly what was wrong, Jest was trying to transform the perfectly valid code.
+
+By dumb luck, I've been through the pain of this message many times, and knew exactly what was wrong, Jest was trying to transform the perfectly valid code.
 
 It's almost 2021, and this is a server app, I certainly do not want to transpile `async/await` especially not in unit tests!
 

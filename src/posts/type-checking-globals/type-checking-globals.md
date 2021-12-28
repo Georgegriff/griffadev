@@ -6,13 +6,13 @@ tags:
   - VSCode
   - TypeScript
   - TensorflowJS
-date: '2021-04-18'
+date: "2021-04-18"
 hero:
   image: "/images/documentation.png"
-  alt: 'VS Code documentation for the tensor2d function.'
+  alt: "VS Code documentation for the tensor2d function."
 ---
 
-I've been learning a little bit of artificial intelligence/machine learning in my spare time and I recently started learning a little TensorflowJS. The quickest and simplest way of getting TensorflowJS is a good old script tag. When you are experimenting and prototyping you *really* don't want to waste time with build tools.
+I've been learning a little bit of artificial intelligence/machine learning in my spare time and I recently started learning a little TensorflowJS. The quickest and simplest way of getting TensorflowJS is a good old script tag. When you are experimenting and prototyping you _really_ don't want to waste time with build tools.
 
 Whilst this tutorial explains setting up basic type-checking for TensorflowJS it should work for any global library that has TypeScript documentation. When building a production project you may want to consider build tools, but for Machine learning experiments, I find you just want to get to the coding using documentation and examples.
 
@@ -29,7 +29,7 @@ Doing so will make the library available on the global `window` object as `tf`
 e.g.
 
 ```js
-window.tf // the Tensorflow library
+window.tf; // the Tensorflow library
 ```
 
 One downside to doing this is that when you are working with Tensorflow you won't get any auto-complete in your IDE/Editor, because there are no import references for VS Code (or other) to analyze, unlike if you were to use ES6 Imports or Common JS require statements.
@@ -38,24 +38,21 @@ Let's take a look at how we can make no changes to the code but give you some ni
 
 > Whilst this tutorial explains how to enable type-checking and library documentation in VS Code, it may work for other IDEs, the reason VS Code is so great here is its built in TypeScript support.
 
-
 ## Type checking on a global library
 
 Create a directory and open it up in VS Code.
 
 > If you don't have it yet, you can download VS Code over [here](https://code.visualstudio.com/download).
 
-
 Create a simple HTML file called `index.html` with two script imports, one for the library and one for your code.
-We won't actually boot up this file on a server and load it in a browser in this tutorial, but i'm putting this in for completeness.
+We won't actually boot up this file on a server and load it in a browser in this tutorial, but I'm putting this in for completeness.
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-  </head>
+  <head> </head>
   <body>
-    <script src='https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest'></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
     <script src="./index.js"></script>
   </body>
 </html>
@@ -80,11 +77,10 @@ Create a file called `index.d.ts`
 
 ```ts
 interface Global {
-    tf: typeof import("@tensorflow/tfjs")
+  tf: typeof import("@tensorflow/tfjs");
 }
 
-interface Window extends Global {
-}
+interface Window extends Global {}
 ```
 
 Now finally create `index.js` and open it up.

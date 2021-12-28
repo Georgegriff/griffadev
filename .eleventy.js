@@ -422,7 +422,7 @@ module.exports = (eleventyConfig) => {
     const issueUrl = `${githubData.repo}/blob/${
       githubData.branch
     }${page.inputPath.substr(1)}`;
-    const body = `Hello, i've noticed an issue in:
+    const body = `Hello, I've noticed an issue in:
     ${issueUrl} \n\n**Describe the problem**\n
   A clear and concise description of what the problem is\n
   **Existing content**\n

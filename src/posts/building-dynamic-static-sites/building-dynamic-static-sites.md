@@ -6,7 +6,7 @@ tags:
   - HTML
   - JavaScript
   - WebComponents
-date: '2021-06-21'
+date: "2021-06-21"
 hero:
   image: /images/cg-guitar-videos.png
   alt: "Embedded YouTube Playlists in the CG Guitar website"
@@ -32,14 +32,17 @@ The feature that I built, that I will explain, is an embedded YouTube playlist c
 Calling out to external APIs/services from your client side JavaScript can introduce you many problems, to name a few:
 
 **Security** - if you want to hide your token or keep it secure you either have to:
+
 - Ensure your token only works on your websites domain, but this doesn't stop people using it from outside of a web browser.
 - Add some complex proxy set up where you hide the token on a server you manage, requires having a server or proxy configuration.
 
 **Rate limiting/charges** - most APIs have limits to the number of API calls you can make, or will start charging you for usage:
+
 - Your website content doesn't scale, each visitor would be using your token to call the external services for every visit.
 - You could end up incurring accidental charges!
 
 **JavaScript needed** - In order to show the data you want to show to user, you need to serve JavaScript to your users:
+
 - Depending on Network speed or the amount of JavaScript on the page the user has to wait for the JS to download before seeing any content.
 - A user may choose to disable JavaScript.
 - JavaScript may fail to load entirely, rendering a useless experience to users.
@@ -59,16 +62,15 @@ The next section will assume some knowledge about 11ty, or static site generator
 ```js
 const Cache = require("@11ty/eleventy-cache-assets");
 
-module.exports = async function() {
+module.exports = async function () {
   let url = "https://api.github.com/repos/11ty/eleventy";
 
   /* This returns a promise */
   return Cache(url, {
     duration: "1d", // save for 1 day
-    type: "json"    // we’ll parse JSON for you
+    type: "json", // we’ll parse JSON for you
   });
 };
-
 ```
 
 The awesome thing about this plugin is that once the data is fetched it is cached so future local builds do not have to re-fetch data, meaning your builds can remain lightning fast which is a common characteristic of any 11ty project.
@@ -102,15 +104,14 @@ This creates an 11ty collection of all of the playlists, with their "id", "name"
 
 Inside of my videos page I can then work with this collection in my Nunjucks template:
 {%- raw -%}
-```html
-{%- if collections.playlists %}
-    {%- asyncEach collections.playlist in playlists | fetchYouTubePlaylists %}
-    {%- include 'partials/video-playlist.njk' %}
-    {%- endeach %}
-{%- endif %}
-```
-{%- endraw -%}
 
+```html
+{%- if collections.playlists %} {%- asyncEach collections.playlist in playlists
+| fetchYouTubePlaylists %} {%- include 'partials/video-playlist.njk' %} {%-
+endeach %} {%- endif %}
+```
+
+{%- endraw -%}
 
 > If you are unfamiliar with template languages in 11ty you can read about them over [here](https://www.11ty.dev/docs/templates/).
 
@@ -120,31 +121,36 @@ I'll show what `partials/video-playlist.njk` is later on in the article.
 This is an 11ty filter which is defined in my `.eleventy.js` config file.
 
 ```js
-  eleventyConfig.addNunjucksAsyncFilter("fetchYouTubePlaylists", async (playlists, callback) => {
+eleventyConfig.addNunjucksAsyncFilter(
+  "fetchYouTubePlaylists",
+  async (playlists, callback) => {
     const data = await getPlaylists(playlists);
     callback(null, data);
-  })
+  }
+);
 ```
 
-Let's take a dive a layer deeper: `getPlaylists` is making a call to `getPlaylistItem` which is where i'm actually doing the data caching.
+Let's take a dive a layer deeper: `getPlaylists` is making a call to `getPlaylistItem` which is where I'm actually doing the data caching.
 
 ```js
 module.exports.getPlaylists = async (playlists) => {
-    if(!playlists) {
-        return [];
-    }
-    const lists = await Promise.all(playlists.map((async ({id, title, description}) => {
-        const content = await getPlaylistItem(id);
-        return {
-            title,
-            id,
-            description,
-            link: `https://www.youtube.com/playlist?list=${id}`,
-            ...(content || {}),
-        };
-    })));
-    return lists;
-}
+  if (!playlists) {
+    return [];
+  }
+  const lists = await Promise.all(
+    playlists.map(async ({ id, title, description }) => {
+      const content = await getPlaylistItem(id);
+      return {
+        title,
+        id,
+        description,
+        link: `https://www.youtube.com/playlist?list=${id}`,
+        ...(content || {}),
+      };
+    })
+  );
+  return lists;
+};
 ```
 
 This function is looping through all of my playlists and fetching the items (videos) in that playlist. It is also adding the name, description and direct link to YouTube for the whole playlist.
@@ -153,42 +159,54 @@ Now for `getPlaylistItem`:
 
 ```js
 const getPlaylistItem = async (playlistId) => {
-    const apiUrl = 'https://www.googleapis.com/youtube/v3/playlistItems';
-    const maxResults = 20;
-    const order = 'viewCount';
-    const url = `${apiUrl}?key=${apiKey}&part=${encodeURIComponent('snippet,contentDetails')}&type=video%2C%20playlist&maxResults=${maxResults}&playlistId=${playlistId}&order=${order}`;
+  const apiUrl = "https://www.googleapis.com/youtube/v3/playlistItems";
+  const maxResults = 20;
+  const order = "viewCount";
+  const url = `${apiUrl}?key=${apiKey}&part=${encodeURIComponent(
+    "snippet,contentDetails"
+  )}&type=video%2C%20playlist&maxResults=${maxResults}&playlistId=${playlistId}&order=${order}`;
 
-    console.log(`Fetching YouTube videos for playlist: ${playlistId}`);
-    const videos = await Cache(url, {
-        duration: "1d", // 1 day
-        type: "json" // also supports "text" or "buffer"
-     });
+  console.log(`Fetching YouTube videos for playlist: ${playlistId}`);
+  const videos = await Cache(url, {
+    duration: "1d", // 1 day
+    type: "json", // also supports "text" or "buffer"
+  });
 
-    const videoIds = videos.items.map(({contentDetails}) => contentDetails.videoId);
-    const  metaInfo = await fetchMetaInfo(videoIds);
-    return {
-        videos: await Promise.all(videos.items.map(async ({snippet, contentDetails}) => {
-            const  hqThumbnail =  snippet.thumbnails.maxres || snippet.thumbnails.high || snippet.thumbnails.medium || snippet.thumbnails.default;
-            const  smallThumbnail = snippet.thumbnails.medium || snippet.thumbnails.default;
-            const defaultThumbnail = snippet.thumbnails.high;
+  const videoIds = videos.items.map(
+    ({ contentDetails }) => contentDetails.videoId
+  );
+  const metaInfo = await fetchMetaInfo(videoIds);
+  return {
+    videos: await Promise.all(
+      videos.items.map(async ({ snippet, contentDetails }) => {
+        const hqThumbnail =
+          snippet.thumbnails.maxres ||
+          snippet.thumbnails.high ||
+          snippet.thumbnails.medium ||
+          snippet.thumbnails.default;
+        const smallThumbnail =
+          snippet.thumbnails.medium || snippet.thumbnails.default;
+        const defaultThumbnail = snippet.thumbnails.high;
 
-            return {
-                hqThumbnail,
-                smallThumbnail,
-                defaultThumbnail,
-                channelTitle: snippet.channelTitle,
-                channelId: snippet.channelId,
-                title: snippet.title,
-                id: contentDetails.videoId,
-                ...(metaInfo[contentDetails.videoId] || {}),
-            }
-        })),
-        hasMore: Boolean(videos.nextPageToken)
-    }
+        return {
+          hqThumbnail,
+          smallThumbnail,
+          defaultThumbnail,
+          channelTitle: snippet.channelTitle,
+          channelId: snippet.channelId,
+          title: snippet.title,
+          id: contentDetails.videoId,
+          ...(metaInfo[contentDetails.videoId] || {}),
+        };
+      })
+    ),
+    hasMore: Boolean(videos.nextPageToken),
+  };
 };
 ```
 
 The first few things this function does is:
+
 - Set base url for YouTube API: https://www.googleapis.com/youtube/v3/playlistItems
 - Set the max number of items in a playlist to return on a page
 - Pass in APIKey and build up url in accordance with the [API Docs](https://developers.google.com/youtube/v3/docs/playlistItems/list).
@@ -198,9 +216,9 @@ The first few things this function does is:
 Next up it fetches some extra metadata. `fetchMetaInfo` fetches things like view count and likes, this is another API call which we would be concerned about if this was client side, but since it's build time, who cares!
 Implementation available on [Github](https://github.com/Georgegriff/cgguitar-site/blob/178a8ae66a4b22f4566dfe579b748369abf0f297/src/_filters/youtube.js#L57).
 
-Finally i'm looping through all the data and returning an array of `videos` for each playlist and a flag `hasMore` if the playlist has more than then 20 items shown. In my HTML when I see this flag I add an link out to YouTube to watch the full playlist.
+Finally I'm looping through all the data and returning an array of `videos` for each playlist and a flag `hasMore` if the playlist has more than then 20 items shown. In my HTML when I see this flag I add an link out to YouTube to watch the full playlist.
 
-The above code a modified version of the original, where i'm doing a a few extra things you can checkout the full version on [Github](https://github.com/Georgegriff/cgguitar-site/blob/178a8ae66a4b22f4566dfe579b748369abf0f297/src/_filters/youtube.js#L6).
+The above code a modified version of the original, where I'm doing a a few extra things you can checkout the full version on [Github](https://github.com/Georgegriff/cgguitar-site/blob/178a8ae66a4b22f4566dfe579b748369abf0f297/src/_filters/youtube.js#L6).
 
 ## Progressive Enhancement
 
@@ -210,6 +228,7 @@ When designing an dynamic experience its a good idea to think about what is the 
 You could start out very simply and just load a link `<a>` to the YouTube videos, perhaps the thumbnail could open a tab to YouTube, this needs no JS at all, and is what I did:
 
 {%- raw %}
+
 ```html
 {%- if playlist -%}
  {%- set firstVideo = playlist.videos[0] -%}
@@ -230,9 +249,10 @@ You could start out very simply and just load a link `<a>` to the YouTube videos
    </youtube-playlist>
 {%- endif -%}
 ```
+
 {%- endraw -%}
 
-You will see that i'm wrapping the whole  code in a `youtube-playlist` Custom Element.
+You will see that I'm wrapping the whole code in a `youtube-playlist` Custom Element.
 When the component loads without JavaScript it is just a link out to YouTube, which is then upgraded to a full playlist experience. This will disable the default "link" behavior too.
 
 I'm not going to go into the implementation of my Web Component in this post but you can check out the source code on [Github](https://github.com/Georgegriff/cgguitar-site/blob/178a8ae66a4b22f4566dfe579b748369abf0f297/src/scripts/components/youtube-playlist/YoutubePlaylist.js). The general idea is to consume `<li>` list items as child content inside of my `<youtube-playlist>` and when JavaScript loads move this content in the Shadow DOM, and make them look pretty/interactive.
@@ -240,6 +260,7 @@ I'm not going to go into the implementation of my Web Component in this post but
 Here is my full Nunjucks template for my html:
 
 {%- raw -%}
+
 ```html
 {%- if playlist -%}
  {%- set firstVideo = playlist.videos[0] -%}
@@ -268,6 +289,7 @@ Here is my full Nunjucks template for my html:
    </youtube-playlist>
 {%- endif -%}
 ```
+
 {%- endraw -%}
 
 Using Web Components like this is a perfect way of enhancing a base HTML experience with limited JavaScript.

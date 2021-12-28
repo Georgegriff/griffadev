@@ -1,27 +1,21 @@
 {% extends "layouts/base.njk" %}
-
 {% set pageCriticalStyles = ['css/about.css'] %}
-
 {% block content %}
-<div slot="observable">
-{% include "partials/post-hero.html" %}
-</div>
-<div class="post-title">
+  <div slot="observable">
+    {% include "partials/post-hero.html" %}
+  </div>
+  <div class="post-title">
     <h1 class="text-in thirdin">{{ title }}</h1>
-</div>
-{%- set firstCard = {
-  "title": "Things i've worked on",
+  </div>
+  {%- set firstCard = {
+  "title": "Things I've worked on",
   "link": {
     "href": "/",
     "text": "Recent blog posts"
   }
-}
--%}
-{%- include "partials/projects.html" -%}
-
+} -%}
+  {%- include "partials/projects.html" -%}
 {% endblock %}
-
 {% block footer %}
-    {% include 'partials/something-wrong.html' %}
+  {% include 'partials/something-wrong.html' %}
 {% endblock %}
-

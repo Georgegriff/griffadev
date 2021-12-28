@@ -76,7 +76,7 @@ If you prefer to learn through videos, whilst learning the API I watched some of
 
 ## What could be better?
 
-The library has some really fantastic examples of how to use it on its [storybook](https://5fc05e08a4a65d0021ae0bf2-unebtvimdp.chromatic.com/), however they do suffer from the classic problem that storybook often presents, they are great as showcases but not very good at demonstrations of how to adapt the example to use the code for yourself. By that I mean, it's very hard to find and understand the code written, and often suffers from the problem of "too much code re-use for demos", although if i'm honest I think this is a problem with Storybook not the library itself.
+The library has some really fantastic examples of how to use it on its [storybook](https://5fc05e08a4a65d0021ae0bf2-unebtvimdp.chromatic.com/), however they do suffer from the classic problem that storybook often presents, they are great as showcases but not very good at demonstrations of how to adapt the example to use the code for yourself. By that I mean, it's very hard to find and understand the code written, and often suffers from the problem of "too much code re-use for demos", although if I'm honest I think this is a problem with Storybook not the library itself.
 
 For example, it's really hard to un-pick what the code in the example is doing, you end up having to search through github and reverse engineer complex examples and across multiple files, for example:
 

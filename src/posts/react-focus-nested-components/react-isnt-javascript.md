@@ -16,7 +16,7 @@ Here is a simplified example of what I was building, with some HTTP Status code 
 
 ![Animation showing using the keyboard and focus state to open and close a panel](/images/focus-drawer.gif)
 
-Here is the code for the App, this was hastily written HTML which i'm sure could do with being improved.
+Here is the code for the App, this was hastily written HTML which I'm sure could do with being improved.
 
 ```js
 import "./styles.css";
@@ -94,7 +94,7 @@ export const Sidebar = ({ ariaLabel, open, onClose, children }) => {
 
 This code was working correctly, and then I was working on another pr based on a branch with new changes that I pulled in and I noticed that the focus navigation had started failing.
 
-> Actually, a unit test, which tested the focus interactions started failing which is actually pretty awesome! React Testing Library moved unit testing forward SO MUCH in comparison to Enzyme it's great. If it could only run by default inside a browser instead of Jest, that would be great. By default I mean, commonplace in the industry, i'm sure it's achievable.
+> Actually, a unit test, which tested the focus interactions started failing which is actually pretty awesome! React Testing Library moved unit testing forward SO MUCH in comparison to Enzyme it's great. If it could only run by default inside a browser instead of Jest, that would be great. By default I mean, commonplace in the industry, I'm sure it's achievable.
 
 In my example above the new PR had added the equivalent of the `Codes` variable which is in the above snippet:
 
@@ -172,6 +172,6 @@ The only reference to nested functions that I could find in the official documen
 
 As for a lint rules, there does appear to be one which you can turn on in the popular `eslint-plugin-react` - [no-unstable-nested-components](https://github.com/yannickcr/eslint-plugin-react/blob/HEAD/docs/rules/no-unstable-nested-components.md), maybe i'll suggest to my team that we do. I can't think of a good reason when you would want to nest functional component, even if you're getting fancy and using useMemo, surely you'd just be better off writing simpler code.
 
-I find it fun to think that such a tiny change in the code that looks so innocent can break quite a lot in the rendering of React components and something I learnt from this is i'm really going to do my best to make sure I write good sets of unit tests that test both "interactions" and "accessibility" as it's so easy for these things to regress!
+I find it fun to think that such a tiny change in the code that looks so innocent can break quite a lot in the rendering of React components and something I learnt from this is I'm really going to do my best to make sure I write good sets of unit tests that test both "interactions" and "accessibility" as it's so easy for these things to regress!
 
 Thank you for reading! If you want to read more of my work, please follow me on Twitter [@griffadev](https://twitter.com/griffadev), or get me a [coffee](https://ko-fi.com/griffadev) if you feel like it ☕.

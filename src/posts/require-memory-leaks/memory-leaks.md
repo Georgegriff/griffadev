@@ -6,7 +6,7 @@ tags:
   - NodeJS
   - ExpressJS
   - Kubernetes
-date: '2021-03-18'
+date: "2021-03-18"
 ---
 
 A project that I work on started showing crashed Pods in our Kubernetes (K8s) cluster, which runs a NodeJS server in a container, it was failing with a dreaded "OOMKilled" (Out of memory killed) error, which sent me down the path of learning about profiling NodeJS applications for memory leaks.
@@ -24,15 +24,15 @@ So, a few months ago I wrote some code some unit tests which exercised some file
 My simplified version of the production module:
 
 ```js
-const supportedValidators = ['name'];
+const supportedValidators = ["name"];
 module.exports = {
-    validators: () => {
-        return supportedValidators.map((validator) => {
-            // imports ./validators/name.js what name.js does is not important.
-            return require(`./validators/${validator}.js`);
-        })
-    }
-}
+  validators: () => {
+    return supportedValidators.map((validator) => {
+      // imports ./validators/name.js what name.js does is not important.
+      return require(`./validators/${validator}.js`);
+    });
+  },
+};
 ```
 
 What's happening here is a function is exported which exposes other modules via a dynamic require statement. This dynamic require statement is `very important` to the memory leak and i'll come back to it.
@@ -42,19 +42,19 @@ What's happening here is a function is exported which exposes other modules via 
 Now for the bad code, I had in my unit test:
 
 ```js
-const {validators} = require("./validate");
+const { validators } = require("./validate");
 
 const badFunction = () => {
-    const myValidators = validators();
-    myValidators.map((validator) => {
-        // mutating someone elses object, yeah i know, this is super bad.
-        if(!validator.supportedExtensions) {
-            validator.supportedExtensions = [];
-        }
-        // the code didn't do this exactly this is demo
-        validator.supportedExtensions.push(".pdf");
-    });
-}
+  const myValidators = validators();
+  myValidators.map((validator) => {
+    // mutating someone elses object, yeah i know, this is super bad.
+    if (!validator.supportedExtensions) {
+      validator.supportedExtensions = [];
+    }
+    // the code didn't do this exactly this is demo
+    validator.supportedExtensions.push(".pdf");
+  });
+};
 ```
 
 This code is terrible for so many reasons, but it was `only for unit tests`. This code looks weird, I know, but in context of what I used this for in our tests does make sense, I promise, but this simplified sample is to demonstrate the memory leak.
@@ -64,36 +64,41 @@ Unfortunately, `only for unit tests` ended up not being true, and here is my fir
 > Any code that you write anywhere, including inside of unit tests, could be copied by any well meaning developer adapting the code for their use case.
 
 This happened, and unfortunately the "just for test" code with the `supportedExtensions = []` and `.push(".pdf")` came along for the ride, even though it wasn't needed at all for the production use case.
+
 ## Why is this a memory leak?
 
-So on the face of it if you were to look at the `myValidators.map` code it doesn't look like i'm holding any references to the `supportedExtensions` object once `badFunction` its finished. But that assumption ignores that the Array, or the contents of it, that `validators()` supplies could be retained in memory forever.
+So on the face of it if you were to look at the `myValidators.map` code it doesn't look like I'm holding any references to the `supportedExtensions` object once `badFunction` its finished. But that assumption ignores that the Array, or the contents of it, that `validators()` supplies could be retained in memory forever.
 
 > Objects in Memory are available for Garbage collection when there are no references to the object anymore and nothing is holding on to those objects. This is a massive over-simplification, I'll link a great talk later in this article which describes it much better than I ever could.
 
 Do you remember this line of code?
-```js 
-return require(`./validators/${validator}.js`)
+
+```js
+return require(`./validators/${validator}.js`);
 ```
+
 A NodeJS module is being imported into the current scope, the important thing about NodeJs modules though is that:
 
 No matter how many times you import a module you always get the a reference to the same module object, so:
 
 ```js
 const foo = require("./foo");
-const foo2 = require("./foo2")
+const foo2 = require("./foo2");
 
-foo === foo2 // true
+foo === foo2; // true
 ```
 
 This means that even if we lose all references to the imported module, it wont be garbage collected.
 In this case, this is extremely problematic because `validator.supportedExtensions.push(".pdf");` will add a new entry to an array, that lives on this module object forever, every time the function is called. Imagine if this was on an REST API call (it was). Yikes.
 
 A couple more learnings here:
+
 - Mutating objects in an array someone else passed to you is dangerous, you have no idea what references are held to that object, your modifications may never be garbage collected.
 - If you do have to put bad non-production code in, put a massive comment around it warning future developers, not to copy it.
 - Avoid changing objects you don't control.
 
 On a somewhat related note to the learnings above, Jake Archibald recently wrote about the risks of calling methods with potentially non-future proof parameters, it's a good read: https://jakearchibald.com/2021/function-callback-risks/.
+
 ## Memory profiling and finding the problem code
 
 When I first realised that we might have a Memory leak I first wanted to make sure I knew what tools where at my disposal,
@@ -105,18 +110,18 @@ I find that the best way to hook into this is via the Chrome Developer Tools.
 
 If you open the Developer Tools when you have a `node --inspect` process running you should notice a new Node logo, like the one shown below:
 
-![Open dedicated DevTools for NodeJS](/images/nodejs-dev-tools.png "")
+![Open dedicated DevTools for NodeJS](/images/nodejs-dev-tools.png)
 
 When you activate this mode, a new window will open where one of the tabs in the new window is "Memory".
 
-![Memory profiling options in NodeJS dedicated DevTools for NodeJS](/images/memory-profiling.png "")
+![Memory profiling options in NodeJS dedicated DevTools for NodeJS](/images/memory-profiling.png)
 
 To try and find the issue I selected the option "Allocation instrumentation timeline", I then proceeded to run our application tests which had caused the original "OOMKilled" on our cluster. After these tests ran I stopped the instrumentation and proceeded to sort through the results.
 I found that sorting by size and then searching the largest allocated objects helped me find the problem.
 
 Sure enough after filtering through a lot of noise I found something like this:
 
-![Shows lots of memory allocated to the "supportedExtensions"](/images/leaked-memory.png "")
+![Shows lots of memory allocated to the "supportedExtensions"](/images/leaked-memory.png)
 
 Luckily for me, I know our codebase quite well and was able to identify the problem area based on the variable name of the large array and also the array contents, which is where to my shame I found my awful code being used inside of an API call.
 
@@ -125,6 +130,7 @@ Luckily for me, I know our codebase quite well and was able to identify the prob
 Memory profiling in Kubernetes is quite similar to when you are running locally, you need to end up with a server on your machine exposing a debugging session.
 
 Recommendations:
+
 - Scale your deployment down to 1 replica.
 - Edit your deployment so your NodeJS server sets the `--inspect` flag
 - Disable liveness and readiness probes for the container, otherwise K8s may kill your session whilst debugging.
@@ -136,47 +142,51 @@ Recommendations:
 If you want to have a play reproducing the memory leak you could do this:
 
 1. Create the following folder and file: `validators/name.js` Can be empty module exports:
+
 ```js
-module.exports = {
-    
-}
+module.exports = {};
 ```
+
 2. Create `validate.js`
+
 ```js
-const supportedValidators = ['name'];
+const supportedValidators = ["name"];
 module.exports = {
-    validators: () => {
-        return supportedValidators.map((validator) => {
-            return require(`./validators/${validator}.js`);
-        })
-    }
-}
+  validators: () => {
+    return supportedValidators.map((validator) => {
+      return require(`./validators/${validator}.js`);
+    });
+  },
+};
 ```
+
 3. Create `bad-code.js`
+
 ```js
-const {validators} = require("./validate");
+const { validators } = require("./validate");
 
 const badFunction = () => {
-    const myValidators = validators();
-    myValidators.map((validator) => {
-        if(!validator.supportedExtensions) {
-            validator.supportedExtensions = [];
-        }
-        // the code didnt do this exactly this is demo
-        validator.supportedExtensions.push(".pdf");
-    });
-}
+  const myValidators = validators();
+  myValidators.map((validator) => {
+    if (!validator.supportedExtensions) {
+      validator.supportedExtensions = [];
+    }
+    // the code didnt do this exactly this is demo
+    validator.supportedExtensions.push(".pdf");
+  });
+};
 
 let index = 0;
 
 setInterval(() => {
-    // even though theres no references to myValidators array
-    // there is a memory leak with the .push
-    badFunction();
-    index++;
-    console.log(`Running bad code cycle: ${index}`);
-},0)
+  // even though theres no references to myValidators array
+  // there is a memory leak with the .push
+  badFunction();
+  index++;
+  console.log(`Running bad code cycle: ${index}`);
+}, 0);
 ```
+
 4. Run `node --inspect bad-code.js` You will need NodeJS installed https://nodejs.org.
 5. Open Chrome developer tools, you should see the NodeJS logo which says "Open dedicated DevTools for NodeJS"
 6. Run the profiling techniques as described in the previous section.
@@ -184,6 +194,7 @@ setInterval(() => {
 ## Learnings
 
 I learnt a lot through this experience.
+
 - Avoid writing sloppy code, even if it is non-production.
 - Mutating data that is passed to you is dangerous, you have no idea what references are held to that object, your modifications may never be garbage collected.
 - How to Memory profile in NodeJS
