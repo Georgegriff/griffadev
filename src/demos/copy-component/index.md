@@ -173,7 +173,8 @@ Here's an example using the component within lit
 
 ```js lit-copy
 import { LitElement, html, css } from "https://cdn.skypack.dev/lit";
-import "https://cdn.skypack.dev/copy-component";
+// un-comment this, commented out because this website uses the component and can only import a web component once
+//import "https://cdn.skypack.dev/copy-component";
 
 class CopyToClipboard extends LitElement {
   constructor() {
