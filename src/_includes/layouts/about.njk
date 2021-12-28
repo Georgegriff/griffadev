@@ -5,8 +5,13 @@
     {% include "partials/post-hero.html" %}
   </div>
   <div class="post-title">
-    <h1 class="text-in thirdin">{{ title }}</h1>
+    <h1 class="text-in thirdin">{{ title | safe }}</h1>
   </div>
+  <p id="tagline" class="site-tag">
+    <span class="second-there">Feel free to give me a follow on Twitter
+      <a style="color: var(--PrimaryText);" target="_blank" rel="noopener" href="{{ metadata.author.twitter_url }}">{{ metadata.author.twitter }}</a>.
+    </span>
+  </p>
   {%- set firstCard = {
   "title": "Things I've worked on",
   "link": {

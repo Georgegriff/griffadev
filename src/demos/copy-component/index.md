@@ -288,3 +288,14 @@ equals auto-copyable code:
 ```
 
 Customisation will be available.
+
+Thanks for reading the docs!
+
+<div class="author-data">
+    {% include 'partials/sponsor.html' %}
+    {% include 'partials/author.html' %}
+</div>
+
+{% block footer %}
+{% include 'partials/something-wrong.html' %}
+{% endblock %}

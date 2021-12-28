@@ -1,5 +1,5 @@
 ---
-title: "Hello there, I'm George Griffiths"
+title: "Hello there, <br/>I'm George Griffiths. I write about and work with web technologies."
 layout: "layouts/about.njk"
 permalink: "{{ myurl }}/index.html"
 pagination:
