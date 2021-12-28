@@ -232,3 +232,5 @@ customElements.define("copy-it", CopyToClipboard);
   <p>Formatting is preserved!</p>
 </copy-it>
 ```
+
+Check out the [codepen](https://codepen.io/georgegriff/pen/jOGYvaY).
