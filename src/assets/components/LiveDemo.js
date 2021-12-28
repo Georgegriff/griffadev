@@ -270,7 +270,6 @@ export class LiveDemo extends LitElement {
                 }
             }.bind(window.__liveDemoRef))();`;
       const script = document.createElement("script");
-      console.log(allCode);
       script.textContent = allCode;
       script.type = "module";
       const content = () => html`

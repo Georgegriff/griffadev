@@ -53,8 +53,9 @@ Any HTML inside of the `copy-component` tag will be made copy-able. You will lik
 
 Of course, all of the "Copy buttons" on this website use `copy-component` 😊.
 
-```html basic-usage
 <script type="module" src="https://cdn.skypack.dev/copy-component?min"></script>
+
+```html basic-usage
 <copy-component>
   <p>
     Hello<br />
