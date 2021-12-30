@@ -165,6 +165,49 @@ copy-component button:active {
 
 Check out the [codepen](https://codepen.io/georgegriff/pen/XWeVgBV).
 
+## Markdown
+
+Because Web Components are html you can wrap any markdown text/elements you like in a `copy-component`
+
+e.g.
+
+````html
+<copy-component
+  oncopy="this.querySelector('[slot=button]').textContent='Copied'"
+  style="display: block;"
+>
+  ```js console.log("hello world!"); ```
+
+  <button style="text-transform: uppercase" slot="button">Copy here</button>
+</copy-component>
+````
+
+## 11ty
+
+To automatically add copyable text snippets to your 11ty site from your markdown checkout this 11ty plugin.
+
+````md
+```html
+<p>Your blog post code</p>
+```
+````
+
+````
+
+plus `.eleventy.config.js`:
+
+```js
+eleventyConfig.addPlugin("eleventy-plugin-markdown-copy-button");
+```
+
+equals auto-copyable code:
+
+```html
+<p>Your blog post code</p>
+```
+
+If you're interested in this check out the 11ty plugin: https://github.com/Georgegriff/eleventy-plugin-markdown-copy-button
+
 ## Web Component library
 
 Here's an example using the component within lit
@@ -277,30 +320,6 @@ customElements.define("copy-it", CopyToClipboard);
 
 Check out the [codepen](https://codepen.io/georgegriff/pen/jOGYvaY).
 
-## Static site generator (11ty)
-
-To automatically add copyable text snippets to your 11ty site from your markdown checkout this 11ty plugin.
-
-````md
-```html
-<p>Your blog post code</p>
-```
-````
-
-plus `.eleventy.config.js`:
-
-```js
-eleventyConfig.addPlugin("eleventy-plugin-markdown-copy-button");
-```
-
-equals auto-copyable code:
-
-```html
-<p>Your blog post code</p>
-```
-
-If you're interested in this check out the 11ty plugin: https://github.com/Georgegriff/eleventy-plugin-markdown-copy-button
-
 Thanks for reading the docs!
 
 <div class="author-data">
@@ -311,3 +330,4 @@ Thanks for reading the docs!
 {% block footer %}
 {% include 'partials/something-wrong.html' %}
 {% endblock %}
+````
