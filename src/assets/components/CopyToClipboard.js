@@ -5,7 +5,7 @@ export class CopyToClipboard extends LitElement {
   constructor() {
     super();
     this._copyText = "Copy text";
-    this._copiedText = "Done!";
+    this._copiedText = "Copied";
     this._copyFailed = "Failed! 😞";
     this.copyText = this._copyText;
   }
@@ -46,6 +46,7 @@ export class CopyToClipboard extends LitElement {
         z-index: 1;
         height: var(--button-height);
         margin-left: auto;
+        text-transform: uppercase;
       }
 
       button:active {

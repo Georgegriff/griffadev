@@ -53,8 +53,6 @@ Any HTML inside of the `copy-component` tag will be made copy-able. You will lik
 
 Of course, all of the "Copy buttons" on this website use `copy-component` 😊.
 
-<script type="module" src="https://cdn.skypack.dev/copy-component?min"></script>
-
 ```html basic-usage
 <copy-component>
   <p>
@@ -71,7 +69,7 @@ copy-component {
   border: 2px lightgrey dashed;
 }
 
-copy-component *:not([slot="button"]) {
+copy-component > *:not([slot="button"]) {
   margin: 1rem;
 }
 copy-component button {
@@ -147,7 +145,7 @@ copy-component {
   border: 2px lightgrey dashed;
 }
 
-copy-component *:not([slot="button"]) {
+copy-component > *:not([slot="button"]) {
   margin: 1rem;
 }
 copy-component button {
@@ -292,7 +290,7 @@ To automatically add copyable text snippets to your 11ty site from your markdown
 plus `.eleventy.config.js`:
 
 ```js
-eleventyConfig.addPlugin(//plugin coming soon);
+eleventyConfig.addPlugin("eleventy-plugin-markdown-copy-button");
 ```
 
 equals auto-copyable code:
@@ -301,7 +299,7 @@ equals auto-copyable code:
 <p>Your blog post code</p>
 ```
 
-Customisation will be available.
+If you're interested in this check out the 11ty plugin: https://github.com/Georgegriff/eleventy-plugin-markdown-copy-button
 
 Thanks for reading the docs!
 

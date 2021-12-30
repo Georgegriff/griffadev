@@ -20,6 +20,9 @@ h1 .direct-link {
 
 .code-hero {
   max-width: 88%;
+}
+
+.code-hero copy-component {
   margin: 1rem;
   border: solid 2px var(--Primary);
 }
@@ -71,7 +74,7 @@ fieldset {
 }
 
 input,
-button {
+button.demo-button {
   &:disabled {
     background: $grey;
     cursor: not-allowed;
@@ -80,7 +83,7 @@ button {
   }
 }
 
-button {
+button.demo-button {
   font-family: inherit;
   background: var(--Primary);
   color: var(--Background);

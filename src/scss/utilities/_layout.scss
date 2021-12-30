@@ -146,6 +146,28 @@ $tagline-height: 3rem;
   }
 }
 
+.site-tag {
+  margin-top: 0rem;
+}
+
+@media screen and (min-width: 28em) {
+  .site-tag {
+    margin-top: 8rem;
+  }
+}
+
+@media screen and (min-width: 60em) {
+  .site-tag {
+    margin-top: 10rem;
+  }
+}
+
+@media screen and (min-width: 70em) {
+  .site-tag {
+    margin-top: 0;
+  }
+}
+
 [observable="hidden"] {
   .hero-scroll-down {
     a {

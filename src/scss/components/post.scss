@@ -2,11 +2,11 @@
 $title-height: 4rem;
 $meta-height: 5.3rem;
 
-
-.live-demo-toggled, .live-demo-toggled * {
+.live-demo-toggled,
+.live-demo-toggled * {
   z-index: initial;
   pointer-events: none;
-  overflow-y: hidden; 
+  overflow-y: hidden;
 }
 
 .live-demo-toggled live-demo * {
@@ -21,6 +21,12 @@ live-demo {
   border-radius: 0.2rem;
   background: var(--Secondary);
   margin-bottom: 1rem;
+  &:not([toggled]) {
+    copy-component {
+      overflow: hidden;
+      height: 100%;
+    }
+  }
   div[contenteditable] {
     height: 100%;
     width: 100%;
@@ -93,12 +99,9 @@ body {
     a {
       color: var(--PrimaryText);
     }
-
-   
   }
 }
 .post-meta-sticky {
-  
   width: 100%;
   z-index: 12;
   height: $meta-height;
@@ -108,7 +111,7 @@ body {
     font-size: 0.95rem;
     display: flex;
     flex-direction: column;
-    width: calc(100% + (2 *var(--site-padding)));
+    width: calc(100% + (2 * var(--site-padding)));
     margin-left: calc(-1 * var(--site-padding));
     padding-left: var(--site-padding);
     padding-right: var(--site-padding);
@@ -129,7 +132,7 @@ figure {
       Context
       - https://web.dev/content-visibility/#skipping-rendering-work-with-content-visibility
     */
-    content-visibility: auto; 
+    content-visibility: auto;
   }
   figcaption {
     font-size: 0.95rem;
@@ -145,15 +148,16 @@ figure {
     border-radius: 0.15rem;
     padding: 1rem;
     background: var(--Secondary);
-    picture, img {
-     height: 100%;
-     width: 100%;
-     display: flex;
-     justify-content: center;
+    picture,
+    img {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
     }
     img {
       width: auto;
-      height:min(56vh, 56vw);
+      height: min(56vh, 56vw);
       object-fit: cover;
     }
   }
@@ -225,7 +229,7 @@ blockquote {
   align-items: center;
   justify-content: flex-end;
   height: 1.6rem;
-  margin-top:0.5rem;
+  margin-top: 0.5rem;
   li {
     margin-left: 1rem;
   }
@@ -233,8 +237,9 @@ blockquote {
     width: 1.6rem;
     height: 1.6rem;
     fill: var(--Text);
-    &:hover, &:focus {
-        fill: var(--Primary);
+    &:hover,
+    &:focus {
+      fill: var(--Primary);
     }
   }
 }
@@ -261,24 +266,23 @@ blockquote {
 }
 
 .shared {
-    &:before {
-        content: "😃 Shared, thank you!";
-        margin-right:0.5rem;
-        color: var(--PrimaryText);
-    }
+  &:before {
+    content: "😃 Shared, thank you!";
+    margin-right: 0.5rem;
+    color: var(--PrimaryText);
+  }
 }
 
 .share-error {
-    &:before {
-        content: "Sharing error";
-        margin-right:0.5rem;
-        color: var(--PrimaryText);
-    }
+  &:before {
+    content: "Sharing error";
+    margin-right: 0.5rem;
+    color: var(--PrimaryText);
+  }
 }
 
-
 .comments {
-  margin-top:2rem;
+  margin-top: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;

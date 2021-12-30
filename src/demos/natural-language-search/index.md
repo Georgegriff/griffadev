@@ -15,7 +15,7 @@ Below I've auto populated the Search box with an example query, feel free to hav
 <form>
 <fieldset class="search-inputs" disabled>
     <input class="input-field" type="text" placeholder="Search for posts" id="search">
-    <button>Search</button>
+    <button class="demo-button">Search</button>
 </fieldset>    
 <griff-loader></griff-loader>
 </form>

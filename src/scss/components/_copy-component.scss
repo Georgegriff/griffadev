@@ -1,0 +1,40 @@
+copy-component {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+  --button-height: 2.33rem;
+  position: relative;
+  border-bottom: 2px solid var(--Primary);
+  max-height: 450px;
+  overflow: auto;
+
+  button[slot="button"] {
+    font-family: inherit;
+    text-transform: uppercase;
+    background: var(--Primary);
+    color: var(--Background);
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.25rem 1.5rem;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    height: var(--button-height);
+    margin-left: auto;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+  }
+
+  button:active {
+    background: var(--Primary50);
+  }
+
+  > *:not([slot="button"]) {
+    margin: 0 !important;
+    height: 100%;
+    padding-bottom: calc(var(--button-height) + 1rem) !important;
+  }
+}

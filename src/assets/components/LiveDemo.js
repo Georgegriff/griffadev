@@ -138,6 +138,7 @@ export class LiveDemo extends LitElement {
         margin: 0.5rem;
         height: 2.33rem;
         margin-left: auto;
+        text-transform: uppercase;
       }
       .demo-front > div {
         opacity: 1;
@@ -156,6 +157,11 @@ export class LiveDemo extends LitElement {
         position: fixed;
         width: 1px;
         white-space: nowrap;
+        pointer-events: none;
+      }
+
+      .demo-front[aria-hidden="true"] {
+        pointer-events: none;
       }
 
       .push {

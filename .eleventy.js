@@ -30,16 +30,32 @@ module.exports = (eleventyConfig) => {
     permalinkSymbol: '<span class="copy-link"></span>',
   });
 
+  eleventyConfig.setLibrary("md", markdownLibrary);
+
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
 
   eleventyConfig.addPlugin(require("./plugins/image-transform"));
 
+  eleventyConfig.addPlugin(require("eleventy-plugin-markdown-copy-button"), {
+    // live demo component handles rendering of copy component
+    renderer: (content) => content,
+  });
+
+  const {
+    copyComponentRenderer,
+  } = require("eleventy-plugin-markdown-copy-button/renderer");
+
   // Remember old renderer, if overridden, or proxy to default renderer
+
+  const plainCodeRenderer = function (tokens, idx, options, env, self) {
+    return self.renderToken(tokens, idx, options);
+  };
+
   const defaultCodeRender =
-    markdownLibrary.renderer.rules.fence ||
-    function (tokens, idx, options, env, self) {
-      return self.renderToken(tokens, idx, options);
-    };
+    markdownLibrary.renderer.rules.fence || plainCodeRenderer;
+
+  const renderCopyComponent = (...args) =>
+    copyComponentRenderer(defaultCodeRender(...args), "Copied", "Copy text");
 
   markdownLibrary.renderer.rules.fence = (...args) => {
     const [tokens, idx, options, env, self] = args;
@@ -85,8 +101,7 @@ module.exports = (eleventyConfig) => {
           ${matchingTokens.join("")}</live-demo>`;
       // find all code with matching id
     } else {
-      const rendered = defaultCodeRender(...args);
-      return `<copy-to-clipboard>${rendered}</copy-to-clipboard>`;
+      return renderCopyComponent(...args);
     }
   };
 
@@ -149,8 +164,6 @@ module.exports = (eleventyConfig) => {
     // pass token to default renderer.
     return defaultLinkRender(tokens, idx, options, env, self);
   };
-
-  eleventyConfig.setLibrary("md", markdownLibrary);
 
   // Browsersync Overrides
   eleventyConfig.setBrowserSyncConfig({
