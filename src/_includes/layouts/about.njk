@@ -5,7 +5,10 @@
     {% include "partials/post-hero.html" %}
   </div>
   <div class="post-title">
-    <h1 class="text-in thirdin">{{ title | safe }}</h1>
+    <h1 class="text-in thirdin">{{ title }}</h1>
+    {% if subtitle %}
+      <h2 class="text-in thirdin subtitle">{{ subtitle }}</h1>
+    {% endif %}
   </div>
   <p id="tagline" class="site-tag">
     <span class="second-there">Feel free to give me a follow on Twitter

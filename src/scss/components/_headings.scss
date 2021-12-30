@@ -21,6 +21,12 @@ h2 {
   font-size: 1.3rem;
 }
 
+h2.subtitle {
+  margin-top: 1rem;
+  line-height: 1;
+  font-size: min(5vw, 4vh);
+}
+
 .call-to-action-heading {
   .subtitle {
     margin-right: 9.3rem;
