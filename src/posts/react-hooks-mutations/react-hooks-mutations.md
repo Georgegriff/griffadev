@@ -10,7 +10,9 @@ hero:
   alt: "Code snippet of React code from article."
 ---
 
-React is so ubiquitous now it's pretty difficult to avoid it if you want to be employed and working in Web application development. React hooks in some ways pushed the ecosystem forward but in other ways have made React applications harder to debug and easier to subtly break things without realising, if you stop following the rules. In this article is a story and some lessons about how I "corrected" some React code to follow the "rules" of hooks and broke the feature because the existing code happened to violate some of the other React "rules", in a way that was not immediately obvious.
+React is so ubiquitous now it's pretty difficult to avoid it if you want to be employed and working in Web application development. React hooks in some ways pushed the ecosystem forward but in other ways have made React applications harder to debug and easier to subtly break things without realising, if you stop following the rules. 
+
+In this article is a story and some lessons about how I "corrected" some React code to follow the "rules" of hooks and broke the feature because the existing code happened to violate some of the other React "rules", in a way that was not immediately obvious.
 
 ## Writing about React is scary
 
