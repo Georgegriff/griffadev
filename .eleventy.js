@@ -55,7 +55,7 @@ module.exports = (eleventyConfig) => {
     markdownLibrary.renderer.rules.fence || plainCodeRenderer;
 
   const renderCopyComponent = (...args) =>
-    copyComponentRenderer(defaultCodeRender(...args), "Copied", "Copy text");
+    `<copy-to-clipboard>${defaultCodeRender(...args)}</copy-to-clipboard>`;
 
   markdownLibrary.renderer.rules.fence = (...args) => {
     const [tokens, idx, options, env, self] = args;

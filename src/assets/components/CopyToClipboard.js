@@ -18,8 +18,7 @@ export class CopyToClipboard extends LitElement {
         --button-height: 2.33rem;
         position: relative;
         border-bottom: 2px solid var(--Primary);
-        max-height: 450px;
-        overflow: auto;
+        overflow: hidden;
       }
       :host([hidden]) {
         display: none;
@@ -63,6 +62,12 @@ export class CopyToClipboard extends LitElement {
         margin: 0 !important;
         height: 100%;
         padding-bottom: calc(var(--button-height) + 1rem) !important;
+      }
+
+      ::slotted(:not([slot="button"])) {
+        max-height: 450px;
+        overflow: auto;
+        max-height: 450px;
       }
     `;
   }
