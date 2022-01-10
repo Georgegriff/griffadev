@@ -6,7 +6,7 @@
     display: grid;
     max-width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(27rem,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
     grid-gap: 1.5rem;
   }
 }
@@ -14,7 +14,15 @@
 @media screen and (min-width: 3000px) {
   .post-tiles {
     .tiles {
-      grid-template-columns: repeat(auto-fit,minmax(51rem,0fr));
+      grid-template-columns: repeat(auto-fit, minmax(51rem, 0fr));
+    }
+  }
+}
+
+@media screen and (min-width: 180em) and (min-height: 24em) {
+  .post-tiles {
+    .tiles {
+      grid-template-columns: repeat(auto-fit, minmax(48rem, 0fr));
     }
   }
 }
@@ -23,7 +31,7 @@
 @media screen and (max-width: 45em) {
   .post-tiles {
     .tiles {
-      margin-top:1rem;
+      margin-top: 1rem;
       place-items: center;
       grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     }

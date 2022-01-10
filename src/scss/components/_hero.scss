@@ -41,6 +41,15 @@
   }
 }
 
+/** ultra wide screens */
+@media screen and (min-width: 180em) and (min-height: 24em) {
+  .hero {
+    svg {
+      min-width: 60%;
+    }
+  }
+}
+
 /* todo figure out re-using */
 @media screen and (max-width: 80em) {
   body {

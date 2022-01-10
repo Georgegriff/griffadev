@@ -168,6 +168,13 @@ $tagline-height: 3rem;
   }
 }
 
+/** ultra wide screens */
+@media screen and (min-width: 180em) and (min-height: 24em) {
+  .site-tag {
+    margin-top: 10rem;
+  }
+}
+
 [observable="hidden"] {
   .hero-scroll-down {
     a {

@@ -17,3 +17,15 @@
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   }
 }
+
+@media screen and (min-width: 3000px) {
+  .project-tiles {
+    grid-template-columns: repeat(auto-fit, minmax(51rem, 0fr));
+  }
+}
+
+@media screen and (min-width: 180em) and (min-height: 24em) {
+  .project-tiles {
+    grid-template-columns: repeat(auto-fit, minmax(48rem, 0fr));
+  }
+}
