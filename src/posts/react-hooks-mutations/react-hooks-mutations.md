@@ -10,7 +10,7 @@ hero:
   alt: "Code snippet of React code from article."
 ---
 
-React is so ubiquitous now it's pretty difficult to avoid it if you want to be employed and working in Web application development. React hooks in some ways pushed the ecosystem forward but in other ways have made React applications harder to debug and easier to subtly break things without realising, if you stop following the rules. 
+React is so ubiquitous now it's pretty difficult to avoid it if you want to be employed and working in Web application development. React hooks in some ways pushed the ecosystem forward but in other ways have made React applications harder to debug and easier to subtly break things without realising, if you stop following the rules.
 
 In this article is a story and some lessons about how I "corrected" some React code to follow the "rules" of hooks and broke the feature because the existing code happened to violate some of the other React "rules", in a way that was not immediately obvious.
 
@@ -34,7 +34,7 @@ To demonstrate the problem with the code I have developed 3 examples all impleme
 
 - one with the original implementation "before" I refactored and broke it
 - one with my refactor which broke the code in a specific way
-- one with the changes i'd probably make in addition to my original refactor to fix the code.
+- one with the changes I'd probably make in addition to my original refactor to fix the code.
 
 > Full code examples will be available at the end of each section.
 
@@ -364,7 +364,7 @@ I've published a [code-sandbox](https://codesandbox.io/s/react-hooks-with-usecal
 
 ## How I broke production
 
-As suggested to earlier, when working in this area of the code I took the chance to tidy up the code to use `useMemo` instead of `useCallback`. Unfortunately, this made the code fall over, and to make things even more fun I was going on vacation later that week, luckily someone in my team came in and reverted back to using useCallback, hopefully i'll be able to make the change to make the code less of a trap with the mutation of the Maps when I return, which i'll discuss at the end.
+As suggested to earlier, when working in this area of the code I took the chance to tidy up the code to use `useMemo` instead of `useCallback`. Unfortunately, this made the code fall over, and to make things even more fun I was going on vacation later that week, luckily someone in my team came in and reverted back to using useCallback, hopefully I'll be able to make the change to make the code less of a trap with the mutation of the Maps when I return, which I'll discuss at the end.
 
 ![Diff of the changes from using useCallback to useMemo](/images/memo-callback-diff.png "A diff of the changes made (note the diff is the wrong way around)")
 
@@ -452,7 +452,7 @@ I suppose one of the main lessons here is to always be aware of where code could
 
 More importantly, when refactoring code from an uncommon pattern (the useCallback) to something more typical it’s important to fully understand why that code might have happened in the first place, it's likely it might be a workaround for another issue. Another learning on my part is that this would had made good sense to start a dialogue with the person who wrote the original code, although that's easy to say in retrospect, there are many contributors.
 
-Perhaps code comments might have saved this or some more unit tests, it’s hard to say. I can say for sure that we did do lots of testing in this area before shipping the bug to production but I suppose because it’s a bug that only happens on the first mutation and fixes itself if you do subsequent changes that might help to explain why it was missed. I'ts possible that some end to end test automation of this functionality might have caught this, as it seems likely that a human tester would go for the more complex scenario over a more basic test, e.g. a single mutation which might be present in an automated test.
+Perhaps code comments might have saved this or some more unit tests, it’s hard to say. I can say for sure that we did do lots of testing in this area before shipping the bug to production but I suppose because it’s a bug that only happens on the first mutation and fixes itself if you do subsequent changes that might help to explain why it was missed. It's possible that some end to end test automation of this functionality might have caught this, as it seems likely that a human tester would go for the more complex scenario over a more basic test, e.g. a single mutation which might be present in an automated test.
 
 Variable names can lie, the name of the variable also had the word `existing` in it in the other codebase too making it seem like this variable reference was representative of the original unmodified state, but due to the mutations it was not. I suppose it's a learning that you cannot always trust that a variable is what is says it is.
 
