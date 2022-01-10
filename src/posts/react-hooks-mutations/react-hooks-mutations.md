@@ -157,6 +157,8 @@ Below I setup a context and fetch the JSON. It might seem odd to you that I am s
 
 There is a good reason why I am storing the response and not the the TODOs themselves, because I need to do a transform on the data and this is the closest way I could mimic was the original code was doing without introducing some fancy http client hook like [react-query](https://www.npmjs.com/package/react-query).
 
+{% raw %}
+
 ```js
 export const TodoContext = createContext();
 
@@ -193,6 +195,8 @@ export const TodoProvider = ({ children }) => {
 }
 ```
 
+{% endraw %}
+
 The second part of the code uses `useCallback` to create a function that converts the array of items into a map of todo items where the key is the id e.g.
 
 ```js
@@ -223,6 +227,8 @@ The second part of the code uses `useCallback` to create a function that convert
 If you think the use of `useCallback` here is strange and `useMemo` would make sense, we both had the same thought and I wonder if you would end up introducing the same bug that I did by refactoring and correcting the code!
 
 Now we're fetching Todo Items we want a way of adding new items. Before we do that I'm going to introduce a new concept to the above implementation, the notion of "draft todos", these are modified or new todo items which have not been saved back to the server just yet. To make that happen I add in:
+
+{% raw %}
 
 ```jsx
 export const TodoProvider = ({ children }) => {
@@ -267,6 +273,8 @@ export const TodoProvider = ({ children }) => {
 }
 ```
 
+{% endraw %}
+
 The purpose of the `useEffect` is so that on initialisation the draft todos equal the existing todo items.
 
 In the new lines, if it wasn't clear before, hopefully it would be now that useCallback here is quite strange indeed because in order to read the existing you need to execute the `existingTodos` as a function.
@@ -276,6 +284,8 @@ In the new lines, if it wasn't clear before, hopefully it would be now that useC
 ### Adding and removing Todo items
 
 These next two lines are more or less the existing code which was in place to add or remove items, and were exported onto the context.
+
+{% raw %}
 
 ```jsx
 <TodoContext.Provider
@@ -306,6 +316,8 @@ These next two lines are more or less the existing code which was in place to ad
 </TodoContext.Provider>
 ```
 
+{% endraw %}
+
 These code examples also looked a little off to me too, but I couldn't quite understand why or put two and two together, at first. What the code is doing:
 
 - Adding or Removing item from todo list
@@ -318,6 +330,8 @@ If you hadn't noticed already, the lines above were mutating the previous map in
 ### Saving items to the "server"
 
 The code below is quite contrived and is missing the context as to why it was needed. But what the code does is check if the data had changed before sending it, it was a bit of an optimisation and there were other reasons too, but that's not important, let's take a look.
+
+{% raw %}
 
 ```jsx
 <TodoContext.Provider
@@ -355,6 +369,8 @@ The code below is quite contrived and is missing the context as to why it was ne
   {children}
 </TodoContext.Provider>
 ```
+
+{% endraw %}
 
 Most of the above code doesn't matter but the general idea is that the two maps are being compared to one another. Here again strikes the `existingTodos()` which as we established before essentially "resets" the Map back to the original data from the server. It is in fact this property of code with the `useCallback` ensuring that `existingTodos()` is the original data from the server that makes this code work at all because the add and remove operations mutate the original array. If it wasn't for `existingTodos()` always fetching the un-mutated data the code would not function!
 

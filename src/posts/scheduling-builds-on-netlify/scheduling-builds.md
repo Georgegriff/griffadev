@@ -9,7 +9,7 @@ tags:
 series:
   title: Static sites with dynamic content
   order: 2
-date: '2021-06-21'
+date: "2021-06-21"
 hero:
   image: /images/circle-ci-build.png
   alt: "CircleCI scheduled build"
@@ -41,21 +41,25 @@ curl -X POST -d {} https://api.netlify.com/build_hooks/$NETLIFY_BUILD_HOOK_TOKEN
 Github actions let you perform continuous integration in Github, they seem like a perfect fit here...
 
 In your Github repository, in the following folder `.github/workflows`, you could create:
+{% raw %}
 
 ```yaml
 name: Scheduled build
 on:
   schedule:
-  - cron: '00 15 * * *'
+    - cron: "00 15 * * *"
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Trigger our build webhook on Netlify
-      run: curl -s -X POST "https://api.netlify.com/build_hooks/${TOKEN}"
-      env:
-        TOKEN: ${{ secrets.NETLIFY_BUILD_HOOK_TOKEN }}
+      - name: Trigger our build webhook on Netlify
+        run: curl -s -X POST "https://api.netlify.com/build_hooks/${TOKEN}"
+        env:
+          TOKEN: ${{ secrets.NETLIFY_BUILD_HOOK_TOKEN }}
 ```
+
+{% endraw %}
+
 The above configuration will run every day at around 15:00.
 
 You will want to secure your `build_hook` token in a secret on Github.
@@ -71,6 +75,7 @@ The above limitation might be okay, depending on your use case, but for my case 
 One alternative to Github actions is to use CircleCI to do this instead, it has a generous free tier too so there should be no charge for this.
 
 You can create a configuration like this:
+
 - Create a folder in your Git repository called `.circleci`
 - Create a file called `config.yml`
 
@@ -104,7 +109,7 @@ workflows:
       - docker
 ```
 
-Now you can create a project in CircleCI and you should be able to test your  build.
+Now you can create a project in CircleCI and you should be able to test your build.
 `NETLIFY_BUILD_HOOK_TOKEN` will need to be set as an environment variable, in a similar way to Github, in the setting of CircleCI for your project.
 
 ![CircleCI scheduled build](/images/circle-ci-build.png)
