@@ -22,7 +22,7 @@ Whenever I write a React article I question whether or not it is a good idea to 
 - "React is NOT a framework, it’s a JavaScript library." - I call it a framework just because it annoys people, for some reason, and I will continue to do so.
 - "This is just an opinion piece" - ????? It's a blog post?
 
-Anyways... to the article, I promise the above is the only sarcastic/cynical part of the post and I think there that there is some useful learning in this story to help me grow and hopefully others can find it useful to when working with the React framework.
+Anyways... to the article, I promise the above is the only sarcastic/cynical part of the post and I think that there is some useful learning in this story to help me grow and hopefully others can find it useful to when working with the React framework.
 
 ## The scenario
 
@@ -427,28 +427,28 @@ removeTodo: (id) => {
 ```
 
 ```js
-        addTodo: (message) => {
-          if (!message) {
-            return;
-          }
-          const todo = {
-            id: crypto.randomUUID(),
-            message,
-            done: false,
-          };
-          if (draftTodos.has(todo.id)) return;
-          // make a copy first
-          const newTodos = new Map(draftTodos);
-          newTodos.set(todo.id, todo);
-          setTodoList(new Map(newTodos));
-        },
+addTodo: (message) => {
+  if (!message) {
+    return;
+  }
+  const todo = {
+    id: crypto.randomUUID(),
+    message,
+    done: false,
+  };
+  if (draftTodos.has(todo.id)) return;
+  // make a copy first
+  const newTodos = new Map(draftTodos);
+  newTodos.set(todo.id, todo);
+  setTodoList(new Map(newTodos));
+},
 ```
 
 Here is a [code-sandbox](https://codesandbox.io/s/working-todo-list-with-usememo-ns4px) of what I believe is functional code.
 
 ## Learnings
 
-I suppose one of the main lessons here is to always be aware of where code could potentially be mutating your state, especially before introducing something like a `useMemo` into the code base.
+I suppose one of the main lessons here is to always be aware of where code could potentially be mutating state, especially before introducing something like a `useMemo` into the code base.
 
 More importantly, when refactoring code from an uncommon pattern (the useCallback) to something more typical it’s important to fully understand why that code might have happened in the first place, it's likely it might be a workaround for another issue. Another learning on my part is that this would had made good sense to start a dialogue with the person who wrote the original code, although that's easy to say in retrospect, there are many contributors.
 
