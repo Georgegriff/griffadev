@@ -111,6 +111,6 @@ If you want to try it out I can only recommend (again) watching [UI Design For C
 
 After first day of research and design I had a first pass at a mobile layout for a potential blog site.
 
-![Picture of initial designs for blogging site](/images/design-day1.png "The first pass at designs for griffa.dev" =1000x)
+![Picture of initial designs for blogging site](/images/design-day1.png "The first pass at designs for griffa.dev")
 
 In the next post I'll explore how I iterated on the above design, implementing dark and light themes, using CSS variables.
