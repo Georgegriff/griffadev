@@ -2,7 +2,7 @@ version: 2
 
 defaults: &defaults
   machine:
-    image: circleci/classic:201710-02
+    image: circleci/classic:latest
   steps:
     - run: curl -X POST -d {} https://api.netlify.com/build_hooks/$NETLIFY_BUILD_HOOK_TOKEN
 
