@@ -1,8 +1,8 @@
 version: 2
 
 defaults: &defaults
-  machine:
-    image: cimg/base:stable
+  docker:
+    - image: cimg/base:2022.03
   steps:
     - run: curl -X POST -d {} https://api.netlify.com/build_hooks/$NETLIFY_BUILD_HOOK_TOKEN
 
