@@ -11,7 +11,9 @@ date: "2023-01-31"
 
 Sometimes I get asked about places where you can go to learn about different topics. This post is my attempt to collate some of the resource that I've found helpful in my journey through software engineering. Some of these might also just be tools that I've used.
 
-> I may continue to update this over time.
+These links aren't the full extent of the things I've been learning. I think the best way to learn new things is to be inquisitive on the job and try to get exposure to different aspects of software not just Frontend or Backend alone. Don't be afraid to dive in head first and just experiment and ask questions!
+
+> I may continue to update this list over time.
 
 ## HTML/CSS
 
