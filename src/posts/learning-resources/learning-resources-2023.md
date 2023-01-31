@@ -20,6 +20,7 @@ These links aren't the full extent of the things I've been learning. I think the
 - https://developer.mozilla.org/en-US/docs/Learn
 - https://www.youtube.com/@KevinPowell
 - https://www.htmhell.dev/
+- https://www.htmhell.dev/tips/
 - https://piccalil.li/tutorials/
 - https://thecsspodcast.libsyn.com/
 - https://flukeout.github.io/
