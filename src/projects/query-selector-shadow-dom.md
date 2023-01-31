@@ -1,6 +1,6 @@
 ---
 title: query-selector-shadow-dom
-description: NPM package I created and maintain. It's a utility which helps with testing Web Components using Shadow DOM.
+description: NPM package I created and maintained. It's a utility which helps with testing Web Components using Shadow DOM. In 2022 I transferred ownership to WebDriver.io as I was no longer actively working in this space.
 type: "Library"
 github:
   user: Georgegriff
