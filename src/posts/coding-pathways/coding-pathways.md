@@ -125,7 +125,7 @@ Examples:
 - Where as 'Mobile/Web app development' you'd most likely be building out a projects.
 - Something like "How does Cloud computing work" might sit somewhere in the middle where you could learn about AWS and how it can make managing infrastructure easier (and harder at the same time).
 
-When learning to code I recommend planning out things to learn that fit into those buckets, and try to introduce yourself to different things and see what you take a liking to. If something isn't working for you, try something else. I will say the first few tutorials might get overwhelming quickly. I remember the summer before uni trying to self-teach myself Java from a book and not really understanding anything. If it's not clicking it equally might be a shit tutorial, find what works for you, books do not work for me.
+When learning to code I recommend planning out things to learn that fit into practical cs theoretical and try to introduce yourself to different things and see what you take a liking to. If something isn't working for you, try something else. I will say the first few tutorials might get overwhelming quickly. I remember the summer before uni trying to self-teach myself Java from a book and not really understanding anything. If it's not clicking it equally might be a shit tutorial, find what works for you, books do not work for me.
 
 Sometimes you can hit a wall, just like you might at school, and you can divert your attention to something else instead and loop back around to the thing that is causing you trouble. You will also be flexing different muscles, creating a project from scratch is very different from learning computer science theory or implementing an algorithm.
 
