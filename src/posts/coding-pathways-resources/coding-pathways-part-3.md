@@ -17,9 +17,12 @@ If you haven't checked out part 1 and 2 of this series I'd recommend it for some
 ## Tutorials and Courses
 
 Code Academy or Free Code Camp are pretty good starting points.
+
+- [Code Academy - Various languages](https://www.codecademy.com/)
+- [Code Academy - Free Code Camp](https://www.freecodecamp.org/)
+
 Python is just an example on Free Code Camp, they offer many languages but it might be a good starting point.
 
-- [Various languages](https://www.codecademy.com/)
 - [Learn python](https://www.freecodecamp.org/news/tag/python/)
 
 Some other cool things i've had recommended by colleagues.
