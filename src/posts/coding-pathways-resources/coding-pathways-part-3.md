@@ -94,5 +94,6 @@ YouTube and Twitch have thriving tech communities.
 - https://www.youtube.com/c/TheCoderCoder
 - https://www.learnwithjason.dev/
 - https://www.youtube.com/@t3dotgg
+- https://www.youtube.com/@ThePrimeagen
 - https://www.youtube.com/@ThePrimeTimeagen
 - https://www.youtube.com/kepowob
