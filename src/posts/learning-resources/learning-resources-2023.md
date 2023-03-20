@@ -80,6 +80,7 @@ Some of this falls into discovering new stuff too.
 - https://briefs.video/
 - https://syntax.fm/
 - https://www.youtube.com/@t3dotgg
+- https://www.youtube.com/@ThePrimeTimeagen
 
 ## Twitter Accounts
 
