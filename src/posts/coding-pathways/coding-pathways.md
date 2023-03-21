@@ -111,6 +111,9 @@ In general it might be good to:
 
 Over the years I've "found the fun" in some unexpected places as I've worked on more problems. For example I really love Testing, of all kinds. Testing is a whole huge discipline within programming, not one to get into now but every programmer eventually will run into it.
 
+If you want a nice intro some example problems that you could learn how to solve check out [Automate the Boring Stuff with Python](https://automatetheboringstuff.com/), it'll teach you some Python and give you a feel for programming.
+If you go for this it might be an idea to pair that book with some interactive learning on [Free Code Camp](https://www.freecodecamp.org/news/tag/python/).
+
 ## Build your own curriculum
 
 I talked about my degree earlier in the article, there are so many resources out there now that you could quite happily build yourself an extensive self-guided curriculum. It would also have the benefit of being more up to date than many university curriculums.
