@@ -32,7 +32,7 @@ By problem solving I also don't mean complex maths problems, that can be part of
 
 In high school I enjoyed building out crappy websites, they were poorly designed and poorly implemented but I tinkered with HTML and pasted snippets of JavaScript and JQuery that I didn't understand into the websites. But my "official" intro to programming was in 2012 when I started a Computer Science degree. This was a great intro into the wider world of software development. This introduced me to programming fundamentals, I was learning about Data structures and algorithms and learning how to build software in Java.
 
-A degree is by no means the only way into programming, and to be honest it's probably not even the best way.
+A degree is by no means the only way into programming, and to be honest it's probably not even the best way. I learnt most of my useful skills on the job or self taught, my degree just gave me structure.
 
 What's funny about my degree is, it wasn't part of a big plan, I didn't even really know what Computer Science was, I liked playing games and messing about on a computer. But after a few assignments I got hooked on programming. During the first few months I had no idea what I was doing, when you are learning the low level programming concepts it's hard to imagine how adding numbers together or [describing two animals and printing the noises they make to the screen](https://www.w3schools.com/java/java_polymorphism.asp) can get you to building complex software, but it can, it's all about building knowledge on-top of existing knowledge.
 
@@ -64,13 +64,13 @@ Programming languages also can be broadly split into another two camps: `compile
 - Compiled languages: C++, Java, Rust, C#
 - Interpreted languages: JavaScript, ruby, python, PHP
 
-When getting started it for the first time you might find it easier to do some tutorials on Interpreted languages to begin with. However, with the quality of online tutorials out there even with a compiled language it might be a while before you even have to work with a compiler, so just pick something!
+When getting started for the first time you might find it easier to do some tutorials on Interpreted languages to begin with. However, with the quality of online tutorials out there even with a compiled language it might be a while before you even have to work with a compiler, so just pick something!
 
 Python is one of the most prolific "first time" languages.
 
 But equally Java was my first programming language that I was taught, which is compiled, which was also a good learning experience, but compilers do complicate things a little, potential risk for getting overwhelmed initially.
 
-There is a third way to categorize programming languages `static` vs `dynamic` typing. It is a little too much to go into now, but some examples: `Java` has static types whilst python and JavaScript have `dynamic`. One of the reasons Java can be a great first language is its static types can really help you understand programming fundamentals and help with debugging errors. Doing a mix of both to see the differences relatively early on might be a nice idea.
+There is a third way to categorize programming languages `static` vs `dynamic` typing. It is a little too much to go into now, but some examples: `Java` has static types whilst python and JavaScript has `dynamic` types. One of the reasons Java can be a great first language is that static types can really help you understand programming fundamentals and help with debugging errors. Doing a mix of both to see the differences relatively early on might be a nice idea.
 
 JavaScript also has a wealth of programming tutorials out there.
 
