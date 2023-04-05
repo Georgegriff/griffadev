@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Add Status Check Runner
         if: ${{ matrix.STATUS_CHECKS == github.event.context }}
-        uses: actions/github-script@v5
+        uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
