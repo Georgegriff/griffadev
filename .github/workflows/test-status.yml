@@ -6,14 +6,13 @@ on:
 jobs:
   add_status_links:
     runs-on: ubuntu-latest
-    if: contains(fromJSON('["ci/circleci"]'),github.event.context)
     steps:
       - name: Add Status Check Runner
         uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            console.log(github, context);
+            console.log(github, context, event);
             const payload = context.payload;
             const { repository } = payload;
             const statusName = payload.context;
