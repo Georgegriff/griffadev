@@ -3,15 +3,15 @@ name: Add Status Check
 on:
   status:
 
-env:
-  SUPPORTED_STATUS_CHECKS: '["ci/circleci: docker"]'
-
 jobs:
   add_status_links:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        SUPPORTED_STATUS_CHECKS: ["ci/circleci: docker"]
     steps:
       - name: Add Status Check Runner
-        if: ${{ contains(fromJSON(env.SUPPORTED_STATUS_CHECKS), github.event.context)}}
+        if: ${{ contains(fromJSON(matrix.SUPPORTED_STATUS_CHECKS), github.event.context)}}
         uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
