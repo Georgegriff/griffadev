@@ -8,11 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        SUPPORTED_STATUS_CHECKS: ["ci/circleci: docker", "test new"]
+        STATUS_CHECKS: ["ci/circleci: docker"]
     steps:
       - name: Add Status Check Runner
-        if: ${{ matrix.SUPPORTED_STATUS_CHECKS == github.event.context }}
-        uses: actions/github-script@v4
+        if: ${{ matrix.STATUS_CHECKS == github.event.context }}
+        uses: actions/github-script@v5
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
