@@ -17,7 +17,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const {payload, ref } = context;
+            const {payload, ref, repo } = context;
             const { repository, commit } = payload;
             const statusName = payload.context;
             const state = payload.state;
@@ -28,6 +28,7 @@ jobs:
             const branch = ref.replace("refs/heads/", "");
             const link = `https://griffa.dev`;
             const description = `My special link for ${statusName}`;
+            console.log(repo);
             const args = {
               owner,
               repo,
