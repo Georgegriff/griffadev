@@ -8,7 +8,7 @@ on:
       - completed
 
 jobs:
-  my_job:
+  add_status_links:
     runs-on: ubuntu-latest
     steps:
       - name: Add Status Check Runner
@@ -16,18 +16,19 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const checkName = github.context.payload.check_run.name;
-            const runStatus = github.context.payload.check_run.conclusion;
+            const checkName = context.payload.check_run.name;
+            const runStatus = context.payload.check_run.conclusion;
             const finishedStates = ["success", "failure"];
             const status = runStatus && finishedStates.includes(runStatus) ? runStatus : "";
             console.log("New check created", checkName, runStatus, status);
 
             const { owner, repo } = context.repo;
-            const sha = github.context.payload.check_run.head_sha;
-            const branch = github.context.payload.check_suite.head_branch;
-            const fullRepoName = github.context.payload.repository.full_name;
+            const sha = context.payload.check_run.head_sha;
+            const branch = context.payload.check_suite.head_branch;
+            const fullRepoName = context.payload.repository.full_name;
             const repoName = repo.split('/')[1];
             const link = `https://griffa.dev`;
+            console.log(sha, branch, owner, repo, fullRepoName, repoName)
             const description = `My special link for ${checkName}`;
             await github.rest.repos.createCommitStatus({
               owner,
