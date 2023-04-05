@@ -11,7 +11,7 @@ jobs:
         SUPPORTED_STATUS_CHECKS: ["ci/circleci: docker", "test new"]
     steps:
       - name: Add Status Check Runner
-        if: ${{ matrix.SUPPORTED_STATUS_CHECKS === github.event.context }}
+        if: ${{ matrix.SUPPORTED_STATUS_CHECKS == github.event.context }}
         uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
