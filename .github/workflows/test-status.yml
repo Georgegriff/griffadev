@@ -35,7 +35,6 @@ jobs:
               state,
               description,
               target_url: state === "pending" ? null: link,
-              icon_url: 'https://playwright.dev/img/playwright-logo.svg',
               context: "My special link"
             };
             console.table(args);
