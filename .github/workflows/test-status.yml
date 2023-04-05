@@ -1,11 +1,7 @@
 name: Add Status Check
 
 on:
-  workflow_dispatch:
-  check_run:
-    types:
-      - created
-      - completed
+  status:
 
 jobs:
   add_status_links:
@@ -16,26 +12,4 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const checkName = context.payload.check_run.name;
-            const runStatus = context.payload.check_run.conclusion;
-            const finishedStates = ["success", "failure"];
-            const status = runStatus && finishedStates.includes(runStatus) ? runStatus : "";
-            console.log("New check created", checkName, runStatus, status);
-
-            const { owner, repo } = context.repo;
-            const sha = context.payload.check_run.head_sha;
-            const branch = context.payload.check_suite.head_branch;
-            const fullRepoName = context.payload.repository.full_name;
-            const repoName = repo.split('/')[1];
-            const link = `https://griffa.dev`;
-            console.log(sha, branch, owner, repo, fullRepoName, repoName)
-            const description = `My special link for ${checkName}`;
-            await github.rest.repos.createCommitStatus({
-              owner,
-              repo,
-              sha,
-              state: status,
-              description,
-              target_url: link,
-              context: "My special link"
-            });
+            console.log(context)
