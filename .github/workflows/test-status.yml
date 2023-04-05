@@ -27,9 +27,8 @@ jobs:
             const owner = repository.owner;
             const branch = ref.replace("refs/heads/", "");
             const link = `https://griffa.dev`;
-            console.table({statusName, state, repo, branch });
             const description = `My special link for ${statusName}`;
-            await github.rest.repos.createCommitStatus({
+            const args = {
               owner,
               repo,
               sha,
@@ -38,4 +37,6 @@ jobs:
               target_url: state === "pending" ? null: link,
               icon_url: 'https://playwright.dev/img/playwright-logo.svg',
               context: "My special link"
-            });
+            };
+            console.table(args);
+            await github.rest.repos.createCommitStatus(args);
