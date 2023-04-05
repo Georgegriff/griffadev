@@ -12,14 +12,29 @@ jobs:
     steps:
       - name: Add Status Check Runner
         if: ${{ matrix.STATUS_CHECKS == github.event.context }}
+        # if need to upgrade see https://github.com/actions/github-script
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            console.log(github, context);
             const payload = context.payload;
-            const { repository } = payload;
+            const { repository, commit, ref } = payload;
             const statusName = payload.context;
-            const status = payload.state;
+            const state = payload.state;
             const repoName = repository.name;
-            console.log(statusName, status, repoName);
+
+            const sha = commit.sha;
+            const branch = ref.replace("refs/heads/", "");
+            const link = `https://griffa.dev`;
+            console.table({statusName, state, repoName, branch });
+            const description = `My special link for ${statusName}`;
+            await github.rest.repos.createCommitStatus({
+              owner,
+              repo,
+              sha,
+              state,
+              description,
+              target_url: state === "pending" ? null: link,
+              icon_url: 'https://playwright.dev/img/playwright-logo.svg',
+              context: "My special link"
+            });
