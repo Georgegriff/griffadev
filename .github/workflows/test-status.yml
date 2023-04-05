@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        SUPPORTED_STATUS_CHECKS: ["ci/circleci: docker"]
+        SUPPORTED_STATUS_CHECKS: ["ci/circleci: docker", "test new"]
     steps:
       - name: Add Status Check Runner
         if: ${{ contains(matrix.SUPPORTED_STATUS_CHECKS, github.event.context)}}
