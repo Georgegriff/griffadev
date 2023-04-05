@@ -21,12 +21,13 @@ jobs:
             const { repository, commit } = payload;
             const statusName = payload.context;
             const state = payload.state;
-            const repoName = repository.name;
+            const repo = repository.name;
 
             const sha = commit.sha;
+            const owner = repository.owner;
             const branch = ref.replace("refs/heads/", "");
             const link = `https://griffa.dev`;
-            console.table({statusName, state, repoName, branch });
+            console.table({statusName, state, repo, branch });
             const description = `My special link for ${statusName}`;
             await github.rest.repos.createCommitStatus({
               owner,
