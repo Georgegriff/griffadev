@@ -6,7 +6,7 @@ on:
 jobs:
   add_status_links:
     runs-on: ubuntu-latest
-    if: contains(fromJSON('["ci/circleci"]'), github.context.payload.context)
+    if: contains(fromJSON('["ci/circleci"]'),'ci/circleci')
     steps:
       - name: Add Status Check Runner
         uses: actions/github-script@v4
