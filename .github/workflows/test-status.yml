@@ -2,7 +2,9 @@ name: Add Status Check
 
 on:
   check_run:
-    types: [completed, created]
+    types:
+      - created
+      - completed
     name:
       - "ci/circleci: docker"
 
@@ -10,7 +12,7 @@ jobs:
   my_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Add Status Check
+      - name: Add Status Check Runner
         uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
