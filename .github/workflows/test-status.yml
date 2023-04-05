@@ -2,7 +2,7 @@ name: Add Status Check
 
 on:
   status:
-    types: [ci/circleci/docker]
+    types: [ci/circleci]
 
 jobs:
   add_status_links:
