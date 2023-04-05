@@ -1,6 +1,7 @@
 name: Add Status Check
 
 on:
+  workflow_dispatch:
   check_run:
     types:
       - created
