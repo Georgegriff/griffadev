@@ -6,7 +6,7 @@ on:
 jobs:
   add_status_links:
     runs-on: ubuntu-latest
-    if: "${{ startsWith(github.event.context, 'ci/circleci: docker') }}"
+    if: ${{ contains(fromJSON('["ci/circleci: docker"]'), github.event.context)}}
     steps:
       - name: Add Status Check Runner
         uses: actions/github-script@v4
