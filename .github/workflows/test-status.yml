@@ -21,7 +21,7 @@ jobs:
             const { repository, commit } = payload;
             const statusName = payload.context;
             const state = payload.state;
-            const repo = repository.name;
+            const repoName = repository.name;
 
             const sha = commit.sha;
             const owner = repository.owner;
@@ -31,7 +31,7 @@ jobs:
             console.log(repo);
             const args = {
               owner,
-              repo,
+              repo: repoName,
               sha,
               state,
               description,
