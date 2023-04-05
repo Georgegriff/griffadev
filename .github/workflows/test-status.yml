@@ -2,6 +2,7 @@ name: Add Status Check
 
 on:
   status:
+    types: ["ci/circleci: docker"]
 
 jobs:
   add_status_links:
@@ -12,4 +13,9 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            console.log(context)
+            const payload = context.payload;
+            const { repository } = payload;
+            const statusName = payload.context;
+            const status = payload.state;
+            const repoName = repository.name;
+            console.log(statusName, status, repoName);
