@@ -2,11 +2,11 @@ name: Add Status Check
 
 on:
   status:
-    types: [ci/circleci]
 
 jobs:
   add_status_links:
     runs-on: ubuntu-latest
+    if: contains(fromJSON('["ci/circleci"]', github.context.payload.context))
     steps:
       - name: Add Status Check Runner
         uses: actions/github-script@v4
