@@ -8,11 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Add Status Check Runner
+        if: contains(fromJSON('["ci/circleci"]'),github.event.context)
         uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            console.log(github, context, event);
+            console.log(github, context);
             const payload = context.payload;
             const { repository } = payload;
             const statusName = payload.context;
