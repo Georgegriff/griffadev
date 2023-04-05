@@ -27,7 +27,7 @@ jobs:
             const owner = repo.owner;
             const branch = ref.replace("refs/heads/", "");
             const link = `https://griffa.dev`;
-            const description = `My special link for ${statusName}`;
+            const description = `🧪 My special link for ${statusName}`;
             const args = {
               owner,
               repo: repoName,
