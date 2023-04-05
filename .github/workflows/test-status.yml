@@ -37,5 +37,5 @@ jobs:
               target_url: link,
               context: "My special link"
             };
-            console.table(args);
+            console.table({...args, branch});
             await github.rest.repos.createCommitStatus(args);
