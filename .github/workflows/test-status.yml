@@ -1,0 +1,39 @@
+name: Add Status Check
+
+on:
+  check_run:
+    types: [completed, created]
+    name:
+      - "ci/circleci: docker"
+
+jobs:
+  my_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add Status Check
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const checkName = github.context.payload.check_run.name;
+            const runStatus = github.context.payload.check_run.conclusion;
+            const finishedStates = ["success", "failure"];
+            const status = runStatus && finishedStates.includes(runStatus) ? runStatus : "";
+            console.log("New check created", checkName, runStatus, status);
+
+            const { owner, repo } = context.repo;
+            const sha = github.context.payload.check_run.head_sha;
+            const branch = github.context.payload.check_suite.head_branch;
+            const fullRepoName = github.context.payload.repository.full_name;
+            const repoName = repo.split('/')[1];
+            const link = `https://griffa.dev`;
+            const description = `My special link for ${checkName}`;
+            await github.rest.repos.createCommitStatus({
+              owner,
+              repo,
+              sha,
+              state: status,
+              description,
+              target_url: link,
+              context: "My special link"
+            });
