@@ -13,6 +13,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            console.log(github, context);
             const payload = context.payload;
             const { repository } = payload;
             const statusName = payload.context;
