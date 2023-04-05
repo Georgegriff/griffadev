@@ -34,7 +34,7 @@ jobs:
               sha,
               state,
               description,
-              target_url: state === "pending" ? null: link,
+              target_url: link,
               context: "My special link"
             };
             console.table(args);
