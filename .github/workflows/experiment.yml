@@ -20,7 +20,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const {payload, ref, repo } = context;
-            console.log(github);
+            console.log(process.env['matrix.env']);
             const { commit } = payload;
             const statusName = payload.context;
             const state = payload.state;
