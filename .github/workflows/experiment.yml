@@ -19,8 +19,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const {payload, ref, repo, matrix } = context;
-            console.log(context);
+            const {payload, ref, repo } = context;
+            console.log(github);
             const { commit } = payload;
             const statusName = payload.context;
             const state = payload.state;
