@@ -16,13 +16,14 @@ jobs:
         if: ${{ matrix.status_check == github.event.context }}
         # if need to upgrade see https://github.com/actions/github-script
         uses: actions/github-script@v6
+        env:
+          STATUS_CHECK: ${{ matrix.status_check }}
+          ENV_NAME: ${{ matrix.env }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          env: ${{ matrix.env }}
-          status_check: ${{ matrix.status_check }}
           script: |
             const {payload, ref, repo } = context;
-            console.log(inputs);
+            console.log(process.env);
             const { commit } = payload;
             const statusName = payload.context;
             const state = payload.state;
