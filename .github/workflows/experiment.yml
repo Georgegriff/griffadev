@@ -18,9 +18,11 @@ jobs:
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          env: ${{ matrix.env }}
+          status_check: ${{ matrix.status_check }}
           script: |
             const {payload, ref, repo } = context;
-            console.log(process.env);
+            console.log(inputs);
             const { commit } = payload;
             const statusName = payload.context;
             const state = payload.state;
