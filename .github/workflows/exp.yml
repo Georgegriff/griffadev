@@ -24,7 +24,7 @@ jobs:
           script: |
             const {payload, ref, repo, branches } = context;
             console.table(ref);
-            const { commit } = payload;
+            const { commit, branches} = payload;
             const statusName = payload.context;
             const state = payload.state;
             const repoName = repo.repo;
