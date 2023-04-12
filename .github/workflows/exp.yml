@@ -22,9 +22,9 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const {payload, ref, repo, branches } = context;
+            const {payload, ref, repo } = context;
             console.table(ref);
-            const { commit } = payload;
+            const { commit, branches} = payload;
             const statusName = payload.context;
             const state = payload.state;
             const repoName = repo.repo;
