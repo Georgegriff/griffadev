@@ -1,0 +1,49 @@
+name: Add Status Check
+
+on:
+  status:
+
+jobs:
+  add_status_links:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - status_check: "ci/circleci: docker"
+            env: "test"
+    steps:
+      - name: Add Status Check Runner
+        if: ${{ matrix.status_check == github.event.context }}
+        # if need to upgrade see https://github.com/actions/github-script
+        uses: actions/github-script@v6
+        env:
+          STATUS_CHECK: ${{ matrix.status_check }}
+          ENV_NAME: ${{ matrix.env }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const {payload, ref, repo } = context;
+            console.table(ref);
+            console.log(process.env);
+            const { commit } = payload;
+            const statusName = payload.context;
+            const state = payload.state;
+            const repoName = repo.repo;
+            console.table(commit);
+            console.table(payload);
+            const sha = commit.sha;
+            const owner = repo.owner;
+            const branch = ref.replace("refs/heads/", "");
+            const link = `https://griffa.dev`;
+            const description = `My special link for ${statusName}`;
+            const args = {
+              owner,
+              repo: repoName,
+              sha,
+              state,
+              description,
+              target_url: link,
+              context: "My special link"
+            };
+            console.table({...args, branch});
+            await github.rest.repos.createCommitStatus(args);
