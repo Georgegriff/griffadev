@@ -199,4 +199,4 @@ I learnt a lot through this experience.
 - Mutating data that is passed to you is dangerous, you have no idea what references are held to that object, your modifications may never be garbage collected.
 - How to Memory profile in NodeJS
 
-I hope this was a good read, if only to laugh at my terrible code, if you feel like reading more of my ramblings, please follow me on Twitter [@griffadev](https://twitter.com/griffadev).
+I hope this was a good read, if only to laugh at my terrible code, if you feel like reading more of my ramblings, please follow me on X [@griffadev](https://twitter.com/griffadev).

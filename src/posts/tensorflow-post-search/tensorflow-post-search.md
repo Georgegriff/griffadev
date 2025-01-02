@@ -674,4 +674,4 @@ I'm fairly early on in my AI learning journey, but one of the initial resources 
 At the time of writing there are 3 sessions relating to Machine Learning and TensorflowJS, here is one of them:
 {% youtube "WIHZ7kjJ35o" %}
 
-I hope this was a good read, if you feel like reading more of my work, please follow me on Twitter [@griffadev](https://twitter.com/griffadev), or get me a [coffee](https://ko-fi.com/griffadev) if you feel like it ☕.
+I hope this was a good read, if you feel like reading more of my work, please follow me on X [@griffadev](https://twitter.com/griffadev), or get me a [coffee](https://ko-fi.com/griffadev) if you feel like it ☕.

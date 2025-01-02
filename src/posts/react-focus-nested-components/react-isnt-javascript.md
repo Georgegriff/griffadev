@@ -174,4 +174,4 @@ As for a lint rules, there does appear to be one which you can turn on in the po
 
 I find it fun to think that such a tiny change in the code that looks so innocent can break quite a lot in the rendering of React components and something I learnt from this is I'm really going to do my best to make sure I write good sets of unit tests that test both "interactions" and "accessibility" as it's so easy for these things to regress!
 
-Thank you for reading! If you want to read more of my work, please follow me on Twitter [@griffadev](https://twitter.com/griffadev), or get me a [coffee](https://ko-fi.com/griffadev) if you feel like it ☕.
+Thank you for reading! If you want to read more of my work, please follow me on X [@griffadev](https://twitter.com/griffadev), or get me a [coffee](https://ko-fi.com/griffadev) if you feel like it ☕.

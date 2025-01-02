@@ -23,7 +23,6 @@
     "concurrently": "^6.5.1",
     "datauri": "^3.0.0",
     "deepmerge": "^4.2.2",
-    "eleventy-plugin-embed-twitter": "^1.0.1",
     "eleventy-plugin-markdown-copy-button": "^0.7.0",
     "eleventy-plugin-time-to-read": "^0.1.1",
     "es-dev-server": "^1.57.3",

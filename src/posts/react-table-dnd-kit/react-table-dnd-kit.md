@@ -113,4 +113,4 @@ One really important thing that is missing in the example is custom screen reade
 
 I'm excited to explore difference uses for this library, once you get the hang of it it's really powerful!
 
-Thank you for reading! If you want to read more of my work, please follow me on Twitter [@griffadev](https://twitter.com/griffadev), or get me a [coffee](https://ko-fi.com/griffadev) if you feel like it ☕.
+Thank you for reading! If you want to read more of my work, please follow me on X [@griffadev](https://twitter.com/griffadev), or get me a [coffee](https://ko-fi.com/griffadev) if you feel like it ☕.

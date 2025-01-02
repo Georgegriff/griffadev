@@ -260,4 +260,4 @@ It's important to note that this css-based progress indicator is purely decorati
 
 > You can learn about ARIA basics on MDN [here](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/WAI-ARIA_basics).
 
-Thank you for reading! If you want to read more of my work, please follow me on Twitter [@griffadev](https://twitter.com/griffadev), or get me a [coffee](https://ko-fi.com/griffadev) if you feel like it ☕.
+Thank you for reading! If you want to read more of my work, please follow me on X [@griffadev](https://twitter.com/griffadev), or get me a [coffee](https://ko-fi.com/griffadev) if you feel like it ☕.

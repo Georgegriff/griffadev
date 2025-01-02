@@ -17,10 +17,6 @@ However, whist I'm focusing on HTML/CSS, there are areas where it makes sense to
 
 ![Picture of my fighting cats Chewie and Beau](/images/fighting-cats.gif "Hey! He mentioned web components, get him! (Chewie and Beau are friends really)")
 
-A Google engineer said it better than I could:
-
-{% twitter "1212847104718061569" %}
-
 In this article I'll explain how I went about setting up a development environment for Web Components, as well as simple production optimizations.
 
 But first, I want to discuss the approach that I've taken for consuming web components in this site. All content should be available without JavaScript/Web Components available, but where they are available, the content should be progressively enhanced.

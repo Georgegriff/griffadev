@@ -120,10 +120,6 @@ module.exports = (eleventyConfig) => {
       </figure>`;
   };
 
-  eleventyConfig.addPlugin(require("eleventy-plugin-embed-twitter"), {
-    cacheText: true,
-  });
-
   // Remember old renderer, if overridden, or proxy to default renderer
   const defaultLinkRender =
     markdownLibrary.renderer.rules.link_open ||

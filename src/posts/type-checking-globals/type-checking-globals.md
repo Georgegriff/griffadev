@@ -129,4 +129,4 @@ If you want to learn more about Machine learning/Tensorflow, I got inspired by w
 At the time of writing there are 3 sessions relating to Machine Learning and TensorflowJS, here is one of them:
 {% youtube "WIHZ7kjJ35o" %}
 
-I hope this was a good read, if you feel like reading more of my ramblings, please follow me on Twitter [@griffadev](https://twitter.com/griffadev).
+I hope this was a good read, if you feel like reading more of my ramblings, please follow me on X [@griffadev](https://twitter.com/griffadev).

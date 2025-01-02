@@ -4,15 +4,7 @@
 @import "../../node_modules/lite-youtube-embed/src/lite-yt-embed.css";
 
 * {
-    word-break: break-word;
+  word-break: break-word;
 }
 
-.eleventy-plugin-embed-twitter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 200px;
-    margin-bottom: 1rem;
-}
-
-@import './components/header-align';
+@import "./components/header-align";

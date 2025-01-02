@@ -15,10 +15,6 @@ tags:
 
 Some members in my team this week wanted to make use of [Private class fields](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields) in a NodeJS server. This proposal is currently shipped in Chrome, Edge, Firefox and NodeJS, with Safari notably absent. In this instance, we wanted to get them working for a backend server application, so support since Node 12, we're good to go, or so I thought, turns out linters aren't always here to save you time.
 
-I summed my feelings on the whole process of figuring this out on Twitter.
-
-{% twitter "1333779719074955264" %}
-
 Feel free if you want to skip ahead past the story, and to head right to [Configuring ESLint](#configuring-eslint).
 
 For this article, i'll be using this code example of using Private class fields, the code used is irrelevant.

@@ -304,4 +304,4 @@ There are many options when it comes to periodically building a website, I wrote
 
 I hope this article was helpful and you can see some of the advantages to moving dynamic content that changes infrequently to be rendered at build time.
 
-If you want to read more of my work, please follow me on Twitter [@griffadev](https://twitter.com/griffadev), or get me a [coffee](https://ko-fi.com/griffadev) if you feel like it ☕.
+If you want to read more of my work, please follow me on X [@griffadev](https://twitter.com/griffadev), or get me a [coffee](https://ko-fi.com/griffadev) if you feel like it ☕.

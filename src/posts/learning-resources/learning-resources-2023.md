@@ -82,8 +82,8 @@ Some of this falls into discovering new stuff too.
 - https://www.youtube.com/@t3dotgg
 - https://www.youtube.com/@ThePrimeTimeagen
 
-## Twitter Accounts
+## X Accounts
 
-Twitter used to be great for developer stuff but many people have left twitter after Elon.
+X used to be great for developer stuff but many people have left twitter after Elon.
 
 My follow list might give you some starting points, but not all are tech, it's not curated, but bio's should help with finding more stuff. https://twitter.com/griffadev/following

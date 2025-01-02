@@ -12,27 +12,18 @@
   </p>
   <a href="{{firstCard.link.href}}">{{firstCard.link.text}}</a>
   <div class="first-card-links">
-    <a
-      class="social-card-link"
-      target="blank"
-      title="My Github profile"
-      href="{{metadata.author.github}}"
-    >
+    <a class="social-card-link" target="blank" title="My Github profile" href="{{metadata.author.github}}">
       {%- include "img/github.svg" %}
     </a>
-    <a
-      class="social-card-link"
-      target="blank"
-      title="My Twitter profile"
-      href="{{metadata.author.twitter_url}}"
-    >
+    <a class="social-card-link" target="blank" title="My X profile" href="{{metadata.author.twitter_url}}">
       {%- include "img/twitter.svg" %}
+    </a>
+    <a class="social-card-link" target="blank" title="My LinkedIn profile" href="{{metadata.author.linkedin_url}}">
+      {%- include "img/linkedin.svg" %}
     </a>
   </div>
   {#
-  <a class="bottom-link" href="/cv/"
-    >For professional history, check out my CV.</a
-  >
+  <a class="bottom-link" href="/cv/">For professional history, check out my CV.</a>
   #}
 </li>
 {%- endif %}

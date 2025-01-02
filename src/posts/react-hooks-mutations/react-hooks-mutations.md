@@ -482,4 +482,4 @@ It might also be a fair argument to suggest that the bug presented here is not R
 
 If you want to read about another instance of discussing bugs and areas of growth, I wrote about another scenario here from my previous role: [Memory leaks and why should you never write such bad code.](/posts/memory-leaks-and-why-should-you-never-write-such-bad-code-even-for-tests/)
 
-Thank you for reading! If you want to read more of my work, please follow me on Twitter [@griffadev](https://twitter.com/griffadev), or get me a [coffee](https://ko-fi.com/griffadev) if you feel like it ☕.
+Thank you for reading! If you want to read more of my work, please follow me on X [@griffadev](https://twitter.com/griffadev), or get me a [coffee](https://ko-fi.com/griffadev) if you feel like it ☕.

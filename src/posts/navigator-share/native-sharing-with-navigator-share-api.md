@@ -1,6 +1,6 @@
 ---
 title: "Using the Web Share API and meta tags, for simple native sharing"
-description: Adding share links for all the various places users can share content from Twitter, to LinkedIn or Reddit and many more, can be a real pain. The Web Share API is growing in support, making sharing content on the web easier than ever. For browsers that don't support the API you can fall back to self generated share targets.
+description: Adding share links for all the various places users can share content from X, to LinkedIn or Reddit and many more, can be a real pain. The Web Share API is growing in support, making sharing content on the web easier than ever. For browsers that don't support the API you can fall back to self generated share targets.
 date: "2020-10-10"
 hero:
   image: "/images/nav-share.png"
@@ -54,7 +54,7 @@ We're at around 55% of global users, however if you filter to just mobile you're
 
 ## Web Share API as progressive enhancement
 
-The rest of this article describes the approach that I took for implementing the Web Share API as a progressive enhancement to my blog. For browsers where the API is supported the option is offered, otherwise I added share buttons for common places where I might expect people to share e.g. Twitter.
+The rest of this article describes the approach that I took for implementing the Web Share API as a progressive enhancement to my blog. For browsers where the API is supported the option is offered, otherwise I added share buttons for common places where I might expect people to share e.g. X.
 
 For my blog I'm using 11ty, a really flexible static site generator which encourages you to build lightweight and fast websites.
 I wrote about my journey with 11ty over here: [How I got started with 11ty](https://griffa.dev/posts/how-i-got-started-with-11ty/).
@@ -106,7 +106,7 @@ module.exports = {
   sharing: [
     {
       icon: "img/twitter.svg",
-      text: "Share to Twitter",
+      text: "Share to X",
       url(title, tags = [], page) {
         const twitterUrl = "https://twitter.com/intent/tweet?text=";
         const { text, url } = genericShare.data(title, tags, page);
